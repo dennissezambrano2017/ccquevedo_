@@ -31,20 +31,20 @@ namespace ccquevedo_
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Pagina_Principal));
             this.MenuVertical = new System.Windows.Forms.Panel();
+            this.btnProducto = new System.Windows.Forms.Button();
+            this.btnCrearExcel = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnMinimizar2 = new System.Windows.Forms.PictureBox();
             this.btnCerrar2 = new System.Windows.Forms.PictureBox();
             this.panelCntro = new System.Windows.Forms.Panel();
-            this.btnCrearExcel = new System.Windows.Forms.Button();
-            this.btnProducto = new System.Windows.Forms.Button();
-            this.btnMinimizar2 = new System.Windows.Forms.PictureBox();
             this.MenuVertical.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnCerrar2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCerrar2)).BeginInit();
             this.SuspendLayout();
             // 
             // MenuVertical
@@ -60,6 +60,42 @@ namespace ccquevedo_
             this.MenuVertical.Size = new System.Drawing.Size(219, 563);
             this.MenuVertical.TabIndex = 4;
             this.MenuVertical.Paint += new System.Windows.Forms.PaintEventHandler(this.MenuVertical_Paint);
+            // 
+            // btnProducto
+            // 
+            this.btnProducto.FlatAppearance.BorderSize = 0;
+            this.btnProducto.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
+            this.btnProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProducto.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProducto.ForeColor = System.Drawing.SystemColors.Info;
+            this.btnProducto.Image = ((System.Drawing.Image)(resources.GetObject("btnProducto.Image")));
+            this.btnProducto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnProducto.Location = new System.Drawing.Point(3, 216);
+            this.btnProducto.Name = "btnProducto";
+            this.btnProducto.Size = new System.Drawing.Size(216, 50);
+            this.btnProducto.TabIndex = 13;
+            this.btnProducto.Text = "Productos   ";
+            this.btnProducto.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnProducto.UseVisualStyleBackColor = true;
+            this.btnProducto.Click += new System.EventHandler(this.btnProducto_Click);
+            // 
+            // btnCrearExcel
+            // 
+            this.btnCrearExcel.FlatAppearance.BorderSize = 0;
+            this.btnCrearExcel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
+            this.btnCrearExcel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCrearExcel.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCrearExcel.ForeColor = System.Drawing.SystemColors.Info;
+            this.btnCrearExcel.Image = ((System.Drawing.Image)(resources.GetObject("btnCrearExcel.Image")));
+            this.btnCrearExcel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCrearExcel.Location = new System.Drawing.Point(3, 147);
+            this.btnCrearExcel.Name = "btnCrearExcel";
+            this.btnCrearExcel.Size = new System.Drawing.Size(216, 50);
+            this.btnCrearExcel.TabIndex = 12;
+            this.btnCrearExcel.Text = "Crear Excel  ";
+            this.btnCrearExcel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCrearExcel.UseVisualStyleBackColor = true;
+            this.btnCrearExcel.Click += new System.EventHandler(this.btnCrearExcel_Click);
             // 
             // pictureBox1
             // 
@@ -93,6 +129,17 @@ namespace ccquevedo_
             this.panel2.Size = new System.Drawing.Size(827, 50);
             this.panel2.TabIndex = 5;
             // 
+            // btnMinimizar2
+            // 
+            this.btnMinimizar2.Image = ((System.Drawing.Image)(resources.GetObject("btnMinimizar2.Image")));
+            this.btnMinimizar2.Location = new System.Drawing.Point(760, 10);
+            this.btnMinimizar2.Name = "btnMinimizar2";
+            this.btnMinimizar2.Size = new System.Drawing.Size(16, 16);
+            this.btnMinimizar2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnMinimizar2.TabIndex = 9;
+            this.btnMinimizar2.TabStop = false;
+            this.btnMinimizar2.Click += new System.EventHandler(this.btnMinimizar2_Click);
+            // 
             // btnCerrar2
             // 
             this.btnCerrar2.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrar2.Image")));
@@ -114,53 +161,6 @@ namespace ccquevedo_
             this.panelCntro.Size = new System.Drawing.Size(827, 513);
             this.panelCntro.TabIndex = 6;
             // 
-            // btnCrearExcel
-            // 
-            this.btnCrearExcel.FlatAppearance.BorderSize = 0;
-            this.btnCrearExcel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
-            this.btnCrearExcel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCrearExcel.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCrearExcel.ForeColor = System.Drawing.SystemColors.Info;
-            this.btnCrearExcel.Image = ((System.Drawing.Image)(resources.GetObject("btnCrearExcel.Image")));
-            this.btnCrearExcel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCrearExcel.Location = new System.Drawing.Point(3, 147);
-            this.btnCrearExcel.Name = "btnCrearExcel";
-            this.btnCrearExcel.Size = new System.Drawing.Size(216, 50);
-            this.btnCrearExcel.TabIndex = 12;
-            this.btnCrearExcel.Text = "Crear Excel  ";
-            this.btnCrearExcel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCrearExcel.UseVisualStyleBackColor = true;
-            this.btnCrearExcel.Click += new System.EventHandler(this.btnCrearExcel_Click);
-            // 
-            // btnProducto
-            // 
-            this.btnProducto.FlatAppearance.BorderSize = 0;
-            this.btnProducto.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
-            this.btnProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProducto.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProducto.ForeColor = System.Drawing.SystemColors.Info;
-            this.btnProducto.Image = ((System.Drawing.Image)(resources.GetObject("btnProducto.Image")));
-            this.btnProducto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnProducto.Location = new System.Drawing.Point(3, 216);
-            this.btnProducto.Name = "btnProducto";
-            this.btnProducto.Size = new System.Drawing.Size(216, 50);
-            this.btnProducto.TabIndex = 13;
-            this.btnProducto.Text = "Productos   ";
-            this.btnProducto.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnProducto.UseVisualStyleBackColor = true;
-            this.btnProducto.Click += new System.EventHandler(this.btnProducto_Click);
-            // 
-            // btnMinimizar2
-            // 
-            this.btnMinimizar2.Image = ((System.Drawing.Image)(resources.GetObject("btnMinimizar2.Image")));
-            this.btnMinimizar2.Location = new System.Drawing.Point(760, 10);
-            this.btnMinimizar2.Name = "btnMinimizar2";
-            this.btnMinimizar2.Size = new System.Drawing.Size(16, 16);
-            this.btnMinimizar2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnMinimizar2.TabIndex = 9;
-            this.btnMinimizar2.TabStop = false;
-            this.btnMinimizar2.Click += new System.EventHandler(this.btnMinimizar2_Click);
-            // 
             // Pagina_Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -177,8 +177,8 @@ namespace ccquevedo_
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.btnCerrar2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCerrar2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -188,10 +188,10 @@ namespace ccquevedo_
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox btnCerrar2;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Panel panelCntro;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Button btnCrearExcel;
         private System.Windows.Forms.Button btnProducto;
         private System.Windows.Forms.PictureBox btnMinimizar2;
+        public System.Windows.Forms.Panel panelCntro;
     }
 }

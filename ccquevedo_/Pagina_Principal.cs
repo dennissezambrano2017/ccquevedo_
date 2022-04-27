@@ -10,7 +10,7 @@ namespace ccquevedo_
 {
     public partial class Pagina_Principal : Form
     {
-        
+        private Form_hijo formHijo = new Form_hijo();
 
         public Pagina_Principal()
         {
@@ -31,25 +31,15 @@ namespace ccquevedo_
         {
             this.WindowState = FormWindowState.Minimized;
         }
-        private void AbrirFormInPanel(object Formhijo) {
-            if (this.panelCntro.Controls.Count > 0)
-                this.panelCntro.Controls.RemoveAt(0);
-            Form fh = Formhijo as Form;
-            fh.TopLevel = false;
-            fh.Dock = DockStyle.Fill;
-            this.panelCntro.Controls.Add(fh);
-            this.panelCntro.Tag = fh;
-            fh.Show();
-        }
-
+        
         private void btnCrearExcel_Click(object sender, EventArgs e)
         {
-            AbrirFormInPanel(new CrearExcel());
+            formHijo.AbrirFormInPanel(new CrearExcel(), this.panelCntro);
         }
                                                            
         private void btnProducto_Click(object sender, EventArgs e)
         {
-            AbrirFormInPanel(new Productos());
+            formHijo.AbrirFormInPanel(new Productos(),this.panelCntro);
         }
     }
 }

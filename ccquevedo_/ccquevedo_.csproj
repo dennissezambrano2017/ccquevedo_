@@ -68,6 +68,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>bdCamaraComercioDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Form_hijo.cs" />
     <Compile Include="CrearExcel.cs">
       <SubType>Form</SubType>
     </Compile>

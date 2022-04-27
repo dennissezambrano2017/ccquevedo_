@@ -49,6 +49,7 @@ namespace ccquevedo_
             this.ClientSize = new System.Drawing.Size(686, 390);
             this.Controls.Add(this.lblDatos);
             this.Name = "Nuevo";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Nuevo";
             this.ResumeLayout(false);
             this.PerformLayout();
