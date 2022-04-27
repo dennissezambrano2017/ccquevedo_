@@ -46,15 +46,10 @@ namespace ccquevedo_
         {
             AbrirFormInPanel(new CrearExcel());
         }
-
-        private void panelCntro_Paint(object sender, PaintEventArgs e)
+                                                           
+        private void btnProducto_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void btnMenu_Click(object sender, EventArgs e)
-        {
-
+            AbrirFormInPanel(new Productos());
         }
     }
 }

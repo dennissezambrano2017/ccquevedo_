@@ -113,7 +113,6 @@ namespace ccquevedo_
             this.panelCntro.Name = "panelCntro";
             this.panelCntro.Size = new System.Drawing.Size(827, 513);
             this.panelCntro.TabIndex = 6;
-            this.panelCntro.Paint += new System.Windows.Forms.PaintEventHandler(this.panelCntro_Paint);
             // 
             // btnCrearExcel
             // 
@@ -126,7 +125,7 @@ namespace ccquevedo_
             this.btnCrearExcel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCrearExcel.Location = new System.Drawing.Point(3, 147);
             this.btnCrearExcel.Name = "btnCrearExcel";
-            this.btnCrearExcel.Size = new System.Drawing.Size(197, 50);
+            this.btnCrearExcel.Size = new System.Drawing.Size(216, 50);
             this.btnCrearExcel.TabIndex = 12;
             this.btnCrearExcel.Text = "Crear Excel  ";
             this.btnCrearExcel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -144,11 +143,12 @@ namespace ccquevedo_
             this.btnProducto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnProducto.Location = new System.Drawing.Point(3, 216);
             this.btnProducto.Name = "btnProducto";
-            this.btnProducto.Size = new System.Drawing.Size(197, 50);
+            this.btnProducto.Size = new System.Drawing.Size(216, 50);
             this.btnProducto.TabIndex = 13;
-            this.btnProducto.Text = "Productos";
+            this.btnProducto.Text = "Productos   ";
             this.btnProducto.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnProducto.UseVisualStyleBackColor = true;
+            this.btnProducto.Click += new System.EventHandler(this.btnProducto_Click);
             // 
             // btnMinimizar2
             // 
