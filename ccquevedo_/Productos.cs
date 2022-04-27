@@ -31,5 +31,26 @@ namespace ccquevedo_
             this.productosTableAdapter.Fill(this.bdCamaraComercioDataSet.Productos);
 
         }
+        Producto productos = new Producto();
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            Producto p = new Producto();
+
+            int num;
+            if (dgvProductos.SelectedRows.Count > 0)
+            {
+                num = dgvProductos.CurrentRow.Index;
+                label1.Text = dgvProductos.Rows[num].Cells["Column1"].Value.ToString();
+                p.nombre = label1.Text;
+                label2.Text = p.nombre;
+            }
+            else
+            {
+                label1.Text = "NO";
+            }
+
+
+        }
     }
 }
