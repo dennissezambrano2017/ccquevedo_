@@ -76,15 +76,16 @@ namespace ccquevedo_
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Swis721 WGL4 BT", 48F, ((System.Drawing.FontStyle)(((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic)
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, ((System.Drawing.FontStyle)(((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic) 
                 | System.Drawing.FontStyle.Underline))));
             this.label1.Location = new System.Drawing.Point(255, 66);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(427, 87);
+            this.label1.Size = new System.Drawing.Size(438, 73);
             this.label1.TabIndex = 5;
             this.label1.Text = "BIENVENIDO";
             // 
@@ -93,7 +94,7 @@ namespace ccquevedo_
             this.btnCerrar.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrar.Image")));
             this.btnCerrar.Location = new System.Drawing.Point(691, 3);
             this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(19, 14);
+            this.btnCerrar.Size = new System.Drawing.Size(16, 16);
             this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnCerrar.TabIndex = 6;
             this.btnCerrar.TabStop = false;
@@ -102,9 +103,9 @@ namespace ccquevedo_
             // btnMinimizar
             // 
             this.btnMinimizar.Image = ((System.Drawing.Image)(resources.GetObject("btnMinimizar.Image")));
-            this.btnMinimizar.Location = new System.Drawing.Point(670, 3);
+            this.btnMinimizar.Location = new System.Drawing.Point(669, 3);
             this.btnMinimizar.Name = "btnMinimizar";
-            this.btnMinimizar.Size = new System.Drawing.Size(18, 14);
+            this.btnMinimizar.Size = new System.Drawing.Size(16, 16);
             this.btnMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btnMinimizar.TabIndex = 7;
             this.btnMinimizar.TabStop = false;

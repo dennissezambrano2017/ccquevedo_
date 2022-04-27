@@ -61,6 +61,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CrearExcel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CrearExcel.Designer.cs">
+      <DependentUpon>CrearExcel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Inicio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,6 +87,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="CrearExcel.resx">
+      <DependentUpon>CrearExcel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Inicio.resx">
       <DependentUpon>Inicio.cs</DependentUpon>
     </EmbeddedResource>
@@ -89,6 +98,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pagina_Principal.resx">
       <DependentUpon>Pagina_Principal.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
