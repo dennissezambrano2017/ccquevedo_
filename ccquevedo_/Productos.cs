@@ -16,5 +16,20 @@ namespace ccquevedo_
         {
             InitializeComponent();
         }
+
+        private void productosBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.productosBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.bdCamaraComercioDataSet);
+
+        }
+
+        private void Productos_Load(object sender, EventArgs e)
+        {
+            // TODO: esta línea de código carga datos en la tabla 'bdCamaraComercioDataSet.Productos' Puede moverla o quitarla según sea necesario.
+            this.productosTableAdapter.Fill(this.bdCamaraComercioDataSet.Productos);
+
+        }
     }
 }
