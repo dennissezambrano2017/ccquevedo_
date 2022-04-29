@@ -30,22 +30,25 @@
         {
             this.components = new System.ComponentModel.Container();
             this.btnModificar = new System.Windows.Forms.Button();
-            this.bdCamaraComercioDataSet = new ccquevedo_.bdCamaraComercioDataSet();
-            this.productosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.productosTableAdapter = new ccquevedo_.bdCamaraComercioDataSetTableAdapters.ProductosTableAdapter();
-            this.tableAdapterManager = new ccquevedo_.bdCamaraComercioDataSetTableAdapters.TableAdapterManager();
-            this.dgvProductos = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.dgvProductos = new System.Windows.Forms.DataGridView();
+            this.btnEliminar = new System.Windows.Forms.Button();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.bdCamaraComercioDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productosBindingSource)).BeginInit();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bdCamaraComercioDataSet = new ccquevedo_.bdCamaraComercioDataSet();
+            this.productosTableAdapter = new ccquevedo_.bdCamaraComercioDataSetTableAdapters.ProductosTableAdapter();
+            this.tableAdapterManager = new ccquevedo_.bdCamaraComercioDataSetTableAdapters.TableAdapterManager();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productosBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdCamaraComercioDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // btnModificar
@@ -57,44 +60,6 @@
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = true;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
-            // 
-            // bdCamaraComercioDataSet
-            // 
-            this.bdCamaraComercioDataSet.DataSetName = "bdCamaraComercioDataSet";
-            this.bdCamaraComercioDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // productosBindingSource
-            // 
-            this.productosBindingSource.DataMember = "Productos";
-            this.productosBindingSource.DataSource = this.bdCamaraComercioDataSet;
-            // 
-            // productosTableAdapter
-            // 
-            this.productosTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.ProductosTableAdapter = this.productosTableAdapter;
-            this.tableAdapterManager.UpdateOrder = ccquevedo_.bdCamaraComercioDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
-            // dgvProductos
-            // 
-            this.dgvProductos.AutoGenerateColumns = false;
-            this.dgvProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProductos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column3,
-            this.Column4,
-            this.Column5,
-            this.Column6});
-            this.dgvProductos.DataSource = this.productosBindingSource;
-            this.dgvProductos.Location = new System.Drawing.Point(59, 126);
-            this.dgvProductos.Name = "dgvProductos";
-            this.dgvProductos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvProductos.Size = new System.Drawing.Size(667, 220);
-            this.dgvProductos.TabIndex = 2;
             // 
             // label1
             // 
@@ -114,58 +79,124 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "label2";
             // 
+            // dgvProductos
+            // 
+            this.dgvProductos.AutoGenerateColumns = false;
+            this.dgvProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProductos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewTextBoxColumn8,
+            this.dataGridViewTextBoxColumn9});
+            this.dgvProductos.DataSource = this.productosBindingSource;
+            this.dgvProductos.Location = new System.Drawing.Point(30, 159);
+            this.dgvProductos.Name = "dgvProductos";
+            this.dgvProductos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvProductos.Size = new System.Drawing.Size(744, 256);
+            this.dgvProductos.TabIndex = 5;
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Location = new System.Drawing.Point(167, 62);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(75, 23);
+            this.btnEliminar.TabIndex = 6;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            // 
             // Column1
             // 
             this.Column1.DataPropertyName = "Id";
             this.Column1.HeaderText = "Id";
             this.Column1.Name = "Column1";
             // 
-            // Column2
+            // dataGridViewTextBoxColumn2
             // 
-            this.Column2.DataPropertyName = "Nombre";
-            this.Column2.HeaderText = "Nombre";
-            this.Column2.Name = "Column2";
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Nombre";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Nombre";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             // 
-            // Column3
+            // dataGridViewTextBoxColumn3
             // 
-            this.Column3.DataPropertyName = "Descripcion_corta";
-            this.Column3.HeaderText = "Descripcion_corta";
-            this.Column3.Name = "Column3";
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Descripcion_corta";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Descripcion_corta";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             // 
-            // Column4
+            // dataGridViewTextBoxColumn4
             // 
-            this.Column4.DataPropertyName = "Inventario";
-            this.Column4.HeaderText = "Inventario";
-            this.Column4.Name = "Column4";
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "Inventario";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Inventario";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             // 
-            // Column5
+            // dataGridViewTextBoxColumn6
             // 
-            this.Column5.DataPropertyName = "precioNormal";
-            this.Column5.HeaderText = "precioNormal";
-            this.Column5.Name = "Column5";
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "peso";
+            this.dataGridViewTextBoxColumn6.HeaderText = "peso";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             // 
-            // Column6
+            // dataGridViewTextBoxColumn8
             // 
-            this.Column6.DataPropertyName = "categorias";
-            this.Column6.HeaderText = "categorias";
-            this.Column6.Name = "Column6";
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "precioNormal";
+            this.dataGridViewTextBoxColumn8.HeaderText = "precioNormal";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "categorias";
+            this.dataGridViewTextBoxColumn9.HeaderText = "categorias";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            // 
+            // productosBindingSource
+            // 
+            this.productosBindingSource.DataMember = "Productos";
+            this.productosBindingSource.DataSource = this.bdCamaraComercioDataSet;
+            // 
+            // bdCamaraComercioDataSet
+            // 
+            this.bdCamaraComercioDataSet.DataSetName = "bdCamaraComercioDataSet";
+            this.bdCamaraComercioDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // productosTableAdapter
+            // 
+            this.productosTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.ProductosTableAdapter = this.productosTableAdapter;
+            this.tableAdapterManager.UpdateOrder = ccquevedo_.bdCamaraComercioDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(572, 89);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // Productos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnEliminar);
+            this.Controls.Add(this.dgvProductos);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dgvProductos);
             this.Controls.Add(this.btnModificar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Productos";
             this.Text = "Productos";
             this.Load += new System.EventHandler(this.Productos_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.bdCamaraComercioDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productosBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productosBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdCamaraComercioDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -174,18 +205,21 @@
         #endregion
 
         private System.Windows.Forms.Button btnModificar;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
         private bdCamaraComercioDataSet bdCamaraComercioDataSet;
         private System.Windows.Forms.BindingSource productosBindingSource;
         private bdCamaraComercioDataSetTableAdapters.ProductosTableAdapter productosTableAdapter;
         private bdCamaraComercioDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.DataGridView dgvProductos;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Button button1;
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtprecioRebajado = new System.Windows.Forms.TextBox();
@@ -45,6 +46,14 @@
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.btnGuardar = new System.Windows.Forms.Button();
+            this.bdCamaraComercioDataSet = new ccquevedo_.bdCamaraComercioDataSet();
+            this.productosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.productosTableAdapter = new ccquevedo_.bdCamaraComercioDataSetTableAdapters.ProductosTableAdapter();
+            this.tableAdapterManager = new ccquevedo_.bdCamaraComercioDataSetTableAdapters.TableAdapterManager();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.bdCamaraComercioDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productosBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -193,11 +202,51 @@
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
+            // bdCamaraComercioDataSet
+            // 
+            this.bdCamaraComercioDataSet.DataSetName = "bdCamaraComercioDataSet";
+            this.bdCamaraComercioDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // productosBindingSource
+            // 
+            this.productosBindingSource.DataMember = "Productos";
+            this.productosBindingSource.DataSource = this.bdCamaraComercioDataSet;
+            // 
+            // productosTableAdapter
+            // 
+            this.productosTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.ProductosTableAdapter = this.productosTableAdapter;
+            this.tableAdapterManager.UpdateOrder = ccquevedo_.bdCamaraComercioDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(183, 329);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(272, 20);
+            this.textBox1.TabIndex = 18;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(37, 329);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(108, 20);
+            this.label9.TabIndex = 17;
+            this.label9.Text = "Descripción:";
+            // 
             // Editar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(957, 561);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.txtDescripcion);
             this.Controls.Add(this.label8);
@@ -217,6 +266,9 @@
             this.Controls.Add(this.label1);
             this.Name = "Editar";
             this.Text = "Editar";
+            this.Load += new System.EventHandler(this.Editar_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.bdCamaraComercioDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productosBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -241,5 +293,11 @@
         private System.Windows.Forms.TextBox txtDescripcion;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btnGuardar;
+        private bdCamaraComercioDataSet bdCamaraComercioDataSet;
+        private System.Windows.Forms.BindingSource productosBindingSource;
+        private bdCamaraComercioDataSetTableAdapters.ProductosTableAdapter productosTableAdapter;
+        private bdCamaraComercioDataSetTableAdapters.TableAdapterManager tableAdapterManager;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label9;
     }
 }
