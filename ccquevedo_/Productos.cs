@@ -29,6 +29,8 @@ namespace ccquevedo_
         {
             // TODO: esta línea de código carga datos en la tabla 'bdCamaraComercioDataSet.Productos' Puede moverla o quitarla según sea necesario.
             this.productosTableAdapter.Fill(this.bdCamaraComercioDataSet.Productos);
+            // TODO: esta línea de código carga datos en la tabla 'bdCamaraComercioDataSet.Productos' Puede moverla o quitarla según sea necesario.
+            this.productosTableAdapter.Fill(this.bdCamaraComercioDataSet.Productos);
 
         }
 
@@ -53,7 +55,8 @@ namespace ccquevedo_
                 num = dgvProductos.CurrentRow.Index;
                 int? id = getId(num);
                 Form form = new Editar(id);
-                form.Show();
+                form.ShowDialog();
+                this.productosTableAdapter.Fill(this.bdCamaraComercioDataSet.Productos);
             }
             else
             {
@@ -62,5 +65,32 @@ namespace ccquevedo_
 
 
         }
+
+        private void productosBindingNavigatorSaveItem_Click_1(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.productosBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.bdCamaraComercioDataSet);
+
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            int num;
+            if (dgvProductos.SelectedRows.Count > 0)
+            {
+                num = dgvProductos.CurrentRow.Index;
+                int? id = getId(num);
+                //Form form = new Editar(id);
+                //form.Show();
+                this.productosTableAdapter.Eliminar(Convert.ToInt32(id));
+                this.productosTableAdapter.Fill(this.bdCamaraComercioDataSet.Productos);
+            }
+            else
+            {
+                label1.Text = "NO";
+            }
+        }
+
     }
 }
