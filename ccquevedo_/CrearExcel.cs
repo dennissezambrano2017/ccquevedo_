@@ -12,18 +12,26 @@ namespace ccquevedo_
 {
     public partial class CrearExcel : Form
     {
+        
         private Form_hijo formHijo = new Form_hijo();
+        
         public CrearExcel()
         {
             InitializeComponent();
         }
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            Pagina_Principal pp = new Pagina_Principal();
-            formHijo.AbrirFormInPanel(new Nuevo(),pp.panelCntro); 
-            //Form form = new Nuevo();
-            //form.Show();
+            Nuevo frmCrear = Nuevo.FormCrear();
+            Pagina_Principal formPrincipal = new Pagina_Principal();
+            frmCrear.MdiParent = formPrincipal.MdiParent;
+            frmCrear.Show();
+            frmCrear.BringToFront();
+
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
