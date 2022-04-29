@@ -38,20 +38,20 @@ namespace ccquevedo_
             this.lblDescripcionCorta = new System.Windows.Forms.Label();
             this.lblPrecionormal = new System.Windows.Forms.Label();
             this.lblImage = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.txtCodigo = new System.Windows.Forms.TextBox();
+            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.txtDescripcionCorta = new System.Windows.Forms.TextBox();
+            this.txtPrecioNormal = new System.Windows.Forms.TextBox();
+            this.txtPrecioOferta = new System.Windows.Forms.TextBox();
+            this.txtImagen = new System.Windows.Forms.TextBox();
+            this.txtDescripcionCompleta = new System.Windows.Forms.TextBox();
+            this.txtStock = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lblDescripcionCompleta = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.cmbCategoria = new System.Windows.Forms.ComboBox();
+            this.txtTipoProducto = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.btnGuadar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
@@ -146,61 +146,61 @@ namespace ccquevedo_
             this.lblImage.TabIndex = 6;
             this.lblImage.Text = "Precio Oferta:";
             // 
-            // textBox1
+            // txtCodigo
             // 
-            this.textBox1.Location = new System.Drawing.Point(227, 78);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(281, 31);
-            this.textBox1.TabIndex = 7;
+            this.txtCodigo.Location = new System.Drawing.Point(227, 78);
+            this.txtCodigo.Name = "txtCodigo";
+            this.txtCodigo.Size = new System.Drawing.Size(281, 31);
+            this.txtCodigo.TabIndex = 7;
             // 
-            // textBox2
+            // txtNombre
             // 
-            this.textBox2.Location = new System.Drawing.Point(227, 113);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(281, 31);
-            this.textBox2.TabIndex = 8;
+            this.txtNombre.Location = new System.Drawing.Point(227, 113);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(281, 31);
+            this.txtNombre.TabIndex = 8;
             // 
-            // textBox3
+            // txtDescripcionCorta
             // 
-            this.textBox3.Location = new System.Drawing.Point(227, 150);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(281, 31);
-            this.textBox3.TabIndex = 9;
+            this.txtDescripcionCorta.Location = new System.Drawing.Point(227, 150);
+            this.txtDescripcionCorta.Name = "txtDescripcionCorta";
+            this.txtDescripcionCorta.Size = new System.Drawing.Size(281, 31);
+            this.txtDescripcionCorta.TabIndex = 9;
             // 
-            // textBox4
+            // txtPrecioNormal
             // 
-            this.textBox4.Location = new System.Drawing.Point(227, 187);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(281, 31);
-            this.textBox4.TabIndex = 10;
+            this.txtPrecioNormal.Location = new System.Drawing.Point(227, 187);
+            this.txtPrecioNormal.Name = "txtPrecioNormal";
+            this.txtPrecioNormal.Size = new System.Drawing.Size(281, 31);
+            this.txtPrecioNormal.TabIndex = 10;
             // 
-            // textBox5
+            // txtPrecioOferta
             // 
-            this.textBox5.Location = new System.Drawing.Point(227, 224);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(281, 31);
-            this.textBox5.TabIndex = 11;
+            this.txtPrecioOferta.Location = new System.Drawing.Point(227, 224);
+            this.txtPrecioOferta.Name = "txtPrecioOferta";
+            this.txtPrecioOferta.Size = new System.Drawing.Size(281, 31);
+            this.txtPrecioOferta.TabIndex = 11;
             // 
-            // textBox6
+            // txtImagen
             // 
-            this.textBox6.Location = new System.Drawing.Point(804, 144);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(281, 31);
-            this.textBox6.TabIndex = 22;
+            this.txtImagen.Location = new System.Drawing.Point(804, 144);
+            this.txtImagen.Name = "txtImagen";
+            this.txtImagen.Size = new System.Drawing.Size(281, 31);
+            this.txtImagen.TabIndex = 22;
             // 
-            // textBox9
+            // txtDescripcionCompleta
             // 
-            this.textBox9.Location = new System.Drawing.Point(804, 107);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(281, 31);
-            this.textBox9.TabIndex = 19;
+            this.txtDescripcionCompleta.Location = new System.Drawing.Point(804, 107);
+            this.txtDescripcionCompleta.Name = "txtDescripcionCompleta";
+            this.txtDescripcionCompleta.Size = new System.Drawing.Size(281, 31);
+            this.txtDescripcionCompleta.TabIndex = 19;
             // 
-            // textBox10
+            // txtStock
             // 
-            this.textBox10.Location = new System.Drawing.Point(804, 72);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(281, 31);
-            this.textBox10.TabIndex = 18;
+            this.txtStock.Location = new System.Drawing.Point(804, 72);
+            this.txtStock.Name = "txtStock";
+            this.txtStock.Size = new System.Drawing.Size(281, 31);
+            this.txtStock.TabIndex = 18;
             // 
             // label2
             // 
@@ -213,16 +213,16 @@ namespace ccquevedo_
             this.label2.TabIndex = 17;
             this.label2.Text = "Imagen:";
             // 
-            // label5
+            // lblDescripcionCompleta
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(562, 119);
-            this.label5.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(215, 22);
-            this.label5.TabIndex = 14;
-            this.label5.Text = "Descripcion completa:";
+            this.lblDescripcionCompleta.AutoSize = true;
+            this.lblDescripcionCompleta.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDescripcionCompleta.Location = new System.Drawing.Point(562, 119);
+            this.lblDescripcionCompleta.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.lblDescripcionCompleta.Name = "lblDescripcionCompleta";
+            this.lblDescripcionCompleta.Size = new System.Drawing.Size(215, 22);
+            this.lblDescripcionCompleta.TabIndex = 14;
+            this.lblDescripcionCompleta.Text = "Descripcion completa:";
             // 
             // label6
             // 
@@ -246,23 +246,23 @@ namespace ccquevedo_
             this.label7.TabIndex = 23;
             this.label7.Text = "Categoria:";
             // 
-            // comboBox1
+            // cmbCategoria
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.cmbCategoria.FormattingEnabled = true;
+            this.cmbCategoria.Items.AddRange(new object[] {
             "Seleccionar"});
-            this.comboBox1.Location = new System.Drawing.Point(804, 185);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(281, 30);
-            this.comboBox1.TabIndex = 24;
-            this.comboBox1.Text = "Seleccionar";
+            this.cmbCategoria.Location = new System.Drawing.Point(804, 185);
+            this.cmbCategoria.Name = "cmbCategoria";
+            this.cmbCategoria.Size = new System.Drawing.Size(281, 30);
+            this.cmbCategoria.TabIndex = 24;
+            this.cmbCategoria.Text = "Seleccionar";
             // 
-            // textBox11
+            // txtTipoProducto
             // 
-            this.textBox11.Location = new System.Drawing.Point(804, 221);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(281, 31);
-            this.textBox11.TabIndex = 26;
+            this.txtTipoProducto.Location = new System.Drawing.Point(804, 221);
+            this.txtTipoProducto.Name = "txtTipoProducto";
+            this.txtTipoProducto.Size = new System.Drawing.Size(281, 31);
+            this.txtTipoProducto.TabIndex = 26;
             // 
             // label8
             // 
@@ -289,6 +289,7 @@ namespace ccquevedo_
             this.btnGuadar.Text = "Guardar";
             this.btnGuadar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnGuadar.UseVisualStyleBackColor = false;
+            this.btnGuadar.Click += new System.EventHandler(this.btnGuadar_Click);
             // 
             // Nuevo
             // 
@@ -297,21 +298,21 @@ namespace ccquevedo_
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ClientSize = new System.Drawing.Size(1107, 384);
             this.Controls.Add(this.btnGuadar);
-            this.Controls.Add(this.textBox11);
+            this.Controls.Add(this.txtTipoProducto);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cmbCategoria);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox9);
-            this.Controls.Add(this.textBox10);
+            this.Controls.Add(this.txtImagen);
+            this.Controls.Add(this.txtDescripcionCompleta);
+            this.Controls.Add(this.txtStock);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label5);
+            this.Controls.Add(this.lblDescripcionCompleta);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtPrecioOferta);
+            this.Controls.Add(this.txtPrecioNormal);
+            this.Controls.Add(this.txtDescripcionCorta);
+            this.Controls.Add(this.txtNombre);
+            this.Controls.Add(this.txtCodigo);
             this.Controls.Add(this.lblImage);
             this.Controls.Add(this.lblPrecionormal);
             this.Controls.Add(this.lblDescripcionCorta);
@@ -341,21 +342,21 @@ namespace ccquevedo_
         private System.Windows.Forms.Label lblDescripcionCorta;
         private System.Windows.Forms.Label lblPrecionormal;
         private System.Windows.Forms.Label lblImage;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txtCodigo;
+        private System.Windows.Forms.TextBox txtNombre;
+        private System.Windows.Forms.TextBox txtDescripcionCorta;
+        private System.Windows.Forms.TextBox txtPrecioNormal;
+        private System.Windows.Forms.TextBox txtPrecioOferta;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.TextBox txtImagen;
+        private System.Windows.Forms.TextBox txtDescripcionCompleta;
+        private System.Windows.Forms.TextBox txtStock;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblDescripcionCompleta;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox11;
+        private System.Windows.Forms.ComboBox cmbCategoria;
+        private System.Windows.Forms.TextBox txtTipoProducto;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btnGuadar;
     }

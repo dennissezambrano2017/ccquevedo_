@@ -87,6 +87,12 @@
     <Compile Include="Inicio.Designer.cs">
       <DependentUpon>Inicio.cs</DependentUpon>
     </Compile>
+    <Compile Include="Modificar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modificar.Designer.cs">
+      <DependentUpon>Modificar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Nuevo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -99,7 +105,7 @@
     <Compile Include="Pagina_Principal.Designer.cs">
       <DependentUpon>Pagina_Principal.cs</DependentUpon>
     </Compile>
-    <Compile Include="nada.cs" />
+    <Compile Include="Product.cs" />
     <Compile Include="Productos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,6 +122,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Inicio.resx">
       <DependentUpon>Inicio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modificar.resx">
+      <DependentUpon>Modificar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Nuevo.resx">
       <DependentUpon>Nuevo.cs</DependentUpon>

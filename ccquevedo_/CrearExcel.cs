@@ -14,24 +14,34 @@ namespace ccquevedo_
     {
         
         private Form_hijo formHijo = new Form_hijo();
-        
+        Nuevo frmCrear = Nuevo.FormCrear();
         public CrearExcel()
         {
             InitializeComponent();
         }
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            Nuevo frmCrear = Nuevo.FormCrear();
+            
             Pagina_Principal formPrincipal = new Pagina_Principal();
             frmCrear.MdiParent = formPrincipal.MdiParent;
-            frmCrear.Show();
+            frmCrear.ShowDialog();
             frmCrear.BringToFront();
 
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            Modificar frmModificar = Modificar.FormCrear();
+            Pagina_Principal formPrincipal = new Pagina_Principal();
+            frmModificar.MdiParent = formPrincipal.MdiParent;
+            frmModificar.ShowDialog();
+            frmModificar.BringToFront();
+        }
 
+        private void CrearExcel_Load(object sender, EventArgs e)
+        {
+
+            dataGridView1.DataSource = frmCrear.listPro;
         }
     }
 }

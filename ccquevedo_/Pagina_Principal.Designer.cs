@@ -176,7 +176,6 @@ namespace ccquevedo_
             this.Name = "Pagina_Principal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pagina_Principal";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.MenuVertical.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -188,7 +187,6 @@ namespace ccquevedo_
         }
 
         #endregion
-        private System.Windows.Forms.Panel MenuVertical;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox btnCerrar2;
         private System.Windows.Forms.PictureBox pictureBox1;
@@ -197,5 +195,6 @@ namespace ccquevedo_
         private System.Windows.Forms.Button btnProducto;
         private System.Windows.Forms.PictureBox btnMinimizar2;
         public System.Windows.Forms.Panel panelCntro;
+        public System.Windows.Forms.Panel MenuVertical;
     }
 }

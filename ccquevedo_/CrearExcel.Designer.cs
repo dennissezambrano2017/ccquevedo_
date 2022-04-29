@@ -38,7 +38,6 @@
             // 
             // btnNuevo
             // 
-            this.btnNuevo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnNuevo.BackColor = System.Drawing.Color.LimeGreen;
             this.btnNuevo.FlatAppearance.BorderSize = 2;
             this.btnNuevo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray;
@@ -116,6 +115,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "CrearExcel";
             this.Text = "CrearExcel";
+            this.Load += new System.EventHandler(this.CrearExcel_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
@@ -124,8 +124,8 @@
         #endregion
 
         private System.Windows.Forms.Button btnNuevo;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        public System.Windows.Forms.DataGridView dataGridView1;
     }
 }
