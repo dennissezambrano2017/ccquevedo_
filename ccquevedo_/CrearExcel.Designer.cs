@@ -38,6 +38,7 @@
             // 
             // btnNuevo
             // 
+            this.btnNuevo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnNuevo.BackColor = System.Drawing.Color.LimeGreen;
             this.btnNuevo.FlatAppearance.BorderSize = 2;
             this.btnNuevo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray;
@@ -46,7 +47,7 @@
             this.btnNuevo.ForeColor = System.Drawing.SystemColors.Window;
             this.btnNuevo.Image = ((System.Drawing.Image)(resources.GetObject("btnNuevo.Image")));
             this.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNuevo.Location = new System.Drawing.Point(53, 42);
+            this.btnNuevo.Location = new System.Drawing.Point(44, 42);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(134, 46);
             this.btnNuevo.TabIndex = 0;
@@ -57,14 +58,17 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(44, 117);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(744, 270);
+            this.dataGridView1.Size = new System.Drawing.Size(838, 270);
             this.dataGridView1.TabIndex = 1;
             // 
             // button1
             // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.button1.FlatAppearance.BorderSize = 2;
             this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray;
@@ -73,13 +77,14 @@
             this.button1.ForeColor = System.Drawing.SystemColors.Window;
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(280, 42);
+            this.button1.Location = new System.Drawing.Point(198, 42);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(134, 46);
             this.button1.TabIndex = 2;
             this.button1.Text = "Modificar";
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -91,7 +96,7 @@
             this.button2.ForeColor = System.Drawing.SystemColors.Window;
             this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(654, 436);
+            this.button2.Location = new System.Drawing.Point(748, 42);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(134, 46);
             this.button2.TabIndex = 3;
@@ -103,7 +108,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(827, 513);
+            this.ClientSize = new System.Drawing.Size(929, 454);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dataGridView1);

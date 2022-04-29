@@ -17,11 +17,11 @@ namespace ccquevedo_
             InitializeComponent();
         }
 
-        private void MenuVertical_Paint(object sender, PaintEventArgs e)
+        public Panel PanelCentro()
         {
-
+            System.Console.WriteLine("sie entra");
+            return this.panelCntro;
         }
-
         private void btnCerrar2_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -40,6 +40,11 @@ namespace ccquevedo_
         private void btnProducto_Click(object sender, EventArgs e)
         {
             formHijo.AbrirFormInPanel(new Productos(),this.panelCntro);
+        }
+
+        private void panelCntro_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

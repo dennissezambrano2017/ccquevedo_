@@ -57,9 +57,8 @@ namespace ccquevedo_
             this.MenuVertical.Dock = System.Windows.Forms.DockStyle.Left;
             this.MenuVertical.Location = new System.Drawing.Point(0, 0);
             this.MenuVertical.Name = "MenuVertical";
-            this.MenuVertical.Size = new System.Drawing.Size(219, 563);
+            this.MenuVertical.Size = new System.Drawing.Size(219, 757);
             this.MenuVertical.TabIndex = 4;
-            this.MenuVertical.Paint += new System.Windows.Forms.PaintEventHandler(this.MenuVertical_Paint);
             // 
             // btnProducto
             // 
@@ -126,13 +125,14 @@ namespace ccquevedo_
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(219, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(827, 50);
+            this.panel2.Size = new System.Drawing.Size(927, 50);
             this.panel2.TabIndex = 5;
             // 
             // btnMinimizar2
             // 
+            this.btnMinimizar2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnMinimizar2.Image = ((System.Drawing.Image)(resources.GetObject("btnMinimizar2.Image")));
-            this.btnMinimizar2.Location = new System.Drawing.Point(760, 10);
+            this.btnMinimizar2.Location = new System.Drawing.Point(860, 10);
             this.btnMinimizar2.Name = "btnMinimizar2";
             this.btnMinimizar2.Size = new System.Drawing.Size(16, 16);
             this.btnMinimizar2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -142,8 +142,9 @@ namespace ccquevedo_
             // 
             // btnCerrar2
             // 
+            this.btnCerrar2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCerrar2.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrar2.Image")));
-            this.btnCerrar2.Location = new System.Drawing.Point(799, 10);
+            this.btnCerrar2.Location = new System.Drawing.Point(899, 10);
             this.btnCerrar2.Name = "btnCerrar2";
             this.btnCerrar2.Size = new System.Drawing.Size(16, 16);
             this.btnCerrar2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -158,21 +159,24 @@ namespace ccquevedo_
             this.panelCntro.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelCntro.Location = new System.Drawing.Point(219, 50);
             this.panelCntro.Name = "panelCntro";
-            this.panelCntro.Size = new System.Drawing.Size(827, 513);
+            this.panelCntro.Size = new System.Drawing.Size(927, 707);
             this.panelCntro.TabIndex = 6;
+            this.panelCntro.Paint += new System.Windows.Forms.PaintEventHandler(this.panelCntro_Paint);
             // 
             // Pagina_Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1046, 563);
+            this.ClientSize = new System.Drawing.Size(1146, 757);
             this.Controls.Add(this.panelCntro);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.MenuVertical);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.IsMdiContainer = true;
             this.Name = "Pagina_Principal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pagina_Principal";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.MenuVertical.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
