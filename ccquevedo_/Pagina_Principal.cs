@@ -17,11 +17,6 @@ namespace ccquevedo_
             InitializeComponent();
         }
 
-        public Panel PanelCentro()
-        {
-            System.Console.WriteLine("sie entra");
-            return this.panelCntro;
-        }
         private void btnCerrar2_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -42,9 +37,5 @@ namespace ccquevedo_
             formHijo.AbrirFormInPanel(new Productos(),this.panelCntro);
         }
 
-        private void panelCntro_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
     }
 }

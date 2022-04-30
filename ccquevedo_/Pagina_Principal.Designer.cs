@@ -161,7 +161,6 @@ namespace ccquevedo_
             this.panelCntro.Name = "panelCntro";
             this.panelCntro.Size = new System.Drawing.Size(927, 707);
             this.panelCntro.TabIndex = 6;
-            this.panelCntro.Paint += new System.Windows.Forms.PaintEventHandler(this.panelCntro_Paint);
             // 
             // Pagina_Principal
             // 

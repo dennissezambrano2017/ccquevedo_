@@ -11,8 +11,8 @@ namespace ccquevedo_
     public partial class Nuevo : Form
     {
         private static Nuevo instancia = null;
-        private CrearExcel formCrear = new CrearExcel();
-        public List<Product> listPro = new List<Product>();
+       private CrearExcel crearExcel = new CrearExcel();
+        private List<Product> listPro = new List<Product>();
         public static Nuevo FormCrear()
         {
             if (instancia == null)
@@ -40,18 +40,10 @@ namespace ccquevedo_
 
         private void btnGuadar_Click(object sender, EventArgs e)
         {
-            Product listProduct = new Product();
-            listProduct.id =Convert.ToInt32(txtCodigo.Text);
-            listProduct.nombre = txtNombre.Text;
-            listProduct.descripcionCorta = txtDescripcionCorta.Text;
-            listProduct.descripcionLarga = txtDescripcionCompleta.Text;
-            listProduct.precioNormal = Convert.ToDouble(txtPrecioNormal.Text);
-            listProduct.precioOferta = Convert.ToDouble(txtPrecioOferta.Text);
-            listProduct.stock = Convert.ToInt32(txtStock.Text);
-            listProduct.categorias = cmbCategoria.Text;
-            listProduct.tipoProducto = txtTipoProducto.Text;
+            Product listProduct = new Product(Convert.ToInt32(txtCodigo.Text), txtNombre.Text, txtDescripcionCorta.Text,
+                txtDescripcionCompleta.Text,Convert.ToInt32(txtStock.Text), Convert.ToDouble(txtPrecioNormal.Text), Convert.ToDouble(txtPrecioOferta.Text),
+                 cmbCategoria.Text, txtTipoProducto.Text);
 
-            
             listPro.Add(listProduct);
             this.Close();
         }

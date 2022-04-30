@@ -12,16 +12,17 @@ namespace ccquevedo_
 {
     public partial class CrearExcel : Form
     {
-        
-        private Form_hijo formHijo = new Form_hijo();
-        Nuevo frmCrear = Nuevo.FormCrear();
+
         public CrearExcel()
         {
             InitializeComponent();
+            MessageBox.Show(Convert.ToString(dgvProducto.RowCount) + "," + Convert.ToString(dgvProducto.ColumnCount));
+
         }
+       
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            
+            Nuevo frmCrear = Nuevo.FormCrear();
             Pagina_Principal formPrincipal = new Pagina_Principal();
             frmCrear.MdiParent = formPrincipal.MdiParent;
             frmCrear.ShowDialog();
@@ -37,11 +38,6 @@ namespace ccquevedo_
             frmModificar.ShowDialog();
             frmModificar.BringToFront();
         }
-
-        private void CrearExcel_Load(object sender, EventArgs e)
-        {
-
-            dataGridView1.DataSource = frmCrear.listPro;
-        }
+       
     }
 }

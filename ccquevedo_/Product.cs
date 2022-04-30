@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ccquevedo_
 {
-    internal class Product
+    public class Product
     {
         public int id { get; set; }
         public string nombre { get; set; }
