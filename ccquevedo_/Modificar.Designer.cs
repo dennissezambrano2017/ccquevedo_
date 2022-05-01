@@ -42,16 +42,16 @@
             this.lblDescripcionCorta = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
             this.lblId = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.txtCodigo = new System.Windows.Forms.TextBox();
+            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.txtDesCorta = new System.Windows.Forms.TextBox();
+            this.txtPrecioNormal = new System.Windows.Forms.TextBox();
+            this.txtPrecioOferta = new System.Windows.Forms.TextBox();
+            this.txtTipoProducto = new System.Windows.Forms.TextBox();
+            this.cmbCategoria = new System.Windows.Forms.TextBox();
+            this.txtImage = new System.Windows.Forms.TextBox();
+            this.txtDescriComple = new System.Windows.Forms.TextBox();
+            this.txtStock = new System.Windows.Forms.TextBox();
             this.btnGuadar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             this.panel1.SuspendLayout();
@@ -201,85 +201,85 @@
             this.lblId.TabIndex = 26;
             this.lblId.Text = "Codigo:";
             // 
-            // textBox1
+            // txtCodigo
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(227, 78);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(281, 29);
-            this.textBox1.TabIndex = 36;
+            this.txtCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCodigo.Location = new System.Drawing.Point(227, 78);
+            this.txtCodigo.Name = "txtCodigo";
+            this.txtCodigo.Size = new System.Drawing.Size(281, 29);
+            this.txtCodigo.TabIndex = 36;
             // 
-            // textBox2
+            // txtNombre
             // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(227, 118);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(281, 29);
-            this.textBox2.TabIndex = 37;
+            this.txtNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNombre.Location = new System.Drawing.Point(227, 118);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(281, 29);
+            this.txtNombre.TabIndex = 37;
             // 
-            // textBox3
+            // txtDesCorta
             // 
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(227, 158);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(281, 29);
-            this.textBox3.TabIndex = 38;
+            this.txtDesCorta.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDesCorta.Location = new System.Drawing.Point(227, 158);
+            this.txtDesCorta.Name = "txtDesCorta";
+            this.txtDesCorta.Size = new System.Drawing.Size(281, 29);
+            this.txtDesCorta.TabIndex = 38;
             // 
-            // textBox4
+            // txtPrecioNormal
             // 
-            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(227, 194);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(281, 29);
-            this.textBox4.TabIndex = 39;
+            this.txtPrecioNormal.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPrecioNormal.Location = new System.Drawing.Point(227, 194);
+            this.txtPrecioNormal.Name = "txtPrecioNormal";
+            this.txtPrecioNormal.Size = new System.Drawing.Size(281, 29);
+            this.txtPrecioNormal.TabIndex = 39;
             // 
-            // textBox5
+            // txtPrecioOferta
             // 
-            this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(227, 229);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(281, 29);
-            this.textBox5.TabIndex = 40;
+            this.txtPrecioOferta.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPrecioOferta.Location = new System.Drawing.Point(227, 229);
+            this.txtPrecioOferta.Name = "txtPrecioOferta";
+            this.txtPrecioOferta.Size = new System.Drawing.Size(281, 29);
+            this.txtPrecioOferta.TabIndex = 40;
             // 
-            // textBox6
+            // txtTipoProducto
             // 
-            this.textBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox6.Location = new System.Drawing.Point(782, 229);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(281, 29);
-            this.textBox6.TabIndex = 45;
+            this.txtTipoProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTipoProducto.Location = new System.Drawing.Point(782, 229);
+            this.txtTipoProducto.Name = "txtTipoProducto";
+            this.txtTipoProducto.Size = new System.Drawing.Size(281, 29);
+            this.txtTipoProducto.TabIndex = 45;
             // 
-            // textBox7
+            // cmbCategoria
             // 
-            this.textBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox7.Location = new System.Drawing.Point(782, 194);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(281, 29);
-            this.textBox7.TabIndex = 44;
+            this.cmbCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbCategoria.Location = new System.Drawing.Point(782, 194);
+            this.cmbCategoria.Name = "cmbCategoria";
+            this.cmbCategoria.Size = new System.Drawing.Size(281, 29);
+            this.cmbCategoria.TabIndex = 44;
             // 
-            // textBox8
+            // txtImage
             // 
-            this.textBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox8.Location = new System.Drawing.Point(782, 158);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(281, 29);
-            this.textBox8.TabIndex = 43;
+            this.txtImage.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtImage.Location = new System.Drawing.Point(782, 158);
+            this.txtImage.Name = "txtImage";
+            this.txtImage.Size = new System.Drawing.Size(281, 29);
+            this.txtImage.TabIndex = 43;
             // 
-            // textBox9
+            // txtDescriComple
             // 
-            this.textBox9.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox9.Location = new System.Drawing.Point(782, 118);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(281, 29);
-            this.textBox9.TabIndex = 42;
+            this.txtDescriComple.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDescriComple.Location = new System.Drawing.Point(782, 118);
+            this.txtDescriComple.Name = "txtDescriComple";
+            this.txtDescriComple.Size = new System.Drawing.Size(281, 29);
+            this.txtDescriComple.TabIndex = 42;
             // 
-            // textBox10
+            // txtStock
             // 
-            this.textBox10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox10.Location = new System.Drawing.Point(782, 78);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(281, 29);
-            this.textBox10.TabIndex = 41;
+            this.txtStock.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtStock.Location = new System.Drawing.Point(782, 78);
+            this.txtStock.Name = "txtStock";
+            this.txtStock.Size = new System.Drawing.Size(281, 29);
+            this.txtStock.TabIndex = 41;
             // 
             // btnGuadar
             // 
@@ -302,16 +302,16 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1107, 384);
             this.Controls.Add(this.btnGuadar);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.textBox8);
-            this.Controls.Add(this.textBox9);
-            this.Controls.Add(this.textBox10);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtTipoProducto);
+            this.Controls.Add(this.cmbCategoria);
+            this.Controls.Add(this.txtImage);
+            this.Controls.Add(this.txtDescriComple);
+            this.Controls.Add(this.txtStock);
+            this.Controls.Add(this.txtPrecioOferta);
+            this.Controls.Add(this.txtPrecioNormal);
+            this.Controls.Add(this.txtDesCorta);
+            this.Controls.Add(this.txtNombre);
+            this.Controls.Add(this.txtCodigo);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label2);
@@ -324,7 +324,6 @@
             this.Controls.Add(this.lblId);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.Name = "Modificar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Modificar";
@@ -352,16 +351,16 @@
         private System.Windows.Forms.Label lblDescripcionCorta;
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.Label lblId;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox10;
         private System.Windows.Forms.Button btnGuadar;
+        public System.Windows.Forms.TextBox txtCodigo;
+        public System.Windows.Forms.TextBox txtNombre;
+        public System.Windows.Forms.TextBox txtDesCorta;
+        public System.Windows.Forms.TextBox txtPrecioNormal;
+        public System.Windows.Forms.TextBox txtPrecioOferta;
+        public System.Windows.Forms.TextBox txtTipoProducto;
+        public System.Windows.Forms.TextBox cmbCategoria;
+        public System.Windows.Forms.TextBox txtImage;
+        public System.Windows.Forms.TextBox txtDescriComple;
+        public System.Windows.Forms.TextBox txtStock;
     }
 }

@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,7 +11,6 @@ namespace ccquevedo_
     public partial class Nuevo : Form
     {
         private static Nuevo instancia = null;
-       private CrearExcel crearExcel = new CrearExcel();
         private List<Product> listPro = new List<Product>();
         public static Nuevo FormCrear()
         {
@@ -40,12 +39,15 @@ namespace ccquevedo_
 
         private void btnGuadar_Click(object sender, EventArgs e)
         {
-            Product listProduct = new Product(Convert.ToInt32(txtCodigo.Text), txtNombre.Text, txtDescripcionCorta.Text,
-                txtDescripcionCompleta.Text,Convert.ToInt32(txtStock.Text), Convert.ToDouble(txtPrecioNormal.Text), Convert.ToDouble(txtPrecioOferta.Text),
-                 cmbCategoria.Text, txtTipoProducto.Text);
-
-            listPro.Add(listProduct);
+            CrearExcel ce = Owner as CrearExcel;
+            ce.DtProductos.Rows.Add(txtCodigo.Text, txtNombre.Text, txtDescripcionCorta.Text, txtDescripcionCompleta.Text,  Convert.ToDouble(txtPrecioNormal.Text), Convert.ToDouble(txtPrecioOferta.Text),
+                 Convert.ToInt32(txtStock.Text),txtImagen.Text,cmbCategoria.Text, txtTipoProducto.Text);
             this.Close();
+        }
+
+        private void txtCodigo_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

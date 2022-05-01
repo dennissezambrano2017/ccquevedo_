@@ -152,6 +152,7 @@ namespace ccquevedo_
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(281, 31);
             this.txtCodigo.TabIndex = 7;
+            this.txtCodigo.TextChanged += new System.EventHandler(this.txtCodigo_TextChanged);
             // 
             // txtNombre
             // 
@@ -342,7 +343,6 @@ namespace ccquevedo_
         private System.Windows.Forms.Label lblDescripcionCorta;
         private System.Windows.Forms.Label lblPrecionormal;
         private System.Windows.Forms.Label lblImage;
-        private System.Windows.Forms.TextBox txtCodigo;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.TextBox txtDescripcionCorta;
         private System.Windows.Forms.TextBox txtPrecioNormal;
@@ -359,5 +359,6 @@ namespace ccquevedo_
         private System.Windows.Forms.TextBox txtTipoProducto;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btnGuadar;
+        public System.Windows.Forms.TextBox txtCodigo;
     }
 }

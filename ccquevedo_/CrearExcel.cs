@@ -16,28 +16,54 @@ namespace ccquevedo_
         public CrearExcel()
         {
             InitializeComponent();
-            MessageBox.Show(Convert.ToString(dgvProducto.RowCount) + "," + Convert.ToString(dgvProducto.ColumnCount));
-
         }
-       
+        private DataGridView dtProductos;
+
+        public DataGridView DtProductos { get => dtProductos; set => dtProductos = value; }
+
+        public void DT_Productos()
+        {
+            dtProductos = dgvProducto;
+        }
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            Nuevo frmCrear = Nuevo.FormCrear();
-            Pagina_Principal formPrincipal = new Pagina_Principal();
-            frmCrear.MdiParent = formPrincipal.MdiParent;
+            Nuevo frmCrear =  Nuevo.FormCrear();
+            AddOwnedForm(frmCrear);
             frmCrear.ShowDialog();
-            frmCrear.BringToFront();
+            //frmCrear.BringToFront();
 
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             Modificar frmModificar = Modificar.FormCrear();
-            Pagina_Principal formPrincipal = new Pagina_Principal();
-            frmModificar.MdiParent = formPrincipal.MdiParent;
+            frmModificar.txtCodigo.Text = dtProductos.CurrentRow.Cells[0].Value.ToString();
+            frmModificar.txtNombre.Text = dtProductos.CurrentRow.Cells[1].Value.ToString();
+            frmModificar.txtDesCorta.Text = dtProductos.CurrentRow.Cells[2].Value.ToString();
+            frmModificar.txtDescriComple.Text = dtProductos.CurrentRow.Cells[3].Value.ToString();
+            frmModificar.txtPrecioNormal.Text = dtProductos.CurrentRow.Cells[4].Value.ToString();
+            frmModificar.txtPrecioOferta.Text = dtProductos.CurrentRow.Cells[5].Value.ToString();
+            frmModificar.txtStock.Text = dtProductos.CurrentRow.Cells[6].Value.ToString();
+            frmModificar.txtImage.Text = dtProductos.CurrentRow.Cells[7].Value.ToString();
+            frmModificar.cmbCategoria.Text = dtProductos.CurrentRow.Cells[8].Value.ToString();
+            frmModificar.txtTipoProducto.Text = dtProductos.CurrentRow.Cells[9].Value.ToString();
             frmModificar.ShowDialog();
-            frmModificar.BringToFront();
+            //frmModificar.BringToFront();
         }
-       
+
+        private void CrearExcel_Load(object sender, EventArgs e)
+        {
+            DT_Productos();
+            dgvProducto.Columns.Add("Codigo", "Codigo");
+            dgvProducto.Columns.Add("Nombre", "Nombre");
+            dgvProducto.Columns.Add("DescripcionCorta", "Descripcion Corta");
+            dgvProducto.Columns.Add("DescripcionLarga", "Descripcion Larga");
+            dgvProducto.Columns.Add("PrecioNormal", "Precio Normal");
+            dgvProducto.Columns.Add("PrecioOferta", "Precio Oferta");
+            dgvProducto.Columns.Add("Stock", "Stock");
+            dgvProducto.Columns.Add("Imagen", "Imagen");
+            dgvProducto.Columns.Add("Categoria", "Categoria");
+            dgvProducto.Columns.Add("TipoProducto", "Tipo Producto");
+        }
     }
 }
