@@ -31,15 +31,6 @@ namespace ccquevedo_
             txtCategoria.Text = tablaUno.Rows[0][8].ToString();
         }
 
-        private void btnGuardar_Click(object sender, EventArgs e)
-        {
-            this.productosTableAdapter.Editar(txtNombre.Text, txtDescripcion.Text, txtInventario.Text,
-                Convert.ToInt32(txtminStock.Text), Convert.ToInt32(txtPeso.Text), 
-                Convert.ToInt32(txtprecioRebajado.Text), Convert.ToInt32(txtPrecio.Text),
-                txtCategoria.Text,"nada",Convert.ToInt32(id));
-            this.productosTableAdapter.Fill(this.bdCamaraComercioDataSet.Productos);
-            this.Close();
-        }
 
         private void productosBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
@@ -56,9 +47,15 @@ namespace ccquevedo_
 
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
 
+        private void btnGuardar_Click_1(object sender, EventArgs e)
+        {
+            this.productosTableAdapter.Editar(txtNombre.Text, txtDescripcion.Text, txtInventario.Text,
+                Convert.ToInt32(txtminStock.Text), Convert.ToInt32(txtPeso.Text),
+                Convert.ToInt32(txtprecioRebajado.Text), Convert.ToInt32(txtPrecio.Text),
+                txtCategoria.Text, "nada", Convert.ToInt32(id));
+            this.productosTableAdapter.Fill(this.bdCamaraComercioDataSet.Productos);
+            this.Close();
         }
     }
 }

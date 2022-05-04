@@ -351,7 +351,6 @@
         private System.Windows.Forms.Label lblPrecionormal;
         private System.Windows.Forms.Label lblDescripcionCorta;
         private System.Windows.Forms.Label lblNombre;
-        private System.Windows.Forms.Label lblId;
         private System.Windows.Forms.Button btnGuadar;
         public System.Windows.Forms.TextBox txtCodigo;
         public System.Windows.Forms.TextBox txtNombre;
@@ -363,5 +362,6 @@
         public System.Windows.Forms.TextBox txtImage;
         public System.Windows.Forms.TextBox txtDescriComple;
         public System.Windows.Forms.TextBox txtStock;
+        private System.Windows.Forms.Label lblId;
     }
 }

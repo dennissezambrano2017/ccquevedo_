@@ -57,10 +57,10 @@ namespace ccquevedo_
                 Form form = new Editar(id);
                 form.ShowDialog();
                 this.productosTableAdapter.Fill(this.bdCamaraComercioDataSet.Productos);
+                dgvProductos.Rows[0].Selected = false;
             }
             else
-            {
-            }
+                MessageBox.Show("Seleccione una fila con datos", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
 
         }
@@ -78,16 +78,20 @@ namespace ccquevedo_
             int num;
             if (dgvProductos.SelectedRows.Count > 0)
             {
-                num = dgvProductos.CurrentRow.Index;
-                int? id = getId(num);
-                //Form form = new Editar(id);
-                //form.Show();
-                this.productosTableAdapter.Eliminar(Convert.ToInt32(id));
-                this.productosTableAdapter.Fill(this.bdCamaraComercioDataSet.Productos);
+                DialogResult result = MessageBox.Show("Esta seguro de eliminar la fila", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    num = dgvProductos.CurrentRow.Index;
+                    int? id = getId(num);
+                    //Form form = new Editar(id);
+                    //form.Show();
+                    this.productosTableAdapter.Eliminar(Convert.ToInt32(id));
+                    this.productosTableAdapter.Fill(this.bdCamaraComercioDataSet.Productos);
+                    dgvProductos.Rows[0].Selected = false;
+                }
             }
             else
-            {
-            }
+                MessageBox.Show("Seleccione una fila con datos", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
     }
