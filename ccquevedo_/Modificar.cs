@@ -63,5 +63,25 @@ namespace ccquevedo_
             this.Close();
             //MessageBox.Show(ce.Posicion.ToString());
         }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtImage_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtTipoProducto_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
