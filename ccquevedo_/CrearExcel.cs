@@ -35,7 +35,6 @@ namespace ccquevedo_
             Nuevo frmCrear =  Nuevo.FormCrear();
             AddOwnedForm(frmCrear);
             frmCrear.ShowDialog();
-            //frmCrear.BringToFront();
 
         }
 
@@ -154,8 +153,6 @@ namespace ccquevedo_
                         }
                     }
 
-                    //exportarExcel.Visible = false;
-
                     libros_trabajo.SaveAs(fichero.FileName, 
                         Microsoft.Office.Interop.Excel.XlFileFormat.xlWorkbookNormal);
                     libros_trabajo.Close(true);
@@ -174,21 +171,9 @@ namespace ccquevedo_
             if(dgvProducto.Rows.Count > 0)
             {
                 Insertar();
-                //dtProductos.CurrentRow.Cells[0].Value.ToString(),
-                //dtProductos.CurrentRow.Cells[1].Value.ToString(),
-                //dtProductos.CurrentRow.Cells[2].Value.ToString(),
-                //dtProductos.CurrentRow.Cells[3].Value.ToString(),
-                //dtProductos.CurrentRow.Cells[4].Value.ToString(),
-                //dtProductos.CurrentRow.Cells[5].Value.ToString(),
-                //dtProductos.CurrentRow.Cells[6].Value.ToString(),
-                //dtProductos.CurrentRow.Cells[7].Value.ToString(),
-                //dtProductos.CurrentRow.Cells[8].Value.ToString(),
-                //dtProductos.CurrentRow.Cells[9].Value.ToString()
             }
             else
-            {
-                MessageBox.Show("Ingrese datos a la tabla");
-            }
+                MessageBox.Show("No existen datos en la tabla para actualizar", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
         }
 
