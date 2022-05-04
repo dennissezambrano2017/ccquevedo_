@@ -42,6 +42,8 @@ namespace ccquevedo_
 
         private void CrearExcel_Load(object sender, EventArgs e)
         {
+            // TODO: esta línea de código carga datos en la tabla 'bdCamaraComercioDataSet.Productos' Puede moverla o quitarla según sea necesario.
+            this.productosTableAdapter.Fill(this.bdCamaraComercioDataSet.Productos);
             DT_Productos();
             dgvProducto.Columns.Add("Codigo", "Codigo");
             dgvProducto.Columns.Add("Nombre", "Nombre");
@@ -101,6 +103,7 @@ namespace ccquevedo_
         {
             if (dgvProducto.Rows != null && dgvProducto.Rows.Count != 0)
             {
+                Insertar();
                 Exportar(dgvProducto);
             }
             else
@@ -157,5 +160,55 @@ namespace ccquevedo_
                 MessageBox.Show("Error al exportar la informacion debido a: " + ex.ToString());
             }
 }
+
+        private void btnActualizar_Click(object sender, EventArgs e)
+        {
+            
+            if(dgvProducto.Rows.Count > 0)
+            {
+                Insertar();
+                //dtProductos.CurrentRow.Cells[0].Value.ToString(),
+                //dtProductos.CurrentRow.Cells[1].Value.ToString(),
+                //dtProductos.CurrentRow.Cells[2].Value.ToString(),
+                //dtProductos.CurrentRow.Cells[3].Value.ToString(),
+                //dtProductos.CurrentRow.Cells[4].Value.ToString(),
+                //dtProductos.CurrentRow.Cells[5].Value.ToString(),
+                //dtProductos.CurrentRow.Cells[6].Value.ToString(),
+                //dtProductos.CurrentRow.Cells[7].Value.ToString(),
+                //dtProductos.CurrentRow.Cells[8].Value.ToString(),
+                //dtProductos.CurrentRow.Cells[9].Value.ToString()
+            }
+            else
+            {
+                MessageBox.Show("Ingrese datos a la tabla");
+            }
+
+        }
+
+        private void Insertar()
+        {
+            for (int i = 0; i < dgvProducto.Rows.Count; i++)
+            {
+                this.productosTableAdapter.Insertar(Convert.ToInt32(dtProductos.Rows[i].Cells[0].Value.ToString()),
+        dtProductos.Rows[i].Cells[1].Value.ToString(),
+        dtProductos.Rows[i].Cells[2].Value.ToString(),
+        dtProductos.Rows[i].Cells[6].Value.ToString(),
+        Convert.ToInt32(dtProductos.Rows[i].Cells[6].Value.ToString()),
+        Convert.ToInt32(dtProductos.Rows[i].Cells[6].Value.ToString()),
+        Convert.ToInt32(dtProductos.Rows[i].Cells[5].Value.ToString()),
+        Convert.ToInt32(dtProductos.Rows[i].Cells[4].Value.ToString()),
+        dtProductos.Rows[i].Cells[8].Value.ToString(),
+        dtProductos.Rows[i].Cells[7].Value.ToString());
+                this.productosTableAdapter.Fill(this.bdCamaraComercioDataSet.Productos);
+            }
+        }
+
+        private void productosBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.productosBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.bdCamaraComercioDataSet);
+
+        }
     }
 }

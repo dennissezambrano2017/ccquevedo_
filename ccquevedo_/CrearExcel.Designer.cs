@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CrearExcel));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -40,7 +41,13 @@
             this.btnActu_Desca = new System.Windows.Forms.Button();
             this.btnElimnar = new System.Windows.Forms.Button();
             this.btnActualizar = new System.Windows.Forms.Button();
+            this.bdCamaraComercioDataSet = new ccquevedo_.bdCamaraComercioDataSet();
+            this.productosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.productosTableAdapter = new ccquevedo_.bdCamaraComercioDataSetTableAdapters.ProductosTableAdapter();
+            this.tableAdapterManager = new ccquevedo_.bdCamaraComercioDataSetTableAdapters.TableAdapterManager();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducto)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdCamaraComercioDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productosBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // btnNuevo
@@ -106,7 +113,7 @@
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
             this.dgvProducto.RowsDefaultCellStyle = dataGridViewCellStyle5;
-            this.dgvProducto.Size = new System.Drawing.Size(838, 270);
+            this.dgvProducto.Size = new System.Drawing.Size(846, 270);
             this.dgvProducto.TabIndex = 1;
             // 
             // btnModificar
@@ -120,7 +127,7 @@
             this.btnModificar.ForeColor = System.Drawing.SystemColors.Window;
             this.btnModificar.Image = ((System.Drawing.Image)(resources.GetObject("btnModificar.Image")));
             this.btnModificar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnModificar.Location = new System.Drawing.Point(198, 42);
+            this.btnModificar.Location = new System.Drawing.Point(206, 42);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(134, 46);
             this.btnModificar.TabIndex = 2;
@@ -159,7 +166,7 @@
             this.btnElimnar.ForeColor = System.Drawing.SystemColors.Window;
             this.btnElimnar.Image = ((System.Drawing.Image)(resources.GetObject("btnElimnar.Image")));
             this.btnElimnar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnElimnar.Location = new System.Drawing.Point(355, 42);
+            this.btnElimnar.Location = new System.Drawing.Point(363, 42);
             this.btnElimnar.Name = "btnElimnar";
             this.btnElimnar.Size = new System.Drawing.Size(134, 46);
             this.btnElimnar.TabIndex = 4;
@@ -185,12 +192,33 @@
             this.btnActualizar.Text = "Actualizar";
             this.btnActualizar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnActualizar.UseVisualStyleBackColor = false;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
+            // 
+            // bdCamaraComercioDataSet
+            // 
+            this.bdCamaraComercioDataSet.DataSetName = "bdCamaraComercioDataSet";
+            this.bdCamaraComercioDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // productosBindingSource
+            // 
+            this.productosBindingSource.DataMember = "Productos";
+            this.productosBindingSource.DataSource = this.bdCamaraComercioDataSet;
+            // 
+            // productosTableAdapter
+            // 
+            this.productosTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.ProductosTableAdapter = this.productosTableAdapter;
+            this.tableAdapterManager.UpdateOrder = ccquevedo_.bdCamaraComercioDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
             // CrearExcel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(929, 454);
+            this.ClientSize = new System.Drawing.Size(937, 676);
             this.Controls.Add(this.btnActualizar);
             this.Controls.Add(this.btnElimnar);
             this.Controls.Add(this.btnActu_Desca);
@@ -202,6 +230,8 @@
             this.Text = "CrearExcel";
             this.Load += new System.EventHandler(this.CrearExcel_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducto)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdCamaraComercioDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productosBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -214,5 +244,9 @@
         public System.Windows.Forms.DataGridView dgvProducto;
         private System.Windows.Forms.Button btnElimnar;
         private System.Windows.Forms.Button btnActualizar;
+        private bdCamaraComercioDataSet bdCamaraComercioDataSet;
+        private System.Windows.Forms.BindingSource productosBindingSource;
+        private bdCamaraComercioDataSetTableAdapters.ProductosTableAdapter productosTableAdapter;
+        private bdCamaraComercioDataSetTableAdapters.TableAdapterManager tableAdapterManager;
     }
 }
