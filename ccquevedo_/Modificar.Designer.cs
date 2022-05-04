@@ -107,7 +107,6 @@
             this.label8.Size = new System.Drawing.Size(173, 22);
             this.label8.TabIndex = 35;
             this.label8.Text = "Tipo de producto:";
-            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // label7
             // 
@@ -130,7 +129,6 @@
             this.label2.Size = new System.Drawing.Size(87, 22);
             this.label2.TabIndex = 33;
             this.label2.Text = "Imagen:";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label5
             // 
@@ -216,6 +214,7 @@
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(272, 31);
             this.txtCodigo.TabIndex = 36;
+            this.txtCodigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigo_KeyPress);
             // 
             // txtNombre
             // 
@@ -240,6 +239,7 @@
             this.txtPrecioNormal.Name = "txtPrecioNormal";
             this.txtPrecioNormal.Size = new System.Drawing.Size(272, 31);
             this.txtPrecioNormal.TabIndex = 39;
+            this.txtPrecioNormal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecioNormal_KeyPress);
             // 
             // txtPrecioOferta
             // 
@@ -248,6 +248,7 @@
             this.txtPrecioOferta.Name = "txtPrecioOferta";
             this.txtPrecioOferta.Size = new System.Drawing.Size(272, 31);
             this.txtPrecioOferta.TabIndex = 40;
+            this.txtPrecioOferta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecioOferta_KeyPress);
             // 
             // txtTipoProducto
             // 
@@ -256,7 +257,6 @@
             this.txtTipoProducto.Name = "txtTipoProducto";
             this.txtTipoProducto.Size = new System.Drawing.Size(272, 31);
             this.txtTipoProducto.TabIndex = 45;
-            this.txtTipoProducto.TextChanged += new System.EventHandler(this.txtTipoProducto_TextChanged);
             // 
             // cmbCategoria
             // 
@@ -273,7 +273,6 @@
             this.txtImage.Name = "txtImage";
             this.txtImage.Size = new System.Drawing.Size(272, 31);
             this.txtImage.TabIndex = 43;
-            this.txtImage.TextChanged += new System.EventHandler(this.txtImage_TextChanged);
             // 
             // txtDescriComple
             // 

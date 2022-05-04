@@ -158,7 +158,6 @@ namespace ccquevedo_
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(272, 31);
             this.txtCodigo.TabIndex = 7;
-            this.txtCodigo.TextChanged += new System.EventHandler(this.txtCodigo_TextChanged);
             this.txtCodigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigo_KeyPress);
             // 
             // txtNombre
@@ -189,6 +188,7 @@ namespace ccquevedo_
             this.txtPrecioOferta.Name = "txtPrecioOferta";
             this.txtPrecioOferta.Size = new System.Drawing.Size(272, 31);
             this.txtPrecioOferta.TabIndex = 11;
+            this.txtPrecioOferta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecioOferta_KeyPress);
             // 
             // txtImagen
             // 
@@ -211,6 +211,7 @@ namespace ccquevedo_
             this.txtStock.Name = "txtStock";
             this.txtStock.Size = new System.Drawing.Size(272, 31);
             this.txtStock.TabIndex = 18;
+            this.txtStock.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtStock_KeyPress);
             // 
             // label2
             // 
@@ -310,6 +311,7 @@ namespace ccquevedo_
             this.txtInventario.Name = "txtInventario";
             this.txtInventario.Size = new System.Drawing.Size(272, 31);
             this.txtInventario.TabIndex = 29;
+            this.txtInventario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtInventario_KeyPress);
             // 
             // label3
             // 

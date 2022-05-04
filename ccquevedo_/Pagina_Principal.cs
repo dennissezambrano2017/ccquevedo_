@@ -34,7 +34,7 @@ namespace ccquevedo_
                                                            
         private void btnProducto_Click(object sender, EventArgs e)
         {
-            formHijo.AbrirFormInPanel(new Productos(),this.panelCntro);
+            formHijo.AbrirFormInPanel(new Productos(), this.panelCntro);
         }
 
     }

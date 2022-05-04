@@ -13,14 +13,17 @@ namespace ccquevedo_
     public partial class CrearExcel : Form
     {
         private int posicion;
+        private bool datos;
         public CrearExcel()
         {
             InitializeComponent();
+
         }
         private DataGridView dtProductos;
 
         public DataGridView DtProductos { get => dtProductos; set => dtProductos = value; }
         public int Posicion { get => posicion; set => posicion = value; }
+        public bool Datos { get => datos; set => datos = value; }
 
         public void DT_Productos()
         {
@@ -29,6 +32,11 @@ namespace ccquevedo_
         public void Posicion_()
         {
             posicion = dgvProducto.CurrentRow.Index;
+        }
+
+        public void Datos_()
+        {
+            datos = true;
         }
         private void btnNuevo_Click(object sender, EventArgs e)
         {
@@ -46,6 +54,7 @@ namespace ccquevedo_
                 // TODO: esta línea de código carga datos en la tabla 'bdCamaraComercioDataSet.Productos' Puede moverla o quitarla según sea necesario.
                 this.productosTableAdapter.Fill(this.bdCamaraComercioDataSet.Productos);
                 DT_Productos();
+
                 dgvProducto.Columns.Add("Codigo", "Codigo");
                 dgvProducto.Columns.Add("Nombre", "Nombre");
                 dgvProducto.Columns.Add("DescripcionCorta", "Descripción Corta");
@@ -56,7 +65,11 @@ namespace ccquevedo_
                 dgvProducto.Columns.Add("Imagen", "Imagen");
                 dgvProducto.Columns.Add("Categoria", "Categoria");
                 dgvProducto.Columns.Add("TipoProducto", "Tipo Producto");
-            }catch (Exception ex)
+
+                if (dgvProducto.SelectedRows.Count > 0)
+                    Datos_();
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             }

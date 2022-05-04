@@ -12,6 +12,16 @@ namespace ccquevedo_
 {
     public partial class Productos : Form
     {
+        private static Productos instancia = null;
+        public static Productos FormCrear()
+        {
+            if (instancia == null)
+            {
+                instancia = new Productos();
+                return instancia;
+            }
+            return instancia;
+        }
         public Productos()
         {
             InitializeComponent();
