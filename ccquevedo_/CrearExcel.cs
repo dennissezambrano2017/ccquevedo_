@@ -42,19 +42,26 @@ namespace ccquevedo_
 
         private void CrearExcel_Load(object sender, EventArgs e)
         {
-            // TODO: esta línea de código carga datos en la tabla 'bdCamaraComercioDataSet.Productos' Puede moverla o quitarla según sea necesario.
-            this.productosTableAdapter.Fill(this.bdCamaraComercioDataSet.Productos);
-            DT_Productos();
-            dgvProducto.Columns.Add("Codigo", "Codigo");
-            dgvProducto.Columns.Add("Nombre", "Nombre");
-            dgvProducto.Columns.Add("DescripcionCorta", "Descripción Corta");
-            dgvProducto.Columns.Add("DescripcionLarga", "Descripción Larga");
-            dgvProducto.Columns.Add("PrecioNormal", "Precio Normal");
-            dgvProducto.Columns.Add("PrecioOferta", "Precio Oferta");
-            dgvProducto.Columns.Add("Stock", "Stock");
-            dgvProducto.Columns.Add("Imagen", "Imagen");
-            dgvProducto.Columns.Add("Categoria", "Categoria");
-            dgvProducto.Columns.Add("TipoProducto", "Tipo Producto");
+            try
+            {
+                // TODO: esta línea de código carga datos en la tabla 'bdCamaraComercioDataSet.Productos' Puede moverla o quitarla según sea necesario.
+                this.productosTableAdapter.Fill(this.bdCamaraComercioDataSet.Productos);
+                DT_Productos();
+                dgvProducto.Columns.Add("Codigo", "Codigo");
+                dgvProducto.Columns.Add("Nombre", "Nombre");
+                dgvProducto.Columns.Add("DescripcionCorta", "Descripción Corta");
+                dgvProducto.Columns.Add("DescripcionLarga", "Descripción Larga");
+                dgvProducto.Columns.Add("PrecioNormal", "Precio Normal");
+                dgvProducto.Columns.Add("PrecioOferta", "Precio Oferta");
+                dgvProducto.Columns.Add("Stock", "Stock");
+                dgvProducto.Columns.Add("Imagen", "Imagen");
+                dgvProducto.Columns.Add("Categoria", "Categoria");
+                dgvProducto.Columns.Add("TipoProducto", "Tipo Producto");
+            }catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
@@ -187,19 +194,27 @@ namespace ccquevedo_
 
         private void Insertar()
         {
-            for (int i = 0; i < dgvProducto.Rows.Count; i++)
+            try
             {
-                this.productosTableAdapter.Insertar(Convert.ToInt32(dtProductos.Rows[i].Cells[0].Value.ToString()),
-        dtProductos.Rows[i].Cells[1].Value.ToString(),
-        dtProductos.Rows[i].Cells[2].Value.ToString(),
-        dtProductos.Rows[i].Cells[6].Value.ToString(),
-        Convert.ToInt32(dtProductos.Rows[i].Cells[6].Value.ToString()),
-        Convert.ToInt32(dtProductos.Rows[i].Cells[6].Value.ToString()),
-        Convert.ToInt32(dtProductos.Rows[i].Cells[5].Value.ToString()),
-        Convert.ToInt32(dtProductos.Rows[i].Cells[4].Value.ToString()),
-        dtProductos.Rows[i].Cells[8].Value.ToString(),
-        dtProductos.Rows[i].Cells[7].Value.ToString());
-                this.productosTableAdapter.Fill(this.bdCamaraComercioDataSet.Productos);
+                for (int i = 0; i < dgvProducto.Rows.Count; i++)
+                {
+                    this.productosTableAdapter.Insertar(
+                        Convert.ToInt32(dtProductos.Rows[i].Cells[0].Value.ToString()),
+                        dtProductos.Rows[i].Cells[1].Value.ToString(),
+                        dtProductos.Rows[i].Cells[2].Value.ToString(),
+                        Convert.ToInt32(dtProductos.Rows[i].Cells[6].Value.ToString()),
+                        dtProductos.Rows[i].Cells[6].Value.ToString(),
+                        Convert.ToInt32(dtProductos.Rows[i].Cells[6].Value.ToString()),
+                        dtProductos.Rows[i].Cells[3].Value.ToString(),
+                        DateTime.Now, DateTime.Now, 1,
+                        Convert.ToDecimal(dtProductos.Rows[i].Cells[4].Value.ToString()),
+                        Convert.ToDecimal(dtProductos.Rows[i].Cells[5].Value.ToString()), "Simple");
+                    this.productosTableAdapter.Fill(this.bdCamaraComercioDataSet.Productos);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
             }
         }
 

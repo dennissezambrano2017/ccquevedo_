@@ -19,15 +19,29 @@ namespace ccquevedo_
             
             InitializeComponent();
             this.id = id;
-            DataTable tablaUno=this.productosTableAdapter.BuscarDatos(Convert.ToInt32(id));
 
-            txtNombre.Text= tablaUno.Rows[0][1].ToString();
-            txtDescripcion.Text = tablaUno.Rows[0][2].ToString();
-            txtInventario.Text = tablaUno.Rows[0][3].ToString();
-            txtminStock.Text = tablaUno.Rows[0][4].ToString();
-            txtprecioRebajado.Text = tablaUno.Rows[0][6].ToString();
-            txtPrecio.Text = tablaUno.Rows[0][7].ToString();
-            txtCategoria.Text = tablaUno.Rows[0][8].ToString();
+            try
+            {
+                DataTable tablaUno = this.productosTableAdapter.BuscarDatos(Convert.ToInt32(id));
+
+                txtCodigo.Text = id.ToString();
+                txtNombre.Text = tablaUno.Rows[0][1].ToString();
+                txtDescripcion.Text = tablaUno.Rows[0][2].ToString();
+                txtInventario.Text = tablaUno.Rows[0][3].ToString();
+                txtImage.Text = tablaUno.Rows[0][4].ToString();
+                txtminStock.Text = tablaUno.Rows[0][6].ToString();
+                txtDescripcionL.Text = tablaUno.Rows[0][5].ToString();
+                txtFechaFin.Text = tablaUno.Rows[0][12].ToString();
+                txtFechaInicio.Text = tablaUno.Rows[0][11].ToString();
+                txtCategoria.Text = tablaUno.Rows[0][9].ToString();
+                txtPrecio.Text = tablaUno.Rows[0][7].ToString();
+                txtprecioRebajado.Text = tablaUno.Rows[0][8].ToString();
+                txtTipoProducto.Text = tablaUno.Rows[0][10].ToString();
+            }catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            
         }
 
 
@@ -49,22 +63,28 @@ namespace ccquevedo_
 
         private void btnGuardar_Click_1(object sender, EventArgs e)
         {
-            this.productosTableAdapter.Editar(txtNombre.Text, txtDescripcion.Text, txtInventario.Text,
-                Convert.ToInt32(txtminStock.Text), 0,
-                Convert.ToInt32(txtprecioRebajado.Text), Convert.ToInt32(txtPrecio.Text),
-                txtCategoria.Text, "nada", Convert.ToInt32(id));
-            this.productosTableAdapter.Fill(this.bdCamaraComercioDataSet.Productos);
-            this.Close();
+            try
+            {
+                this.productosTableAdapter.Editar(txtNombre.Text, txtDescripcion.Text,
+                                Convert.ToInt32(txtInventario.Text), "",
+                                Convert.ToInt32(txtminStock.Text), txtDescripcionL.Text,
+                                DateTime.Now, DateTime.Now, 1,
+                                Convert.ToDecimal(txtPrecio.Text),
+                                Convert.ToDecimal(txtprecioRebajado.Text),
+                                 "Simple", Convert.ToInt32(id));
+                this.productosTableAdapter.Fill(this.bdCamaraComercioDataSet.Productos);
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

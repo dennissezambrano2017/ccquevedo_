@@ -38,7 +38,7 @@ namespace ccquevedo_
         {
             try
             {
-                return Convert.ToInt32(dgvProductos.Rows[num].Cells["Column1"].Value.ToString());
+                return Convert.ToInt32(dgvProductos.Rows[num].Cells["Id"].Value.ToString());
             }
             catch
             {

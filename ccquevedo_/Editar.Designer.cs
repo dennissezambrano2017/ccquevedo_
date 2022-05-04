@@ -48,7 +48,7 @@
             this.productosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.productosTableAdapter = new ccquevedo_.bdCamaraComercioDataSetTableAdapters.ProductosTableAdapter();
             this.tableAdapterManager = new ccquevedo_.bdCamaraComercioDataSetTableAdapters.TableAdapterManager();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtDescripcionL = new System.Windows.Forms.TextBox();
             this.lblDesComple = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
@@ -58,11 +58,11 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.btnGuardar = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtCodigo = new System.Windows.Forms.TextBox();
             this.lblCodigo = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtFechaInicio = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtFechaFin = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.bdCamaraComercioDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productosBindingSource)).BeginInit();
@@ -79,7 +79,6 @@
             this.lblNombre.Size = new System.Drawing.Size(98, 22);
             this.lblNombre.TabIndex = 0;
             this.lblNombre.Text = "Nombre:*";
-            this.lblNombre.Click += new System.EventHandler(this.label1_Click);
             // 
             // txtNombre
             // 
@@ -214,17 +213,18 @@
             // tableAdapterManager
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.CategoriasTableAdapter = null;
             this.tableAdapterManager.ProductosTableAdapter = this.productosTableAdapter;
             this.tableAdapterManager.UpdateOrder = ccquevedo_.bdCamaraComercioDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // textBox1
+            // txtDescripcionL
             // 
-            this.textBox1.Font = new System.Drawing.Font("Century Gothic", 14.25F);
-            this.textBox1.Location = new System.Drawing.Point(236, 200);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(272, 127);
-            this.textBox1.TabIndex = 18;
+            this.txtDescripcionL.Font = new System.Drawing.Font("Century Gothic", 14.25F);
+            this.txtDescripcionL.Location = new System.Drawing.Point(236, 200);
+            this.txtDescripcionL.Multiline = true;
+            this.txtDescripcionL.Name = "txtDescripcionL";
+            this.txtDescripcionL.Size = new System.Drawing.Size(272, 127);
+            this.txtDescripcionL.TabIndex = 18;
             // 
             // lblDesComple
             // 
@@ -327,14 +327,14 @@
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click_1);
             // 
-            // textBox2
+            // txtCodigo
             // 
-            this.textBox2.Enabled = false;
-            this.textBox2.Font = new System.Drawing.Font("Century Gothic", 14.25F);
-            this.textBox2.Location = new System.Drawing.Point(236, 77);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(272, 31);
-            this.textBox2.TabIndex = 52;
+            this.txtCodigo.Enabled = false;
+            this.txtCodigo.Font = new System.Drawing.Font("Century Gothic", 14.25F);
+            this.txtCodigo.Location = new System.Drawing.Point(236, 77);
+            this.txtCodigo.Name = "txtCodigo";
+            this.txtCodigo.Size = new System.Drawing.Size(272, 31);
+            this.txtCodigo.TabIndex = 52;
             // 
             // lblCodigo
             // 
@@ -346,13 +346,13 @@
             this.lblCodigo.TabIndex = 51;
             this.lblCodigo.Text = "Codigo:";
             // 
-            // textBox3
+            // txtFechaInicio
             // 
-            this.textBox3.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(782, 266);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(272, 31);
-            this.textBox3.TabIndex = 54;
+            this.txtFechaInicio.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFechaInicio.Location = new System.Drawing.Point(782, 266);
+            this.txtFechaInicio.Name = "txtFechaInicio";
+            this.txtFechaInicio.Size = new System.Drawing.Size(272, 31);
+            this.txtFechaInicio.TabIndex = 54;
             // 
             // label5
             // 
@@ -366,13 +366,13 @@
             this.label5.TabIndex = 53;
             this.label5.Text = "Fecha inicio \r\nde oferta:\r\n";
             // 
-            // textBox4
+            // txtFechaFin
             // 
-            this.textBox4.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(782, 314);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(272, 31);
-            this.textBox4.TabIndex = 56;
+            this.txtFechaFin.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFechaFin.Location = new System.Drawing.Point(782, 314);
+            this.txtFechaFin.Name = "txtFechaFin";
+            this.txtFechaFin.Size = new System.Drawing.Size(272, 31);
+            this.txtFechaFin.TabIndex = 56;
             // 
             // label8
             // 
@@ -391,11 +391,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1107, 635);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.txtFechaFin);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.txtFechaInicio);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtCodigo);
             this.Controls.Add(this.lblCodigo);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.txtTipoProducto);
@@ -403,7 +403,7 @@
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtDescripcionL);
             this.Controls.Add(this.lblDesComple);
             this.Controls.Add(this.txtDescripcion);
             this.Controls.Add(this.lblDesCorta);
@@ -454,7 +454,7 @@
         private System.Windows.Forms.BindingSource productosBindingSource;
         private bdCamaraComercioDataSetTableAdapters.ProductosTableAdapter productosTableAdapter;
         private bdCamaraComercioDataSetTableAdapters.TableAdapterManager tableAdapterManager;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtDescripcionL;
         private System.Windows.Forms.Label lblDesComple;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label10;
@@ -464,11 +464,11 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button btnGuardar;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtCodigo;
         private System.Windows.Forms.Label lblCodigo;
-        public System.Windows.Forms.TextBox textBox3;
+        public System.Windows.Forms.TextBox txtFechaInicio;
         private System.Windows.Forms.Label label5;
-        public System.Windows.Forms.TextBox textBox4;
+        public System.Windows.Forms.TextBox txtFechaFin;
         private System.Windows.Forms.Label label8;
     }
 }
