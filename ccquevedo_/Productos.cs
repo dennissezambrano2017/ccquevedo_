@@ -60,7 +60,6 @@ namespace ccquevedo_
             }
             else
             {
-                label1.Text = "NO";
             }
 
 
@@ -88,7 +87,6 @@ namespace ccquevedo_
             }
             else
             {
-                label1.Text = "NO";
             }
         }
 
