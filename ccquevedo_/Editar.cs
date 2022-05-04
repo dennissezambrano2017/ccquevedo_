@@ -25,7 +25,6 @@ namespace ccquevedo_
             txtDescripcion.Text = tablaUno.Rows[0][2].ToString();
             txtInventario.Text = tablaUno.Rows[0][3].ToString();
             txtminStock.Text = tablaUno.Rows[0][4].ToString();
-            txtPeso.Text = tablaUno.Rows[0][5].ToString();
             txtprecioRebajado.Text = tablaUno.Rows[0][6].ToString();
             txtPrecio.Text = tablaUno.Rows[0][7].ToString();
             txtCategoria.Text = tablaUno.Rows[0][8].ToString();
@@ -51,11 +50,21 @@ namespace ccquevedo_
         private void btnGuardar_Click_1(object sender, EventArgs e)
         {
             this.productosTableAdapter.Editar(txtNombre.Text, txtDescripcion.Text, txtInventario.Text,
-                Convert.ToInt32(txtminStock.Text), Convert.ToInt32(txtPeso.Text),
+                Convert.ToInt32(txtminStock.Text), 0,
                 Convert.ToInt32(txtprecioRebajado.Text), Convert.ToInt32(txtPrecio.Text),
                 txtCategoria.Text, "nada", Convert.ToInt32(id));
             this.productosTableAdapter.Fill(this.bdCamaraComercioDataSet.Productos);
             this.Close();
+        }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
