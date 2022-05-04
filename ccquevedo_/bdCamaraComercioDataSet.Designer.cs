@@ -2690,11 +2690,17 @@ VALUES        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.OleDb.OleDbCommand[1];
+            this._commandCollection = new global::System.Data.OleDb.OleDbCommand[2];
             this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT Id_Categoria, descripcion FROM Categorias";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.OleDb.OleDbCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT        descripcion\r\nFROM            Categorias\r\nWHERE        (Id_Categoria" +
+                " = ?)";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Id_Categoria", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Id_Categoria", global::System.Data.DataRowVersion.Current, false, null));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2716,6 +2722,18 @@ VALUES        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual bdCamaraComercioDataSet.CategoriasDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            bdCamaraComercioDataSet.CategoriasDataTable dataTable = new bdCamaraComercioDataSet.CategoriasDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual bdCamaraComercioDataSet.CategoriasDataTable BuscarCategoria(int Id_Categoria) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(Id_Categoria));
             bdCamaraComercioDataSet.CategoriasDataTable dataTable = new bdCamaraComercioDataSet.CategoriasDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
