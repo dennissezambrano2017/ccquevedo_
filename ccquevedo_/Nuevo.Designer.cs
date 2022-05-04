@@ -153,6 +153,7 @@ namespace ccquevedo_
             this.txtCodigo.Size = new System.Drawing.Size(281, 31);
             this.txtCodigo.TabIndex = 7;
             this.txtCodigo.TextChanged += new System.EventHandler(this.txtCodigo_TextChanged);
+            this.txtCodigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigo_KeyPress);
             // 
             // txtNombre
             // 
@@ -174,6 +175,7 @@ namespace ccquevedo_
             this.txtPrecioNormal.Name = "txtPrecioNormal";
             this.txtPrecioNormal.Size = new System.Drawing.Size(281, 31);
             this.txtPrecioNormal.TabIndex = 10;
+            this.txtPrecioNormal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecioNormal_KeyPress);
             // 
             // txtPrecioOferta
             // 
