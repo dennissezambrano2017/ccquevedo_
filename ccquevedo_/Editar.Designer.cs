@@ -342,9 +342,9 @@
             this.lblCodigo.Font = new System.Drawing.Font("Century Gothic", 14.25F);
             this.lblCodigo.Location = new System.Drawing.Point(31, 81);
             this.lblCodigo.Name = "lblCodigo";
-            this.lblCodigo.Size = new System.Drawing.Size(83, 22);
+            this.lblCodigo.Size = new System.Drawing.Size(92, 22);
             this.lblCodigo.TabIndex = 51;
-            this.lblCodigo.Text = "Codigo:";
+            this.lblCodigo.Text = "Codigo:*";
             // 
             // txtFechaInicio
             // 
