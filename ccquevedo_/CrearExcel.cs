@@ -32,7 +32,7 @@ namespace ccquevedo_
         }
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            Nuevo frmCrear =  Nuevo.FormCrear();
+            Nuevo frmCrear = Nuevo.FormCrear();
             AddOwnedForm(frmCrear);
             frmCrear.ShowDialog();
             //frmCrear.BringToFront();
@@ -84,7 +84,7 @@ namespace ccquevedo_
 
         private void btnElimnar_Click(object sender, EventArgs e)
         {
-           
+
             if (dgvProducto.SelectedRows.Count > 0)
             {
                 DialogResult result = MessageBox.Show("Esta seguro de eliminar la fila", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -93,7 +93,7 @@ namespace ccquevedo_
                     dgvProducto.Rows.Remove(dgvProducto.CurrentRow);
                     dgvProducto.Rows[0].Selected = false;
                 }
-               
+
             }
             else
                 MessageBox.Show("Seleccione una fila con datos", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -125,7 +125,7 @@ namespace ccquevedo_
 
                     exportarExcel = new Microsoft.Office.Interop.Excel.Application();
                     libros_trabajo = exportarExcel.Workbooks.Add();
-                    hoja_trabajo = 
+                    hoja_trabajo =
                         (Microsoft.Office.Interop.Excel.Worksheet)libros_trabajo.Worksheets.get_Item(1);
 
                     int indiecolumna = 0;
@@ -149,7 +149,7 @@ namespace ccquevedo_
 
                     //exportarExcel.Visible = false;
 
-                    libros_trabajo.SaveAs(fichero.FileName, 
+                    libros_trabajo.SaveAs(fichero.FileName,
                         Microsoft.Office.Interop.Excel.XlFileFormat.xlWorkbookNormal);
                     libros_trabajo.Close(true);
                     exportarExcel.Quit();
@@ -159,12 +159,12 @@ namespace ccquevedo_
             {
                 MessageBox.Show("Error al exportar la informacion debido a: " + ex.ToString());
             }
-}
+        }
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
-            
-            if(dgvProducto.Rows.Count > 0)
+
+            if (dgvProducto.Rows.Count > 0)
             {
                 Insertar();
                 //dtProductos.CurrentRow.Cells[0].Value.ToString(),
@@ -187,20 +187,29 @@ namespace ccquevedo_
 
         private void Insertar()
         {
-            for (int i = 0; i < dgvProducto.Rows.Count; i++)
+            try
             {
-                this.productosTableAdapter.Insertar(Convert.ToInt32(dtProductos.Rows[i].Cells[0].Value.ToString()),
-        dtProductos.Rows[i].Cells[1].Value.ToString(),
-        dtProductos.Rows[i].Cells[2].Value.ToString(),
-        dtProductos.Rows[i].Cells[6].Value.ToString(),
-        Convert.ToInt32(dtProductos.Rows[i].Cells[6].Value.ToString()),
-        Convert.ToInt32(dtProductos.Rows[i].Cells[6].Value.ToString()),
-        Convert.ToInt32(dtProductos.Rows[i].Cells[5].Value.ToString()),
-        Convert.ToInt32(dtProductos.Rows[i].Cells[4].Value.ToString()),
-        dtProductos.Rows[i].Cells[8].Value.ToString(),
-        dtProductos.Rows[i].Cells[7].Value.ToString());
-                this.productosTableAdapter.Fill(this.bdCamaraComercioDataSet.Productos);
+                for (int i = 0; i < dgvProducto.Rows.Count; i++)
+                {
+                    this.productosTableAdapter.Insertar(
+                        Convert.ToInt32(dtProductos.Rows[i].Cells[0].Value.ToString()),
+                        dtProductos.Rows[i].Cells[1].Value.ToString(),
+                        dtProductos.Rows[i].Cells[2].Value.ToString(),
+                        Convert.ToInt32(dtProductos.Rows[i].Cells[6].Value.ToString()),
+                        dtProductos.Rows[i].Cells[6].Value.ToString(),
+                        Convert.ToInt32(dtProductos.Rows[i].Cells[6].Value.ToString()),
+                        dtProductos.Rows[i].Cells[3].Value.ToString(),
+                        DateTime.Now, DateTime.Now, "Simple",
+                        Convert.ToDecimal(dtProductos.Rows[i].Cells[5].Value.ToString()),
+                        Convert.ToDecimal(dtProductos.Rows[i].Cells[4].Value.ToString()), 1);
+                    this.productosTableAdapter.Fill(this.bdCamaraComercioDataSet.Productos);
+                }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            
         }
 
         private void productosBindingNavigatorSaveItem_Click(object sender, EventArgs e)
