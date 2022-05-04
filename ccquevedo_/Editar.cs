@@ -13,8 +13,10 @@ namespace ccquevedo_
     public partial class Editar : Form
     {
         public int? id;
+
         public Editar(int? id=null)
         {
+            
             InitializeComponent();
             this.id = id;
             DataTable tablaUno=this.productosTableAdapter.BuscarDatos(Convert.ToInt32(id));
