@@ -133,7 +133,7 @@
         mHQIzSBtq/4ZUfOS9tA6eo6yOukdN4RW6xdpZgV3PmOVYwAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="button1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnModificar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABGdBTUEAALGPC/xhBQAAAOVJREFUSEvt
         lcENgkAQRTlSgrEFrx4sQi9aCYl3OVqM2gxnS9DYAb6B2WTBhWiYNSHZl/wDs/BfdkkgS8yauq4L8iQV
@@ -143,7 +143,7 @@
         YII=
 </value>
   </data>
-  <data name="button2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnActu_Desca.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAXlJREFUWEft
         kr1KxEAUhcMKooVgs8JaiJ3v4kPY+QTbqKiFjSwLgpZWdtaWFr6BlQtaWdjYCCKoiIVcz9x7EpJNVieT
@@ -153,6 +153,27 @@
         3ULv0Av0CC2wHAcsVHgsAHvbqnIKHdujDFiOA5eWAsBagd6gT2gV6kHuTbjzGttKoPYB+f8VrtnBYwas
         C6vICS3nHZkll7RKoBYnQChY1QZoA4QFqMk5NMP5vjo/M9TLqmBDCL4hJl8eE1xUFWI6l6fgwnyI6V6e
         gou3oEMeSZJ8A/oS7o5u9kt+AAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="btnElimnar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAACNSURBVFhH7ZDBCYAwEATzSg32ou2JHVpBrOPckPWhKHgXHz524MAcmWVjEsKLmQ2YFXOl7gZe
+        66dlfgdj30PvidNr6zd3j/CqD7oxGVAP+yrwvwI8hs9u6KuACqiACqhAOIC6CnQV2FqEjVy9Bs7UVCtc
+        +YG8tIwuZsb5gZwxtcTxJzwUzIzJjBPihpR2nWx6n+m+3uUAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="btnActualizar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAGmSURBVFhH7ZZLKwVhHIfPUQobC7dyiVyysvE9TpJSWLASWVicxMbi7HwAJVlZkFI2bku+BGtl
+        JxYUkcvr+c/7m2zMmXfqbGieejLzn99vzMy5vYWcnCw453pwDU/xFl/wCa80W8R2xWsHJ+3GffzANCyz
+        g62qWz9Cu9mgN4F2l8Yr7uEk9mEjNuMIzuAZxhf5gGM6R0R0wizQWcKvqO3cIXbpUCJkBvHSCvCOc34z
+        4wWQH8dPuaxxEOTrsIJGfAPhF0C2A++jlnNljTNDd8OfwqNxOmS3fMWdaBSMer+iSHXI1eM12ptpSONg
+        6CSiSDpk7TUc1W5OTs7fxz7S9tHWbjqEE1EkGCrDaF9q9uVWr3F1CCaiSBDEi2g/0camxumoEFPRODN0
+        V/0p3B22aZyO70TEP6XrWNThIMiX0fr2+Esah0EhZhZtUWFc4IAiiZDpxSMrgK0l5nUoHN/1rzd/Shiv
+        DexuznEa+7EBm7Q9hQf4hsYjRkuyzPj+zxuOzRbcxvhpVMMyu9ipeu3gpK24gPYUbFlui9RnvMFjXMHa
+        /+Ocf0yh8A37GNODnuz5TgAAAABJRU5ErkJggg==
 </value>
   </data>
 </root>

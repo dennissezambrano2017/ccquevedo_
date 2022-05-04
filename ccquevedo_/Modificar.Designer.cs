@@ -203,82 +203,82 @@
             // 
             // txtCodigo
             // 
-            this.txtCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCodigo.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCodigo.Location = new System.Drawing.Point(227, 78);
             this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Size = new System.Drawing.Size(281, 29);
+            this.txtCodigo.Size = new System.Drawing.Size(281, 31);
             this.txtCodigo.TabIndex = 36;
             // 
             // txtNombre
             // 
-            this.txtNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNombre.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombre.Location = new System.Drawing.Point(227, 118);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(281, 29);
+            this.txtNombre.Size = new System.Drawing.Size(281, 31);
             this.txtNombre.TabIndex = 37;
             // 
             // txtDesCorta
             // 
-            this.txtDesCorta.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDesCorta.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDesCorta.Location = new System.Drawing.Point(227, 158);
             this.txtDesCorta.Name = "txtDesCorta";
-            this.txtDesCorta.Size = new System.Drawing.Size(281, 29);
+            this.txtDesCorta.Size = new System.Drawing.Size(281, 31);
             this.txtDesCorta.TabIndex = 38;
             // 
             // txtPrecioNormal
             // 
-            this.txtPrecioNormal.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPrecioNormal.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPrecioNormal.Location = new System.Drawing.Point(227, 194);
             this.txtPrecioNormal.Name = "txtPrecioNormal";
-            this.txtPrecioNormal.Size = new System.Drawing.Size(281, 29);
+            this.txtPrecioNormal.Size = new System.Drawing.Size(281, 31);
             this.txtPrecioNormal.TabIndex = 39;
             // 
             // txtPrecioOferta
             // 
-            this.txtPrecioOferta.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPrecioOferta.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPrecioOferta.Location = new System.Drawing.Point(227, 229);
             this.txtPrecioOferta.Name = "txtPrecioOferta";
-            this.txtPrecioOferta.Size = new System.Drawing.Size(281, 29);
+            this.txtPrecioOferta.Size = new System.Drawing.Size(281, 31);
             this.txtPrecioOferta.TabIndex = 40;
             // 
             // txtTipoProducto
             // 
-            this.txtTipoProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTipoProducto.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTipoProducto.Location = new System.Drawing.Point(782, 229);
             this.txtTipoProducto.Name = "txtTipoProducto";
-            this.txtTipoProducto.Size = new System.Drawing.Size(281, 29);
+            this.txtTipoProducto.Size = new System.Drawing.Size(281, 31);
             this.txtTipoProducto.TabIndex = 45;
             // 
             // cmbCategoria
             // 
-            this.cmbCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbCategoria.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbCategoria.Location = new System.Drawing.Point(782, 194);
             this.cmbCategoria.Name = "cmbCategoria";
-            this.cmbCategoria.Size = new System.Drawing.Size(281, 29);
+            this.cmbCategoria.Size = new System.Drawing.Size(281, 31);
             this.cmbCategoria.TabIndex = 44;
             // 
             // txtImage
             // 
-            this.txtImage.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtImage.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtImage.Location = new System.Drawing.Point(782, 158);
             this.txtImage.Name = "txtImage";
-            this.txtImage.Size = new System.Drawing.Size(281, 29);
+            this.txtImage.Size = new System.Drawing.Size(281, 31);
             this.txtImage.TabIndex = 43;
             // 
             // txtDescriComple
             // 
-            this.txtDescriComple.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDescriComple.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDescriComple.Location = new System.Drawing.Point(782, 118);
             this.txtDescriComple.Name = "txtDescriComple";
-            this.txtDescriComple.Size = new System.Drawing.Size(281, 29);
+            this.txtDescriComple.Size = new System.Drawing.Size(281, 31);
             this.txtDescriComple.TabIndex = 42;
             // 
             // txtStock
             // 
-            this.txtStock.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtStock.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtStock.Location = new System.Drawing.Point(782, 78);
             this.txtStock.Name = "txtStock";
-            this.txtStock.Size = new System.Drawing.Size(281, 29);
+            this.txtStock.Size = new System.Drawing.Size(281, 31);
             this.txtStock.TabIndex = 41;
             // 
             // btnGuadar
@@ -295,6 +295,7 @@
             this.btnGuadar.Text = "Guardar";
             this.btnGuadar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnGuadar.UseVisualStyleBackColor = false;
+            this.btnGuadar.Click += new System.EventHandler(this.btnGuadar_Click);
             // 
             // Modificar
             // 
