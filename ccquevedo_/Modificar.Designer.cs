@@ -128,12 +128,12 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(562, 121);
+            this.label5.Location = new System.Drawing.Point(31, 201);
             this.label5.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(215, 22);
+            this.label5.Size = new System.Drawing.Size(121, 22);
             this.label5.TabIndex = 32;
-            this.label5.Text = "Descripcion completa:";
+            this.label5.Text = "Descripcion:";
             // 
             // label6
             // 
@@ -150,7 +150,7 @@
             // 
             this.lblImage.AutoSize = true;
             this.lblImage.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblImage.Location = new System.Drawing.Point(24, 236);
+            this.lblImage.Location = new System.Drawing.Point(22, 374);
             this.lblImage.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblImage.Name = "lblImage";
             this.lblImage.Size = new System.Drawing.Size(137, 22);
@@ -161,7 +161,7 @@
             // 
             this.lblPrecionormal.AutoSize = true;
             this.lblPrecionormal.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrecionormal.Location = new System.Drawing.Point(22, 201);
+            this.lblPrecionormal.Location = new System.Drawing.Point(20, 339);
             this.lblPrecionormal.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblPrecionormal.Name = "lblPrecionormal";
             this.lblPrecionormal.Size = new System.Drawing.Size(139, 22);
@@ -172,7 +172,7 @@
             // 
             this.lblDescripcionCorta.AutoSize = true;
             this.lblDescripcionCorta.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDescripcionCorta.Location = new System.Drawing.Point(22, 162);
+            this.lblDescripcionCorta.Location = new System.Drawing.Point(31, 162);
             this.lblDescripcionCorta.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblDescripcionCorta.Name = "lblDescripcionCorta";
             this.lblDescripcionCorta.Size = new System.Drawing.Size(179, 22);
@@ -183,7 +183,7 @@
             // 
             this.lblNombre.AutoSize = true;
             this.lblNombre.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombre.Location = new System.Drawing.Point(22, 125);
+            this.lblNombre.Location = new System.Drawing.Point(31, 122);
             this.lblNombre.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(89, 22);
@@ -194,7 +194,7 @@
             // 
             this.lblId.AutoSize = true;
             this.lblId.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblId.Location = new System.Drawing.Point(22, 85);
+            this.lblId.Location = new System.Drawing.Point(31, 81);
             this.lblId.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblId.Name = "lblId";
             this.lblId.Size = new System.Drawing.Size(83, 22);
@@ -204,7 +204,7 @@
             // txtCodigo
             // 
             this.txtCodigo.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCodigo.Location = new System.Drawing.Point(227, 78);
+            this.txtCodigo.Location = new System.Drawing.Point(236, 77);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(281, 31);
             this.txtCodigo.TabIndex = 36;
@@ -212,7 +212,7 @@
             // txtNombre
             // 
             this.txtNombre.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombre.Location = new System.Drawing.Point(227, 118);
+            this.txtNombre.Location = new System.Drawing.Point(236, 116);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(281, 31);
             this.txtNombre.TabIndex = 37;
@@ -220,7 +220,7 @@
             // txtDesCorta
             // 
             this.txtDesCorta.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDesCorta.Location = new System.Drawing.Point(227, 158);
+            this.txtDesCorta.Location = new System.Drawing.Point(236, 159);
             this.txtDesCorta.Name = "txtDesCorta";
             this.txtDesCorta.Size = new System.Drawing.Size(281, 31);
             this.txtDesCorta.TabIndex = 38;
@@ -228,7 +228,7 @@
             // txtPrecioNormal
             // 
             this.txtPrecioNormal.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPrecioNormal.Location = new System.Drawing.Point(227, 194);
+            this.txtPrecioNormal.Location = new System.Drawing.Point(225, 332);
             this.txtPrecioNormal.Name = "txtPrecioNormal";
             this.txtPrecioNormal.Size = new System.Drawing.Size(281, 31);
             this.txtPrecioNormal.TabIndex = 39;
@@ -236,7 +236,7 @@
             // txtPrecioOferta
             // 
             this.txtPrecioOferta.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPrecioOferta.Location = new System.Drawing.Point(227, 229);
+            this.txtPrecioOferta.Location = new System.Drawing.Point(225, 367);
             this.txtPrecioOferta.Name = "txtPrecioOferta";
             this.txtPrecioOferta.Size = new System.Drawing.Size(281, 31);
             this.txtPrecioOferta.TabIndex = 40;
@@ -268,9 +268,10 @@
             // txtDescriComple
             // 
             this.txtDescriComple.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDescriComple.Location = new System.Drawing.Point(782, 118);
+            this.txtDescriComple.Location = new System.Drawing.Point(236, 200);
+            this.txtDescriComple.Multiline = true;
             this.txtDescriComple.Name = "txtDescriComple";
-            this.txtDescriComple.Size = new System.Drawing.Size(281, 31);
+            this.txtDescriComple.Size = new System.Drawing.Size(272, 127);
             this.txtDescriComple.TabIndex = 42;
             // 
             // txtStock
@@ -301,7 +302,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1107, 384);
+            this.ClientSize = new System.Drawing.Size(1107, 518);
             this.Controls.Add(this.btnGuadar);
             this.Controls.Add(this.txtTipoProducto);
             this.Controls.Add(this.cmbCategoria);
