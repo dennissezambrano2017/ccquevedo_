@@ -50,7 +50,7 @@ namespace ccquevedo_
                 txtStock.Text != "" && itemSelct != 0 && txtTipoProducto.Text != "")
             {
                 ce.DtProductos.Rows.Add(txtCodigo.Text, txtNombre.Text, txtDescripcionCorta.Text, txtDescripcionCompleta.Text, Convert.ToDouble(txtPrecioNormal.Text), Convert.ToDouble(txtPrecioOferta.Text),
-                   Convert.ToInt32(txtStock.Text), txtImagen.Text, ItemSelct, txtTipoProducto.Text);
+                   Convert.ToInt32(txtStock.Text), txtImagen.Text, cmbCategoria.GetItemText(cmbCategoria.SelectedItem), txtTipoProducto.Text);
                 this.Close();
             }
             else

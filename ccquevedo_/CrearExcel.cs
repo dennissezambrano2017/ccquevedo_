@@ -14,6 +14,7 @@ namespace ccquevedo_
     {
         private int posicion;
         private bool datos;
+        public Nuevo frmCrear;
         public CrearExcel()
         {
             InitializeComponent();
@@ -40,7 +41,7 @@ namespace ccquevedo_
         }
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            Nuevo frmCrear =  Nuevo.FormCrear();
+            frmCrear =  Nuevo.FormCrear();
             AddOwnedForm(frmCrear);
             frmCrear.ShowDialog();
 
@@ -204,7 +205,7 @@ namespace ccquevedo_
                         dtProductos.Rows[i].Cells[6].Value.ToString(),
                         Convert.ToInt32(dtProductos.Rows[i].Cells[6].Value.ToString()),
                         dtProductos.Rows[i].Cells[3].Value.ToString(),
-                        DateTime.Now, DateTime.Now, 1,
+                        DateTime.Now, DateTime.Now, frmCrear.ItemSelct,
                         Convert.ToDecimal(dtProductos.Rows[i].Cells[4].Value.ToString()),
                         Convert.ToDecimal(dtProductos.Rows[i].Cells[5].Value.ToString()), "Simple");
                     this.productosTableAdapter.Fill(this.bdCamaraComercioDataSet.Productos);
