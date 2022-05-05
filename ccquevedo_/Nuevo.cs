@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
@@ -11,6 +12,10 @@ namespace ccquevedo_
     public partial class Nuevo : Form
     {
         private static Nuevo instancia = null;
+        private int itemSelct;
+
+        public int ItemSelct { get => itemSelct; set => itemSelct = value; }
+
         public static Nuevo FormCrear()
         {
             if (instancia == null)
@@ -41,7 +46,7 @@ namespace ccquevedo_
             CrearExcel ce = Owner as CrearExcel;
             if (txtCodigo.Text != "" && txtNombre.Text != "" && txtDescripcionCorta.Text != "" &&
                 txtDescripcionCompleta.Text != "" && txtPrecioNormal.Text != "" && txtPrecioOferta.Text != "" &&
-                txtStock.Text != "" && cmbCategoria.Text != "" && txtTipoProducto.Text != "")
+                txtStock.Text != "" && itemSelct != 0 && txtTipoProducto.Text != "")
             {
                 ce.DtProductos.Rows.Add(txtCodigo.Text, txtNombre.Text, txtDescripcionCorta.Text, txtDescripcionCompleta.Text, Convert.ToDouble(txtPrecioNormal.Text), Convert.ToDouble(txtPrecioOferta.Text),
                    Convert.ToInt32(txtStock.Text), txtImagen.Text, cmbCategoria.Text, txtTipoProducto.Text);
@@ -104,5 +109,37 @@ namespace ccquevedo_
                 e.Handled = true;
             }
         }
+
+        private void categoriasBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.categoriasBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.bdCamaraComercioDataSet);
+
+        }
+
+        private void Nuevo_Load(object sender, EventArgs e)
+        {
+            // TODO: esta línea de código carga datos en la tabla 'bdCamaraComercioDataSet.Categorias' Puede moverla o quitarla según sea necesario.
+            this.categoriasTableAdapter.Fill(this.bdCamaraComercioDataSet.Categorias);
+            DataTable tablaUno = this.categoriasTableAdapter.GetData();
+            cmbCategoria.DisplayMember = "Text";
+            cmbCategoria.ValueMember = "Value";
+            for (int i = 0; i < tablaUno.Rows.Count; i++)
+            {
+                cmbCategoria.Items.Add(new
+                {
+                    Text = tablaUno.Rows[i][1].ToString(),
+                    Value = tablaUno.Rows[i][0].ToString()
+                });
+
+            }
+        }
+
+        private void cmbCategoria_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           ItemSelct = cmbCategoria.SelectedIndex;
+        }
+        
     }
 }
