@@ -56,6 +56,7 @@ namespace ccquevedo_
                 this.productosTableAdapter.Fill(this.bdCamaraComercioDataSet.Productos);
                 DT_Productos();
 
+                //falta agrgar el resto de datos 
                 dgvProducto.Columns.Add("Codigo", "Codigo");
                 dgvProducto.Columns.Add("Nombre", "Nombre");
                 dgvProducto.Columns.Add("DescripcionCorta", "Descripción Corta");
@@ -221,7 +222,8 @@ namespace ccquevedo_
                         dtProductos.Rows[i].Cells[3].Value.ToString(),
                         DateTime.Now, DateTime.Now, frmCrear.ItemSelct,
                         Convert.ToDecimal(dtProductos.Rows[i].Cells[4].Value.ToString()),
-                        Convert.ToDecimal(dtProductos.Rows[i].Cells[5].Value.ToString()), "Simple");
+                        Convert.ToDecimal(dtProductos.Rows[i].Cells[5].Value.ToString()), "Simple", 
+                        dtProductos.Rows[i].Cells[6].Value.ToString());
                         //this.productosTableAdapter.Fill(this.bdCamaraComercioDataSet.Productos);
                     }
                 }
