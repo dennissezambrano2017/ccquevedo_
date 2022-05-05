@@ -32,8 +32,8 @@ namespace ccquevedo_
                 txtImage.Text = tablaUno.Rows[0][4].ToString();
                 txtminStock.Text = tablaUno.Rows[0][6].ToString();
                 txtDescripcionL.Text = tablaUno.Rows[0][5].ToString();
-                txtFechaFin.Text = tablaUno.Rows[0][12].ToString();
-                txtFechaInicio.Text = tablaUno.Rows[0][11].ToString();
+                mcFechaFin.Text = tablaUno.Rows[0][12].ToString();
+                mcFechaInicio.Text = tablaUno.Rows[0][11].ToString();
                 cmbCategoria.Text= dataTable.Rows[0][1].ToString();
                 idCat = Convert.ToInt32(tablaUno.Rows[0][9].ToString());
                 txtPrecio.Text = tablaUno.Rows[0][7].ToString();
@@ -79,13 +79,14 @@ namespace ccquevedo_
         private void btnGuardar_Click_1(object sender, EventArgs e)
         {
             idCat = int.Parse(cmbCategoria.SelectedValue.ToString());
-            MessageBox.Show(idCat.ToString());
-            try
-            {
+            DateTime fechaIncio = Convert.ToDateTime(mcFechaInicio.Text);
+            DateTime fechaFin =Convert.ToDateTime(mcFechaFin.Text);
+            try{
                 this.productosTableAdapter.Editar(txtNombre.Text, txtDescripcion.Text,
                                 Convert.ToInt32(txtInventario.Text), "",
                                 Convert.ToInt32(txtminStock.Text), txtDescripcionL.Text,
-                                DateTime.Now, DateTime.Now, idCat,
+                                Convert.ToDateTime(fechaFin.ToString("yyyy-MM-dd HH:mm:ss")),
+                                Convert.ToDateTime(fechaIncio.ToString("yyyy-MM-dd HH:mm:ss")), idCat,
                                 Convert.ToDecimal(txtPrecio.Text),
                                 Convert.ToDecimal(txtprecioRebajado.Text),
                                  "Simple", Convert.ToInt32(id));
