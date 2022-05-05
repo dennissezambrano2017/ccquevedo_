@@ -43,18 +43,18 @@ namespace ccquevedo_
 
         private void btnGuadar_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(itemSelct.ToString());
-            //CrearExcel ce = Owner as CrearExcel;
-            //if (txtCodigo.Text != "" && txtNombre.Text != "" && txtDescripcionCorta.Text != "" &&
-            //    txtDescripcionCompleta.Text != "" && txtPrecioNormal.Text != "" && txtPrecioOferta.Text != "" &&
-            //    txtStock.Text != "" && itemSelct != 0 && txtTipoProducto.Text != "")
-            //{
-            //    ce.DtProductos.Rows.Add(txtCodigo.Text, txtNombre.Text, txtDescripcionCorta.Text, txtDescripcionCompleta.Text, Convert.ToDouble(txtPrecioNormal.Text), Convert.ToDouble(txtPrecioOferta.Text),
-            //       Convert.ToInt32(txtStock.Text), txtImagen.Text, cmbCategoria.Text, txtTipoProducto.Text);
-            //    this.Close();
-            //}
-            //else
-            //    MessageBox.Show("Falta datos a ingresar", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            ItemSelct = int.Parse(cmbCategoria.SelectedValue.ToString());
+            CrearExcel ce = Owner as CrearExcel;
+            if (txtCodigo.Text != "" && txtNombre.Text != "" && txtDescripcionCorta.Text != "" &&
+                txtDescripcionCompleta.Text != "" && txtPrecioNormal.Text != "" && txtPrecioOferta.Text != "" &&
+                txtStock.Text != "" && itemSelct != 0 && txtTipoProducto.Text != "")
+            {
+                ce.DtProductos.Rows.Add(txtCodigo.Text, txtNombre.Text, txtDescripcionCorta.Text, txtDescripcionCompleta.Text, Convert.ToDouble(txtPrecioNormal.Text), Convert.ToDouble(txtPrecioOferta.Text),
+                   Convert.ToInt32(txtStock.Text), txtImagen.Text, ItemSelct, txtTipoProducto.Text);
+                this.Close();
+            }
+            else
+                MessageBox.Show("Falta datos a ingresar", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         private void txtCodigo_KeyPress(object sender, KeyPressEventArgs e)
@@ -126,18 +126,14 @@ namespace ccquevedo_
             DataTable tablaDos = this.categoriasTableAdapter.GetData();
             cmbCategoria.DisplayMember = "des";
             cmbCategoria.ValueMember = "idcat";
+
             List<Product> lista = new List<Product>();
             for (int i = 0; i < tablaDos.Rows.Count; i++)
             {
                 lista.Add(new Product(Convert.ToInt32(tablaDos.Rows[i][0].ToString()), tablaDos.Rows[i][1].ToString()));
             }
             cmbCategoria.DataSource = lista;
+            cmbCategoria.SelectedIndex = 0;
         }
-
-        private void cmbCategoria_SelectedIndexChanged(object sender, EventArgs e)
-        {
-           ItemSelct = (int)cmbCategoria.SelectedValue;
-        }
-        
     }
 }
