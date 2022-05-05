@@ -36,7 +36,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtPrecio = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtCategoria = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtminStock = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -44,10 +43,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.lblDesCorta = new System.Windows.Forms.Label();
-            this.bdCamaraComercioDataSet = new ccquevedo_.bdCamaraComercioDataSet();
-            this.productosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.productosTableAdapter = new ccquevedo_.bdCamaraComercioDataSetTableAdapters.ProductosTableAdapter();
-            this.tableAdapterManager = new ccquevedo_.bdCamaraComercioDataSetTableAdapters.TableAdapterManager();
             this.txtDescripcionL = new System.Windows.Forms.TextBox();
             this.lblDesComple = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -64,10 +59,18 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txtFechaFin = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.bdCamaraComercioDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productosBindingSource)).BeginInit();
+            this.cmbCategoria = new System.Windows.Forms.ComboBox();
+            this.bdCamaraComercioDataSet = new ccquevedo_.bdCamaraComercioDataSet();
+            this.productosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.productosTableAdapter = new ccquevedo_.bdCamaraComercioDataSetTableAdapters.ProductosTableAdapter();
+            this.tableAdapterManager = new ccquevedo_.bdCamaraComercioDataSetTableAdapters.TableAdapterManager();
+            this.categoriasBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.categoriasTableAdapter = new ccquevedo_.bdCamaraComercioDataSetTableAdapters.CategoriasTableAdapter();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdCamaraComercioDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productosBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoriasBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // lblNombre
@@ -123,14 +126,6 @@
             this.label3.Size = new System.Drawing.Size(148, 22);
             this.label3.TabIndex = 4;
             this.label3.Text = "Precio normal:*";
-            // 
-            // txtCategoria
-            // 
-            this.txtCategoria.Font = new System.Drawing.Font("Century Gothic", 14.25F);
-            this.txtCategoria.Location = new System.Drawing.Point(782, 165);
-            this.txtCategoria.Name = "txtCategoria";
-            this.txtCategoria.Size = new System.Drawing.Size(272, 31);
-            this.txtCategoria.TabIndex = 7;
             // 
             // label4
             // 
@@ -195,27 +190,6 @@
             this.lblDesCorta.Size = new System.Drawing.Size(188, 22);
             this.lblDesCorta.TabIndex = 14;
             this.lblDesCorta.Text = "Descripción Corta:*";
-            // 
-            // bdCamaraComercioDataSet
-            // 
-            this.bdCamaraComercioDataSet.DataSetName = "bdCamaraComercioDataSet";
-            this.bdCamaraComercioDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // productosBindingSource
-            // 
-            this.productosBindingSource.DataMember = "Productos";
-            this.productosBindingSource.DataSource = this.bdCamaraComercioDataSet;
-            // 
-            // productosTableAdapter
-            // 
-            this.productosTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.CategoriasTableAdapter = null;
-            this.tableAdapterManager.ProductosTableAdapter = this.productosTableAdapter;
-            this.tableAdapterManager.UpdateOrder = ccquevedo_.bdCamaraComercioDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
             // txtDescripcionL
             // 
@@ -386,12 +360,54 @@
             this.label8.TabIndex = 55;
             this.label8.Text = "Fecha fin \r\nde oferta:\r\n";
             // 
+            // cmbCategoria
+            // 
+            this.cmbCategoria.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbCategoria.FormattingEnabled = true;
+            this.cmbCategoria.Location = new System.Drawing.Point(782, 168);
+            this.cmbCategoria.Name = "cmbCategoria";
+            this.cmbCategoria.Size = new System.Drawing.Size(272, 30);
+            this.cmbCategoria.TabIndex = 57;
+            this.cmbCategoria.Text = "Seleccionar";
+            this.cmbCategoria.SelectedIndexChanged += new System.EventHandler(this.cmbCategoria_SelectedIndexChanged);
+            // 
+            // bdCamaraComercioDataSet
+            // 
+            this.bdCamaraComercioDataSet.DataSetName = "bdCamaraComercioDataSet";
+            this.bdCamaraComercioDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // productosBindingSource
+            // 
+            this.productosBindingSource.DataMember = "Productos";
+            this.productosBindingSource.DataSource = this.bdCamaraComercioDataSet;
+            // 
+            // productosTableAdapter
+            // 
+            this.productosTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.CategoriasTableAdapter = null;
+            this.tableAdapterManager.ProductosTableAdapter = this.productosTableAdapter;
+            this.tableAdapterManager.UpdateOrder = ccquevedo_.bdCamaraComercioDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // categoriasBindingSource
+            // 
+            this.categoriasBindingSource.DataMember = "Categorias";
+            this.categoriasBindingSource.DataSource = this.bdCamaraComercioDataSet;
+            // 
+            // categoriasTableAdapter
+            // 
+            this.categoriasTableAdapter.ClearBeforeFill = true;
+            // 
             // Editar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.ClientSize = new System.Drawing.Size(1107, 565);
+            this.ClientSize = new System.Drawing.Size(1107, 702);
+            this.Controls.Add(this.cmbCategoria);
             this.Controls.Add(this.txtFechaFin);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.txtFechaInicio);
@@ -412,7 +428,6 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txtminStock);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.txtCategoria);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtPrecio);
             this.Controls.Add(this.label3);
@@ -425,11 +440,12 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Editar";
             this.Load += new System.EventHandler(this.Editar_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.bdCamaraComercioDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productosBindingSource)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdCamaraComercioDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productosBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoriasBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -443,7 +459,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtPrecio;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtCategoria;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtminStock;
         private System.Windows.Forms.Label label6;
@@ -471,5 +486,8 @@
         private System.Windows.Forms.Label label5;
         public System.Windows.Forms.TextBox txtFechaFin;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox cmbCategoria;
+        private System.Windows.Forms.BindingSource categoriasBindingSource;
+        private bdCamaraComercioDataSetTableAdapters.CategoriasTableAdapter categoriasTableAdapter;
     }
 }
