@@ -89,7 +89,7 @@ namespace ccquevedo_
                                 Convert.ToDateTime(fechaIncio.ToString("yyyy-MM-dd HH:mm:ss")), idCat,
                                 Convert.ToDecimal(txtPrecio.Text),
                                 Convert.ToDecimal(txtprecioRebajado.Text),
-                                 "Simple", Convert.ToInt32(id));
+                                 "Simple", txtEtiqueta.Text, Convert.ToInt32(id));
                 this.productosTableAdapter.Fill(this.bdCamaraComercioDataSet.Productos);
                 this.Close();
             }

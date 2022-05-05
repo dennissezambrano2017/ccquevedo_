@@ -64,7 +64,7 @@
             this.tableAdapterManager = new ccquevedo_.bdCamaraComercioDataSetTableAdapters.TableAdapterManager();
             this.categoriasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.categoriasTableAdapter = new ccquevedo_.bdCamaraComercioDataSetTableAdapters.CategoriasTableAdapter();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtEtiqueta = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.mcFechaInicio = new System.Windows.Forms.DateTimePicker();
             this.mcFechaFin = new System.Windows.Forms.DateTimePicker();
@@ -386,14 +386,14 @@
             // 
             this.categoriasTableAdapter.ClearBeforeFill = true;
             // 
-            // textBox1
+            // txtEtiqueta
             // 
-            this.textBox1.Font = new System.Drawing.Font("Century Gothic", 14.25F);
-            this.textBox1.Location = new System.Drawing.Point(236, 432);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(272, 67);
-            this.textBox1.TabIndex = 59;
+            this.txtEtiqueta.Font = new System.Drawing.Font("Century Gothic", 14.25F);
+            this.txtEtiqueta.Location = new System.Drawing.Point(236, 432);
+            this.txtEtiqueta.Multiline = true;
+            this.txtEtiqueta.Name = "txtEtiqueta";
+            this.txtEtiqueta.Size = new System.Drawing.Size(272, 67);
+            this.txtEtiqueta.TabIndex = 59;
             // 
             // label1
             // 
@@ -431,7 +431,7 @@
             this.ClientSize = new System.Drawing.Size(1107, 563);
             this.Controls.Add(this.mcFechaFin);
             this.Controls.Add(this.mcFechaInicio);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtEtiqueta);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cmbCategoria);
             this.Controls.Add(this.label8);
@@ -511,7 +511,7 @@
         private System.Windows.Forms.ComboBox cmbCategoria;
         private System.Windows.Forms.BindingSource categoriasBindingSource;
         private bdCamaraComercioDataSetTableAdapters.CategoriasTableAdapter categoriasTableAdapter;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtEtiqueta;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DateTimePicker mcFechaInicio;
         private System.Windows.Forms.DateTimePicker mcFechaFin;
