@@ -18,6 +18,10 @@ namespace ccquevedo_
         public string categorias { get; set; }
         public string tipoProducto { get; set; }
         public string imagen { get; set; }
+        
+        //
+        public int idcat { get; set; }
+        public string des { get; set; }
 
         public Product() { }
 
@@ -46,6 +50,11 @@ namespace ccquevedo_
             this.precioOferta = precioOferta;
             this.categorias = categorias;
             this.tipoProducto = tipoProducto;
+        }
+        public Product(int idcat , string des)
+        {
+            this.idcat = idcat;
+            this.des = des;
         }
     }
 }

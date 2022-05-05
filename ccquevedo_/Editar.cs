@@ -55,7 +55,7 @@ namespace ccquevedo_
 
         }
 
-        
+
 
         private void Editar_Load(object sender, EventArgs e)
         {
@@ -65,21 +65,15 @@ namespace ccquevedo_
             this.productosTableAdapter.Fill(this.bdCamaraComercioDataSet.Productos);
 
             DataTable tablaDos = this.categoriasTableAdapter.GetData();
-            cmbCategoria.DisplayMember = "Text";
-            cmbCategoria.ValueMember = "Value";
+            cmbCategoria.DisplayMember = "des";
+            cmbCategoria.ValueMember = "idcat";
+            List<Product> lista = new List<Product>();
             for (int i = 0; i < tablaDos.Rows.Count; i++)
             {
-                cmbCategoria.Items.Add(new { Text = tablaDos.Rows[i][1].ToString(), 
-                    Value = tablaDos.Rows[i][0].ToString()
-                });
-                MessageBox.Show(tablaDos.Rows[i][0].ToString());
-                
+                lista.Add(new Product(Convert.ToInt32(tablaDos.Rows[i][0].ToString()), tablaDos.Rows[i][1].ToString()));
             }
-
-            
-
+            cmbCategoria.DataSource = lista;
         }
-
 
         private void btnGuardar_Click_1(object sender, EventArgs e)
         {
@@ -109,7 +103,7 @@ namespace ccquevedo_
 
         private void cmbCategoria_SelectedIndexChanged(object sender, EventArgs e)
         {
-           //MessageBox.Show(cmbCategoria.SelectedValue.ToString());
+           MessageBox.Show(cmbCategoria.SelectedValue.ToString());
         }
     }
 }
