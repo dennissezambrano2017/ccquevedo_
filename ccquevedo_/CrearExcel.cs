@@ -79,26 +79,35 @@ namespace ccquevedo_
         private void btnModificar_Click(object sender, EventArgs e)
         {
             Modificar frmModificar = Modificar.FormCrear();
-            if (dgvProducto.SelectedRows.Count > 0)
+            try
             {
-                Posicion_();
-                AddOwnedForm(frmModificar);
-                frmModificar.txtCodigo.Text = dtProductos.CurrentRow.Cells[0].Value.ToString();
-                frmModificar.txtNombre.Text = dtProductos.CurrentRow.Cells[1].Value.ToString();
-                frmModificar.txtDesCorta.Text = dtProductos.CurrentRow.Cells[2].Value.ToString();
-                frmModificar.txtDescriComple.Text = dtProductos.CurrentRow.Cells[3].Value.ToString();
-                frmModificar.txtPrecioNormal.Text = dtProductos.CurrentRow.Cells[4].Value.ToString();
-                frmModificar.txtPrecioOferta.Text = dtProductos.CurrentRow.Cells[5].Value.ToString();
-                frmModificar.txtStock.Text = dtProductos.CurrentRow.Cells[6].Value.ToString();
-                frmModificar.txtImage.Text = dtProductos.CurrentRow.Cells[7].Value.ToString();
-                frmModificar.cmbCategoria.Text = dtProductos.CurrentRow.Cells[8].Value.ToString();
-                frmModificar.txtTipoProducto.Text = dtProductos.CurrentRow.Cells[9].Value.ToString();
-                frmModificar.ShowDialog();
-                dgvProducto.Rows[0].Selected = false;
-            }
-            else
-                MessageBox.Show("Seleccione una fila con datos", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                if (dgvProducto.SelectedRows.Count > 0)
+                {
+                    Posicion_();
+                    AddOwnedForm(frmModificar);
+                    frmModificar.txtCodigo.Text = dtProductos.CurrentRow.Cells[0].Value.ToString();
+                    frmModificar.txtNombre.Text = dtProductos.CurrentRow.Cells[1].Value.ToString();
+                    frmModificar.txtDesCorta.Text = dtProductos.CurrentRow.Cells[2].Value.ToString();
+                    frmModificar.txtDescriComple.Text = dtProductos.CurrentRow.Cells[3].Value.ToString();
+                    frmModificar.txtPrecioNormal.Text = dtProductos.CurrentRow.Cells[4].Value.ToString();
+                    frmModificar.txtPrecioOferta.Text = dtProductos.CurrentRow.Cells[5].Value.ToString();
+                    frmModificar.txtStock.Text = dtProductos.CurrentRow.Cells[6].Value.ToString();
+                    frmModificar.txtImage.Text = dtProductos.CurrentRow.Cells[7].Value.ToString();
+                    frmModificar.cmbCategoria.Text = dtProductos.CurrentRow.Cells[8].Value.ToString();
+                    frmModificar.txtTipoProducto.Text = dtProductos.CurrentRow.Cells[9].Value.ToString();
+                    frmModificar.ShowDialog();
+                    dgvProducto.Rows[0].Selected = false;
+                }
+                else
+                    MessageBox.Show("Seleccione una fila con datos", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            
+            
         }
 
         private void btnElimnar_Click(object sender, EventArgs e)
@@ -196,7 +205,12 @@ namespace ccquevedo_
             {
                 for (int i = 0; i < dgvProducto.Rows.Count; i++)
                 {
-                    this.productosTableAdapter.Insertar(
+                    var v = this.productosTableAdapter.Existe(
+                           Convert.ToInt32(dtProductos.Rows[i].Cells[0].Value.ToString()));
+                    if (v.ToString() != "1")
+
+                    {
+                        this.productosTableAdapter.Insertar(
                         Convert.ToInt32(dtProductos.Rows[i].Cells[0].Value.ToString()),
                         dtProductos.Rows[i].Cells[1].Value.ToString(),
                         dtProductos.Rows[i].Cells[2].Value.ToString(),
@@ -207,7 +221,8 @@ namespace ccquevedo_
                         DateTime.Now, DateTime.Now, 1,
                         Convert.ToDecimal(dtProductos.Rows[i].Cells[4].Value.ToString()),
                         Convert.ToDecimal(dtProductos.Rows[i].Cells[5].Value.ToString()), "Simple");
-                    this.productosTableAdapter.Fill(this.bdCamaraComercioDataSet.Productos);
+                        //this.productosTableAdapter.Fill(this.bdCamaraComercioDataSet.Productos);
+                    }
                 }
             }
             catch (Exception ex)
