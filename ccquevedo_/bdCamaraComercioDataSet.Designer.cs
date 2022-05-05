@@ -1825,7 +1825,8 @@ namespace ccquevedo_.bdCamaraComercioDataSetTableAdapters {
             this._commandCollection[2] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[2].Connection = this.Connection;
             this._commandCollection[2].CommandText = @"UPDATE       Productos
-SET                Nombre = ?, Descripcion_corta = ?, Inventario = ?, Imagenes = ?, BajoInventario = ?, Descripcion = ?, Fecha_Fin = ?, Fecha_Inicio = ?, Id_Categoria = ?, Precio_Normal = ?, Precio_Oferta = ?, Tipo_Producto = ?
+SET                Nombre = ?, Descripcion_corta = ?, Inventario = ?, Imagenes = ?, BajoInventario = ?, Descripcion = ?, Fecha_Fin = ?, Fecha_Inicio = ?, Id_Categoria = ?, Precio_Normal = ?, Precio_Oferta = ?, Tipo_Producto = ?, 
+                         Etiqueta = ?
 WHERE        (Id = ?)";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Nombre", global::System.Data.OleDb.OleDbType.WChar, 255, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Nombre", global::System.Data.DataRowVersion.Current, false, null));
@@ -1840,6 +1841,7 @@ WHERE        (Id = ?)";
             this._commandCollection[2].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Precio_Normal", global::System.Data.OleDb.OleDbType.Currency, 0, global::System.Data.ParameterDirection.Input, ((byte)(19)), ((byte)(0)), "Precio_Normal", global::System.Data.DataRowVersion.Current, false, null));
             this._commandCollection[2].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Precio_Oferta", global::System.Data.OleDb.OleDbType.Currency, 0, global::System.Data.ParameterDirection.Input, ((byte)(19)), ((byte)(0)), "Precio_Oferta", global::System.Data.DataRowVersion.Current, false, null));
             this._commandCollection[2].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Tipo_Producto", global::System.Data.OleDb.OleDbType.WChar, 255, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Tipo_Producto", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[2].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Etiqueta", global::System.Data.OleDb.OleDbType.WChar, 1024, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Etiqueta", global::System.Data.DataRowVersion.Current, false, null));
             this._commandCollection[2].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Id", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Id", global::System.Data.DataRowVersion.Original, false, null));
             this._commandCollection[3] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[3].Connection = this.Connection;
@@ -2395,7 +2397,7 @@ VALUES        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
-        public virtual int Editar(string Nombre, string Descripcion_corta, global::System.Nullable<int> Inventario, string Imagenes, global::System.Nullable<int> BajoInventario, string Descripcion, global::System.Nullable<global::System.DateTime> Fecha_Fin, global::System.Nullable<global::System.DateTime> Fecha_Inicio, global::System.Nullable<int> Id_Categoria, global::System.Nullable<decimal> Precio_Normal, global::System.Nullable<decimal> Precio_Oferta, string Tipo_Producto, int Original_Id) {
+        public virtual int Editar(string Nombre, string Descripcion_corta, global::System.Nullable<int> Inventario, string Imagenes, global::System.Nullable<int> BajoInventario, string Descripcion, global::System.Nullable<global::System.DateTime> Fecha_Fin, global::System.Nullable<global::System.DateTime> Fecha_Inicio, global::System.Nullable<int> Id_Categoria, global::System.Nullable<decimal> Precio_Normal, global::System.Nullable<decimal> Precio_Oferta, string Tipo_Producto, string Etiqueta, int Original_Id) {
             global::System.Data.OleDb.OleDbCommand command = this.CommandCollection[2];
             if ((Nombre == null)) {
                 command.Parameters[0].Value = global::System.DBNull.Value;
@@ -2469,7 +2471,13 @@ VALUES        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             else {
                 command.Parameters[11].Value = ((string)(Tipo_Producto));
             }
-            command.Parameters[12].Value = ((int)(Original_Id));
+            if ((Etiqueta == null)) {
+                command.Parameters[12].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[12].Value = ((string)(Etiqueta));
+            }
+            command.Parameters[13].Value = ((int)(Original_Id));
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
