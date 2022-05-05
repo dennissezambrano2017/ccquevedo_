@@ -347,6 +347,8 @@ namespace ccquevedo_ {
             
             private global::System.Data.DataColumn columnFecha_Fin;
             
+            private global::System.Data.DataColumn columnEtiqueta;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public ProductosDataTable() {
@@ -486,6 +488,14 @@ namespace ccquevedo_ {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn EtiquetaColumn {
+                get {
+                    return this.columnEtiqueta;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -521,7 +531,7 @@ namespace ccquevedo_ {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ProductosRow AddProductosRow(int Id, string Nombre, string Descripcion_corta, string Inventario, string Imagenes, string Descripcion, int BajoInventario, decimal Precio_Normal, decimal Precio_Oferta, CategoriasRow parentCategoriasRowByCategoriasProductos, string Tipo_Producto, System.DateTime Fecha_Inicio, System.DateTime Fecha_Fin) {
+            public ProductosRow AddProductosRow(int Id, string Nombre, string Descripcion_corta, string Inventario, string Imagenes, string Descripcion, int BajoInventario, decimal Precio_Normal, decimal Precio_Oferta, CategoriasRow parentCategoriasRowByCategoriasProductos, string Tipo_Producto, System.DateTime Fecha_Inicio, System.DateTime Fecha_Fin, string Etiqueta) {
                 ProductosRow rowProductosRow = ((ProductosRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Id,
@@ -536,7 +546,8 @@ namespace ccquevedo_ {
                         null,
                         Tipo_Producto,
                         Fecha_Inicio,
-                        Fecha_Fin};
+                        Fecha_Fin,
+                        Etiqueta};
                 if ((parentCategoriasRowByCategoriasProductos != null)) {
                     columnValuesArray[9] = parentCategoriasRowByCategoriasProductos[0];
                 }
@@ -582,6 +593,7 @@ namespace ccquevedo_ {
                 this.columnTipo_Producto = base.Columns["Tipo_Producto"];
                 this.columnFecha_Inicio = base.Columns["Fecha_Inicio"];
                 this.columnFecha_Fin = base.Columns["Fecha_Fin"];
+                this.columnEtiqueta = base.Columns["Etiqueta"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -613,6 +625,8 @@ namespace ccquevedo_ {
                 base.Columns.Add(this.columnFecha_Inicio);
                 this.columnFecha_Fin = new global::System.Data.DataColumn("Fecha_Fin", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnFecha_Fin);
+                this.columnEtiqueta = new global::System.Data.DataColumn("Etiqueta", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEtiqueta);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnId}, true));
                 this.columnId.AllowDBNull = false;
@@ -623,6 +637,7 @@ namespace ccquevedo_ {
                 this.columnImagenes.MaxLength = 536870910;
                 this.columnDescripcion.MaxLength = 536870910;
                 this.columnTipo_Producto.MaxLength = 255;
+                this.columnEtiqueta.MaxLength = 536870910;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1244,6 +1259,22 @@ namespace ccquevedo_ {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Etiqueta {
+                get {
+                    try {
+                        return ((string)(this[this.tableProductos.EtiquetaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Etiqueta\' de la tabla \'Productos\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableProductos.EtiquetaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public CategoriasRow CategoriasRow {
                 get {
                     return ((CategoriasRow)(this.GetParentRow(this.Table.ParentRelations["CategoriasProductos"])));
@@ -1395,6 +1426,18 @@ namespace ccquevedo_ {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetFecha_FinNull() {
                 this[this.tableProductos.Fecha_FinColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsEtiquetaNull() {
+                return this.IsNull(this.tableProductos.EtiquetaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetEtiquetaNull() {
+                this[this.tableProductos.EtiquetaColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1669,6 +1712,7 @@ namespace ccquevedo_.bdCamaraComercioDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("Tipo_Producto", "Tipo_Producto");
             tableMapping.ColumnMappings.Add("Fecha_Inicio", "Fecha_Inicio");
             tableMapping.ColumnMappings.Add("Fecha_Fin", "Fecha_Fin");
+            tableMapping.ColumnMappings.Add("Etiqueta", "Etiqueta");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
@@ -1697,7 +1741,7 @@ namespace ccquevedo_.bdCamaraComercioDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Tipo_Producto", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Tipo_Producto", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.InsertCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO `Productos` (`Id`, `Nombre`, `Descripcion_corta`, `Inventario`, `Imagenes`, `BajoInventario`, `Descripcion`, `Fecha_Fin`, `Fecha_Inicio`, `Id_Categoria`, `Precio_Normal`, `Precio_Oferta`, `Tipo_Producto`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO `Productos` (`Id`, `Nombre`, `Descripcion_corta`, `Inventario`, `Imagenes`, `BajoInventario`, `Descripcion`, `Fecha_Fin`, `Fecha_Inicio`, `Id_Categoria`, `Precio_Normal`, `Precio_Oferta`, `Tipo_Producto`, `Etiqueta`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Id", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Id", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Nombre", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Nombre", global::System.Data.DataRowVersion.Current, false, null));
@@ -1712,9 +1756,10 @@ namespace ccquevedo_.bdCamaraComercioDataSetTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Precio_Normal", global::System.Data.OleDb.OleDbType.Currency, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Precio_Normal", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Precio_Oferta", global::System.Data.OleDb.OleDbType.Currency, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Precio_Oferta", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Tipo_Producto", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Tipo_Producto", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Etiqueta", global::System.Data.OleDb.OleDbType.LongVarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Etiqueta", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE `Productos` SET `Id` = ?, `Nombre` = ?, `Descripcion_corta` = ?, `Inventario` = ?, `Imagenes` = ?, `BajoInventario` = ?, `Descripcion` = ?, `Fecha_Fin` = ?, `Fecha_Inicio` = ?, `Id_Categoria` = ?, `Precio_Normal` = ?, `Precio_Oferta` = ?, `Tipo_Producto` = ? WHERE ((`Id` = ?) AND ((? = 1 AND `Nombre` IS NULL) OR (`Nombre` = ?)) AND ((? = 1 AND `Descripcion_corta` IS NULL) OR (`Descripcion_corta` = ?)) AND ((? = 1 AND `Inventario` IS NULL) OR (`Inventario` = ?)) AND ((? = 1 AND `BajoInventario` IS NULL) OR (`BajoInventario` = ?)) AND ((? = 1 AND `Fecha_Fin` IS NULL) OR (`Fecha_Fin` = ?)) AND ((? = 1 AND `Fecha_Inicio` IS NULL) OR (`Fecha_Inicio` = ?)) AND ((? = 1 AND `Id_Categoria` IS NULL) OR (`Id_Categoria` = ?)) AND ((? = 1 AND `Precio_Normal` IS NULL) OR (`Precio_Normal` = ?)) AND ((? = 1 AND `Precio_Oferta` IS NULL) OR (`Precio_Oferta` = ?)) AND ((? = 1 AND `Tipo_Producto` IS NULL) OR (`Tipo_Producto` = ?)))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE `Productos` SET `Id` = ?, `Nombre` = ?, `Descripcion_corta` = ?, `Inventario` = ?, `Imagenes` = ?, `BajoInventario` = ?, `Descripcion` = ?, `Fecha_Fin` = ?, `Fecha_Inicio` = ?, `Id_Categoria` = ?, `Precio_Normal` = ?, `Precio_Oferta` = ?, `Tipo_Producto` = ?, `Etiqueta` = ? WHERE ((`Id` = ?) AND ((? = 1 AND `Nombre` IS NULL) OR (`Nombre` = ?)) AND ((? = 1 AND `Descripcion_corta` IS NULL) OR (`Descripcion_corta` = ?)) AND ((? = 1 AND `Inventario` IS NULL) OR (`Inventario` = ?)) AND ((? = 1 AND `BajoInventario` IS NULL) OR (`BajoInventario` = ?)) AND ((? = 1 AND `Fecha_Fin` IS NULL) OR (`Fecha_Fin` = ?)) AND ((? = 1 AND `Fecha_Inicio` IS NULL) OR (`Fecha_Inicio` = ?)) AND ((? = 1 AND `Id_Categoria` IS NULL) OR (`Id_Categoria` = ?)) AND ((? = 1 AND `Precio_Normal` IS NULL) OR (`Precio_Normal` = ?)) AND ((? = 1 AND `Precio_Oferta` IS NULL) OR (`Precio_Oferta` = ?)) AND ((? = 1 AND `Tipo_Producto` IS NULL) OR (`Tipo_Producto` = ?)))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Id", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Id", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Nombre", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Nombre", global::System.Data.DataRowVersion.Current, false, null));
@@ -1729,6 +1774,7 @@ namespace ccquevedo_.bdCamaraComercioDataSetTableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Precio_Normal", global::System.Data.OleDb.OleDbType.Currency, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Precio_Normal", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Precio_Oferta", global::System.Data.OleDb.OleDbType.Currency, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Precio_Oferta", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Tipo_Producto", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Tipo_Producto", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Etiqueta", global::System.Data.OleDb.OleDbType.LongVarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Etiqueta", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Id", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Id", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_Nombre", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Nombre", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Nombre", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Nombre", global::System.Data.DataRowVersion.Original, false, null));
@@ -1767,13 +1813,13 @@ namespace ccquevedo_.bdCamaraComercioDataSetTableAdapters {
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT Id, Nombre, Descripcion_corta, Inventario, Imagenes, BajoInventario, Descr" +
                 "ipcion, Fecha_Fin, Fecha_Inicio, Id_Categoria, Precio_Normal, Precio_Oferta, Tip" +
-                "o_Producto FROM Productos";
+                "o_Producto, Etiqueta FROM Productos";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[1].Connection = this.Connection;
             this._commandCollection[1].CommandText = "SELECT Id, Nombre, Descripcion_corta, Inventario, Imagenes, BajoInventario, Descr" +
                 "ipcion, Fecha_Fin, Fecha_Inicio, Id_Categoria, Precio_Normal, Precio_Oferta, Tip" +
-                "o_Producto FROM Productos WHERE (Id = ?)";
+                "o_Producto, Etiqueta FROM Productos WHERE (Id = ?)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Id", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Id", global::System.Data.DataRowVersion.Current, false, null));
             this._commandCollection[2] = new global::System.Data.OleDb.OleDbCommand();
@@ -2006,7 +2052,7 @@ VALUES        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int Id, string Nombre, string Descripcion_corta, global::System.Nullable<int> Inventario, string Imagenes, global::System.Nullable<int> BajoInventario, string Descripcion, global::System.Nullable<global::System.DateTime> Fecha_Fin, global::System.Nullable<global::System.DateTime> Fecha_Inicio, global::System.Nullable<int> Id_Categoria, global::System.Nullable<decimal> Precio_Normal, global::System.Nullable<decimal> Precio_Oferta, string Tipo_Producto) {
+        public virtual int Insert(int Id, string Nombre, string Descripcion_corta, global::System.Nullable<int> Inventario, string Imagenes, global::System.Nullable<int> BajoInventario, string Descripcion, global::System.Nullable<global::System.DateTime> Fecha_Fin, global::System.Nullable<global::System.DateTime> Fecha_Inicio, global::System.Nullable<int> Id_Categoria, global::System.Nullable<decimal> Precio_Normal, global::System.Nullable<decimal> Precio_Oferta, string Tipo_Producto, string Etiqueta) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((int)(Id));
             if ((Nombre == null)) {
                 this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
@@ -2080,6 +2126,12 @@ VALUES        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             else {
                 this.Adapter.InsertCommand.Parameters[12].Value = ((string)(Tipo_Producto));
             }
+            if ((Etiqueta == null)) {
+                this.Adapter.InsertCommand.Parameters[13].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[13].Value = ((string)(Etiqueta));
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -2114,6 +2166,7 @@ VALUES        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
                     global::System.Nullable<decimal> Precio_Normal, 
                     global::System.Nullable<decimal> Precio_Oferta, 
                     string Tipo_Producto, 
+                    string Etiqueta, 
                     int Original_Id, 
                     string Original_Nombre, 
                     string Original_Descripcion_corta, 
@@ -2198,86 +2251,92 @@ VALUES        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             else {
                 this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Tipo_Producto));
             }
-            this.Adapter.UpdateCommand.Parameters[13].Value = ((int)(Original_Id));
-            if ((Original_Nombre == null)) {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
+            if ((Etiqueta == null)) {
+                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_Nombre));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Etiqueta));
+            }
+            this.Adapter.UpdateCommand.Parameters[14].Value = ((int)(Original_Id));
+            if ((Original_Nombre == null)) {
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Original_Nombre));
             }
             if ((Original_Descripcion_corta == null)) {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[17].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(Original_Descripcion_corta));
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((string)(Original_Descripcion_corta));
             }
             if ((Original_Inventario.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((int)(Original_Inventario.Value));
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[20].Value = ((int)(Original_Inventario.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[19].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
             }
             if ((Original_BajoInventario.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((int)(Original_BajoInventario.Value));
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((int)(Original_BajoInventario.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[22].Value = global::System.DBNull.Value;
             }
             if ((Original_Fecha_Fin.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[23].Value = ((System.DateTime)(Original_Fecha_Fin.Value));
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((System.DateTime)(Original_Fecha_Fin.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[23].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[24].Value = global::System.DBNull.Value;
             }
             if ((Original_Fecha_Inicio.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((System.DateTime)(Original_Fecha_Inicio.Value));
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[26].Value = ((System.DateTime)(Original_Fecha_Inicio.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[25].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[25].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[26].Value = global::System.DBNull.Value;
             }
             if ((Original_Id_Categoria.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[27].Value = ((int)(Original_Id_Categoria.Value));
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[28].Value = ((int)(Original_Id_Categoria.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[27].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[27].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[28].Value = global::System.DBNull.Value;
             }
             if ((Original_Precio_Normal.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[29].Value = ((decimal)(Original_Precio_Normal.Value));
+                this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[30].Value = ((decimal)(Original_Precio_Normal.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[28].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[29].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[29].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[30].Value = global::System.DBNull.Value;
             }
             if ((Original_Precio_Oferta.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[30].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[31].Value = ((decimal)(Original_Precio_Oferta.Value));
+                this.Adapter.UpdateCommand.Parameters[31].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[32].Value = ((decimal)(Original_Precio_Oferta.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[30].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[31].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[31].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[32].Value = global::System.DBNull.Value;
             }
             if ((Original_Tipo_Producto == null)) {
-                this.Adapter.UpdateCommand.Parameters[32].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[33].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[33].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[34].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[32].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[33].Value = ((string)(Original_Tipo_Producto));
+                this.Adapter.UpdateCommand.Parameters[33].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[34].Value = ((string)(Original_Tipo_Producto));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -2312,6 +2371,7 @@ VALUES        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
                     global::System.Nullable<decimal> Precio_Normal, 
                     global::System.Nullable<decimal> Precio_Oferta, 
                     string Tipo_Producto, 
+                    string Etiqueta, 
                     int Original_Id, 
                     string Original_Nombre, 
                     string Original_Descripcion_corta, 
@@ -2323,7 +2383,7 @@ VALUES        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
                     global::System.Nullable<decimal> Original_Precio_Normal, 
                     global::System.Nullable<decimal> Original_Precio_Oferta, 
                     string Original_Tipo_Producto) {
-            return this.Update(Original_Id, Nombre, Descripcion_corta, Inventario, Imagenes, BajoInventario, Descripcion, Fecha_Fin, Fecha_Inicio, Id_Categoria, Precio_Normal, Precio_Oferta, Tipo_Producto, Original_Id, Original_Nombre, Original_Descripcion_corta, Original_Inventario, Original_BajoInventario, Original_Fecha_Fin, Original_Fecha_Inicio, Original_Id_Categoria, Original_Precio_Normal, Original_Precio_Oferta, Original_Tipo_Producto);
+            return this.Update(Original_Id, Nombre, Descripcion_corta, Inventario, Imagenes, BajoInventario, Descripcion, Fecha_Fin, Fecha_Inicio, Id_Categoria, Precio_Normal, Precio_Oferta, Tipo_Producto, Etiqueta, Original_Id, Original_Nombre, Original_Descripcion_corta, Original_Inventario, Original_BajoInventario, Original_Fecha_Fin, Original_Fecha_Inicio, Original_Id_Categoria, Original_Precio_Normal, Original_Precio_Oferta, Original_Tipo_Producto);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
