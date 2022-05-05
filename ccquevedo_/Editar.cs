@@ -35,7 +35,7 @@ namespace ccquevedo_
                 txtFechaFin.Text = tablaUno.Rows[0][12].ToString();
                 txtFechaInicio.Text = tablaUno.Rows[0][11].ToString();
                 cmbCategoria.Text= dataTable.Rows[0][1].ToString();
-                //MessageBox.Show((cmbCategoria.Text).ToString());
+                idCat = Convert.ToInt32(tablaUno.Rows[0][9].ToString());
                 txtPrecio.Text = tablaUno.Rows[0][7].ToString();
                 txtprecioRebajado.Text = tablaUno.Rows[0][8].ToString();
                 txtTipoProducto.Text = tablaUno.Rows[0][10].ToString();
@@ -73,16 +73,19 @@ namespace ccquevedo_
                 lista.Add(new Product(Convert.ToInt32(tablaDos.Rows[i][0].ToString()), tablaDos.Rows[i][1].ToString()));
             }
             cmbCategoria.DataSource = lista;
+            cmbCategoria.SelectedValue = idCat;
         }
 
         private void btnGuardar_Click_1(object sender, EventArgs e)
         {
+            idCat = int.Parse(cmbCategoria.SelectedValue.ToString());
+            MessageBox.Show(idCat.ToString());
             try
             {
                 this.productosTableAdapter.Editar(txtNombre.Text, txtDescripcion.Text,
                                 Convert.ToInt32(txtInventario.Text), "",
                                 Convert.ToInt32(txtminStock.Text), txtDescripcionL.Text,
-                                DateTime.Now, DateTime.Now, 1,
+                                DateTime.Now, DateTime.Now, idCat,
                                 Convert.ToDecimal(txtPrecio.Text),
                                 Convert.ToDecimal(txtprecioRebajado.Text),
                                  "Simple", Convert.ToInt32(id));
@@ -99,11 +102,6 @@ namespace ccquevedo_
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void cmbCategoria_SelectedIndexChanged(object sender, EventArgs e)
-        {
-           MessageBox.Show(cmbCategoria.SelectedValue.ToString());
         }
     }
 }

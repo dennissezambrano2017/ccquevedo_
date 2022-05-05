@@ -369,7 +369,6 @@
             this.cmbCategoria.Size = new System.Drawing.Size(272, 30);
             this.cmbCategoria.TabIndex = 57;
             this.cmbCategoria.Text = "Seleccionar";
-            this.cmbCategoria.SelectedIndexChanged += new System.EventHandler(this.cmbCategoria_SelectedIndexChanged);
             // 
             // bdCamaraComercioDataSet
             // 
