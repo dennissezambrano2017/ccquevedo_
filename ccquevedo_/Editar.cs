@@ -39,6 +39,7 @@ namespace ccquevedo_
                 txtPrecio.Text = tablaUno.Rows[0][7].ToString();
                 txtprecioRebajado.Text = tablaUno.Rows[0][8].ToString();
                 txtTipoProducto.Text = tablaUno.Rows[0][10].ToString();
+                txtEtiqueta.Text= tablaUno.Rows[0][13].ToString();
             }
             catch (Exception ex)
             {
