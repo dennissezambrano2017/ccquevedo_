@@ -37,28 +37,14 @@ namespace ccquevedo_
 
         private void Productos_Load(object sender, EventArgs e)
         {
+            // TODO: esta línea de código carga datos en la tabla 'bdCamaraComercioDataSet.Categorias' Puede moverla o quitarla según sea necesario.
+            this.categoriasTableAdapter.Fill(this.bdCamaraComercioDataSet.Categorias);
             // TODO: esta línea de código carga datos en la tabla 'bdCamaraComercioDataSet.Productos' Puede moverla o quitarla según sea necesario.
             this.productosTableAdapter.Fill(this.bdCamaraComercioDataSet.Productos);
             // TODO: esta línea de código carga datos en la tabla 'bdCamaraComercioDataSet.Productos' Puede moverla o quitarla según sea necesario.
             this.productosTableAdapter.Fill(this.bdCamaraComercioDataSet.Productos);
-
-           
-            //DataTable datos = this.productosTableAdapter.GetData();
-            //foreach (DataGridViewRow row in dgvProductos.Rows)
-            //{
-            //    row.Cells[2].Value = Convert.ToString("NP");
-            //}
             
 
-            //dgvProductos.DataSource = this.bdCamaraComercioDataSet.Productos ;
-            //for (int fila = 0; fila < dtaPagos.Rows.Count - 1; fila++)
-            //{
-            //    for (int col = 0; col < dtaPagos.Rows[fila].Cells.Count; col++)
-            //    {
-            //        string valor = dtaPagos.Rows[fila].Cells[col].Value.ToString();
-            //        MessageBox.Show(valor);
-            //    }
-            //}
         }
 
         private int? getId(int num)
@@ -140,59 +126,37 @@ namespace ccquevedo_
                 dgvAxu.Columns.Add("Categorías", "Categoria");
                 dgvAxu.Columns.Add("Etiquetas", "Etiquetas");
                 dgvAxu.Columns.Add("Imágenes", "Imagen");
-                dgvAxu.DataSource = dgvProductos;
-                Exportar(dgvAxu);
+
+                foreach (DataGridViewRow row in dgvProductos.Rows)
+                {
+                    int idcate = (int)dgvProductos.Rows[row.Index].Cells[11].Value;
+                    DataTable tabla = this.categoriasTableAdapter.BuscarCategoria(idcate);
+                    dgvAxu.Rows.Add();
+                    dgvAxu.Rows[row.Index].Cells["ID"].Value = row.Cells[0].Value;
+                    dgvAxu.Rows[row.Index].Cells["Tipo"].Value = row.Cells[1].Value;
+                    dgvAxu.Rows[row.Index].Cells["Nombre"].Value = row.Cells[2].Value;
+                    dgvAxu.Rows[row.Index].Cells["Descripción corta"].Value = row.Cells[3].Value;
+                    dgvAxu.Rows[row.Index].Cells["Descripción"].Value = row.Cells[4].Value;
+                    dgvAxu.Rows[row.Index].Cells["Día en que empieza el precio rebajado"].Value = row.Cells[5].Value;
+                    dgvAxu.Rows[row.Index].Cells["Día en que termina el precio rebajado"].Value = row.Cells[6].Value;
+                    dgvAxu.Rows[row.Index].Cells["Inventario"].Value = row.Cells[7].Value;
+                    dgvAxu.Rows[row.Index].Cells["Cantidad de bajo inventario"].Value = row.Cells[8].Value; 
+                    dgvAxu.Rows[row.Index].Cells["Precio rebajado"].Value = row.Cells[9].Value;
+                    dgvAxu.Rows[row.Index].Cells["Precio normal"].Value = row.Cells[10].Value;
+                    dgvAxu.Rows[row.Index].Cells["Categorías"].Value = tabla.Rows[0][1].ToString();
+                    dgvAxu.Rows[row.Index].Cells["Etiquetas"].Value = row.Cells[12].Value;
+                    dgvAxu.Rows[row.Index].Cells["Imágenes"].Value = row.Cells[13].Value;
+                }
+                Exportar exportar = new Exportar();
+                exportar.ExportarDatos(dgvAxu);
             }
             else
                 MessageBox.Show("No existen datos para exportar", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
-        public void Exportar(DataGridView dtlist)
+
+        private void dgvProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            try
-            {
-                SaveFileDialog fichero = new SaveFileDialog();
-                fichero.Filter = "Archivos CSV (*.CSV)|*.CSV";
-                fichero.FileName = "Product-export-" + DateTime.Now.ToString("MM-dd-yy-H-mm-ss");
-                if (fichero.ShowDialog() == DialogResult.OK)
-                {
-                    Microsoft.Office.Interop.Excel.Application exportarExcel;
-                    Microsoft.Office.Interop.Excel.Workbook libros_trabajo;
-                    Microsoft.Office.Interop.Excel.Worksheet hoja_trabajo;
 
-                    exportarExcel = new Microsoft.Office.Interop.Excel.Application();
-                    libros_trabajo = exportarExcel.Workbooks.Add();
-                    hoja_trabajo =
-                        (Microsoft.Office.Interop.Excel.Worksheet)libros_trabajo.Worksheets.get_Item(1);
-
-                    int indiecolumna = 0;
-                    foreach (DataGridViewColumn columna in dtlist.Columns)
-                    {
-                        indiecolumna++;
-                        exportarExcel.Cells[1, indiecolumna] = columna.Name;
-                    }
-
-                    int indicefila = 0;
-                    foreach (DataGridViewRow fila in dtlist.Rows)
-                    {
-                        indicefila++;
-                        indiecolumna = 0;
-                        foreach (DataGridViewColumn columna in dtlist.Columns)
-                        {
-                            indiecolumna++;
-                            exportarExcel.Cells[indicefila + 1, indiecolumna] = fila.Cells[columna.Name].Value;
-                        }
-                    }
-
-                    libros_trabajo.SaveAs(fichero.FileName,
-                        Microsoft.Office.Interop.Excel.XlFileFormat.xlWorkbookNormal);
-                    libros_trabajo.Close(true);
-                    exportarExcel.Quit();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al exportar la informacion debido a: " + ex.ToString());
-            }
         }
     }
 }

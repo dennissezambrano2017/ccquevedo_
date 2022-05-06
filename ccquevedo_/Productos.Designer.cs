@@ -43,13 +43,26 @@
             this.tableAdapterManager = new ccquevedo_.bdCamaraComercioDataSetTableAdapters.TableAdapterManager();
             this.dgvProductos = new System.Windows.Forms.DataGridView();
             this.btnDescargar = new System.Windows.Forms.Button();
+            this.categoriasBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.categoriasTableAdapter = new ccquevedo_.bdCamaraComercioDataSetTableAdapters.CategoriasTableAdapter();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tipo_Producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Descripcion_corta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Fecha_Fin = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Fecha_Inicio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Inventario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BajoInventario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Precio_Oferta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Precio_Normal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idCategoriaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Etiqueta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Imagenes = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.productosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdCamaraComercioDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoriasBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // btnModificar
@@ -112,6 +125,7 @@
             // 
             // dgvProductos
             // 
+            this.dgvProductos.AllowUserToAddRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(249)))));
             this.dgvProductos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvProductos.AutoGenerateColumns = false;
@@ -129,9 +143,19 @@
             this.dgvProductos.ColumnHeadersHeight = 18;
             this.dgvProductos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id,
+            this.Tipo_Producto,
             this.Nombre,
             this.Descripcion_corta,
-            this.Inventario});
+            this.Descripcion,
+            this.Fecha_Fin,
+            this.Fecha_Inicio,
+            this.Inventario,
+            this.BajoInventario,
+            this.Precio_Oferta,
+            this.Precio_Normal,
+            this.idCategoriaDataGridViewTextBoxColumn,
+            this.Etiqueta,
+            this.Imagenes});
             this.dgvProductos.DataSource = this.productosBindingSource;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
@@ -162,6 +186,7 @@
             this.dgvProductos.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvProductos.Size = new System.Drawing.Size(846, 270);
             this.dgvProductos.TabIndex = 1;
+            this.dgvProductos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductos_CellContentClick);
             // 
             // btnDescargar
             // 
@@ -182,12 +207,28 @@
             this.btnDescargar.UseVisualStyleBackColor = false;
             this.btnDescargar.Click += new System.EventHandler(this.btnDescargar_Click);
             // 
+            // categoriasBindingSource
+            // 
+            this.categoriasBindingSource.DataMember = "Categorias";
+            this.categoriasBindingSource.DataSource = this.bdCamaraComercioDataSet;
+            // 
+            // categoriasTableAdapter
+            // 
+            this.categoriasTableAdapter.ClearBeforeFill = true;
+            // 
             // Id
             // 
             this.Id.DataPropertyName = "Id";
-            this.Id.HeaderText = "ID";
+            this.Id.HeaderText = "Codigo";
             this.Id.Name = "Id";
             this.Id.ReadOnly = true;
+            // 
+            // Tipo_Producto
+            // 
+            this.Tipo_Producto.DataPropertyName = "Tipo_Producto";
+            this.Tipo_Producto.HeaderText = "Tipo_Producto";
+            this.Tipo_Producto.Name = "Tipo_Producto";
+            this.Tipo_Producto.ReadOnly = true;
             // 
             // Nombre
             // 
@@ -203,12 +244,75 @@
             this.Descripcion_corta.Name = "Descripcion_corta";
             this.Descripcion_corta.ReadOnly = true;
             // 
+            // Descripcion
+            // 
+            this.Descripcion.DataPropertyName = "Descripcion";
+            this.Descripcion.HeaderText = "Descripcion";
+            this.Descripcion.Name = "Descripcion";
+            this.Descripcion.ReadOnly = true;
+            // 
+            // Fecha_Fin
+            // 
+            this.Fecha_Fin.DataPropertyName = "Fecha_Fin";
+            this.Fecha_Fin.HeaderText = "Fecha_Fin";
+            this.Fecha_Fin.Name = "Fecha_Fin";
+            this.Fecha_Fin.ReadOnly = true;
+            // 
+            // Fecha_Inicio
+            // 
+            this.Fecha_Inicio.DataPropertyName = "Fecha_Inicio";
+            this.Fecha_Inicio.HeaderText = "Fecha_Inicio";
+            this.Fecha_Inicio.Name = "Fecha_Inicio";
+            this.Fecha_Inicio.ReadOnly = true;
+            // 
             // Inventario
             // 
             this.Inventario.DataPropertyName = "Inventario";
             this.Inventario.HeaderText = "Inventario";
             this.Inventario.Name = "Inventario";
             this.Inventario.ReadOnly = true;
+            // 
+            // BajoInventario
+            // 
+            this.BajoInventario.DataPropertyName = "BajoInventario";
+            this.BajoInventario.HeaderText = "BajoInventario";
+            this.BajoInventario.Name = "BajoInventario";
+            this.BajoInventario.ReadOnly = true;
+            // 
+            // Precio_Oferta
+            // 
+            this.Precio_Oferta.DataPropertyName = "Precio_Oferta";
+            this.Precio_Oferta.HeaderText = "Precio_Oferta";
+            this.Precio_Oferta.Name = "Precio_Oferta";
+            this.Precio_Oferta.ReadOnly = true;
+            // 
+            // Precio_Normal
+            // 
+            this.Precio_Normal.DataPropertyName = "Precio_Normal";
+            this.Precio_Normal.HeaderText = "Precio_Normal";
+            this.Precio_Normal.Name = "Precio_Normal";
+            this.Precio_Normal.ReadOnly = true;
+            // 
+            // idCategoriaDataGridViewTextBoxColumn
+            // 
+            this.idCategoriaDataGridViewTextBoxColumn.DataPropertyName = "Id_Categoria";
+            this.idCategoriaDataGridViewTextBoxColumn.HeaderText = "Id_Categoria";
+            this.idCategoriaDataGridViewTextBoxColumn.Name = "idCategoriaDataGridViewTextBoxColumn";
+            this.idCategoriaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // Etiqueta
+            // 
+            this.Etiqueta.DataPropertyName = "Etiqueta";
+            this.Etiqueta.HeaderText = "Etiqueta";
+            this.Etiqueta.Name = "Etiqueta";
+            this.Etiqueta.ReadOnly = true;
+            // 
+            // Imagenes
+            // 
+            this.Imagenes.DataPropertyName = "Imagenes";
+            this.Imagenes.HeaderText = "Imagenes";
+            this.Imagenes.Name = "Imagenes";
+            this.Imagenes.ReadOnly = true;
             // 
             // Productos
             // 
@@ -227,6 +331,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.productosBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdCamaraComercioDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoriasBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -241,9 +346,21 @@
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.DataGridView dgvProductos;
         private System.Windows.Forms.Button btnDescargar;
+        private System.Windows.Forms.BindingSource categoriasBindingSource;
+        private bdCamaraComercioDataSetTableAdapters.CategoriasTableAdapter categoriasTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Tipo_Producto;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn Descripcion_corta;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Descripcion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Fecha_Fin;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Fecha_Inicio;
         private System.Windows.Forms.DataGridViewTextBoxColumn Inventario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BajoInventario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Precio_Oferta;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Precio_Normal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idCategoriaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Etiqueta;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Imagenes;
     }
 }
