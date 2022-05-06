@@ -50,8 +50,10 @@ namespace ccquevedo_
                 txtDescripcionCompleta.Text != "" && txtPrecioNormal.Text != "" && txtPrecioOferta.Text != "" &&
                 txtStock.Text != "" && itemSelct != 0 && txtTipoProducto.Text != "")
             {
-                ce.DtProductos.Rows.Add(txtCodigo.Text, txtNombre.Text, txtDescripcionCorta.Text, txtDescripcionCompleta.Text, Convert.ToDouble(txtPrecioNormal.Text), Convert.ToDouble(txtPrecioOferta.Text),
-                   Convert.ToInt32(txtStock.Text), txtImagen.Text, cmbCategoria.GetItemText(cmbCategoria.SelectedItem), txtTipoProducto.Text);
+                ce.DtProductos.Rows.Add(txtCodigo.Text, txtTipoProducto.Text,txtNombre.Text,
+                    txtDescripcionCorta.Text, txtDescripcionCompleta.Text, mcFechaInicio.Text, 
+                    mcFechaFin.Text, txtInventario.Text, txtStock.Text, txtPrecioOferta.Text,
+                    txtPrecioNormal.Text,cmbCategoria.Text, txtEtiqueta.Text, txtImagen.Text);
                 this.Close();
             }
             else

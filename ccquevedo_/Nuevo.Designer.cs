@@ -166,7 +166,7 @@ namespace ccquevedo_
             this.txtCodigo.Location = new System.Drawing.Point(236, 77);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(272, 31);
-            this.txtCodigo.TabIndex = 7;
+            this.txtCodigo.TabIndex = 1;
             this.txtCodigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigo_KeyPress);
             // 
             // txtNombre
@@ -174,21 +174,21 @@ namespace ccquevedo_
             this.txtNombre.Location = new System.Drawing.Point(236, 116);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(272, 31);
-            this.txtNombre.TabIndex = 8;
+            this.txtNombre.TabIndex = 2;
             // 
             // txtDescripcionCorta
             // 
             this.txtDescripcionCorta.Location = new System.Drawing.Point(236, 159);
             this.txtDescripcionCorta.Name = "txtDescripcionCorta";
             this.txtDescripcionCorta.Size = new System.Drawing.Size(272, 31);
-            this.txtDescripcionCorta.TabIndex = 9;
+            this.txtDescripcionCorta.TabIndex = 3;
             // 
             // txtPrecioNormal
             // 
             this.txtPrecioNormal.Location = new System.Drawing.Point(782, 77);
             this.txtPrecioNormal.Name = "txtPrecioNormal";
             this.txtPrecioNormal.Size = new System.Drawing.Size(272, 31);
-            this.txtPrecioNormal.TabIndex = 10;
+            this.txtPrecioNormal.TabIndex = 8;
             this.txtPrecioNormal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecioNormal_KeyPress);
             // 
             // txtPrecioOferta
@@ -196,7 +196,7 @@ namespace ccquevedo_
             this.txtPrecioOferta.Location = new System.Drawing.Point(782, 119);
             this.txtPrecioOferta.Name = "txtPrecioOferta";
             this.txtPrecioOferta.Size = new System.Drawing.Size(272, 31);
-            this.txtPrecioOferta.TabIndex = 11;
+            this.txtPrecioOferta.TabIndex = 9;
             this.txtPrecioOferta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecioOferta_KeyPress);
             // 
             // txtImagen
@@ -204,7 +204,7 @@ namespace ccquevedo_
             this.txtImagen.Location = new System.Drawing.Point(782, 215);
             this.txtImagen.Name = "txtImagen";
             this.txtImagen.Size = new System.Drawing.Size(272, 31);
-            this.txtImagen.TabIndex = 22;
+            this.txtImagen.TabIndex = 11;
             // 
             // txtDescripcionCompleta
             // 
@@ -212,14 +212,14 @@ namespace ccquevedo_
             this.txtDescripcionCompleta.Multiline = true;
             this.txtDescripcionCompleta.Name = "txtDescripcionCompleta";
             this.txtDescripcionCompleta.Size = new System.Drawing.Size(272, 127);
-            this.txtDescripcionCompleta.TabIndex = 19;
+            this.txtDescripcionCompleta.TabIndex = 4;
             // 
             // txtStock
             // 
             this.txtStock.Location = new System.Drawing.Point(236, 381);
             this.txtStock.Name = "txtStock";
             this.txtStock.Size = new System.Drawing.Size(272, 31);
-            this.txtStock.TabIndex = 18;
+            this.txtStock.TabIndex = 6;
             this.txtStock.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtStock_KeyPress);
             // 
             // label2
@@ -268,13 +268,15 @@ namespace ccquevedo_
             // 
             // cmbCategoria
             // 
+            this.cmbCategoria.DropDownHeight = 100;
             this.cmbCategoria.FormattingEnabled = true;
+            this.cmbCategoria.IntegralHeight = false;
             this.cmbCategoria.Items.AddRange(new object[] {
             "Seleccionar"});
             this.cmbCategoria.Location = new System.Drawing.Point(782, 165);
             this.cmbCategoria.Name = "cmbCategoria";
             this.cmbCategoria.Size = new System.Drawing.Size(272, 30);
-            this.cmbCategoria.TabIndex = 24;
+            this.cmbCategoria.TabIndex = 10;
             this.cmbCategoria.Text = "Seleccionar";
             // 
             // txtTipoProducto
@@ -319,7 +321,7 @@ namespace ccquevedo_
             this.txtInventario.Location = new System.Drawing.Point(236, 341);
             this.txtInventario.Name = "txtInventario";
             this.txtInventario.Size = new System.Drawing.Size(272, 31);
-            this.txtInventario.TabIndex = 29;
+            this.txtInventario.TabIndex = 5;
             this.txtInventario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtInventario_KeyPress);
             // 
             // label3
@@ -384,7 +386,7 @@ namespace ccquevedo_
             this.mcFechaFin.Location = new System.Drawing.Point(782, 314);
             this.mcFechaFin.Name = "mcFechaFin";
             this.mcFechaFin.Size = new System.Drawing.Size(272, 31);
-            this.mcFechaFin.TabIndex = 63;
+            this.mcFechaFin.TabIndex = 13;
             // 
             // mcFechaInicio
             // 
@@ -393,7 +395,7 @@ namespace ccquevedo_
             this.mcFechaInicio.Location = new System.Drawing.Point(782, 266);
             this.mcFechaInicio.Name = "mcFechaInicio";
             this.mcFechaInicio.Size = new System.Drawing.Size(272, 31);
-            this.mcFechaInicio.TabIndex = 62;
+            this.mcFechaInicio.TabIndex = 12;
             // 
             // txtEtiqueta
             // 
@@ -402,7 +404,7 @@ namespace ccquevedo_
             this.txtEtiqueta.Multiline = true;
             this.txtEtiqueta.Name = "txtEtiqueta";
             this.txtEtiqueta.Size = new System.Drawing.Size(272, 67);
-            this.txtEtiqueta.TabIndex = 65;
+            this.txtEtiqueta.TabIndex = 7;
             // 
             // label9
             // 
@@ -502,9 +504,9 @@ namespace ccquevedo_
         private System.Windows.Forms.BindingSource categoriasBindingSource;
         private bdCamaraComercioDataSetTableAdapters.CategoriasTableAdapter categoriasTableAdapter;
         private bdCamaraComercioDataSetTableAdapters.TableAdapterManager tableAdapterManager;
-        private System.Windows.Forms.DateTimePicker mcFechaFin;
-        private System.Windows.Forms.DateTimePicker mcFechaInicio;
-        private System.Windows.Forms.TextBox txtEtiqueta;
         private System.Windows.Forms.Label label9;
+        public System.Windows.Forms.DateTimePicker mcFechaFin;
+        public System.Windows.Forms.DateTimePicker mcFechaInicio;
+        public System.Windows.Forms.TextBox txtEtiqueta;
     }
 }

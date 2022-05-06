@@ -50,6 +50,8 @@ namespace ccquevedo_
 
         private void CrearExcel_Load(object sender, EventArgs e)
         {
+            // TODO: esta línea de código carga datos en la tabla 'bdCamaraComercioDataSet.Categorias' Puede moverla o quitarla según sea necesario.
+            this.categoriasTableAdapter.Fill(this.bdCamaraComercioDataSet.Categorias);
             try
             {
                 // TODO: esta línea de código carga datos en la tabla 'bdCamaraComercioDataSet.Productos' Puede moverla o quitarla según sea necesario.
@@ -57,17 +59,20 @@ namespace ccquevedo_
                 DT_Productos();
 
                 //falta agrgar el resto de datos 
-                dgvProducto.Columns.Add("Codigo", "Codigo");
+                dgvProducto.Columns.Add("ID", "Codigo");
+                dgvProducto.Columns.Add("Tipo", "Tipo Producto");
                 dgvProducto.Columns.Add("Nombre", "Nombre");
-                dgvProducto.Columns.Add("DescripcionCorta", "Descripción Corta");
-                dgvProducto.Columns.Add("DescripcionLarga", "Descripción Larga");
-                dgvProducto.Columns.Add("PrecioNormal", "Precio Normal");
-                dgvProducto.Columns.Add("PrecioOferta", "Precio Oferta");
-                dgvProducto.Columns.Add("Stock", "Stock");
-                dgvProducto.Columns.Add("Imagen", "Imagen");
-                dgvProducto.Columns.Add("Categoria", "Categoria");
-                dgvProducto.Columns.Add("TipoProducto", "Tipo Producto");
-
+                dgvProducto.Columns.Add("Descripción corta", "Descripción Corta");
+                dgvProducto.Columns.Add("Descripción", "Descripción Larga");
+                dgvProducto.Columns.Add("Día en que empieza el precio rebajado", "Fecha Inicio");
+                dgvProducto.Columns.Add("Día en que termina el precio rebajado", "Fecha Fin");
+                dgvProducto.Columns.Add("Inventario", "Stock");
+                dgvProducto.Columns.Add("Cantidad de bajo inventario", "Min Stock");
+                dgvProducto.Columns.Add("Precio rebajado", "Precio Oferta");
+                dgvProducto.Columns.Add("Precio normal", "Precio Normal");
+                dgvProducto.Columns.Add("Categorías", "Categoria");
+                dgvProducto.Columns.Add("Etiquetas", "Etiquetas");
+                dgvProducto.Columns.Add("Imágenes", "Imagen");
                 if (dgvProducto.SelectedRows.Count > 0)
                     Datos_();
             }
@@ -88,15 +93,17 @@ namespace ccquevedo_
                     Posicion_();
                     AddOwnedForm(frmModificar);
                     frmModificar.txtCodigo.Text = dtProductos.CurrentRow.Cells[0].Value.ToString();
+                    frmModificar.txtTipoProducto.Text = dtProductos.CurrentRow.Cells[9].Value.ToString();
                     frmModificar.txtNombre.Text = dtProductos.CurrentRow.Cells[1].Value.ToString();
                     frmModificar.txtDesCorta.Text = dtProductos.CurrentRow.Cells[2].Value.ToString();
                     frmModificar.txtDescriComple.Text = dtProductos.CurrentRow.Cells[3].Value.ToString();
+                    //frmModificar.mcfe
                     frmModificar.txtPrecioNormal.Text = dtProductos.CurrentRow.Cells[4].Value.ToString();
                     frmModificar.txtPrecioOferta.Text = dtProductos.CurrentRow.Cells[5].Value.ToString();
                     frmModificar.txtStock.Text = dtProductos.CurrentRow.Cells[6].Value.ToString();
                     frmModificar.txtImage.Text = dtProductos.CurrentRow.Cells[7].Value.ToString();
                     frmModificar.cmbCategoria.Text = dtProductos.CurrentRow.Cells[8].Value.ToString();
-                    frmModificar.txtTipoProducto.Text = dtProductos.CurrentRow.Cells[9].Value.ToString();
+                    
                     frmModificar.ShowDialog();
                     dgvProducto.Rows[0].Selected = false;
                 }
@@ -209,22 +216,25 @@ namespace ccquevedo_
                 {
                     var v = this.productosTableAdapter.Existe(
                            Convert.ToInt32(dtProductos.Rows[i].Cells[0].Value.ToString()));
+                    var id = this.categoriasTableAdapter.ConsultaId(
+                        dtProductos.Rows[i].Cells[11].Value.ToString());
                     if (v.ToString() != "1")
-
                     {
                         this.productosTableAdapter.Insertar(
                         Convert.ToInt32(dtProductos.Rows[i].Cells[0].Value.ToString()),
-                        dtProductos.Rows[i].Cells[1].Value.ToString(),
                         dtProductos.Rows[i].Cells[2].Value.ToString(),
-                        Convert.ToInt32(dtProductos.Rows[i].Cells[6].Value.ToString()),
-                        dtProductos.Rows[i].Cells[6].Value.ToString(),
-                        Convert.ToInt32(dtProductos.Rows[i].Cells[6].Value.ToString()),
                         dtProductos.Rows[i].Cells[3].Value.ToString(),
-                        DateTime.Now, DateTime.Now, frmCrear.ItemSelct,
-                        Convert.ToDecimal(dtProductos.Rows[i].Cells[4].Value.ToString()),
-                        Convert.ToDecimal(dtProductos.Rows[i].Cells[5].Value.ToString()), "Simple", 
-                        dtProductos.Rows[i].Cells[6].Value.ToString());
-                        //this.productosTableAdapter.Fill(this.bdCamaraComercioDataSet.Productos);
+                        Convert.ToInt32(dtProductos.Rows[i].Cells[7].Value.ToString()),
+                        dtProductos.Rows[i].Cells[13].Value.ToString(),
+                        Convert.ToInt32(dtProductos.Rows[i].Cells[8].Value.ToString()),
+                        dtProductos.Rows[i].Cells[4].Value.ToString(),
+                        DateTime.Parse(dtProductos.Rows[i].Cells[6].Value.ToString()),
+                        DateTime.Parse(dtProductos.Rows[i].Cells[5].Value.ToString()),
+                        Convert.ToInt32(id),
+                        Convert.ToDecimal(dtProductos.Rows[i].Cells[10].Value.ToString()), 
+                        Convert.ToDecimal(dtProductos.Rows[i].Cells[9].Value.ToString()),
+                        dtProductos.Rows[i].Cells[1].Value.ToString(),
+                        dtProductos.Rows[i].Cells[12].Value.ToString());
                     }
                 }
             }
