@@ -46,9 +46,8 @@ namespace ccquevedo_
         {
             ItemSelct = int.Parse(cmbCategoria.SelectedValue.ToString());
             CrearExcel ce = Owner as CrearExcel;
-            if (txtCodigo.Text != "" && txtNombre.Text != "" && txtDescripcionCorta.Text != "" &&
-                txtDescripcionCompleta.Text != "" && txtPrecioNormal.Text != "" && txtPrecioOferta.Text != "" &&
-                txtStock.Text != "" && itemSelct != 0 && txtTipoProducto.Text != "")
+            if (txtCodigo.Text != "" && txtNombre.Text != "" && txtDescripcionCorta.Text != "" 
+                && txtPrecioNormal.Text != "" && itemSelct != 0 && txtInventario.Text != "")
             {
                 ce.DtProductos.Rows.Add(txtCodigo.Text, txtTipoProducto.Text,txtNombre.Text,
                     txtDescripcionCorta.Text, txtDescripcionCompleta.Text, mcFechaInicio.Text, 
@@ -124,6 +123,8 @@ namespace ccquevedo_
 
         private void Nuevo_Load(object sender, EventArgs e)
         {
+            // TODO: esta línea de código carga datos en la tabla 'bdCamaraComercioDataSet.Productos' Puede moverla o quitarla según sea necesario.
+            this.productosTableAdapter.Fill(this.bdCamaraComercioDataSet.Productos);
             // TODO: esta línea de código carga datos en la tabla 'bdCamaraComercioDataSet.Categorias' Puede moverla o quitarla según sea necesario.
             this.categoriasTableAdapter.Fill(this.bdCamaraComercioDataSet.Categorias);
             DataTable tablaDos = this.categoriasTableAdapter.GetData();
@@ -137,6 +138,49 @@ namespace ccquevedo_
             }
             cmbCategoria.DataSource = lista;
             cmbCategoria.SelectedIndex = 0;
+
+            AutoCompleteStringCollection mycollection = new AutoCompleteStringCollection();
+            DataTable datos = this.productosTableAdapter.GetData();
+            for (int i = 0; i < datos.Rows.Count; i++)
+            {
+                mycollection.Add(datos.Rows[i][1].ToString());
+            }
+            txtNombre.AutoCompleteCustomSource = mycollection;
+        }
+
+        private void txtNombre_Enter(object sender, EventArgs e)
+        {
+            //try
+            //{
+            //    if (txtNombre.Text != "")
+            //    {
+            //        DataTable datos = this.productosTableAdapter.BuscaNombre(txtNombre.Text);
+            //        DataTable dataTable = this.categoriasTableAdapter.BuscarCategoria(Convert.ToInt32(datos.Rows[0][9].ToString()));
+            //        if (datos.Rows.Count < 1)
+            //        {
+            //            txtCodigo.Text = datos.Rows[0][0].ToString();
+            //            txtNombre.Text = datos.Rows[0][1].ToString();
+            //            txtDescripcionCorta.Text = datos.Rows[0][2].ToString();
+            //            txtInventario.Text = datos.Rows[0][3].ToString();
+            //            txtImagen.Text = datos.Rows[0][4].ToString();
+            //            txtDescripcionCompleta.Text = datos.Rows[0][5].ToString();
+            //            txtStock.Text = datos.Rows[0][6].ToString();
+            //            txtPrecioNormal.Text = datos.Rows[0][7].ToString();
+            //            txtPrecioOferta.Text = datos.Rows[0][8].ToString();
+            //            cmbCategoria.Text = dataTable.Rows[0][1].ToString();
+            //            txtTipoProducto.Text = datos.Rows[0][10].ToString();
+            //            mcFechaInicio.Value = DateTime.Parse(datos.Rows[0][11].ToString());
+            //            mcFechaFin.Value = DateTime.Parse(datos.Rows[0][12].ToString());
+            //            txtEtiqueta.Text = datos.Rows[0][13].ToString();
+            //        }
+            //    }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            
+
         }
     }
 }
