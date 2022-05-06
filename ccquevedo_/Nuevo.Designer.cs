@@ -57,14 +57,16 @@ namespace ccquevedo_
             this.btnGuadar = new System.Windows.Forms.Button();
             this.txtInventario = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtFechaFin = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtFechaInicio = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.bdCamaraComercioDataSet = new ccquevedo_.bdCamaraComercioDataSet();
             this.categoriasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.categoriasTableAdapter = new ccquevedo_.bdCamaraComercioDataSetTableAdapters.CategoriasTableAdapter();
             this.tableAdapterManager = new ccquevedo_.bdCamaraComercioDataSetTableAdapters.TableAdapterManager();
+            this.mcFechaFin = new System.Windows.Forms.DateTimePicker();
+            this.mcFechaInicio = new System.Windows.Forms.DateTimePicker();
+            this.txtEtiqueta = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdCamaraComercioDataSet)).BeginInit();
@@ -302,7 +304,7 @@ namespace ccquevedo_
             this.btnGuadar.ForeColor = System.Drawing.SystemColors.Window;
             this.btnGuadar.Image = ((System.Drawing.Image)(resources.GetObject("btnGuadar.Image")));
             this.btnGuadar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGuadar.Location = new System.Drawing.Point(895, 481);
+            this.btnGuadar.Location = new System.Drawing.Point(798, 471);
             this.btnGuadar.Name = "btnGuadar";
             this.btnGuadar.Size = new System.Drawing.Size(159, 47);
             this.btnGuadar.TabIndex = 27;
@@ -330,14 +332,6 @@ namespace ccquevedo_
             this.label3.TabIndex = 28;
             this.label3.Text = "Inventario:*";
             // 
-            // txtFechaFin
-            // 
-            this.txtFechaFin.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFechaFin.Location = new System.Drawing.Point(782, 314);
-            this.txtFechaFin.Name = "txtFechaFin";
-            this.txtFechaFin.Size = new System.Drawing.Size(272, 31);
-            this.txtFechaFin.TabIndex = 60;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -349,14 +343,6 @@ namespace ccquevedo_
             this.label4.Size = new System.Drawing.Size(101, 44);
             this.label4.TabIndex = 59;
             this.label4.Text = "Fecha fin \r\nde oferta:\r\n";
-            // 
-            // txtFechaInicio
-            // 
-            this.txtFechaInicio.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFechaInicio.Location = new System.Drawing.Point(782, 266);
-            this.txtFechaInicio.Name = "txtFechaInicio";
-            this.txtFechaInicio.Size = new System.Drawing.Size(272, 31);
-            this.txtFechaInicio.TabIndex = 58;
             // 
             // label5
             // 
@@ -391,15 +377,54 @@ namespace ccquevedo_
             this.tableAdapterManager.ProductosTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = ccquevedo_.bdCamaraComercioDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
+            // mcFechaFin
+            // 
+            this.mcFechaFin.CalendarFont = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mcFechaFin.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mcFechaFin.Location = new System.Drawing.Point(782, 314);
+            this.mcFechaFin.Name = "mcFechaFin";
+            this.mcFechaFin.Size = new System.Drawing.Size(272, 31);
+            this.mcFechaFin.TabIndex = 63;
+            // 
+            // mcFechaInicio
+            // 
+            this.mcFechaInicio.CalendarFont = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mcFechaInicio.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mcFechaInicio.Location = new System.Drawing.Point(782, 266);
+            this.mcFechaInicio.Name = "mcFechaInicio";
+            this.mcFechaInicio.Size = new System.Drawing.Size(272, 31);
+            this.mcFechaInicio.TabIndex = 62;
+            // 
+            // txtEtiqueta
+            // 
+            this.txtEtiqueta.Font = new System.Drawing.Font("Century Gothic", 14.25F);
+            this.txtEtiqueta.Location = new System.Drawing.Point(236, 432);
+            this.txtEtiqueta.Multiline = true;
+            this.txtEtiqueta.Name = "txtEtiqueta";
+            this.txtEtiqueta.Size = new System.Drawing.Size(272, 67);
+            this.txtEtiqueta.TabIndex = 65;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Century Gothic", 14.25F);
+            this.label9.Location = new System.Drawing.Point(31, 435);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(196, 44);
+            this.label9.TabIndex = 64;
+            this.label9.Text = "Etiquetas:\r\n(Ejemplo:blusa,ropa)";
+            // 
             // Nuevo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.ClientSize = new System.Drawing.Size(1107, 565);
-            this.Controls.Add(this.txtFechaFin);
+            this.ClientSize = new System.Drawing.Size(1107, 563);
+            this.Controls.Add(this.txtEtiqueta);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.mcFechaFin);
+            this.Controls.Add(this.mcFechaInicio);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.txtFechaInicio);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtInventario);
             this.Controls.Add(this.label3);
@@ -471,13 +496,15 @@ namespace ccquevedo_
         public System.Windows.Forms.TextBox txtCodigo;
         private System.Windows.Forms.TextBox txtInventario;
         private System.Windows.Forms.Label label3;
-        public System.Windows.Forms.TextBox txtFechaFin;
         private System.Windows.Forms.Label label4;
-        public System.Windows.Forms.TextBox txtFechaInicio;
         private System.Windows.Forms.Label label5;
         private bdCamaraComercioDataSet bdCamaraComercioDataSet;
         private System.Windows.Forms.BindingSource categoriasBindingSource;
         private bdCamaraComercioDataSetTableAdapters.CategoriasTableAdapter categoriasTableAdapter;
         private bdCamaraComercioDataSetTableAdapters.TableAdapterManager tableAdapterManager;
+        private System.Windows.Forms.DateTimePicker mcFechaFin;
+        private System.Windows.Forms.DateTimePicker mcFechaInicio;
+        private System.Windows.Forms.TextBox txtEtiqueta;
+        private System.Windows.Forms.Label label9;
     }
 }

@@ -409,7 +409,7 @@
             // 
             this.mcFechaInicio.CalendarFont = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mcFechaInicio.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mcFechaInicio.Location = new System.Drawing.Point(782, 267);
+            this.mcFechaInicio.Location = new System.Drawing.Point(782, 266);
             this.mcFechaInicio.Name = "mcFechaInicio";
             this.mcFechaInicio.Size = new System.Drawing.Size(272, 31);
             this.mcFechaInicio.TabIndex = 60;
@@ -418,7 +418,7 @@
             // 
             this.mcFechaFin.CalendarFont = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mcFechaFin.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mcFechaFin.Location = new System.Drawing.Point(782, 316);
+            this.mcFechaFin.Location = new System.Drawing.Point(782, 314);
             this.mcFechaFin.Name = "mcFechaFin";
             this.mcFechaFin.Size = new System.Drawing.Size(272, 31);
             this.mcFechaFin.TabIndex = 61;
