@@ -116,7 +116,6 @@ namespace ccquevedo_
                 MessageBox.Show(ex.ToString());
             }
             
-            
         }
 
         private void btnElimnar_Click(object sender, EventArgs e)

@@ -150,6 +150,11 @@ namespace ccquevedo_
 
         private void txtNombre_Enter(object sender, EventArgs e)
         {
+            
+        }
+
+        private void txtNombre_TextChanged(object sender, EventArgs e)
+        {
             //try
             //{
             //    if (txtNombre.Text != "")
@@ -174,13 +179,11 @@ namespace ccquevedo_
             //            txtEtiqueta.Text = datos.Rows[0][13].ToString();
             //        }
             //    }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
-            
-
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.ToString());
+            //}
         }
     }
 }
