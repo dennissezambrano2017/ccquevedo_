@@ -511,9 +511,9 @@
         private bdCamaraComercioDataSetTableAdapters.CategoriasTableAdapter categoriasTableAdapter;
         private bdCamaraComercioDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         public System.Windows.Forms.ComboBox cmbCategoria;
-        private System.Windows.Forms.TextBox txtEtiqueta;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.DateTimePicker mcFechaFin;
-        private System.Windows.Forms.DateTimePicker mcFechaInicio;
+        public System.Windows.Forms.TextBox txtEtiqueta;
+        public System.Windows.Forms.DateTimePicker mcFechaFin;
+        public System.Windows.Forms.DateTimePicker mcFechaInicio;
     }
 }
