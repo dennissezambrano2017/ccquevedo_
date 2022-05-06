@@ -186,7 +186,6 @@
             this.dgvProductos.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvProductos.Size = new System.Drawing.Size(846, 270);
             this.dgvProductos.TabIndex = 1;
-            this.dgvProductos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductos_CellContentClick);
             // 
             // btnDescargar
             // 

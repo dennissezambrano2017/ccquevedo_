@@ -29,17 +29,25 @@ namespace ccquevedo_
 
         private void btnCerrar_Click(object sender, EventArgs e)
         {
-            txtCodigo.Text = ""; 
-            txtNombre.Text = "";
-            txtDesCorta.Text = ""; 
-            txtDescriComple.Text = "";
-            txtPrecioNormal.Text = ""; 
-            txtPrecioOferta.Text = "";
-            txtStock.Text = "";
-            txtImage.Text = "";
-            cmbCategoria.Text = ""; 
-            txtTipoProducto.Text = "";
-            this.Close();
+            try
+            {
+                txtCodigo.Text = "";
+                txtNombre.Text = "";
+                txtDesCorta.Text = "";
+                txtDescriComple.Text = "";
+                txtPrecioNormal.Text = "";
+                txtPrecioOferta.Text = "";
+                txtStock.Text = "";
+                txtImage.Text = "";
+                cmbCategoria.Text = "";
+                txtTipoProducto.Text = "";
+                this.Close();
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
 
         private void Modificar_FormClosing(object sender, FormClosingEventArgs e)
@@ -49,7 +57,9 @@ namespace ccquevedo_
 
         private void btnGuadar_Click(object sender, EventArgs e)
         {
-            CrearExcel ce = Owner as CrearExcel;
+            try
+            {
+                CrearExcel ce = Owner as CrearExcel;
             ce.DtProductos[0, ce.Posicion].Value = txtCodigo.Text;
             ce.DtProductos[1, ce.Posicion].Value = txtNombre.Text;
             ce.DtProductos[2, ce.Posicion].Value = txtDesCorta.Text;
@@ -61,7 +71,12 @@ namespace ccquevedo_
             ce.DtProductos[8, ce.Posicion].Value = cmbCategoria.Text;
             ce.DtProductos[9, ce.Posicion].Value = txtTipoProducto.Text;
             this.Close();
-            //MessageBox.Show(ce.Posicion.ToString());
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
 
         private void txtCodigo_KeyPress(object sender, KeyPressEventArgs e)
@@ -114,18 +129,6 @@ namespace ccquevedo_
         {
             // TODO: esta línea de código carga datos en la tabla 'bdCamaraComercioDataSet.Categorias' Puede moverla o quitarla según sea necesario.
             this.categoriasTableAdapter.Fill(this.bdCamaraComercioDataSet.Categorias);
-            //DataTable tablaUno = this.categoriasTableAdapter.GetData();
-            //cmbCategoria.DisplayMember = "Text";
-            //cmbCategoria.ValueMember = "Value";
-            //for (int i = 0; i < tablaUno.Rows.Count; i++)
-            //{
-            //    cmbCategoria.Items.Add(new
-            //    {
-            //        Text = tablaUno.Rows[i][1].ToString(),
-            //        Value = tablaUno.Rows[i][0].ToString()
-            //    });
-
-            //}
         }
     }
 }

@@ -61,20 +61,26 @@ namespace ccquevedo_
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-
-            int num;
-            if (dgvProductos.SelectedRows.Count > 0)
+            try
             {
-                num = dgvProductos.CurrentRow.Index;
-                int? id = getId(num);
-                Form form = new Editar(id);
-                form.ShowDialog();
-                this.productosTableAdapter.Fill(this.bdCamaraComercioDataSet.Productos);
-                dgvProductos.Rows[0].Selected = false;
-            }
-            else
-                MessageBox.Show("Seleccione una fila con datos", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                int num;
+                if (dgvProductos.SelectedRows.Count > 0)
+                {
+                    num = dgvProductos.CurrentRow.Index;
+                    int? id = getId(num);
+                    Form form = new Editar(id);
+                    form.ShowDialog();
+                    this.productosTableAdapter.Fill(this.bdCamaraComercioDataSet.Productos);
+                    dgvProductos.Rows[0].Selected = false;
+                }
+                else
+                    MessageBox.Show("Seleccione una fila con datos", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.ToString());
+            }
 
         }
 
@@ -88,75 +94,85 @@ namespace ccquevedo_
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            int num;
-            if (dgvProductos.SelectedRows.Count > 0)
+            try
             {
-                DialogResult result = MessageBox.Show("Esta seguro de eliminar la fila", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (result == DialogResult.Yes)
+                int num;
+                if (dgvProductos.SelectedRows.Count > 0)
                 {
-                    num = dgvProductos.CurrentRow.Index;
-                    int? id = getId(num);
-                    //Form form = new Editar(id);
-                    //form.Show();
-                    this.productosTableAdapter.Eliminar(Convert.ToInt32(id));
-                    this.productosTableAdapter.Fill(this.bdCamaraComercioDataSet.Productos);
-                    dgvProductos.Rows[0].Selected = false;
+                    DialogResult result = MessageBox.Show("Esta seguro de eliminar la fila", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (result == DialogResult.Yes)
+                    {
+                        num = dgvProductos.CurrentRow.Index;
+                        int? id = getId(num);
+                        //Form form = new Editar(id);
+                        //form.Show();
+                        this.productosTableAdapter.Eliminar(Convert.ToInt32(id));
+                        this.productosTableAdapter.Fill(this.bdCamaraComercioDataSet.Productos);
+                        dgvProductos.Rows[0].Selected = false;
+                    }
                 }
+                else
+                    MessageBox.Show("Seleccione una fila con datos", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            else
-                MessageBox.Show("Seleccione una fila con datos", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.ToString());
+            }
+
         }
 
         private void btnDescargar_Click(object sender, EventArgs e)
         {
-            if (dgvProductos.Rows != null && dgvProductos.Rows.Count != 0)
+            try
             {
-                DataGridView dgvAxu = new DataGridView();
-                dgvAxu.Columns.Add("ID", "Codigo");
-                dgvAxu.Columns.Add("Tipo", "Tipo Producto");
-                dgvAxu.Columns.Add("Nombre", "Nombre");
-                dgvAxu.Columns.Add("Descripción corta", "Descripción Corta");
-                dgvAxu.Columns.Add("Descripción", "Descripción Larga");
-                dgvAxu.Columns.Add("Día en que empieza el precio rebajado", "Fecha Inicio");
-                dgvAxu.Columns.Add("Día en que termina el precio rebajado", "Fecha Fin");
-                dgvAxu.Columns.Add("Inventario", "Stock");
-                dgvAxu.Columns.Add("Cantidad de bajo inventario", "Min Stock");
-                dgvAxu.Columns.Add("Precio rebajado", "Precio Oferta");
-                dgvAxu.Columns.Add("Precio normal", "Precio Normal");
-                dgvAxu.Columns.Add("Categorías", "Categoria");
-                dgvAxu.Columns.Add("Etiquetas", "Etiquetas");
-                dgvAxu.Columns.Add("Imágenes", "Imagen");
-
-                foreach (DataGridViewRow row in dgvProductos.Rows)
+                if (dgvProductos.Rows != null && dgvProductos.Rows.Count != 0)
                 {
-                    int idcate = (int)dgvProductos.Rows[row.Index].Cells[11].Value;
-                    DataTable tabla = this.categoriasTableAdapter.BuscarCategoria(idcate);
-                    dgvAxu.Rows.Add();
-                    dgvAxu.Rows[row.Index].Cells["ID"].Value = row.Cells[0].Value;
-                    dgvAxu.Rows[row.Index].Cells["Tipo"].Value = row.Cells[1].Value;
-                    dgvAxu.Rows[row.Index].Cells["Nombre"].Value = row.Cells[2].Value;
-                    dgvAxu.Rows[row.Index].Cells["Descripción corta"].Value = row.Cells[3].Value;
-                    dgvAxu.Rows[row.Index].Cells["Descripción"].Value = row.Cells[4].Value;
-                    dgvAxu.Rows[row.Index].Cells["Día en que empieza el precio rebajado"].Value = row.Cells[5].Value;
-                    dgvAxu.Rows[row.Index].Cells["Día en que termina el precio rebajado"].Value = row.Cells[6].Value;
-                    dgvAxu.Rows[row.Index].Cells["Inventario"].Value = row.Cells[7].Value;
-                    dgvAxu.Rows[row.Index].Cells["Cantidad de bajo inventario"].Value = row.Cells[8].Value; 
-                    dgvAxu.Rows[row.Index].Cells["Precio rebajado"].Value = row.Cells[9].Value;
-                    dgvAxu.Rows[row.Index].Cells["Precio normal"].Value = row.Cells[10].Value;
-                    dgvAxu.Rows[row.Index].Cells["Categorías"].Value = tabla.Rows[0][1].ToString();
-                    dgvAxu.Rows[row.Index].Cells["Etiquetas"].Value = row.Cells[12].Value;
-                    dgvAxu.Rows[row.Index].Cells["Imágenes"].Value = row.Cells[13].Value;
+                    DataGridView dgvAxu = new DataGridView();
+                    dgvAxu.Columns.Add("ID", "Codigo");
+                    dgvAxu.Columns.Add("Tipo", "Tipo Producto");
+                    dgvAxu.Columns.Add("Nombre", "Nombre");
+                    dgvAxu.Columns.Add("Descripción corta", "Descripción Corta");
+                    dgvAxu.Columns.Add("Descripción", "Descripción Larga");
+                    dgvAxu.Columns.Add("Día en que empieza el precio rebajado", "Fecha Inicio");
+                    dgvAxu.Columns.Add("Día en que termina el precio rebajado", "Fecha Fin");
+                    dgvAxu.Columns.Add("Inventario", "Stock");
+                    dgvAxu.Columns.Add("Cantidad de bajo inventario", "Min Stock");
+                    dgvAxu.Columns.Add("Precio rebajado", "Precio Oferta");
+                    dgvAxu.Columns.Add("Precio normal", "Precio Normal");
+                    dgvAxu.Columns.Add("Categorías", "Categoria");
+                    dgvAxu.Columns.Add("Etiquetas", "Etiquetas");
+                    dgvAxu.Columns.Add("Imágenes", "Imagen");
+
+                    foreach (DataGridViewRow row in dgvProductos.Rows)
+                    {
+                        int idcate = (int)dgvProductos.Rows[row.Index].Cells[11].Value;
+                        DataTable tabla = this.categoriasTableAdapter.BuscarCategoria(idcate);
+                        dgvAxu.Rows.Add();
+                        dgvAxu.Rows[row.Index].Cells["ID"].Value = row.Cells[0].Value;
+                        dgvAxu.Rows[row.Index].Cells["Tipo"].Value = row.Cells[1].Value;
+                        dgvAxu.Rows[row.Index].Cells["Nombre"].Value = row.Cells[2].Value;
+                        dgvAxu.Rows[row.Index].Cells["Descripción corta"].Value = row.Cells[3].Value;
+                        dgvAxu.Rows[row.Index].Cells["Descripción"].Value = row.Cells[4].Value;
+                        dgvAxu.Rows[row.Index].Cells["Día en que empieza el precio rebajado"].Value = row.Cells[5].Value;
+                        dgvAxu.Rows[row.Index].Cells["Día en que termina el precio rebajado"].Value = row.Cells[6].Value;
+                        dgvAxu.Rows[row.Index].Cells["Inventario"].Value = row.Cells[7].Value;
+                        dgvAxu.Rows[row.Index].Cells["Cantidad de bajo inventario"].Value = row.Cells[8].Value;
+                        dgvAxu.Rows[row.Index].Cells["Precio rebajado"].Value = row.Cells[9].Value;
+                        dgvAxu.Rows[row.Index].Cells["Precio normal"].Value = row.Cells[10].Value;
+                        dgvAxu.Rows[row.Index].Cells["Categorías"].Value = tabla.Rows[0][1].ToString();
+                        dgvAxu.Rows[row.Index].Cells["Etiquetas"].Value = row.Cells[12].Value;
+                        dgvAxu.Rows[row.Index].Cells["Imágenes"].Value = row.Cells[13].Value;
+                    }
+                    Exportar exportar = new Exportar();
+                    exportar.ExportarDatos(dgvAxu);
                 }
-                Exportar exportar = new Exportar();
-                exportar.ExportarDatos(dgvAxu);
+                else
+                    MessageBox.Show("No existen datos para exportar", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            else
-                MessageBox.Show("No existen datos para exportar", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        }
-
-        private void dgvProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.ToString());
+            }
         }
     }
 }

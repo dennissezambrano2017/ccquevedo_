@@ -44,19 +44,27 @@ namespace ccquevedo_
 
         private void btnGuadar_Click(object sender, EventArgs e)
         {
-            ItemSelct = int.Parse(cmbCategoria.SelectedValue.ToString());
-            CrearExcel ce = Owner as CrearExcel;
-            if (txtCodigo.Text != "" && txtNombre.Text != "" && txtDescripcionCorta.Text != "" 
-                && txtPrecioNormal.Text != "" && itemSelct != 0 && txtInventario.Text != "")
+            try
             {
-                ce.DtProductos.Rows.Add(txtCodigo.Text, txtTipoProducto.Text,txtNombre.Text,
-                    txtDescripcionCorta.Text, txtDescripcionCompleta.Text, mcFechaInicio.Text, 
-                    mcFechaFin.Text, txtInventario.Text, txtStock.Text, txtPrecioOferta.Text,
-                    txtPrecioNormal.Text,cmbCategoria.Text, txtEtiqueta.Text, txtImagen.Text);
-                this.Close();
+                ItemSelct = int.Parse(cmbCategoria.SelectedValue.ToString());
+                CrearExcel ce = Owner as CrearExcel;
+                if (txtCodigo.Text != "" && txtNombre.Text != "" && txtDescripcionCorta.Text != ""
+                    && txtPrecioNormal.Text != "" && itemSelct != 0 && txtInventario.Text != "")
+                {
+                    ce.DtProductos.Rows.Add(txtCodigo.Text, txtTipoProducto.Text, txtNombre.Text,
+                        txtDescripcionCorta.Text, txtDescripcionCompleta.Text, mcFechaInicio.Text,
+                        mcFechaFin.Text, txtInventario.Text, txtStock.Text, txtPrecioOferta.Text,
+                        txtPrecioNormal.Text, cmbCategoria.Text, txtEtiqueta.Text, txtImagen.Text);
+                    this.Close();
+                }
+                else
+                    MessageBox.Show("Falta datos a ingresar", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            else
-                MessageBox.Show("Falta datos a ingresar", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+
         }
 
         private void txtCodigo_KeyPress(object sender, KeyPressEventArgs e)
@@ -123,29 +131,36 @@ namespace ccquevedo_
 
         private void Nuevo_Load(object sender, EventArgs e)
         {
-            // TODO: esta línea de código carga datos en la tabla 'bdCamaraComercioDataSet.Productos' Puede moverla o quitarla según sea necesario.
-            this.productosTableAdapter.Fill(this.bdCamaraComercioDataSet.Productos);
-            // TODO: esta línea de código carga datos en la tabla 'bdCamaraComercioDataSet.Categorias' Puede moverla o quitarla según sea necesario.
-            this.categoriasTableAdapter.Fill(this.bdCamaraComercioDataSet.Categorias);
-            DataTable tablaDos = this.categoriasTableAdapter.GetData();
-            cmbCategoria.DisplayMember = "des";
-            cmbCategoria.ValueMember = "idcat";
-
-            List<Product> lista = new List<Product>();
-            for (int i = 0; i < tablaDos.Rows.Count; i++)
+            try
             {
-                lista.Add(new Product(Convert.ToInt32(tablaDos.Rows[i][0].ToString()), tablaDos.Rows[i][1].ToString()));
-            }
-            cmbCategoria.DataSource = lista;
-            cmbCategoria.SelectedIndex = 0;
+                // TODO: esta línea de código carga datos en la tabla 'bdCamaraComercioDataSet.Productos' Puede moverla o quitarla según sea necesario.
+                this.productosTableAdapter.Fill(this.bdCamaraComercioDataSet.Productos);
+                // TODO: esta línea de código carga datos en la tabla 'bdCamaraComercioDataSet.Categorias' Puede moverla o quitarla según sea necesario.
+                this.categoriasTableAdapter.Fill(this.bdCamaraComercioDataSet.Categorias);
+                DataTable tablaDos = this.categoriasTableAdapter.GetData();
+                cmbCategoria.DisplayMember = "des";
+                cmbCategoria.ValueMember = "idcat";
 
-            AutoCompleteStringCollection mycollection = new AutoCompleteStringCollection();
-            DataTable datos = this.productosTableAdapter.GetData();
-            for (int i = 0; i < datos.Rows.Count; i++)
-            {
-                mycollection.Add(datos.Rows[i][1].ToString());
+                List<Product> lista = new List<Product>();
+                for (int i = 0; i < tablaDos.Rows.Count; i++)
+                {
+                    lista.Add(new Product(Convert.ToInt32(tablaDos.Rows[i][0].ToString()), tablaDos.Rows[i][1].ToString()));
+                }
+                cmbCategoria.DataSource = lista;
+                cmbCategoria.SelectedIndex = 0;
+
+                AutoCompleteStringCollection mycollection = new AutoCompleteStringCollection();
+                DataTable datos = this.productosTableAdapter.GetData();
+                for (int i = 0; i < datos.Rows.Count; i++)
+                {
+                    mycollection.Add(datos.Rows[i][1].ToString());
+                }
+                txtNombre.AutoCompleteCustomSource = mycollection;
             }
-            txtNombre.AutoCompleteCustomSource = mycollection;
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
