@@ -42,6 +42,23 @@ namespace ccquevedo_
             // TODO: esta línea de código carga datos en la tabla 'bdCamaraComercioDataSet.Productos' Puede moverla o quitarla según sea necesario.
             this.productosTableAdapter.Fill(this.bdCamaraComercioDataSet.Productos);
 
+           
+            //DataTable datos = this.productosTableAdapter.GetData();
+            //foreach (DataGridViewRow row in dgvProductos.Rows)
+            //{
+            //    row.Cells[2].Value = Convert.ToString("NP");
+            //}
+            
+
+            //dgvProductos.DataSource = this.bdCamaraComercioDataSet.Productos ;
+            //for (int fila = 0; fila < dtaPagos.Rows.Count - 1; fila++)
+            //{
+            //    for (int col = 0; col < dtaPagos.Rows[fila].Cells.Count; col++)
+            //    {
+            //        string valor = dtaPagos.Rows[fila].Cells[col].Value.ToString();
+            //        MessageBox.Show(valor);
+            //    }
+            //}
         }
 
         private int? getId(int num)
@@ -108,7 +125,23 @@ namespace ccquevedo_
         {
             if (dgvProductos.Rows != null && dgvProductos.Rows.Count != 0)
             {
-                Exportar(dgvProductos);
+                DataGridView dgvAxu = new DataGridView();
+                dgvAxu.Columns.Add("ID", "Codigo");
+                dgvAxu.Columns.Add("Tipo", "Tipo Producto");
+                dgvAxu.Columns.Add("Nombre", "Nombre");
+                dgvAxu.Columns.Add("Descripción corta", "Descripción Corta");
+                dgvAxu.Columns.Add("Descripción", "Descripción Larga");
+                dgvAxu.Columns.Add("Día en que empieza el precio rebajado", "Fecha Inicio");
+                dgvAxu.Columns.Add("Día en que termina el precio rebajado", "Fecha Fin");
+                dgvAxu.Columns.Add("Inventario", "Stock");
+                dgvAxu.Columns.Add("Cantidad de bajo inventario", "Min Stock");
+                dgvAxu.Columns.Add("Precio rebajado", "Precio Oferta");
+                dgvAxu.Columns.Add("Precio normal", "Precio Normal");
+                dgvAxu.Columns.Add("Categorías", "Categoria");
+                dgvAxu.Columns.Add("Etiquetas", "Etiquetas");
+                dgvAxu.Columns.Add("Imágenes", "Imagen");
+                dgvAxu.DataSource = dgvProductos;
+                Exportar(dgvAxu);
             }
             else
                 MessageBox.Show("No existen datos para exportar", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
