@@ -65,15 +65,15 @@ namespace ccquevedo_
             // TODO: esta línea de código carga datos en la tabla 'bdCamaraComercioDataSet.Productos' Puede moverla o quitarla según sea necesario.
             this.productosTableAdapter.Fill(this.bdCamaraComercioDataSet.Productos);
 
-            DataTable tablaDos = this.categoriasTableAdapter.GetData();
-            cmbCategoria.DisplayMember = "des";
-            cmbCategoria.ValueMember = "idcat";
-            List<Product> lista = new List<Product>();
-            for (int i = 0; i < tablaDos.Rows.Count; i++)
-            {
-                lista.Add(new Product(Convert.ToInt32(tablaDos.Rows[i][0].ToString()), tablaDos.Rows[i][1].ToString()));
-            }
-            cmbCategoria.DataSource = lista;
+            //DataTable tablaDos = this.categoriasTableAdapter.GetData();
+            //cmbCategoria.DisplayMember = "des";
+            //cmbCategoria.ValueMember = "idcat";
+            //List<Product> lista = new List<Product>();
+            //for (int i = 0; i < tablaDos.Rows.Count; i++)
+            //{
+            //    lista.Add(new Product(Convert.ToInt32(tablaDos.Rows[i][0].ToString()), tablaDos.Rows[i][1].ToString()));
+            //}
+            //cmbCategoria.DataSource = lista;
             cmbCategoria.SelectedValue = idCat;
         }
 
