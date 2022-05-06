@@ -61,6 +61,7 @@
             this.fechaInicioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fechaFinDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.etiquetaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnDescargar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.productosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdCamaraComercioDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
@@ -128,10 +129,7 @@
             // 
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(249)))));
             this.dgvProductos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvProductos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvProductos.AutoGenerateColumns = false;
-            this.dgvProductos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvProductos.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dgvProductos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvProductos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
@@ -167,7 +165,7 @@
             this.dgvProductos.DataSource = this.productosBindingSource;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
@@ -187,13 +185,13 @@
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvProductos.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvProductos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
             dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
             this.dgvProductos.RowsDefaultCellStyle = dataGridViewCellStyle5;
-            this.dgvProductos.Size = new System.Drawing.Size(838, 270);
-            this.dgvProductos.TabIndex = 5;
+            this.dgvProductos.Size = new System.Drawing.Size(846, 270);
+            this.dgvProductos.TabIndex = 1;
             // 
             // Id
             // 
@@ -201,6 +199,7 @@
             this.Id.HeaderText = "Código";
             this.Id.Name = "Id";
             this.Id.ReadOnly = true;
+            this.Id.Width = 42;
             // 
             // Nombre
             // 
@@ -208,6 +207,7 @@
             this.Nombre.HeaderText = "Nombre";
             this.Nombre.Name = "Nombre";
             this.Nombre.ReadOnly = true;
+            this.Nombre.Width = 43;
             // 
             // Descripcion_corta
             // 
@@ -215,6 +215,7 @@
             this.Descripcion_corta.HeaderText = "Descripcion";
             this.Descripcion_corta.Name = "Descripcion_corta";
             this.Descripcion_corta.ReadOnly = true;
+            this.Descripcion_corta.Width = 42;
             // 
             // Inventario
             // 
@@ -222,6 +223,7 @@
             this.Inventario.HeaderText = "Inventario";
             this.Inventario.Name = "Inventario";
             this.Inventario.ReadOnly = true;
+            this.Inventario.Width = 42;
             // 
             // Precio_Normal
             // 
@@ -229,6 +231,7 @@
             this.Precio_Normal.HeaderText = "Precio";
             this.Precio_Normal.Name = "Precio_Normal";
             this.Precio_Normal.ReadOnly = true;
+            this.Precio_Normal.Width = 43;
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -236,6 +239,7 @@
             this.idDataGridViewTextBoxColumn.HeaderText = "Id";
             this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
             this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idDataGridViewTextBoxColumn.Width = 42;
             // 
             // nombreDataGridViewTextBoxColumn
             // 
@@ -243,6 +247,7 @@
             this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
             this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
             this.nombreDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nombreDataGridViewTextBoxColumn.Width = 43;
             // 
             // descripcioncortaDataGridViewTextBoxColumn
             // 
@@ -250,6 +255,7 @@
             this.descripcioncortaDataGridViewTextBoxColumn.HeaderText = "Descripcion_corta";
             this.descripcioncortaDataGridViewTextBoxColumn.Name = "descripcioncortaDataGridViewTextBoxColumn";
             this.descripcioncortaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.descripcioncortaDataGridViewTextBoxColumn.Width = 42;
             // 
             // inventarioDataGridViewTextBoxColumn
             // 
@@ -257,6 +263,7 @@
             this.inventarioDataGridViewTextBoxColumn.HeaderText = "Inventario";
             this.inventarioDataGridViewTextBoxColumn.Name = "inventarioDataGridViewTextBoxColumn";
             this.inventarioDataGridViewTextBoxColumn.ReadOnly = true;
+            this.inventarioDataGridViewTextBoxColumn.Width = 42;
             // 
             // imagenesDataGridViewTextBoxColumn
             // 
@@ -264,6 +271,7 @@
             this.imagenesDataGridViewTextBoxColumn.HeaderText = "Imagenes";
             this.imagenesDataGridViewTextBoxColumn.Name = "imagenesDataGridViewTextBoxColumn";
             this.imagenesDataGridViewTextBoxColumn.ReadOnly = true;
+            this.imagenesDataGridViewTextBoxColumn.Width = 43;
             // 
             // descripcionDataGridViewTextBoxColumn
             // 
@@ -271,6 +279,7 @@
             this.descripcionDataGridViewTextBoxColumn.HeaderText = "Descripcion";
             this.descripcionDataGridViewTextBoxColumn.Name = "descripcionDataGridViewTextBoxColumn";
             this.descripcionDataGridViewTextBoxColumn.ReadOnly = true;
+            this.descripcionDataGridViewTextBoxColumn.Width = 42;
             // 
             // bajoInventarioDataGridViewTextBoxColumn
             // 
@@ -278,6 +287,7 @@
             this.bajoInventarioDataGridViewTextBoxColumn.HeaderText = "BajoInventario";
             this.bajoInventarioDataGridViewTextBoxColumn.Name = "bajoInventarioDataGridViewTextBoxColumn";
             this.bajoInventarioDataGridViewTextBoxColumn.ReadOnly = true;
+            this.bajoInventarioDataGridViewTextBoxColumn.Width = 42;
             // 
             // precioNormalDataGridViewTextBoxColumn
             // 
@@ -285,6 +295,7 @@
             this.precioNormalDataGridViewTextBoxColumn.HeaderText = "Precio_Normal";
             this.precioNormalDataGridViewTextBoxColumn.Name = "precioNormalDataGridViewTextBoxColumn";
             this.precioNormalDataGridViewTextBoxColumn.ReadOnly = true;
+            this.precioNormalDataGridViewTextBoxColumn.Width = 43;
             // 
             // precioOfertaDataGridViewTextBoxColumn
             // 
@@ -292,6 +303,7 @@
             this.precioOfertaDataGridViewTextBoxColumn.HeaderText = "Precio_Oferta";
             this.precioOfertaDataGridViewTextBoxColumn.Name = "precioOfertaDataGridViewTextBoxColumn";
             this.precioOfertaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.precioOfertaDataGridViewTextBoxColumn.Width = 42;
             // 
             // idCategoriaDataGridViewTextBoxColumn
             // 
@@ -299,6 +311,7 @@
             this.idCategoriaDataGridViewTextBoxColumn.HeaderText = "Id_Categoria";
             this.idCategoriaDataGridViewTextBoxColumn.Name = "idCategoriaDataGridViewTextBoxColumn";
             this.idCategoriaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idCategoriaDataGridViewTextBoxColumn.Width = 43;
             // 
             // tipoProductoDataGridViewTextBoxColumn
             // 
@@ -306,6 +319,7 @@
             this.tipoProductoDataGridViewTextBoxColumn.HeaderText = "Tipo_Producto";
             this.tipoProductoDataGridViewTextBoxColumn.Name = "tipoProductoDataGridViewTextBoxColumn";
             this.tipoProductoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.tipoProductoDataGridViewTextBoxColumn.Width = 42;
             // 
             // fechaInicioDataGridViewTextBoxColumn
             // 
@@ -313,6 +327,7 @@
             this.fechaInicioDataGridViewTextBoxColumn.HeaderText = "Fecha_Inicio";
             this.fechaInicioDataGridViewTextBoxColumn.Name = "fechaInicioDataGridViewTextBoxColumn";
             this.fechaInicioDataGridViewTextBoxColumn.ReadOnly = true;
+            this.fechaInicioDataGridViewTextBoxColumn.Width = 42;
             // 
             // fechaFinDataGridViewTextBoxColumn
             // 
@@ -320,6 +335,7 @@
             this.fechaFinDataGridViewTextBoxColumn.HeaderText = "Fecha_Fin";
             this.fechaFinDataGridViewTextBoxColumn.Name = "fechaFinDataGridViewTextBoxColumn";
             this.fechaFinDataGridViewTextBoxColumn.ReadOnly = true;
+            this.fechaFinDataGridViewTextBoxColumn.Width = 43;
             // 
             // etiquetaDataGridViewTextBoxColumn
             // 
@@ -327,12 +343,33 @@
             this.etiquetaDataGridViewTextBoxColumn.HeaderText = "Etiqueta";
             this.etiquetaDataGridViewTextBoxColumn.Name = "etiquetaDataGridViewTextBoxColumn";
             this.etiquetaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.etiquetaDataGridViewTextBoxColumn.Width = 42;
+            // 
+            // btnDescargar
+            // 
+            this.btnDescargar.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btnDescargar.FlatAppearance.BorderSize = 2;
+            this.btnDescargar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray;
+            this.btnDescargar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDescargar.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDescargar.ForeColor = System.Drawing.SystemColors.Window;
+            this.btnDescargar.Image = ((System.Drawing.Image)(resources.GetObject("btnDescargar.Image")));
+            this.btnDescargar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDescargar.Location = new System.Drawing.Point(756, 396);
+            this.btnDescargar.Name = "btnDescargar";
+            this.btnDescargar.Size = new System.Drawing.Size(134, 46);
+            this.btnDescargar.TabIndex = 7;
+            this.btnDescargar.Text = "Descargar";
+            this.btnDescargar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnDescargar.UseVisualStyleBackColor = false;
+            this.btnDescargar.Click += new System.EventHandler(this.btnDescargar_Click);
             // 
             // Productos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(929, 454);
+            this.ClientSize = new System.Drawing.Size(937, 676);
+            this.Controls.Add(this.btnDescargar);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.dgvProductos);
             this.Controls.Add(this.btnModificar);
@@ -376,5 +413,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn fechaInicioDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn fechaFinDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn etiquetaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button btnDescargar;
     }
 }
