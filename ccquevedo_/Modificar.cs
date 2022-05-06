@@ -114,18 +114,18 @@ namespace ccquevedo_
         {
             // TODO: esta línea de código carga datos en la tabla 'bdCamaraComercioDataSet.Categorias' Puede moverla o quitarla según sea necesario.
             this.categoriasTableAdapter.Fill(this.bdCamaraComercioDataSet.Categorias);
-            DataTable tablaUno = this.categoriasTableAdapter.GetData();
-            cmbCategoria.DisplayMember = "Text";
-            cmbCategoria.ValueMember = "Value";
-            for (int i = 0; i < tablaUno.Rows.Count; i++)
-            {
-                cmbCategoria.Items.Add(new
-                {
-                    Text = tablaUno.Rows[i][1].ToString(),
-                    Value = tablaUno.Rows[i][0].ToString()
-                });
+            //DataTable tablaUno = this.categoriasTableAdapter.GetData();
+            //cmbCategoria.DisplayMember = "Text";
+            //cmbCategoria.ValueMember = "Value";
+            //for (int i = 0; i < tablaUno.Rows.Count; i++)
+            //{
+            //    cmbCategoria.Items.Add(new
+            //    {
+            //        Text = tablaUno.Rows[i][1].ToString(),
+            //        Value = tablaUno.Rows[i][0].ToString()
+            //    });
 
-            }
+            //}
         }
     }
 }

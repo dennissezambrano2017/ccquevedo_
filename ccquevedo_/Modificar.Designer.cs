@@ -374,12 +374,18 @@
             // 
             // cmbCategoria
             // 
+            this.cmbCategoria.DataSource = this.categoriasBindingSource;
+            this.cmbCategoria.DisplayMember = "descripcion";
+            this.cmbCategoria.DropDownHeight = 100;
+            this.cmbCategoria.DropDownWidth = 272;
             this.cmbCategoria.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbCategoria.FormattingEnabled = true;
+            this.cmbCategoria.IntegralHeight = false;
             this.cmbCategoria.Location = new System.Drawing.Point(782, 168);
             this.cmbCategoria.Name = "cmbCategoria";
             this.cmbCategoria.Size = new System.Drawing.Size(272, 30);
-            this.cmbCategoria.TabIndex = 61;
+            this.cmbCategoria.TabIndex = 10;
+            this.cmbCategoria.ValueMember = "Id_Categoria";
             // 
             // txtEtiqueta
             // 
