@@ -412,6 +412,7 @@
             // mcFechaInicio
             // 
             this.mcFechaInicio.CalendarFont = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mcFechaInicio.CustomFormat = "";
             this.mcFechaInicio.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mcFechaInicio.Location = new System.Drawing.Point(782, 263);
             this.mcFechaInicio.Name = "mcFechaInicio";
