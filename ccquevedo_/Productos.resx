@@ -163,4 +163,16 @@
   <metadata name="Precio_Normal.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <data name="btnDescargar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAXlJREFUWEft
+        kr1KxEAUhcMKooVgs8JaiJ3v4kPY+QTbqKiFjSwLgpZWdtaWFr6BlQtaWdjYCCKoiIVcz9x7EpJNVieT
+        YRHJB4fNnPszh2ySlj+LhHEH9biiGbYviDghbJcIj7/C9pTmIWxPUIBR7neJ5frYjqAAXejGHhu8CZuv
+        H4DPzUPYbPA3MM6Ibf5wMFYA7z0ZnKs/OAbX/KMAsHatoh9Xh96+OiJn2pSDftQA89CDFkXWoUXoGXqF
+        ltmWAU/h0R/OVQ7C3rCqXEEH9ig7LBdgLXqADnQNfUFP0D00x3IB+AqP/nBu4iBKm9ah7NEuwXr0NzAL
+        3ULv0Av0CC2wHAcsVHgsAHvbqnIKHdujDFiOA5eWAsBagd6gT2gV6kHuTbjzGttKoPYB+f8VrtnBYwas
+        C6vICS3nHZkll7RKoBYnQChY1QZoA4QFqMk5NMP5vjo/M9TLqmBDCL4hJl8eE1xUFWI6l6fgwnyI6V6e
+        gou3oEMeSZJ8A/oS7o5u9kt+AAAAAElFTkSuQmCC
+</value>
+  </data>
 </root>

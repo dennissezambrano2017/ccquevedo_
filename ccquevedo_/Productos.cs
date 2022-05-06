@@ -104,5 +104,62 @@ namespace ccquevedo_
                 MessageBox.Show("Seleccione una fila con datos", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
+        private void btnDescargar_Click(object sender, EventArgs e)
+        {
+            if (dgvProductos.Rows != null && dgvProductos.Rows.Count != 0)
+            {
+                Exportar(dgvProductos);
+            }
+            else
+                MessageBox.Show("No existen datos para exportar", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+        public void Exportar(DataGridView dtlist)
+        {
+            try
+            {
+                SaveFileDialog fichero = new SaveFileDialog();
+                fichero.Filter = "Archivos CSV (*.CSV)|*.CSV";
+                fichero.FileName = "Product-export-" + DateTime.Now.ToString("MM-dd-yy-H-mm-ss");
+                if (fichero.ShowDialog() == DialogResult.OK)
+                {
+                    Microsoft.Office.Interop.Excel.Application exportarExcel;
+                    Microsoft.Office.Interop.Excel.Workbook libros_trabajo;
+                    Microsoft.Office.Interop.Excel.Worksheet hoja_trabajo;
+
+                    exportarExcel = new Microsoft.Office.Interop.Excel.Application();
+                    libros_trabajo = exportarExcel.Workbooks.Add();
+                    hoja_trabajo =
+                        (Microsoft.Office.Interop.Excel.Worksheet)libros_trabajo.Worksheets.get_Item(1);
+
+                    int indiecolumna = 0;
+                    foreach (DataGridViewColumn columna in dtlist.Columns)
+                    {
+                        indiecolumna++;
+                        exportarExcel.Cells[1, indiecolumna] = columna.Name;
+                    }
+
+                    int indicefila = 0;
+                    foreach (DataGridViewRow fila in dtlist.Rows)
+                    {
+                        indicefila++;
+                        indiecolumna = 0;
+                        foreach (DataGridViewColumn columna in dtlist.Columns)
+                        {
+                            indiecolumna++;
+                            exportarExcel.Cells[indicefila + 1, indiecolumna] = fila.Cells[columna.Name].Value;
+                        }
+                    }
+
+                    libros_trabajo.SaveAs(fichero.FileName,
+                        Microsoft.Office.Interop.Excel.XlFileFormat.xlWorkbookNormal);
+                    libros_trabajo.Close(true);
+                    exportarExcel.Quit();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al exportar la informacion debido a: " + ex.ToString());
+            }
+        }
     }
 }
