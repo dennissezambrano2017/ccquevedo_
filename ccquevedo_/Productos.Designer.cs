@@ -42,26 +42,11 @@
             this.productosTableAdapter = new ccquevedo_.bdCamaraComercioDataSetTableAdapters.ProductosTableAdapter();
             this.tableAdapterManager = new ccquevedo_.bdCamaraComercioDataSetTableAdapters.TableAdapterManager();
             this.dgvProductos = new System.Windows.Forms.DataGridView();
+            this.btnDescargar = new System.Windows.Forms.Button();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Descripcion_corta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Inventario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Precio_Normal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descripcioncortaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.inventarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.imagenesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descripcionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bajoInventarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.precioNormalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.precioOfertaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idCategoriaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tipoProductoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fechaInicioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fechaFinDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.etiquetaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnDescargar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.productosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdCamaraComercioDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
@@ -141,27 +126,12 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.Desktop;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvProductos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProductos.ColumnHeadersHeight = 18;
             this.dgvProductos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id,
             this.Nombre,
             this.Descripcion_corta,
-            this.Inventario,
-            this.Precio_Normal,
-            this.idDataGridViewTextBoxColumn,
-            this.nombreDataGridViewTextBoxColumn,
-            this.descripcioncortaDataGridViewTextBoxColumn,
-            this.inventarioDataGridViewTextBoxColumn,
-            this.imagenesDataGridViewTextBoxColumn,
-            this.descripcionDataGridViewTextBoxColumn,
-            this.bajoInventarioDataGridViewTextBoxColumn,
-            this.precioNormalDataGridViewTextBoxColumn,
-            this.precioOfertaDataGridViewTextBoxColumn,
-            this.idCategoriaDataGridViewTextBoxColumn,
-            this.tipoProductoDataGridViewTextBoxColumn,
-            this.fechaInicioDataGridViewTextBoxColumn,
-            this.fechaFinDataGridViewTextBoxColumn,
-            this.etiquetaDataGridViewTextBoxColumn});
+            this.Inventario});
             this.dgvProductos.DataSource = this.productosBindingSource;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
@@ -193,158 +163,6 @@
             this.dgvProductos.Size = new System.Drawing.Size(846, 270);
             this.dgvProductos.TabIndex = 1;
             // 
-            // Id
-            // 
-            this.Id.DataPropertyName = "Id";
-            this.Id.HeaderText = "Código";
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            this.Id.Width = 42;
-            // 
-            // Nombre
-            // 
-            this.Nombre.DataPropertyName = "Nombre";
-            this.Nombre.HeaderText = "Nombre";
-            this.Nombre.Name = "Nombre";
-            this.Nombre.ReadOnly = true;
-            this.Nombre.Width = 43;
-            // 
-            // Descripcion_corta
-            // 
-            this.Descripcion_corta.DataPropertyName = "Descripcion_corta";
-            this.Descripcion_corta.HeaderText = "Descripcion";
-            this.Descripcion_corta.Name = "Descripcion_corta";
-            this.Descripcion_corta.ReadOnly = true;
-            this.Descripcion_corta.Width = 42;
-            // 
-            // Inventario
-            // 
-            this.Inventario.DataPropertyName = "Inventario";
-            this.Inventario.HeaderText = "Inventario";
-            this.Inventario.Name = "Inventario";
-            this.Inventario.ReadOnly = true;
-            this.Inventario.Width = 42;
-            // 
-            // Precio_Normal
-            // 
-            this.Precio_Normal.DataPropertyName = "Precio_Normal";
-            this.Precio_Normal.HeaderText = "Precio";
-            this.Precio_Normal.Name = "Precio_Normal";
-            this.Precio_Normal.ReadOnly = true;
-            this.Precio_Normal.Width = 43;
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idDataGridViewTextBoxColumn.Width = 42;
-            // 
-            // nombreDataGridViewTextBoxColumn
-            // 
-            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "Nombre";
-            this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
-            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
-            this.nombreDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nombreDataGridViewTextBoxColumn.Width = 43;
-            // 
-            // descripcioncortaDataGridViewTextBoxColumn
-            // 
-            this.descripcioncortaDataGridViewTextBoxColumn.DataPropertyName = "Descripcion_corta";
-            this.descripcioncortaDataGridViewTextBoxColumn.HeaderText = "Descripcion_corta";
-            this.descripcioncortaDataGridViewTextBoxColumn.Name = "descripcioncortaDataGridViewTextBoxColumn";
-            this.descripcioncortaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.descripcioncortaDataGridViewTextBoxColumn.Width = 42;
-            // 
-            // inventarioDataGridViewTextBoxColumn
-            // 
-            this.inventarioDataGridViewTextBoxColumn.DataPropertyName = "Inventario";
-            this.inventarioDataGridViewTextBoxColumn.HeaderText = "Inventario";
-            this.inventarioDataGridViewTextBoxColumn.Name = "inventarioDataGridViewTextBoxColumn";
-            this.inventarioDataGridViewTextBoxColumn.ReadOnly = true;
-            this.inventarioDataGridViewTextBoxColumn.Width = 42;
-            // 
-            // imagenesDataGridViewTextBoxColumn
-            // 
-            this.imagenesDataGridViewTextBoxColumn.DataPropertyName = "Imagenes";
-            this.imagenesDataGridViewTextBoxColumn.HeaderText = "Imagenes";
-            this.imagenesDataGridViewTextBoxColumn.Name = "imagenesDataGridViewTextBoxColumn";
-            this.imagenesDataGridViewTextBoxColumn.ReadOnly = true;
-            this.imagenesDataGridViewTextBoxColumn.Width = 43;
-            // 
-            // descripcionDataGridViewTextBoxColumn
-            // 
-            this.descripcionDataGridViewTextBoxColumn.DataPropertyName = "Descripcion";
-            this.descripcionDataGridViewTextBoxColumn.HeaderText = "Descripcion";
-            this.descripcionDataGridViewTextBoxColumn.Name = "descripcionDataGridViewTextBoxColumn";
-            this.descripcionDataGridViewTextBoxColumn.ReadOnly = true;
-            this.descripcionDataGridViewTextBoxColumn.Width = 42;
-            // 
-            // bajoInventarioDataGridViewTextBoxColumn
-            // 
-            this.bajoInventarioDataGridViewTextBoxColumn.DataPropertyName = "BajoInventario";
-            this.bajoInventarioDataGridViewTextBoxColumn.HeaderText = "BajoInventario";
-            this.bajoInventarioDataGridViewTextBoxColumn.Name = "bajoInventarioDataGridViewTextBoxColumn";
-            this.bajoInventarioDataGridViewTextBoxColumn.ReadOnly = true;
-            this.bajoInventarioDataGridViewTextBoxColumn.Width = 42;
-            // 
-            // precioNormalDataGridViewTextBoxColumn
-            // 
-            this.precioNormalDataGridViewTextBoxColumn.DataPropertyName = "Precio_Normal";
-            this.precioNormalDataGridViewTextBoxColumn.HeaderText = "Precio_Normal";
-            this.precioNormalDataGridViewTextBoxColumn.Name = "precioNormalDataGridViewTextBoxColumn";
-            this.precioNormalDataGridViewTextBoxColumn.ReadOnly = true;
-            this.precioNormalDataGridViewTextBoxColumn.Width = 43;
-            // 
-            // precioOfertaDataGridViewTextBoxColumn
-            // 
-            this.precioOfertaDataGridViewTextBoxColumn.DataPropertyName = "Precio_Oferta";
-            this.precioOfertaDataGridViewTextBoxColumn.HeaderText = "Precio_Oferta";
-            this.precioOfertaDataGridViewTextBoxColumn.Name = "precioOfertaDataGridViewTextBoxColumn";
-            this.precioOfertaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.precioOfertaDataGridViewTextBoxColumn.Width = 42;
-            // 
-            // idCategoriaDataGridViewTextBoxColumn
-            // 
-            this.idCategoriaDataGridViewTextBoxColumn.DataPropertyName = "Id_Categoria";
-            this.idCategoriaDataGridViewTextBoxColumn.HeaderText = "Id_Categoria";
-            this.idCategoriaDataGridViewTextBoxColumn.Name = "idCategoriaDataGridViewTextBoxColumn";
-            this.idCategoriaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idCategoriaDataGridViewTextBoxColumn.Width = 43;
-            // 
-            // tipoProductoDataGridViewTextBoxColumn
-            // 
-            this.tipoProductoDataGridViewTextBoxColumn.DataPropertyName = "Tipo_Producto";
-            this.tipoProductoDataGridViewTextBoxColumn.HeaderText = "Tipo_Producto";
-            this.tipoProductoDataGridViewTextBoxColumn.Name = "tipoProductoDataGridViewTextBoxColumn";
-            this.tipoProductoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.tipoProductoDataGridViewTextBoxColumn.Width = 42;
-            // 
-            // fechaInicioDataGridViewTextBoxColumn
-            // 
-            this.fechaInicioDataGridViewTextBoxColumn.DataPropertyName = "Fecha_Inicio";
-            this.fechaInicioDataGridViewTextBoxColumn.HeaderText = "Fecha_Inicio";
-            this.fechaInicioDataGridViewTextBoxColumn.Name = "fechaInicioDataGridViewTextBoxColumn";
-            this.fechaInicioDataGridViewTextBoxColumn.ReadOnly = true;
-            this.fechaInicioDataGridViewTextBoxColumn.Width = 42;
-            // 
-            // fechaFinDataGridViewTextBoxColumn
-            // 
-            this.fechaFinDataGridViewTextBoxColumn.DataPropertyName = "Fecha_Fin";
-            this.fechaFinDataGridViewTextBoxColumn.HeaderText = "Fecha_Fin";
-            this.fechaFinDataGridViewTextBoxColumn.Name = "fechaFinDataGridViewTextBoxColumn";
-            this.fechaFinDataGridViewTextBoxColumn.ReadOnly = true;
-            this.fechaFinDataGridViewTextBoxColumn.Width = 43;
-            // 
-            // etiquetaDataGridViewTextBoxColumn
-            // 
-            this.etiquetaDataGridViewTextBoxColumn.DataPropertyName = "Etiqueta";
-            this.etiquetaDataGridViewTextBoxColumn.HeaderText = "Etiqueta";
-            this.etiquetaDataGridViewTextBoxColumn.Name = "etiquetaDataGridViewTextBoxColumn";
-            this.etiquetaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.etiquetaDataGridViewTextBoxColumn.Width = 42;
-            // 
             // btnDescargar
             // 
             this.btnDescargar.BackColor = System.Drawing.Color.LightSeaGreen;
@@ -363,6 +181,34 @@
             this.btnDescargar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnDescargar.UseVisualStyleBackColor = false;
             this.btnDescargar.Click += new System.EventHandler(this.btnDescargar_Click);
+            // 
+            // Id
+            // 
+            this.Id.DataPropertyName = "Id";
+            this.Id.HeaderText = "ID";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            // 
+            // Nombre
+            // 
+            this.Nombre.DataPropertyName = "Nombre";
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.Name = "Nombre";
+            this.Nombre.ReadOnly = true;
+            // 
+            // Descripcion_corta
+            // 
+            this.Descripcion_corta.DataPropertyName = "Descripcion_corta";
+            this.Descripcion_corta.HeaderText = "Descripcion_corta";
+            this.Descripcion_corta.Name = "Descripcion_corta";
+            this.Descripcion_corta.ReadOnly = true;
+            // 
+            // Inventario
+            // 
+            this.Inventario.DataPropertyName = "Inventario";
+            this.Inventario.HeaderText = "Inventario";
+            this.Inventario.Name = "Inventario";
+            this.Inventario.ReadOnly = true;
             // 
             // Productos
             // 
@@ -394,25 +240,10 @@
         private bdCamaraComercioDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.DataGridView dgvProductos;
+        private System.Windows.Forms.Button btnDescargar;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn Descripcion_corta;
         private System.Windows.Forms.DataGridViewTextBoxColumn Inventario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Precio_Normal;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn descripcioncortaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn inventarioDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn imagenesDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn descripcionDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn bajoInventarioDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn precioNormalDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn precioOfertaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idCategoriaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tipoProductoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fechaInicioDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fechaFinDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn etiquetaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Button btnDescargar;
     }
 }
