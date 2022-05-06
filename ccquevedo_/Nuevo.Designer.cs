@@ -69,6 +69,7 @@ namespace ccquevedo_
             this.label9 = new System.Windows.Forms.Label();
             this.productosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.productosTableAdapter = new ccquevedo_.bdCamaraComercioDataSetTableAdapters.ProductosTableAdapter();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdCamaraComercioDataSet)).BeginInit();
@@ -180,8 +181,6 @@ namespace ccquevedo_
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(272, 31);
             this.txtNombre.TabIndex = 2;
-            this.txtNombre.TextChanged += new System.EventHandler(this.txtNombre_TextChanged);
-            this.txtNombre.Enter += new System.EventHandler(this.txtNombre_Enter);
             // 
             // txtDescripcionCorta
             // 
@@ -432,12 +431,23 @@ namespace ccquevedo_
             // 
             this.productosTableAdapter.ClearBeforeFill = true;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(514, 79);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(26, 27);
+            this.button1.TabIndex = 65;
+            this.button1.Text = "B";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Nuevo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ClientSize = new System.Drawing.Size(1107, 593);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.txtEtiqueta);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.mcFechaFin);
@@ -527,5 +537,6 @@ namespace ccquevedo_
         public System.Windows.Forms.TextBox txtEtiqueta;
         private System.Windows.Forms.BindingSource productosBindingSource;
         private bdCamaraComercioDataSetTableAdapters.ProductosTableAdapter productosTableAdapter;
+        private System.Windows.Forms.Button button1;
     }
 }

@@ -148,42 +148,41 @@ namespace ccquevedo_
             txtNombre.AutoCompleteCustomSource = mycollection;
         }
 
-        private void txtNombre_Enter(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            
-        }
-
-        private void txtNombre_TextChanged(object sender, EventArgs e)
-        {
-            //try
-            //{
-            //    if (txtNombre.Text != "")
-            //    {
-            //        DataTable datos = this.productosTableAdapter.BuscaNombre(txtNombre.Text);
-            //        DataTable dataTable = this.categoriasTableAdapter.BuscarCategoria(Convert.ToInt32(datos.Rows[0][9].ToString()));
-            //        if (datos.Rows.Count < 1)
-            //        {
-            //            txtCodigo.Text = datos.Rows[0][0].ToString();
-            //            txtNombre.Text = datos.Rows[0][1].ToString();
-            //            txtDescripcionCorta.Text = datos.Rows[0][2].ToString();
-            //            txtInventario.Text = datos.Rows[0][3].ToString();
-            //            txtImagen.Text = datos.Rows[0][4].ToString();
-            //            txtDescripcionCompleta.Text = datos.Rows[0][5].ToString();
-            //            txtStock.Text = datos.Rows[0][6].ToString();
-            //            txtPrecioNormal.Text = datos.Rows[0][7].ToString();
-            //            txtPrecioOferta.Text = datos.Rows[0][8].ToString();
-            //            cmbCategoria.Text = dataTable.Rows[0][1].ToString();
-            //            txtTipoProducto.Text = datos.Rows[0][10].ToString();
-            //            mcFechaInicio.Value = DateTime.Parse(datos.Rows[0][11].ToString());
-            //            mcFechaFin.Value = DateTime.Parse(datos.Rows[0][12].ToString());
-            //            txtEtiqueta.Text = datos.Rows[0][13].ToString();
-            //        }
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.ToString());
-            //}
-        }
+            try
+            {
+                    if (txtNombre.Text != "")
+                    {
+                        DataTable datos = this.productosTableAdapter.BuscaNombre(txtNombre.Text);
+                        DataTable dataTable = this.categoriasTableAdapter.BuscarCategoria(Convert.ToInt32(datos.Rows[0][9].ToString()));
+                        if (datos.Rows.Count > 0)
+                        {
+                            txtCodigo.Text = datos.Rows[0][0].ToString();
+                            //txtNombre.Text = datos.Rows[0][1].ToString();
+                            txtDescripcionCorta.Text = datos.Rows[0][2].ToString();
+                            txtInventario.Text = datos.Rows[0][3].ToString();
+                            txtImagen.Text = datos.Rows[0][4].ToString();
+                            txtDescripcionCompleta.Text = datos.Rows[0][5].ToString();
+                            txtStock.Text = datos.Rows[0][6].ToString();
+                            txtPrecioNormal.Text = datos.Rows[0][7].ToString();
+                            txtPrecioOferta.Text = datos.Rows[0][8].ToString();
+                            cmbCategoria.Text = dataTable.Rows[0][1].ToString();
+                            txtTipoProducto.Text = datos.Rows[0][10].ToString();
+                            mcFechaInicio.Value = DateTime.Parse(datos.Rows[0][11].ToString());
+                            mcFechaFin.Value = DateTime.Parse(datos.Rows[0][12].ToString());
+                            txtEtiqueta.Text = datos.Rows[0][13].ToString();
+                        }
+                        else
+                        {
+                            MessageBox.Show("No se encuentra");
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+            }
     }
 }
