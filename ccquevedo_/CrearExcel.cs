@@ -122,14 +122,12 @@ namespace ccquevedo_
         {
             try
             {
-
                 if (dgvProducto.SelectedRows.Count > 0)
                 {
                     DialogResult result = MessageBox.Show("Esta seguro de eliminar la fila", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (result == DialogResult.Yes)
                     {
                         dgvProducto.Rows.Remove(dgvProducto.CurrentRow);
-                        dgvProducto.Rows[0].Selected = false;
                     }
 
                 }
