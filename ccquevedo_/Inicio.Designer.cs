@@ -30,32 +30,17 @@ namespace ccquevedo_
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Inicio));
-            this.btnIniciar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.btnMinimizar = new System.Windows.Forms.PictureBox();
+            this.btnInicar = new ccquevedo_.RJButton();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btnIniciar
-            // 
-            this.btnIniciar.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.btnIniciar.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
-            this.btnIniciar.FlatAppearance.BorderSize = 4;
-            this.btnIniciar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DodgerBlue;
-            this.btnIniciar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DodgerBlue;
-            this.btnIniciar.Location = new System.Drawing.Point(442, 195);
-            this.btnIniciar.Name = "btnIniciar";
-            this.btnIniciar.Size = new System.Drawing.Size(93, 33);
-            this.btnIniciar.TabIndex = 1;
-            this.btnIniciar.Text = "Iniciar";
-            this.btnIniciar.UseVisualStyleBackColor = false;
-            this.btnIniciar.Click += new System.EventHandler(this.btnIniciar_Click);
             // 
             // panel1
             // 
@@ -76,16 +61,14 @@ namespace ccquevedo_
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, ((System.Drawing.FontStyle)(((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic) 
-                | System.Drawing.FontStyle.Underline))));
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 48F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(255, 66);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(438, 73);
+            this.label1.Size = new System.Drawing.Size(410, 77);
             this.label1.TabIndex = 5;
             this.label1.Text = "BIENVENIDO";
             // 
@@ -111,16 +94,38 @@ namespace ccquevedo_
             this.btnMinimizar.TabStop = false;
             this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
             // 
+            // btnInicar
+            // 
+            this.btnInicar.BackColor = System.Drawing.Color.MediumBlue;
+            this.btnInicar.BackgroundColor = System.Drawing.Color.MediumBlue;
+            this.btnInicar.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnInicar.BorderRadius = 40;
+            this.btnInicar.BorderSize = 0;
+            this.btnInicar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnInicar.FlatAppearance.BorderSize = 0;
+            this.btnInicar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInicar.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInicar.ForeColor = System.Drawing.Color.White;
+            this.btnInicar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnInicar.Location = new System.Drawing.Point(381, 190);
+            this.btnInicar.Name = "btnInicar";
+            this.btnInicar.Size = new System.Drawing.Size(150, 40);
+            this.btnInicar.TabIndex = 8;
+            this.btnInicar.Text = "Iniciar";
+            this.btnInicar.TextColor = System.Drawing.Color.White;
+            this.btnInicar.UseVisualStyleBackColor = false;
+            this.btnInicar.Click += new System.EventHandler(this.btnInicar_Click);
+            // 
             // Inicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(715, 330);
+            this.Controls.Add(this.btnInicar);
             this.Controls.Add(this.btnMinimizar);
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.btnIniciar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Inicio";
             this.Opacity = 0.9D;
@@ -136,12 +141,12 @@ namespace ccquevedo_
         }
 
         #endregion
-        private System.Windows.Forms.Button btnIniciar;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox btnCerrar;
         private System.Windows.Forms.PictureBox btnMinimizar;
+        private RJButton btnInicar;
     }
 }
 

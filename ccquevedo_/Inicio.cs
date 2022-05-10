@@ -16,15 +16,6 @@ namespace ccquevedo_
         {
             InitializeComponent();
         }
-
-        private void btnIniciar_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            Form formPaginaPrincipal = new Pagina_Principal();
-            formPaginaPrincipal.Show();
-
-        }
-
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -35,9 +26,11 @@ namespace ccquevedo_
             this.WindowState = FormWindowState.Minimized;
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void btnInicar_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            Form formPaginaPrincipal = new Pagina_Principal();
+            formPaginaPrincipal.Show();
         }
     }
 }
