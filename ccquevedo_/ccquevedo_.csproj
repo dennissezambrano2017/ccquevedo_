@@ -199,7 +199,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="bdCamaraComercio.accdb">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <ItemGroup>
