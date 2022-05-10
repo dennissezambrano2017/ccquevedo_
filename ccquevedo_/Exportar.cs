@@ -20,7 +20,7 @@ namespace ccquevedo_
                 int total=columnas*fila;
                 foreach (DataGridViewColumn columna in dtlist.Columns)
                 {
-                    strExport+=""+""+ columna.Name+""+",";
+                    strExport+= '"' + columna.Name+ '"' + ",";
                 }
                 strExport= strExport.Substring(0,strExport.Length-1);
                 strExport += Environment.NewLine;
@@ -29,9 +29,9 @@ namespace ccquevedo_
                     foreach (DataGridViewCell celda in filas.Cells)
                     {
                         if(celda.Value!=null)
-                            strExport += "" + "" + celda.Value.ToString() + "" + ",";
+                            strExport += '"' + celda.Value.ToString() + '"' + ",";
                         else
-                            strExport += "" + "" + "" + "" + ",";
+                            strExport += ",";
                     }
                     strExport = strExport.Substring(0, strExport.Length - 1);
                     strExport += Environment.NewLine;

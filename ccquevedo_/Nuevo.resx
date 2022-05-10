@@ -351,4 +351,15 @@
   <metadata name="productosTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>943, 17</value>
   </metadata>
+  <data name="btnBuscar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAExSURBVEhL7ZRBTgJBFERnL7oCrwN6A4hXMcQFEXTjbSB6DtGbqOhW21f8moSEdHrasCK+pMJQ
+        U/9356d7muMkpXSO7tEL+rLW6A4NHPsbNLhCG5TjA00cr4NCNf9RF1iiITqxRmiFxDcau6wbFGgs7c6v
+        be/Bu2lE0jvq2y5DWDMXS1tZyDxGNC1slSH8GjVpaCsLmYuIprWtMoQ/oyb1bGUhcxrRtLFVRuGo6bTA
+        WUTrFtCZFyNbWchcRrRuRLpEYmUrC5mniKa5rTKEB0iXSExt78G7m4ikN1R3qymYIF0ioaOo09KzNJZ2
+        52LmsjooHCNdohza+Swet3QfUwtFfbRAz0jHVx87PcvbjoXfXeoXKUHT9pPR8uBXh4Om/4t0h6a7i9za
+        Piw0nkv+exQ0zS/XKBYWw0KoYAAAAABJRU5ErkJggg==
+</value>
+  </data>
 </root>

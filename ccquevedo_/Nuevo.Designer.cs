@@ -69,7 +69,7 @@ namespace ccquevedo_
             this.label9 = new System.Windows.Forms.Label();
             this.productosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.productosTableAdapter = new ccquevedo_.bdCamaraComercioDataSetTableAdapters.ProductosTableAdapter();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnBuscar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdCamaraComercioDataSet)).BeginInit();
@@ -179,7 +179,7 @@ namespace ccquevedo_
             this.txtNombre.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.txtNombre.Location = new System.Drawing.Point(236, 116);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(272, 31);
+            this.txtNombre.Size = new System.Drawing.Size(231, 31);
             this.txtNombre.TabIndex = 2;
             // 
             // txtDescripcionCorta
@@ -431,15 +431,20 @@ namespace ccquevedo_
             // 
             this.productosTableAdapter.ClearBeforeFill = true;
             // 
-            // button1
+            // btnBuscar
             // 
-            this.button1.Location = new System.Drawing.Point(514, 79);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(26, 27);
-            this.button1.TabIndex = 65;
-            this.button1.Text = "B";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnBuscar.BackColor = System.Drawing.Color.Gray;
+            this.btnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBuscar.FlatAppearance.BorderSize = 2;
+            this.btnBuscar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DimGray;
+            this.btnBuscar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DimGray;
+            this.btnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Image")));
+            this.btnBuscar.Location = new System.Drawing.Point(467, 115);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(41, 32);
+            this.btnBuscar.TabIndex = 65;
+            this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnBuscar.Click += new System.EventHandler(this.button1_Click);
             // 
             // Nuevo
             // 
@@ -447,7 +452,7 @@ namespace ccquevedo_
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ClientSize = new System.Drawing.Size(1107, 593);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.txtEtiqueta);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.mcFechaFin);
@@ -537,6 +542,6 @@ namespace ccquevedo_
         public System.Windows.Forms.TextBox txtEtiqueta;
         private System.Windows.Forms.BindingSource productosBindingSource;
         private bdCamaraComercioDataSetTableAdapters.ProductosTableAdapter productosTableAdapter;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnBuscar;
     }
 }
