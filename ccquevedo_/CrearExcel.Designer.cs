@@ -56,6 +56,7 @@
             // btnNuevo
             // 
             this.btnNuevo.BackColor = System.Drawing.Color.LimeGreen;
+            this.btnNuevo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnNuevo.FlatAppearance.BorderSize = 2;
             this.btnNuevo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray;
             this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -124,6 +125,7 @@
             // 
             this.btnModificar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnModificar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnModificar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnModificar.FlatAppearance.BorderSize = 2;
             this.btnModificar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray;
             this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -163,6 +165,7 @@
             // 
             this.btnElimnar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnElimnar.BackColor = System.Drawing.Color.Firebrick;
+            this.btnElimnar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnElimnar.FlatAppearance.BorderSize = 2;
             this.btnElimnar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray;
             this.btnElimnar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;

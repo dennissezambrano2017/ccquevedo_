@@ -62,6 +62,7 @@ namespace ccquevedo_
             // 
             // btnProducto
             // 
+            this.btnProducto.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnProducto.FlatAppearance.BorderSize = 0;
             this.btnProducto.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
             this.btnProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -69,7 +70,7 @@ namespace ccquevedo_
             this.btnProducto.ForeColor = System.Drawing.SystemColors.Info;
             this.btnProducto.Image = ((System.Drawing.Image)(resources.GetObject("btnProducto.Image")));
             this.btnProducto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnProducto.Location = new System.Drawing.Point(3, 216);
+            this.btnProducto.Location = new System.Drawing.Point(2, 216);
             this.btnProducto.Name = "btnProducto";
             this.btnProducto.Size = new System.Drawing.Size(216, 50);
             this.btnProducto.TabIndex = 13;
@@ -80,6 +81,7 @@ namespace ccquevedo_
             // 
             // btnCrearExcel
             // 
+            this.btnCrearExcel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCrearExcel.FlatAppearance.BorderSize = 0;
             this.btnCrearExcel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
             this.btnCrearExcel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -87,7 +89,7 @@ namespace ccquevedo_
             this.btnCrearExcel.ForeColor = System.Drawing.SystemColors.Info;
             this.btnCrearExcel.Image = ((System.Drawing.Image)(resources.GetObject("btnCrearExcel.Image")));
             this.btnCrearExcel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCrearExcel.Location = new System.Drawing.Point(3, 147);
+            this.btnCrearExcel.Location = new System.Drawing.Point(2, 147);
             this.btnCrearExcel.Name = "btnCrearExcel";
             this.btnCrearExcel.Size = new System.Drawing.Size(216, 50);
             this.btnCrearExcel.TabIndex = 12;
@@ -131,6 +133,7 @@ namespace ccquevedo_
             // btnMinimizar2
             // 
             this.btnMinimizar2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnMinimizar2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMinimizar2.Image = ((System.Drawing.Image)(resources.GetObject("btnMinimizar2.Image")));
             this.btnMinimizar2.Location = new System.Drawing.Point(860, 10);
             this.btnMinimizar2.Name = "btnMinimizar2";
@@ -143,6 +146,7 @@ namespace ccquevedo_
             // btnCerrar2
             // 
             this.btnCerrar2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCerrar2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCerrar2.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrar2.Image")));
             this.btnCerrar2.Location = new System.Drawing.Point(899, 10);
             this.btnCerrar2.Name = "btnCerrar2";

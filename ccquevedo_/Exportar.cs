@@ -13,44 +13,44 @@ namespace ccquevedo_
         {
             try
             {
+                string ruta;
+                string strExport="";
+                int columnas= dtlist.ColumnCount;
+                int fila= dtlist.RowCount;
+                int total=columnas*fila;
+                foreach (DataGridViewColumn columna in dtlist.Columns)
+                {
+                    strExport+=""+""+ columna.Name+""+",";
+                }
+                strExport= strExport.Substring(0,strExport.Length-1);
+                strExport += Environment.NewLine;
+                foreach (DataGridViewRow filas in dtlist.Rows)
+                {
+                    foreach (DataGridViewCell celda in filas.Cells)
+                    {
+                        if(celda.Value!=null)
+                            strExport += "" + "" + celda.Value.ToString() + "" + ",";
+                        else
+                            strExport += "" + "" + "" + "" + ",";
+                    }
+                    strExport = strExport.Substring(0, strExport.Length - 1);
+                    strExport += Environment.NewLine;
+                }
                 SaveFileDialog fichero = new SaveFileDialog();
-                fichero.Filter = "Archivos CSV (*.CSV)|*.CSV";
-                fichero.FileName = "Product-export-" + DateTime.Now.ToString("MM-dd-yy-H-mm-ss");
+                fichero.InitialDirectory = System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+                fichero.Filter = "Archivos CSV  (*.CSV)|*.CSV";
+                fichero.FilterIndex = 2;
+                fichero.FileName = "Product_export";
                 if (fichero.ShowDialog() == DialogResult.OK)
                 {
-                    Microsoft.Office.Interop.Excel.Application exportarExcel;
-                    Microsoft.Office.Interop.Excel.Workbook libros_trabajo;
-                    Microsoft.Office.Interop.Excel.Worksheet hoja_trabajo;
-
-                    exportarExcel = new Microsoft.Office.Interop.Excel.Application();
-                    libros_trabajo = exportarExcel.Workbooks.Add();
-                    hoja_trabajo =
-                        (Microsoft.Office.Interop.Excel.Worksheet)libros_trabajo.Worksheets.get_Item(1);
-
-                    int indiecolumna = 0;
-                    foreach (DataGridViewColumn columna in dtlist.Columns)
-                    {
-                        indiecolumna++;
-                        exportarExcel.Cells[1, indiecolumna] = columna.Name;
-                    }
-
-                    int indicefila = 0;
-                    foreach (DataGridViewRow fila in dtlist.Rows)
-                    {
-                        indicefila++;
-                        indiecolumna = 0;
-                        foreach (DataGridViewColumn columna in dtlist.Columns)
-                        {
-                            indiecolumna++;
-                            exportarExcel.Cells[indicefila + 1, indiecolumna] = fila.Cells[columna.Name].Value;
-                        }
-                    }
-
-                    libros_trabajo.SaveAs(fichero.FileName,
-                        Microsoft.Office.Interop.Excel.XlFileFormat.xlWorkbookNormal);
-                    libros_trabajo.Close(true);
-                    exportarExcel.Quit();
+                    ruta = fichero.FileName;
+                    MessageBox.Show("Exportado correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    System.IO.TextWriter tw = new System.IO.StreamWriter(ruta);
+                    tw.Write(strExport);
+                    tw.Close();
                 }
+                else
+                    return;
             }
             catch (Exception ex)
             {

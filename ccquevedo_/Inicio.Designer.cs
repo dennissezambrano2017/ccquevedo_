@@ -74,6 +74,7 @@ namespace ccquevedo_
             // 
             // btnCerrar
             // 
+            this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCerrar.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrar.Image")));
             this.btnCerrar.Location = new System.Drawing.Point(691, 3);
             this.btnCerrar.Name = "btnCerrar";
@@ -85,6 +86,7 @@ namespace ccquevedo_
             // 
             // btnMinimizar
             // 
+            this.btnMinimizar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMinimizar.Image = ((System.Drawing.Image)(resources.GetObject("btnMinimizar.Image")));
             this.btnMinimizar.Location = new System.Drawing.Point(669, 3);
             this.btnMinimizar.Name = "btnMinimizar";
@@ -103,6 +105,7 @@ namespace ccquevedo_
             this.btnInicar.BorderSize = 0;
             this.btnInicar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnInicar.FlatAppearance.BorderSize = 0;
+            this.btnInicar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
             this.btnInicar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnInicar.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnInicar.ForeColor = System.Drawing.Color.White;

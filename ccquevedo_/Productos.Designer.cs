@@ -68,6 +68,7 @@
             // btnModificar
             // 
             this.btnModificar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnModificar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnModificar.FlatAppearance.BorderSize = 0;
             this.btnModificar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray;
             this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -97,6 +98,7 @@
             // btnEliminar
             // 
             this.btnEliminar.BackColor = System.Drawing.Color.Firebrick;
+            this.btnEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEliminar.FlatAppearance.BorderSize = 2;
             this.btnEliminar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray;
             this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -128,19 +130,21 @@
             this.dgvProductos.AllowUserToAddRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(239)))), ((int)(((byte)(249)))));
             this.dgvProductos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvProductos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvProductos.AutoGenerateColumns = false;
             this.dgvProductos.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dgvProductos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvProductos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.Desktop;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvProductos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvProductos.ColumnHeadersHeight = 18;
+            this.dgvProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProductos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id,
             this.Tipo_Producto,
@@ -172,7 +176,7 @@
             this.dgvProductos.ReadOnly = true;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -190,6 +194,7 @@
             // btnDescargar
             // 
             this.btnDescargar.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btnDescargar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDescargar.FlatAppearance.BorderSize = 2;
             this.btnDescargar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightGray;
             this.btnDescargar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -221,48 +226,58 @@
             this.Id.HeaderText = "Codigo";
             this.Id.Name = "Id";
             this.Id.ReadOnly = true;
+            this.Id.Width = 83;
             // 
             // Tipo_Producto
             // 
             this.Tipo_Producto.DataPropertyName = "Tipo_Producto";
-            this.Tipo_Producto.HeaderText = "Tipo_Producto";
+            this.Tipo_Producto.HeaderText = "Tipo Producto";
             this.Tipo_Producto.Name = "Tipo_Producto";
             this.Tipo_Producto.ReadOnly = true;
             // 
             // Nombre
             // 
+            this.Nombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.Nombre.DataPropertyName = "Nombre";
             this.Nombre.HeaderText = "Nombre";
             this.Nombre.Name = "Nombre";
             this.Nombre.ReadOnly = true;
+            this.Nombre.Width = 98;
             // 
             // Descripcion_corta
             // 
+            this.Descripcion_corta.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.Descripcion_corta.DataPropertyName = "Descripcion_corta";
-            this.Descripcion_corta.HeaderText = "Descripcion_corta";
+            this.Descripcion_corta.HeaderText = "Descripción Corta";
             this.Descripcion_corta.Name = "Descripcion_corta";
             this.Descripcion_corta.ReadOnly = true;
+            this.Descripcion_corta.Width = 160;
             // 
             // Descripcion
             // 
+            this.Descripcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.Descripcion.DataPropertyName = "Descripcion";
-            this.Descripcion.HeaderText = "Descripcion";
+            this.Descripcion.HeaderText = "Descripción";
             this.Descripcion.Name = "Descripcion";
             this.Descripcion.ReadOnly = true;
+            this.Descripcion.Width = 125;
             // 
             // Fecha_Fin
             // 
+            this.Fecha_Fin.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.Fecha_Fin.DataPropertyName = "Fecha_Fin";
-            this.Fecha_Fin.HeaderText = "Fecha_Fin";
+            this.Fecha_Fin.HeaderText = "Fecha Fin";
             this.Fecha_Fin.Name = "Fecha_Fin";
             this.Fecha_Fin.ReadOnly = true;
             // 
             // Fecha_Inicio
             // 
+            this.Fecha_Inicio.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.Fecha_Inicio.DataPropertyName = "Fecha_Inicio";
-            this.Fecha_Inicio.HeaderText = "Fecha_Inicio";
+            this.Fecha_Inicio.HeaderText = "Fecha Inicio";
             this.Fecha_Inicio.Name = "Fecha_Inicio";
             this.Fecha_Inicio.ReadOnly = true;
+            this.Fecha_Inicio.Width = 118;
             // 
             // Inventario
             // 
@@ -274,30 +289,34 @@
             // BajoInventario
             // 
             this.BajoInventario.DataPropertyName = "BajoInventario";
-            this.BajoInventario.HeaderText = "BajoInventario";
+            this.BajoInventario.HeaderText = "Bajo Inventario";
             this.BajoInventario.Name = "BajoInventario";
             this.BajoInventario.ReadOnly = true;
+            this.BajoInventario.Width = 130;
             // 
             // Precio_Oferta
             // 
             this.Precio_Oferta.DataPropertyName = "Precio_Oferta";
-            this.Precio_Oferta.HeaderText = "Precio_Oferta";
+            this.Precio_Oferta.HeaderText = "Precio Oferta";
             this.Precio_Oferta.Name = "Precio_Oferta";
             this.Precio_Oferta.ReadOnly = true;
+            this.Precio_Oferta.Width = 130;
             // 
             // Precio_Normal
             // 
             this.Precio_Normal.DataPropertyName = "Precio_Normal";
-            this.Precio_Normal.HeaderText = "Precio_Normal";
+            this.Precio_Normal.HeaderText = "Precio Normal";
             this.Precio_Normal.Name = "Precio_Normal";
             this.Precio_Normal.ReadOnly = true;
+            this.Precio_Normal.Width = 130;
             // 
             // idCategoriaDataGridViewTextBoxColumn
             // 
             this.idCategoriaDataGridViewTextBoxColumn.DataPropertyName = "Id_Categoria";
-            this.idCategoriaDataGridViewTextBoxColumn.HeaderText = "Id_Categoria";
+            this.idCategoriaDataGridViewTextBoxColumn.HeaderText = "Categoria";
             this.idCategoriaDataGridViewTextBoxColumn.Name = "idCategoriaDataGridViewTextBoxColumn";
             this.idCategoriaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idCategoriaDataGridViewTextBoxColumn.Width = 120;
             // 
             // Etiqueta
             // 
@@ -312,6 +331,7 @@
             this.Imagenes.HeaderText = "Imagenes";
             this.Imagenes.Name = "Imagenes";
             this.Imagenes.ReadOnly = true;
+            this.Imagenes.Width = 120;
             // 
             // Productos
             // 

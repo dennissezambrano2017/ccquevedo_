@@ -221,5 +221,6 @@ namespace ccquevedo_
             this.tableAdapterManager.UpdateAll(this.bdCamaraComercioDataSet);
 
         }
+
     }
 }
