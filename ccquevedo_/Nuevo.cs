@@ -230,5 +230,17 @@ namespace ccquevedo_
 
             mcFechaFin.Text = fechafin.ToString("yyyy-MM-dd");
         }
+
+        private void mcFechaFin_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

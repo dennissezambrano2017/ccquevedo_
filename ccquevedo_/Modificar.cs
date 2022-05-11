@@ -130,5 +130,43 @@ namespace ccquevedo_
             // TODO: esta línea de código carga datos en la tabla 'bdCamaraComercioDataSet.Categorias' Puede moverla o quitarla según sea necesario.
             this.categoriasTableAdapter.Fill(this.bdCamaraComercioDataSet.Categorias);
         }
+
+        private void mcFechaInicio_ValueChanged(object sender, EventArgs e)
+        {
+            DateTime fechaIncio = Convert.ToDateTime(mcFechaInicios.Text);
+
+            mcFechaInicio.Text = fechaIncio.ToString("yyyy-MM-dd");
+        }
+
+        private void mcFechaFins_ValueChanged(object sender, EventArgs e)
+        {
+            DateTime fechafin = Convert.ToDateTime(mcFechaFins.Text);
+
+            mcFechaFin.Text = fechafin.ToString("yyyy-MM-dd");
+        }
+
+        private void mcFechaInicio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void mcFechaFin_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
     }
 }
