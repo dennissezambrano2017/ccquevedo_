@@ -31,6 +31,7 @@ namespace ccquevedo_
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Nuevo));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -63,18 +64,27 @@ namespace ccquevedo_
             this.categoriasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.categoriasTableAdapter = new ccquevedo_.bdCamaraComercioDataSetTableAdapters.CategoriasTableAdapter();
             this.tableAdapterManager = new ccquevedo_.bdCamaraComercioDataSetTableAdapters.TableAdapterManager();
-            this.mcFechaFin = new System.Windows.Forms.DateTimePicker();
-            this.mcFechaInicio = new System.Windows.Forms.DateTimePicker();
+            this.mcFechaFins = new System.Windows.Forms.DateTimePicker();
+            this.mcFechaInicios = new System.Windows.Forms.DateTimePicker();
             this.txtEtiqueta = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.productosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.productosTableAdapter = new ccquevedo_.bdCamaraComercioDataSetTableAdapters.ProductosTableAdapter();
             this.btnBuscar = new System.Windows.Forms.Button();
+            this.cmbSubCategorias = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.dgvSubCatergoria = new System.Windows.Forms.DataGridView();
+            this.SubCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mcFechaInicio = new System.Windows.Forms.TextBox();
+            this.mcFechaFin = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdCamaraComercioDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriasBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productosBindingSource)).BeginInit();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSubCatergoria)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -207,9 +217,10 @@ namespace ccquevedo_
             // 
             // txtImagen
             // 
-            this.txtImagen.Location = new System.Drawing.Point(782, 215);
+            this.txtImagen.Location = new System.Drawing.Point(236, 520);
+            this.txtImagen.Multiline = true;
             this.txtImagen.Name = "txtImagen";
-            this.txtImagen.Size = new System.Drawing.Size(272, 31);
+            this.txtImagen.Size = new System.Drawing.Size(272, 61);
             this.txtImagen.TabIndex = 11;
             // 
             // txtDescripcionCompleta
@@ -232,7 +243,7 @@ namespace ccquevedo_
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(564, 216);
+            this.label2.Location = new System.Drawing.Point(31, 521);
             this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(87, 22);
@@ -288,7 +299,7 @@ namespace ccquevedo_
             // txtTipoProducto
             // 
             this.txtTipoProducto.Enabled = false;
-            this.txtTipoProducto.Location = new System.Drawing.Point(782, 365);
+            this.txtTipoProducto.Location = new System.Drawing.Point(782, 483);
             this.txtTipoProducto.Name = "txtTipoProducto";
             this.txtTipoProducto.Size = new System.Drawing.Size(272, 31);
             this.txtTipoProducto.TabIndex = 26;
@@ -298,7 +309,7 @@ namespace ccquevedo_
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(564, 371);
+            this.label8.Location = new System.Drawing.Point(564, 489);
             this.label8.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(173, 22);
@@ -312,7 +323,7 @@ namespace ccquevedo_
             this.btnGuadar.ForeColor = System.Drawing.SystemColors.Window;
             this.btnGuadar.Image = ((System.Drawing.Image)(resources.GetObject("btnGuadar.Image")));
             this.btnGuadar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGuadar.Location = new System.Drawing.Point(798, 471);
+            this.btnGuadar.Location = new System.Drawing.Point(895, 547);
             this.btnGuadar.Name = "btnGuadar";
             this.btnGuadar.Size = new System.Drawing.Size(159, 47);
             this.btnGuadar.TabIndex = 27;
@@ -344,7 +355,7 @@ namespace ccquevedo_
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(564, 311);
+            this.label4.Location = new System.Drawing.Point(564, 429);
             this.label4.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label4.Name = "label4";
             this.label4.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -356,7 +367,7 @@ namespace ccquevedo_
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(564, 258);
+            this.label5.Location = new System.Drawing.Point(564, 376);
             this.label5.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label5.Name = "label5";
             this.label5.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -385,23 +396,26 @@ namespace ccquevedo_
             this.tableAdapterManager.ProductosTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = ccquevedo_.bdCamaraComercioDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // mcFechaFin
+            // mcFechaFins
             // 
-            this.mcFechaFin.CalendarFont = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mcFechaFin.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mcFechaFin.Location = new System.Drawing.Point(782, 314);
-            this.mcFechaFin.Name = "mcFechaFin";
-            this.mcFechaFin.Size = new System.Drawing.Size(272, 31);
-            this.mcFechaFin.TabIndex = 13;
+            this.mcFechaFins.CalendarFont = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mcFechaFins.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mcFechaFins.Location = new System.Drawing.Point(782, 432);
+            this.mcFechaFins.Name = "mcFechaFins";
+            this.mcFechaFins.Size = new System.Drawing.Size(272, 31);
+            this.mcFechaFins.TabIndex = 13;
+            this.mcFechaFins.ValueChanged += new System.EventHandler(this.mcFechaFins_ValueChanged);
             // 
-            // mcFechaInicio
+            // mcFechaInicios
             // 
-            this.mcFechaInicio.CalendarFont = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mcFechaInicio.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mcFechaInicio.Location = new System.Drawing.Point(782, 266);
-            this.mcFechaInicio.Name = "mcFechaInicio";
-            this.mcFechaInicio.Size = new System.Drawing.Size(272, 31);
-            this.mcFechaInicio.TabIndex = 12;
+            this.mcFechaInicios.AccessibleRole = System.Windows.Forms.AccessibleRole.ScrollBar;
+            this.mcFechaInicios.CalendarFont = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mcFechaInicios.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mcFechaInicios.Location = new System.Drawing.Point(782, 384);
+            this.mcFechaInicios.Name = "mcFechaInicios";
+            this.mcFechaInicios.Size = new System.Drawing.Size(272, 31);
+            this.mcFechaInicios.TabIndex = 12;
+            this.mcFechaInicios.ValueChanged += new System.EventHandler(this.mcFechaInicio_ValueChanged);
             // 
             // txtEtiqueta
             // 
@@ -446,17 +460,107 @@ namespace ccquevedo_
             this.btnBuscar.UseVisualStyleBackColor = false;
             this.btnBuscar.Click += new System.EventHandler(this.button1_Click);
             // 
+            // cmbSubCategorias
+            // 
+            this.cmbSubCategorias.DropDownHeight = 100;
+            this.cmbSubCategorias.FormattingEnabled = true;
+            this.cmbSubCategorias.IntegralHeight = false;
+            this.cmbSubCategorias.Items.AddRange(new object[] {
+            "hola ",
+            "que ",
+            "haces"});
+            this.cmbSubCategorias.Location = new System.Drawing.Point(782, 213);
+            this.cmbSubCategorias.Name = "cmbSubCategorias";
+            this.cmbSubCategorias.Size = new System.Drawing.Size(272, 30);
+            this.cmbSubCategorias.TabIndex = 66;
+            this.cmbSubCategorias.Text = "Seleccionar";
+            this.cmbSubCategorias.SelectedIndexChanged += new System.EventHandler(this.cmbSubCategorias_SelectedIndexChanged);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(564, 216);
+            this.label10.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(155, 22);
+            this.label10.TabIndex = 67;
+            this.label10.Text = "Sub Categorias:";
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.dgvSubCatergoria);
+            this.panel2.Location = new System.Drawing.Point(782, 264);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(272, 100);
+            this.panel2.TabIndex = 70;
+            // 
+            // dgvSubCatergoria
+            // 
+            this.dgvSubCatergoria.AllowUserToAddRows = false;
+            this.dgvSubCatergoria.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
+            this.dgvSubCatergoria.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvSubCatergoria.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvSubCatergoria.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSubCatergoria.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.SubCategoria});
+            this.dgvSubCatergoria.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dgvSubCatergoria.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvSubCatergoria.ImeMode = System.Windows.Forms.ImeMode.On;
+            this.dgvSubCatergoria.Location = new System.Drawing.Point(0, 0);
+            this.dgvSubCatergoria.MultiSelect = false;
+            this.dgvSubCatergoria.Name = "dgvSubCatergoria";
+            this.dgvSubCatergoria.ReadOnly = true;
+            this.dgvSubCatergoria.Size = new System.Drawing.Size(272, 100);
+            this.dgvSubCatergoria.TabIndex = 0;
+            // 
+            // SubCategoria
+            // 
+            this.SubCategoria.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.SubCategoria.HeaderText = "SubCategoria";
+            this.SubCategoria.Name = "SubCategoria";
+            this.SubCategoria.ReadOnly = true;
+            // 
+            // mcFechaInicio
+            // 
+            this.mcFechaInicio.Cursor = System.Windows.Forms.Cursors.Default;
+            this.mcFechaInicio.Location = new System.Drawing.Point(782, 384);
+            this.mcFechaInicio.Name = "mcFechaInicio";
+            this.mcFechaInicio.Size = new System.Drawing.Size(255, 31);
+            this.mcFechaInicio.TabIndex = 71;
+            this.mcFechaInicio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mcFechaInicio_KeyPress);
+            // 
+            // mcFechaFin
+            // 
+            this.mcFechaFin.Cursor = System.Windows.Forms.Cursors.Default;
+            this.mcFechaFin.Location = new System.Drawing.Point(782, 432);
+            this.mcFechaFin.Name = "mcFechaFin";
+            this.mcFechaFin.Size = new System.Drawing.Size(255, 31);
+            this.mcFechaFin.TabIndex = 72;
+            // 
             // Nuevo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.ClientSize = new System.Drawing.Size(1107, 593);
+            this.ClientSize = new System.Drawing.Size(1107, 618);
+            this.Controls.Add(this.mcFechaFin);
+            this.Controls.Add(this.mcFechaInicio);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.cmbSubCategorias);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.txtEtiqueta);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.mcFechaFin);
-            this.Controls.Add(this.mcFechaInicio);
+            this.Controls.Add(this.mcFechaFins);
+            this.Controls.Add(this.mcFechaInicios);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtInventario);
@@ -498,6 +602,8 @@ namespace ccquevedo_
             ((System.ComponentModel.ISupportInitialize)(this.bdCamaraComercioDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriasBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productosBindingSource)).EndInit();
+            this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSubCatergoria)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -537,11 +643,18 @@ namespace ccquevedo_
         private bdCamaraComercioDataSetTableAdapters.CategoriasTableAdapter categoriasTableAdapter;
         private bdCamaraComercioDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.Label label9;
-        public System.Windows.Forms.DateTimePicker mcFechaFin;
-        public System.Windows.Forms.DateTimePicker mcFechaInicio;
+        public System.Windows.Forms.DateTimePicker mcFechaFins;
+        public System.Windows.Forms.DateTimePicker mcFechaInicios;
         public System.Windows.Forms.TextBox txtEtiqueta;
         private System.Windows.Forms.BindingSource productosBindingSource;
         private bdCamaraComercioDataSetTableAdapters.ProductosTableAdapter productosTableAdapter;
         private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.ComboBox cmbSubCategorias;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.DataGridView dgvSubCatergoria;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SubCategoria;
+        private System.Windows.Forms.TextBox mcFechaInicio;
+        private System.Windows.Forms.TextBox mcFechaFin;
     }
 }

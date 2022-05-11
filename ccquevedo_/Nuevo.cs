@@ -52,8 +52,8 @@ namespace ccquevedo_
                     && txtPrecioNormal.Text != "" && itemSelct != 0 && txtInventario.Text != "")
                 {
                     ce.DtProductos.Rows.Add(txtCodigo.Text, txtTipoProducto.Text, txtNombre.Text,
-                        txtDescripcionCorta.Text, txtDescripcionCompleta.Text, mcFechaInicio.Text,
-                        mcFechaFin.Text, txtInventario.Text, txtStock.Text, txtPrecioOferta.Text,
+                        txtDescripcionCorta.Text, txtDescripcionCompleta.Text, mcFechaInicios.Text,
+                        mcFechaFins.Text, txtInventario.Text, txtStock.Text, txtPrecioOferta.Text,
                         txtPrecioNormal.Text, cmbCategoria.Text, txtEtiqueta.Text, txtImagen.Text);
                     this.Close();
                 }
@@ -184,8 +184,8 @@ namespace ccquevedo_
                             txtPrecioOferta.Text = datos.Rows[0][8].ToString();
                             cmbCategoria.Text = dataTable.Rows[0][1].ToString();
                             txtTipoProducto.Text = datos.Rows[0][10].ToString();
-                            mcFechaInicio.Value = DateTime.Parse(datos.Rows[0][11].ToString());
-                            mcFechaFin.Value = DateTime.Parse(datos.Rows[0][12].ToString());
+                            mcFechaInicios.Value = DateTime.Parse(datos.Rows[0][11].ToString());
+                            mcFechaFins.Value = DateTime.Parse(datos.Rows[0][12].ToString());
                             txtEtiqueta.Text = datos.Rows[0][13].ToString();
                         }
                         else
@@ -199,5 +199,36 @@ namespace ccquevedo_
                     MessageBox.Show(ex.ToString());
                 }
             }
+
+        private void cmbSubCategorias_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            dgvSubCatergoria.Rows.Add(cmbSubCategorias.SelectedItem.ToString());
+        }
+
+        private void mcFechaInicio_ValueChanged(object sender, EventArgs e)
+        {
+            DateTime fechaIncio = Convert.ToDateTime(mcFechaInicios.Text);
+            
+            mcFechaInicio.Text = fechaIncio.ToString("yyyy-MM-dd");
+        }
+
+        private void mcFechaInicio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void mcFechaFins_ValueChanged(object sender, EventArgs e)
+        {
+            DateTime fechafin = Convert.ToDateTime(mcFechaFins.Text);
+
+            mcFechaFin.Text = fechafin.ToString("yyyy-MM-dd");
+        }
     }
 }
