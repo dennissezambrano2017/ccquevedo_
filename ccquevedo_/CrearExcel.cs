@@ -108,7 +108,7 @@ namespace ccquevedo_
                     frmModificar.txtPrecioOferta.Text = dtProductos.CurrentRow.Cells[5].Value.ToString();
                     frmModificar.txtStock.Text = dtProductos.CurrentRow.Cells[6].Value.ToString();
                     frmModificar.txtImage.Text = dtProductos.CurrentRow.Cells[7].Value.ToString();
-                    frmModificar.cmbCategoria.Text = dtProductos.CurrentRow.Cells[8].Value.ToString();
+                    //frmModificar.cmbCategoria.Text = dtProductos.CurrentRow.Cells[8].Value.ToString();
                     
                     frmModificar.ShowDialog();
                     dgvProducto.Rows[0].Selected = false;
