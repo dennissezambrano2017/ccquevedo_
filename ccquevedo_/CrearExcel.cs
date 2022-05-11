@@ -52,6 +52,12 @@ namespace ccquevedo_
         {
             // TODO: esta línea de código carga datos en la tabla 'bdCamaraComercioDataSet.Categorias' Puede moverla o quitarla según sea necesario.
             this.categoriasTableAdapter.Fill(this.bdCamaraComercioDataSet.Categorias);
+            // TODO: esta línea de código carga datos en la tabla 'bdCamaraComercioDataSet.Productos' Puede moverla o quitarla según sea necesario.
+            this.productosTableAdapter.Fill(this.bdCamaraComercioDataSet.Productos);
+            // TODO: esta línea de código carga datos en la tabla 'bdCamaraComercioDataSet.Productos' Puede moverla o quitarla según sea necesario.
+            this.productosTableAdapter.Fill(this.bdCamaraComercioDataSet.Productos);
+            // TODO: esta línea de código carga datos en la tabla 'bdCamaraComercioDataSet.Categorias' Puede moverla o quitarla según sea necesario.
+            this.categoriasTableAdapter.Fill(this.bdCamaraComercioDataSet.Categorias);
             try
             {
                 // TODO: esta línea de código carga datos en la tabla 'bdCamaraComercioDataSet.Productos' Puede moverla o quitarla según sea necesario.
@@ -184,25 +190,22 @@ namespace ccquevedo_
             {
                 for (int i = 0; i < dgvProducto.Rows.Count; i++)
                 {
-                    var v = this.productosTableAdapter.Existe(
-                           Convert.ToInt32(dtProductos.Rows[i].Cells[0].Value.ToString()));
-                    var id = this.categoriasTableAdapter.ConsultaId(
-                        dtProductos.Rows[i].Cells[11].Value.ToString());
+                    var v = this.productosTableAdapter.Existe(dtProductos.Rows[i].Cells[0].Value.ToString());
+                    //var id = this.categoriasTableAdapter.ConsultaId(dtProductos.Rows[i].Cells[11].Value.ToString());
                     if (v.ToString() != "1")
                     {
                         this.productosTableAdapter.Insertar(
-                        Convert.ToInt32(dtProductos.Rows[i].Cells[0].Value.ToString()),
+                        dtProductos.Rows[i].Cells[0].Value.ToString(),
                         dtProductos.Rows[i].Cells[2].Value.ToString(),
                         dtProductos.Rows[i].Cells[3].Value.ToString(),
-                        Convert.ToInt32(dtProductos.Rows[i].Cells[7].Value.ToString()),
+                        dtProductos.Rows[i].Cells[7].Value.ToString(),
                         dtProductos.Rows[i].Cells[13].Value.ToString(),
-                        Convert.ToInt32(dtProductos.Rows[i].Cells[8].Value.ToString()),
+                        dtProductos.Rows[i].Cells[8].Value.ToString(),
                         dtProductos.Rows[i].Cells[4].Value.ToString(),
-                        DateTime.Parse(dtProductos.Rows[i].Cells[6].Value.ToString()),
-                        DateTime.Parse(dtProductos.Rows[i].Cells[5].Value.ToString()),
-                        Convert.ToInt32(id),
-                        Convert.ToDecimal(dtProductos.Rows[i].Cells[10].Value.ToString()), 
-                        Convert.ToDecimal(dtProductos.Rows[i].Cells[9].Value.ToString()),
+                        dtProductos.Rows[i].Cells[6].Value.ToString(),
+                        dtProductos.Rows[i].Cells[5].Value.ToString(),
+                        dtProductos.Rows[i].Cells[10].Value.ToString(), 
+                        dtProductos.Rows[i].Cells[9].Value.ToString(),
                         dtProductos.Rows[i].Cells[1].Value.ToString(),
                         dtProductos.Rows[i].Cells[12].Value.ToString());
                     }
@@ -222,5 +225,12 @@ namespace ccquevedo_
 
         }
 
+        private void productosBindingNavigatorSaveItem_Click_1(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.productosBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.bdCamaraComercioDataSet);
+
+        }
     }
 }

@@ -31,7 +31,7 @@ namespace ccquevedo_
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Nuevo));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -53,6 +53,8 @@ namespace ccquevedo_
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.cmbCategoria = new System.Windows.Forms.ComboBox();
+            this.categoriasBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bdCamaraComercioDataSet = new ccquevedo_.bdCamaraComercioDataSet();
             this.txtTipoProducto = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.btnGuadar = new System.Windows.Forms.Button();
@@ -60,16 +62,11 @@ namespace ccquevedo_
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.bdCamaraComercioDataSet = new ccquevedo_.bdCamaraComercioDataSet();
-            this.categoriasBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.categoriasTableAdapter = new ccquevedo_.bdCamaraComercioDataSetTableAdapters.CategoriasTableAdapter();
-            this.tableAdapterManager = new ccquevedo_.bdCamaraComercioDataSetTableAdapters.TableAdapterManager();
             this.mcFechaFins = new System.Windows.Forms.DateTimePicker();
             this.mcFechaInicios = new System.Windows.Forms.DateTimePicker();
             this.txtEtiqueta = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.productosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.productosTableAdapter = new ccquevedo_.bdCamaraComercioDataSetTableAdapters.ProductosTableAdapter();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.cmbSubCategorias = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -78,13 +75,19 @@ namespace ccquevedo_
             this.SubCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mcFechaInicio = new System.Windows.Forms.TextBox();
             this.mcFechaFin = new System.Windows.Forms.TextBox();
+            this.productosTableAdapter = new ccquevedo_.bdCamaraComercioDataSetTableAdapters.ProductosTableAdapter();
+            this.categoriasTableAdapter = new ccquevedo_.bdCamaraComercioDataSetTableAdapters.CategoriasTableAdapter();
+            this.tableAdapterManager = new ccquevedo_.bdCamaraComercioDataSetTableAdapters.TableAdapterManager();
+            this.subCategoriaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.subCategoriaTableAdapter = new ccquevedo_.bdCamaraComercioDataSetTableAdapters.SubCategoriaTableAdapter();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdCamaraComercioDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriasBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdCamaraComercioDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productosBindingSource)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSubCatergoria)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.subCategoriaBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -285,16 +288,27 @@ namespace ccquevedo_
             // 
             // cmbCategoria
             // 
+            this.cmbCategoria.DataSource = this.categoriasBindingSource;
+            this.cmbCategoria.DisplayMember = "descripcion";
             this.cmbCategoria.DropDownHeight = 100;
             this.cmbCategoria.FormattingEnabled = true;
             this.cmbCategoria.IntegralHeight = false;
-            this.cmbCategoria.Items.AddRange(new object[] {
-            "Seleccionar"});
             this.cmbCategoria.Location = new System.Drawing.Point(782, 165);
             this.cmbCategoria.Name = "cmbCategoria";
             this.cmbCategoria.Size = new System.Drawing.Size(272, 30);
             this.cmbCategoria.TabIndex = 10;
-            this.cmbCategoria.Text = "Seleccionar";
+            this.cmbCategoria.ValueMember = "Id_Categoria";
+            this.cmbCategoria.SelectedIndexChanged += new System.EventHandler(this.cmbCategoria_SelectedIndexChanged);
+            // 
+            // categoriasBindingSource
+            // 
+            this.categoriasBindingSource.DataMember = "Categorias";
+            this.categoriasBindingSource.DataSource = this.bdCamaraComercioDataSet;
+            // 
+            // bdCamaraComercioDataSet
+            // 
+            this.bdCamaraComercioDataSet.DataSetName = "bdCamaraComercioDataSet";
+            this.bdCamaraComercioDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // txtTipoProducto
             // 
@@ -375,27 +389,6 @@ namespace ccquevedo_
             this.label5.TabIndex = 57;
             this.label5.Text = "Fecha inicio \r\nde oferta:\r\n";
             // 
-            // bdCamaraComercioDataSet
-            // 
-            this.bdCamaraComercioDataSet.DataSetName = "bdCamaraComercioDataSet";
-            this.bdCamaraComercioDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // categoriasBindingSource
-            // 
-            this.categoriasBindingSource.DataMember = "Categorias";
-            this.categoriasBindingSource.DataSource = this.bdCamaraComercioDataSet;
-            // 
-            // categoriasTableAdapter
-            // 
-            this.categoriasTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.CategoriasTableAdapter = this.categoriasTableAdapter;
-            this.tableAdapterManager.ProductosTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = ccquevedo_.bdCamaraComercioDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
             // mcFechaFins
             // 
             this.mcFechaFins.CalendarFont = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -441,10 +434,6 @@ namespace ccquevedo_
             this.productosBindingSource.DataMember = "Productos";
             this.productosBindingSource.DataSource = this.bdCamaraComercioDataSet;
             // 
-            // productosTableAdapter
-            // 
-            this.productosTableAdapter.ClearBeforeFill = true;
-            // 
             // btnBuscar
             // 
             this.btnBuscar.BackColor = System.Drawing.Color.Gray;
@@ -465,10 +454,6 @@ namespace ccquevedo_
             this.cmbSubCategorias.DropDownHeight = 100;
             this.cmbSubCategorias.FormattingEnabled = true;
             this.cmbSubCategorias.IntegralHeight = false;
-            this.cmbSubCategorias.Items.AddRange(new object[] {
-            "hola ",
-            "que ",
-            "haces"});
             this.cmbSubCategorias.Location = new System.Drawing.Point(782, 213);
             this.cmbSubCategorias.Name = "cmbSubCategorias";
             this.cmbSubCategorias.Size = new System.Drawing.Size(272, 30);
@@ -500,14 +485,14 @@ namespace ccquevedo_
             this.dgvSubCatergoria.AllowUserToAddRows = false;
             this.dgvSubCatergoria.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
             this.dgvSubCatergoria.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvSubCatergoria.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvSubCatergoria.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvSubCatergoria.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSubCatergoria.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.SubCategoria});
@@ -545,6 +530,32 @@ namespace ccquevedo_
             this.mcFechaFin.Size = new System.Drawing.Size(255, 31);
             this.mcFechaFin.TabIndex = 72;
             this.mcFechaFin.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mcFechaFin_KeyPress);
+            // 
+            // productosTableAdapter
+            // 
+            this.productosTableAdapter.ClearBeforeFill = true;
+            // 
+            // categoriasTableAdapter
+            // 
+            this.categoriasTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.Categoria_SubCategoriaTableAdapter = null;
+            this.tableAdapterManager.CategoriasTableAdapter = this.categoriasTableAdapter;
+            this.tableAdapterManager.ProductosTableAdapter = this.productosTableAdapter;
+            this.tableAdapterManager.SubCategoriaTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = ccquevedo_.bdCamaraComercioDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // subCategoriaBindingSource
+            // 
+            this.subCategoriaBindingSource.DataMember = "SubCategoria";
+            this.subCategoriaBindingSource.DataSource = this.bdCamaraComercioDataSet;
+            // 
+            // subCategoriaTableAdapter
+            // 
+            this.subCategoriaTableAdapter.ClearBeforeFill = true;
             // 
             // Nuevo
             // 
@@ -600,11 +611,12 @@ namespace ccquevedo_
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdCamaraComercioDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriasBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdCamaraComercioDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productosBindingSource)).EndInit();
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSubCatergoria)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.subCategoriaBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -641,14 +653,11 @@ namespace ccquevedo_
         private System.Windows.Forms.Label label5;
         private bdCamaraComercioDataSet bdCamaraComercioDataSet;
         private System.Windows.Forms.BindingSource categoriasBindingSource;
-        private bdCamaraComercioDataSetTableAdapters.CategoriasTableAdapter categoriasTableAdapter;
-        private bdCamaraComercioDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.Label label9;
         public System.Windows.Forms.DateTimePicker mcFechaFins;
         public System.Windows.Forms.DateTimePicker mcFechaInicios;
         public System.Windows.Forms.TextBox txtEtiqueta;
         private System.Windows.Forms.BindingSource productosBindingSource;
-        private bdCamaraComercioDataSetTableAdapters.ProductosTableAdapter productosTableAdapter;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.ComboBox cmbSubCategorias;
         private System.Windows.Forms.Label label10;
@@ -657,5 +666,10 @@ namespace ccquevedo_
         private System.Windows.Forms.DataGridViewTextBoxColumn SubCategoria;
         private System.Windows.Forms.TextBox mcFechaInicio;
         private System.Windows.Forms.TextBox mcFechaFin;
+        private bdCamaraComercioDataSetTableAdapters.ProductosTableAdapter productosTableAdapter;
+        private bdCamaraComercioDataSetTableAdapters.CategoriasTableAdapter categoriasTableAdapter;
+        private bdCamaraComercioDataSetTableAdapters.TableAdapterManager tableAdapterManager;
+        private System.Windows.Forms.BindingSource subCategoriaBindingSource;
+        private bdCamaraComercioDataSetTableAdapters.SubCategoriaTableAdapter subCategoriaTableAdapter;
     }
 }

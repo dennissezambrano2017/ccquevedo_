@@ -23,8 +23,8 @@ namespace ccquevedo_
 
             try
             {
-                DataTable tablaUno = this.productosTableAdapter.BuscarDatos(Convert.ToInt32(id));
-                DataTable dataTable = this.categoriasTableAdapter.BuscarCategoria(Convert.ToInt32(tablaUno.Rows[0][9].ToString()));
+                DataTable tablaUno = this.productosTableAdapter.BuscarDatos(id.ToString());
+                //DataTable dataTable = this.categoriasTableAdapter.BuscarCategoria(Convert.ToInt32(tablaUno.Rows[0][9].ToString()));
                 txtCodigo.Text = id.ToString();
                 txtNombre.Text = tablaUno.Rows[0][1].ToString();
                 txtDescripcion.Text = tablaUno.Rows[0][2].ToString();
@@ -34,8 +34,8 @@ namespace ccquevedo_
                 txtDescripcionL.Text = tablaUno.Rows[0][5].ToString();
                 mcFechaFins.Text = tablaUno.Rows[0][12].ToString();
                 mcFechaInicios.Text = tablaUno.Rows[0][11].ToString();
-                cmbCategoria.Text= dataTable.Rows[0][1].ToString();
-                idCat = Convert.ToInt32(tablaUno.Rows[0][9].ToString());
+                //cmbCategoria.Text= dataTable.Rows[0][1].ToString();
+                //idCat = Convert.ToInt32(tablaUno.Rows[0][9].ToString());
                 txtPrecio.Text = tablaUno.Rows[0][7].ToString();
                 txtprecioRebajado.Text = tablaUno.Rows[0][8].ToString();
                 txtTipoProducto.Text = tablaUno.Rows[0][10].ToString();
@@ -86,18 +86,15 @@ namespace ccquevedo_
 
         private void btnGuardar_Click_1(object sender, EventArgs e)
         {
-            idCat = int.Parse(cmbCategoria.SelectedValue.ToString());
-            DateTime fechaIncio = Convert.ToDateTime(mcFechaInicios.Text);
-            DateTime fechaFin =Convert.ToDateTime(mcFechaFins.Text);
+            //idCat = int.Parse(cmbCategoria.SelectedValue.ToString());
             try{
                 this.productosTableAdapter.Editar(txtNombre.Text, txtDescripcion.Text,
-                                Convert.ToInt32(txtInventario.Text), "",
-                                Convert.ToInt32(txtminStock.Text), txtDescripcionL.Text,
-                                Convert.ToDateTime(fechaFin.ToString("yyyy-MM-dd HH:mm:ss")),
-                                Convert.ToDateTime(fechaIncio.ToString("yyyy-MM-dd HH:mm:ss")), idCat,
-                                Convert.ToDecimal(txtPrecio.Text),
-                                Convert.ToDecimal(txtprecioRebajado.Text),
-                                 "Simple", txtEtiqueta.Text, Convert.ToInt32(id));
+                                txtDescripcionL.Text,txtInventario.Text, txtminStock.Text,
+                                txtPrecio.Text,
+                                txtprecioRebajado.Text,"",
+                                txtTipoProducto.Text,
+                                mcFechaInicio.Text,
+                                mcFechaFin.Text,txtEtiqueta.Text, id.ToString());
                 this.productosTableAdapter.Fill(this.bdCamaraComercioDataSet.Productos);
                 this.Close();
             }

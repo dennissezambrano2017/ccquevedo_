@@ -65,7 +65,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.mcFechaInicios = new System.Windows.Forms.DateTimePicker();
             this.mcFechaFins = new System.Windows.Forms.DateTimePicker();
-            this.categoriasProductosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.productosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.productosTableAdapter = new ccquevedo_.bdCamaraComercioDataSetTableAdapters.ProductosTableAdapter();
             this.tableAdapterManager = new ccquevedo_.bdCamaraComercioDataSetTableAdapters.TableAdapterManager();
@@ -80,7 +79,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriasBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdCamaraComercioDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.categoriasProductosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSubCatergoria)).BeginInit();
             this.SuspendLayout();
@@ -419,11 +417,6 @@
             this.mcFechaFins.TabIndex = 13;
             this.mcFechaFins.ValueChanged += new System.EventHandler(this.mcFechaFins_ValueChanged);
             // 
-            // categoriasProductosBindingSource
-            // 
-            this.categoriasProductosBindingSource.DataMember = "CategoriasProductos";
-            this.categoriasProductosBindingSource.DataSource = this.categoriasBindingSource;
-            // 
             // productosBindingSource
             // 
             this.productosBindingSource.DataMember = "Productos";
@@ -575,7 +568,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriasBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdCamaraComercioDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.categoriasProductosBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productosBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSubCatergoria)).EndInit();
             this.ResumeLayout(false);
@@ -623,7 +615,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DateTimePicker mcFechaInicios;
         private System.Windows.Forms.DateTimePicker mcFechaFins;
-        private System.Windows.Forms.BindingSource categoriasProductosBindingSource;
         private System.Windows.Forms.DataGridView dgvSubCatergoria;
         private System.Windows.Forms.DataGridViewTextBoxColumn SubCategoria;
         private System.Windows.Forms.ComboBox cmbSubCategorias;

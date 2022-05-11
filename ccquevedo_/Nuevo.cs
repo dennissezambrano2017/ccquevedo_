@@ -139,22 +139,15 @@ namespace ccquevedo_
 
         private void Nuevo_Load(object sender, EventArgs e)
         {
+            // TODO: esta línea de código carga datos en la tabla 'bdCamaraComercioDataSet.SubCategoria' Puede moverla o quitarla según sea necesario.
+            this.subCategoriaTableAdapter.Fill(this.bdCamaraComercioDataSet.SubCategoria);
             try
             {
                 // TODO: esta línea de código carga datos en la tabla 'bdCamaraComercioDataSet.Productos' Puede moverla o quitarla según sea necesario.
                 this.productosTableAdapter.Fill(this.bdCamaraComercioDataSet.Productos);
                 // TODO: esta línea de código carga datos en la tabla 'bdCamaraComercioDataSet.Categorias' Puede moverla o quitarla según sea necesario.
                 this.categoriasTableAdapter.Fill(this.bdCamaraComercioDataSet.Categorias);
-                DataTable tablaDos = this.categoriasTableAdapter.GetData();
-                cmbCategoria.DisplayMember = "des";
-                cmbCategoria.ValueMember = "idcat";
 
-                List<Product> lista = new List<Product>();
-                for (int i = 0; i < tablaDos.Rows.Count; i++)
-                {
-                    lista.Add(new Product(Convert.ToInt32(tablaDos.Rows[i][0].ToString()), tablaDos.Rows[i][1].ToString()));
-                }
-                cmbCategoria.DataSource = lista;
                 cmbCategoria.SelectedIndex = 0;
 
                 AutoCompleteStringCollection mycollection = new AutoCompleteStringCollection();
@@ -178,7 +171,7 @@ namespace ccquevedo_
                     if (txtNombre.Text != "")
                     {
                         DataTable datos = this.productosTableAdapter.BuscaNombre(txtNombre.Text);
-                        DataTable dataTable = this.categoriasTableAdapter.BuscarCategoria(Convert.ToInt32(datos.Rows[0][9].ToString()));
+                        //DataTable dataTable = this.categoriasTableAdapter.BuscarCategoria(Convert.ToInt32(datos.Rows[0][9].ToString()));
                         if (datos.Rows.Count > 0)
                         {
                             txtCodigo.Text = datos.Rows[0][0].ToString();
@@ -190,11 +183,11 @@ namespace ccquevedo_
                             txtStock.Text = datos.Rows[0][6].ToString();
                             txtPrecioNormal.Text = datos.Rows[0][7].ToString();
                             txtPrecioOferta.Text = datos.Rows[0][8].ToString();
-                            cmbCategoria.Text = dataTable.Rows[0][1].ToString();
-                            txtTipoProducto.Text = datos.Rows[0][10].ToString();
-                            mcFechaInicios.Value = DateTime.Parse(datos.Rows[0][11].ToString());
-                            mcFechaFins.Value = DateTime.Parse(datos.Rows[0][12].ToString());
-                            txtEtiqueta.Text = datos.Rows[0][13].ToString();
+                            //cmbCategoria.Text = dataTable.Rows[0][1].ToString();
+                            txtTipoProducto.Text = datos.Rows[0][9].ToString();
+                            mcFechaInicio.Text = datos.Rows[0][10].ToString();
+                            mcFechaFin.Text = datos.Rows[0][11].ToString();
+                            txtEtiqueta.Text = datos.Rows[0][12].ToString();
                         }
                         else
                         {
@@ -274,6 +267,20 @@ namespace ccquevedo_
             {
                 e.Handled = true;
             }
+        }
+
+        private void cmbCategoria_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DataTable tablaDos = this.subCategoriaTableAdapter.BuscarSub(cmbCategoria.SelectedValue.ToString());
+            cmbSubCategorias.DisplayMember = "des";
+            cmbSubCategorias.ValueMember = "idcat";
+
+            List<Product> lista = new List<Product>();
+            for (int i = 0; i < tablaDos.Rows.Count; i++)
+            {
+                lista.Add(new Product(Convert.ToInt32(tablaDos.Rows[i][0].ToString()), tablaDos.Rows[i][1].ToString()));
+            }
+            cmbSubCategorias.DataSource = lista;
         }
     }
 }
