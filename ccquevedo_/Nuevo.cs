@@ -48,8 +48,10 @@ namespace ccquevedo_
         {
             try
             {
-                //for (int i = 0; i < listSubCate.Count; i++)
-                //    MessageBox.Show(listSubCate[i].des,listSubCate[i].idcat.ToString()) ;
+                string txtCategoria="";
+                for (int i = 0; i < listSubCate.Count; i++)
+                    txtCategoria += cmbCategoria.Text + ">" + listSubCate[i].des + ",";
+
                 CrearExcel ce = Owner as CrearExcel;
                 if (txtCodigo.Text != "" && txtNombre.Text != "" && txtDescripcionCorta.Text != ""
                     && txtPrecioNormal.Text != "" && itemSelct != "" && txtInventario.Text != "")
@@ -57,7 +59,7 @@ namespace ccquevedo_
                     ce.DtProductos.Rows.Add(txtCodigo.Text, txtTipoProducto.Text, txtNombre.Text,
                         txtDescripcionCorta.Text, txtDescripcionCompleta.Text, mcFechaInicios.Text,
                         mcFechaFins.Text, txtInventario.Text, txtStock.Text, txtPrecioOferta.Text,
-                        txtPrecioNormal.Text, cmbCategoria.Text, txtEtiqueta.Text, txtImagen.Text);
+                        txtPrecioNormal.Text, txtCategoria, txtEtiqueta.Text, txtImagen.Text);
                     this.Close();
                 }
                 else
