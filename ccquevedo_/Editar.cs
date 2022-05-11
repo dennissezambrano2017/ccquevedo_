@@ -32,8 +32,8 @@ namespace ccquevedo_
                 txtImage.Text = tablaUno.Rows[0][4].ToString();
                 txtminStock.Text = tablaUno.Rows[0][6].ToString();
                 txtDescripcionL.Text = tablaUno.Rows[0][5].ToString();
-                mcFechaFin.Text = tablaUno.Rows[0][12].ToString();
-                mcFechaInicio.Text = tablaUno.Rows[0][11].ToString();
+                mcFechaFins.Text = tablaUno.Rows[0][12].ToString();
+                mcFechaInicios.Text = tablaUno.Rows[0][11].ToString();
                 cmbCategoria.Text= dataTable.Rows[0][1].ToString();
                 idCat = Convert.ToInt32(tablaUno.Rows[0][9].ToString());
                 txtPrecio.Text = tablaUno.Rows[0][7].ToString();
@@ -50,9 +50,17 @@ namespace ccquevedo_
 
         private void productosBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
-            this.Validate();
-            this.productosBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.bdCamaraComercioDataSet);
+            try
+            {
+                this.Validate();
+                this.productosBindingSource.EndEdit();
+                this.tableAdapterManager.UpdateAll(this.bdCamaraComercioDataSet);
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.ToString());
+            }
+            
 
         }
 
@@ -60,19 +68,27 @@ namespace ccquevedo_
 
         private void Editar_Load(object sender, EventArgs e)
         {
-            // TODO: esta línea de código carga datos en la tabla 'bdCamaraComercioDataSet.Categorias' Puede moverla o quitarla según sea necesario.
-            this.categoriasTableAdapter.Fill(this.bdCamaraComercioDataSet.Categorias);
-            // TODO: esta línea de código carga datos en la tabla 'bdCamaraComercioDataSet.Productos' Puede moverla o quitarla según sea necesario.
-            this.productosTableAdapter.Fill(this.bdCamaraComercioDataSet.Productos);
+            try
+            {
+                // TODO: esta línea de código carga datos en la tabla 'bdCamaraComercioDataSet.Categorias' Puede moverla o quitarla según sea necesario.
+                this.categoriasTableAdapter.Fill(this.bdCamaraComercioDataSet.Categorias);
+                // TODO: esta línea de código carga datos en la tabla 'bdCamaraComercioDataSet.Productos' Puede moverla o quitarla según sea necesario.
+                this.productosTableAdapter.Fill(this.bdCamaraComercioDataSet.Productos);
 
-            cmbCategoria.SelectedValue = idCat;
+                cmbCategoria.SelectedValue = idCat;
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.ToString());
+            }
+            
         }
 
         private void btnGuardar_Click_1(object sender, EventArgs e)
         {
             idCat = int.Parse(cmbCategoria.SelectedValue.ToString());
-            DateTime fechaIncio = Convert.ToDateTime(mcFechaInicio.Text);
-            DateTime fechaFin =Convert.ToDateTime(mcFechaFin.Text);
+            DateTime fechaIncio = Convert.ToDateTime(mcFechaInicios.Text);
+            DateTime fechaFin =Convert.ToDateTime(mcFechaFins.Text);
             try{
                 this.productosTableAdapter.Editar(txtNombre.Text, txtDescripcion.Text,
                                 Convert.ToInt32(txtInventario.Text), "",
@@ -95,6 +111,57 @@ namespace ccquevedo_
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void mcFechaInicios_ValueChanged(object sender, EventArgs e)
+        {
+            DateTime fechaIncio = Convert.ToDateTime(mcFechaInicios.Text);
+
+            mcFechaInicios.Text = fechaIncio.ToString("yyyy-MM-dd");
+        }
+
+        private void mcFechaFins_ValueChanged(object sender, EventArgs e)
+        {
+            DateTime fechafin = Convert.ToDateTime(mcFechaFins.Text);
+
+            mcFechaFin.Text = fechafin.ToString("yyyy-MM-dd");
+        }
+
+        private void mcFechaInicio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void mcFechaFin_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void cmbSubCategorias_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                dgvSubCatergoria.Rows.Add(cmbSubCategorias.SelectedItem.ToString());
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.ToString());
+            }
+            
         }
     }
 }

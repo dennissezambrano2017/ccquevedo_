@@ -29,22 +29,34 @@ namespace ccquevedo_
 
         private void productosBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
-            this.Validate();
-            this.productosBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.bdCamaraComercioDataSet);
+            try
+            {
+                this.Validate();
+                this.productosBindingSource.EndEdit();
+                this.tableAdapterManager.UpdateAll(this.bdCamaraComercioDataSet);
 
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.ToString());
+            }
         }
 
         private void Productos_Load(object sender, EventArgs e)
         {
-            // TODO: esta línea de código carga datos en la tabla 'bdCamaraComercioDataSet.Categorias' Puede moverla o quitarla según sea necesario.
-            this.categoriasTableAdapter.Fill(this.bdCamaraComercioDataSet.Categorias);
-            // TODO: esta línea de código carga datos en la tabla 'bdCamaraComercioDataSet.Productos' Puede moverla o quitarla según sea necesario.
-            this.productosTableAdapter.Fill(this.bdCamaraComercioDataSet.Productos);
-            // TODO: esta línea de código carga datos en la tabla 'bdCamaraComercioDataSet.Productos' Puede moverla o quitarla según sea necesario.
-            this.productosTableAdapter.Fill(this.bdCamaraComercioDataSet.Productos);
-            
-
+            try
+            {
+                // TODO: esta línea de código carga datos en la tabla 'bdCamaraComercioDataSet.Categorias' Puede moverla o quitarla según sea necesario.
+                this.categoriasTableAdapter.Fill(this.bdCamaraComercioDataSet.Categorias);
+                // TODO: esta línea de código carga datos en la tabla 'bdCamaraComercioDataSet.Productos' Puede moverla o quitarla según sea necesario.
+                this.productosTableAdapter.Fill(this.bdCamaraComercioDataSet.Productos);
+                // TODO: esta línea de código carga datos en la tabla 'bdCamaraComercioDataSet.Productos' Puede moverla o quitarla según sea necesario.
+                this.productosTableAdapter.Fill(this.bdCamaraComercioDataSet.Productos);
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.ToString());
+            }
         }
 
         private int? getId(int num)
@@ -86,10 +98,16 @@ namespace ccquevedo_
 
         private void productosBindingNavigatorSaveItem_Click_1(object sender, EventArgs e)
         {
-            this.Validate();
-            this.productosBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.bdCamaraComercioDataSet);
-
+            try
+            {
+                this.Validate();
+                this.productosBindingSource.EndEdit();
+                this.tableAdapterManager.UpdateAll(this.bdCamaraComercioDataSet);
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.ToString());
+            }
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)

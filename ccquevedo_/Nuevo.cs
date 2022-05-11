@@ -123,9 +123,17 @@ namespace ccquevedo_
 
         private void categoriasBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
-            this.Validate();
-            this.categoriasBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.bdCamaraComercioDataSet);
+            try
+            {
+                this.Validate();
+                this.categoriasBindingSource.EndEdit();
+                this.tableAdapterManager.UpdateAll(this.bdCamaraComercioDataSet);
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.ToString());
+            }
+            
 
         }
 
@@ -202,14 +210,31 @@ namespace ccquevedo_
 
         private void cmbSubCategorias_SelectedIndexChanged(object sender, EventArgs e)
         {
-            dgvSubCatergoria.Rows.Add(cmbSubCategorias.SelectedItem.ToString());
+            try
+            {
+                dgvSubCatergoria.Rows.Add(cmbSubCategorias.SelectedItem.ToString());
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.ToString());
+            }
+            
         }
 
         private void mcFechaInicio_ValueChanged(object sender, EventArgs e)
         {
-            DateTime fechaIncio = Convert.ToDateTime(mcFechaInicios.Text);
+            try
+            {
+                DateTime fechaIncio = Convert.ToDateTime(mcFechaInicios.Text);
+
+                mcFechaInicio.Text = fechaIncio.ToString("yyyy-MM-dd");
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.ToString());
+            }
+
             
-            mcFechaInicio.Text = fechaIncio.ToString("yyyy-MM-dd");
         }
 
         private void mcFechaInicio_KeyPress(object sender, KeyPressEventArgs e)
@@ -226,9 +251,17 @@ namespace ccquevedo_
 
         private void mcFechaFins_ValueChanged(object sender, EventArgs e)
         {
-            DateTime fechafin = Convert.ToDateTime(mcFechaFins.Text);
+            try
+            {
+                DateTime fechafin = Convert.ToDateTime(mcFechaFins.Text);
 
-            mcFechaFin.Text = fechafin.ToString("yyyy-MM-dd");
+                mcFechaFin.Text = fechafin.ToString("yyyy-MM-dd");
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.ToString());
+            }
+            
         }
 
         private void mcFechaFin_KeyPress(object sender, KeyPressEventArgs e)

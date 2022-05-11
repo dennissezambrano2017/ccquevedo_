@@ -60,17 +60,17 @@ namespace ccquevedo_
             try
             {
                 CrearExcel ce = Owner as CrearExcel;
-            ce.DtProductos[0, ce.Posicion].Value = txtCodigo.Text;
-            ce.DtProductos[1, ce.Posicion].Value = txtNombre.Text;
-            ce.DtProductos[2, ce.Posicion].Value = txtDesCorta.Text;
-            ce.DtProductos[3, ce.Posicion].Value = txtDescriComple.Text;
-            ce.DtProductos[4, ce.Posicion].Value = txtPrecioNormal.Text;
-            ce.DtProductos[5, ce.Posicion].Value = txtPrecioOferta.Text;
-            ce.DtProductos[6, ce.Posicion].Value = txtStock.Text;
-            ce.DtProductos[7, ce.Posicion].Value = txtImage.Text;
-            ce.DtProductos[8, ce.Posicion].Value = cmbCategoria.Text;
-            ce.DtProductos[9, ce.Posicion].Value = txtTipoProducto.Text;
-            this.Close();
+                ce.DtProductos[0, ce.Posicion].Value = txtCodigo.Text;
+                ce.DtProductos[1, ce.Posicion].Value = txtNombre.Text;
+                ce.DtProductos[2, ce.Posicion].Value = txtDesCorta.Text;
+                ce.DtProductos[3, ce.Posicion].Value = txtDescriComple.Text;
+                ce.DtProductos[4, ce.Posicion].Value = txtPrecioNormal.Text;
+                ce.DtProductos[5, ce.Posicion].Value = txtPrecioOferta.Text;
+                ce.DtProductos[6, ce.Posicion].Value = txtStock.Text;
+                ce.DtProductos[7, ce.Posicion].Value = txtImage.Text;
+                ce.DtProductos[8, ce.Posicion].Value = cmbCategoria.Text;
+                ce.DtProductos[9, ce.Posicion].Value = txtTipoProducto.Text;
+                this.Close();
             }
 
             catch (Exception ex)
@@ -119,16 +119,33 @@ namespace ccquevedo_
 
         private void categoriasBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
-            this.Validate();
-            this.categoriasBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.bdCamaraComercioDataSet);
+            try
+            {
+                this.Validate();
+                this.categoriasBindingSource.EndEdit();
+                this.tableAdapterManager.UpdateAll(this.bdCamaraComercioDataSet);
+
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.ToString());
+            }
+            
 
         }
 
         private void Modificar_Load(object sender, EventArgs e)
         {
-            // TODO: esta línea de código carga datos en la tabla 'bdCamaraComercioDataSet.Categorias' Puede moverla o quitarla según sea necesario.
-            this.categoriasTableAdapter.Fill(this.bdCamaraComercioDataSet.Categorias);
+            try
+            {
+                // TODO: esta línea de código carga datos en la tabla 'bdCamaraComercioDataSet.Categorias' Puede moverla o quitarla según sea necesario.
+                this.categoriasTableAdapter.Fill(this.bdCamaraComercioDataSet.Categorias);
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.ToString());
+            }
+            
         }
 
         private void mcFechaInicio_ValueChanged(object sender, EventArgs e)
@@ -167,6 +184,19 @@ namespace ccquevedo_
             {
                 e.Handled = true;
             }
+        }
+
+        private void cmbSubCategorias_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                dgvSubCatergoria.Rows.Add(cmbSubCategorias.SelectedItem.ToString());
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.ToString());
+            }
+            
         }
     }
 }

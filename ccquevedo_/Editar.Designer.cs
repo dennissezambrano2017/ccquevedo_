@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Editar));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblNombre = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtprecioRebajado = new System.Windows.Forms.TextBox();
@@ -58,23 +59,30 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.cmbCategoria = new System.Windows.Forms.ComboBox();
+            this.categoriasBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bdCamaraComercioDataSet = new ccquevedo_.bdCamaraComercioDataSet();
             this.txtEtiqueta = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.mcFechaInicio = new System.Windows.Forms.DateTimePicker();
-            this.mcFechaFin = new System.Windows.Forms.DateTimePicker();
+            this.mcFechaInicios = new System.Windows.Forms.DateTimePicker();
+            this.mcFechaFins = new System.Windows.Forms.DateTimePicker();
             this.categoriasProductosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.bdCamaraComercioDataSet = new ccquevedo_.bdCamaraComercioDataSet();
             this.productosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.productosTableAdapter = new ccquevedo_.bdCamaraComercioDataSetTableAdapters.ProductosTableAdapter();
             this.tableAdapterManager = new ccquevedo_.bdCamaraComercioDataSetTableAdapters.TableAdapterManager();
-            this.categoriasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.categoriasTableAdapter = new ccquevedo_.bdCamaraComercioDataSetTableAdapters.CategoriasTableAdapter();
+            this.dgvSubCatergoria = new System.Windows.Forms.DataGridView();
+            this.SubCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmbSubCategorias = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.mcFechaFin = new System.Windows.Forms.TextBox();
+            this.mcFechaInicio = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.categoriasProductosBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdCamaraComercioDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriasBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdCamaraComercioDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoriasProductosBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productosBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSubCatergoria)).BeginInit();
             this.SuspendLayout();
             // 
             // lblNombre
@@ -253,7 +261,7 @@
             // 
             this.txtTipoProducto.Enabled = false;
             this.txtTipoProducto.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTipoProducto.Location = new System.Drawing.Point(782, 365);
+            this.txtTipoProducto.Location = new System.Drawing.Point(782, 480);
             this.txtTipoProducto.Name = "txtTipoProducto";
             this.txtTipoProducto.Size = new System.Drawing.Size(272, 31);
             this.txtTipoProducto.TabIndex = 14;
@@ -262,16 +270,17 @@
             // txtImage
             // 
             this.txtImage.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtImage.Location = new System.Drawing.Point(782, 215);
+            this.txtImage.Location = new System.Drawing.Point(236, 520);
+            this.txtImage.Multiline = true;
             this.txtImage.Name = "txtImage";
-            this.txtImage.Size = new System.Drawing.Size(272, 31);
+            this.txtImage.Size = new System.Drawing.Size(272, 61);
             this.txtImage.TabIndex = 11;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(564, 371);
+            this.label11.Location = new System.Drawing.Point(564, 486);
             this.label11.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(173, 22);
@@ -282,7 +291,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(564, 216);
+            this.label12.Location = new System.Drawing.Point(31, 521);
             this.label12.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(87, 22);
@@ -296,7 +305,7 @@
             this.btnGuardar.ForeColor = System.Drawing.SystemColors.Window;
             this.btnGuardar.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardar.Image")));
             this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGuardar.Location = new System.Drawing.Point(798, 471);
+            this.btnGuardar.Location = new System.Drawing.Point(798, 554);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(159, 47);
             this.btnGuardar.TabIndex = 50;
@@ -328,7 +337,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(564, 258);
+            this.label5.Location = new System.Drawing.Point(564, 373);
             this.label5.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label5.Name = "label5";
             this.label5.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -340,7 +349,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(564, 311);
+            this.label8.Location = new System.Drawing.Point(564, 426);
             this.label8.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label8.Name = "label8";
             this.label8.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -362,6 +371,16 @@
             this.cmbCategoria.TabIndex = 10;
             this.cmbCategoria.ValueMember = "Id_Categoria";
             // 
+            // categoriasBindingSource
+            // 
+            this.categoriasBindingSource.DataMember = "Categorias";
+            this.categoriasBindingSource.DataSource = this.bdCamaraComercioDataSet;
+            // 
+            // bdCamaraComercioDataSet
+            // 
+            this.bdCamaraComercioDataSet.DataSetName = "bdCamaraComercioDataSet";
+            this.bdCamaraComercioDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // txtEtiqueta
             // 
             this.txtEtiqueta.Font = new System.Drawing.Font("Century Gothic", 14.25F);
@@ -381,33 +400,29 @@
             this.label1.TabIndex = 58;
             this.label1.Text = "Etiquetas:\r\n(Ejemplo:blusa,ropa)";
             // 
-            // mcFechaInicio
+            // mcFechaInicios
             // 
-            this.mcFechaInicio.CalendarFont = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mcFechaInicio.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mcFechaInicio.Location = new System.Drawing.Point(782, 266);
-            this.mcFechaInicio.Name = "mcFechaInicio";
-            this.mcFechaInicio.Size = new System.Drawing.Size(272, 31);
-            this.mcFechaInicio.TabIndex = 12;
+            this.mcFechaInicios.CalendarFont = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mcFechaInicios.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mcFechaInicios.Location = new System.Drawing.Point(782, 381);
+            this.mcFechaInicios.Name = "mcFechaInicios";
+            this.mcFechaInicios.Size = new System.Drawing.Size(272, 31);
+            this.mcFechaInicios.TabIndex = 12;
             // 
-            // mcFechaFin
+            // mcFechaFins
             // 
-            this.mcFechaFin.CalendarFont = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mcFechaFin.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mcFechaFin.Location = new System.Drawing.Point(782, 314);
-            this.mcFechaFin.Name = "mcFechaFin";
-            this.mcFechaFin.Size = new System.Drawing.Size(272, 31);
-            this.mcFechaFin.TabIndex = 13;
+            this.mcFechaFins.CalendarFont = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mcFechaFins.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mcFechaFins.Location = new System.Drawing.Point(782, 429);
+            this.mcFechaFins.Name = "mcFechaFins";
+            this.mcFechaFins.Size = new System.Drawing.Size(272, 31);
+            this.mcFechaFins.TabIndex = 13;
+            this.mcFechaFins.ValueChanged += new System.EventHandler(this.mcFechaFins_ValueChanged);
             // 
             // categoriasProductosBindingSource
             // 
             this.categoriasProductosBindingSource.DataMember = "CategoriasProductos";
             this.categoriasProductosBindingSource.DataSource = this.categoriasBindingSource;
-            // 
-            // bdCamaraComercioDataSet
-            // 
-            this.bdCamaraComercioDataSet.DataSetName = "bdCamaraComercioDataSet";
-            this.bdCamaraComercioDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // productosBindingSource
             // 
@@ -425,23 +440,103 @@
             this.tableAdapterManager.ProductosTableAdapter = this.productosTableAdapter;
             this.tableAdapterManager.UpdateOrder = ccquevedo_.bdCamaraComercioDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // categoriasBindingSource
-            // 
-            this.categoriasBindingSource.DataMember = "Categorias";
-            this.categoriasBindingSource.DataSource = this.bdCamaraComercioDataSet;
-            // 
             // categoriasTableAdapter
             // 
             this.categoriasTableAdapter.ClearBeforeFill = true;
+            // 
+            // dgvSubCatergoria
+            // 
+            this.dgvSubCatergoria.AllowUserToAddRows = false;
+            this.dgvSubCatergoria.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
+            this.dgvSubCatergoria.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvSubCatergoria.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvSubCatergoria.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSubCatergoria.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.SubCategoria});
+            this.dgvSubCatergoria.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dgvSubCatergoria.ImeMode = System.Windows.Forms.ImeMode.On;
+            this.dgvSubCatergoria.Location = new System.Drawing.Point(782, 264);
+            this.dgvSubCatergoria.MultiSelect = false;
+            this.dgvSubCatergoria.Name = "dgvSubCatergoria";
+            this.dgvSubCatergoria.ReadOnly = true;
+            this.dgvSubCatergoria.Size = new System.Drawing.Size(272, 100);
+            this.dgvSubCatergoria.TabIndex = 59;
+            // 
+            // SubCategoria
+            // 
+            this.SubCategoria.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.SubCategoria.HeaderText = "SubCategoria";
+            this.SubCategoria.Name = "SubCategoria";
+            this.SubCategoria.ReadOnly = true;
+            // 
+            // cmbSubCategorias
+            // 
+            this.cmbSubCategorias.DropDownHeight = 100;
+            this.cmbSubCategorias.Font = new System.Drawing.Font("Century Gothic", 14.25F);
+            this.cmbSubCategorias.FormattingEnabled = true;
+            this.cmbSubCategorias.IntegralHeight = false;
+            this.cmbSubCategorias.Items.AddRange(new object[] {
+            "hola ",
+            "que ",
+            "haces"});
+            this.cmbSubCategorias.Location = new System.Drawing.Point(782, 213);
+            this.cmbSubCategorias.Name = "cmbSubCategorias";
+            this.cmbSubCategorias.Size = new System.Drawing.Size(272, 30);
+            this.cmbSubCategorias.TabIndex = 70;
+            this.cmbSubCategorias.Text = "Seleccionar";
+            this.cmbSubCategorias.SelectedIndexChanged += new System.EventHandler(this.cmbSubCategorias_SelectedIndexChanged);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(564, 217);
+            this.label9.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(155, 22);
+            this.label9.TabIndex = 71;
+            this.label9.Text = "Sub Categorias:";
+            // 
+            // mcFechaFin
+            // 
+            this.mcFechaFin.Cursor = System.Windows.Forms.Cursors.Default;
+            this.mcFechaFin.Font = new System.Drawing.Font("Century Gothic", 14.25F);
+            this.mcFechaFin.Location = new System.Drawing.Point(782, 429);
+            this.mcFechaFin.Name = "mcFechaFin";
+            this.mcFechaFin.Size = new System.Drawing.Size(255, 31);
+            this.mcFechaFin.TabIndex = 76;
+            this.mcFechaFin.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mcFechaFin_KeyPress);
+            // 
+            // mcFechaInicio
+            // 
+            this.mcFechaInicio.Cursor = System.Windows.Forms.Cursors.Default;
+            this.mcFechaInicio.Font = new System.Drawing.Font("Century Gothic", 14.25F);
+            this.mcFechaInicio.Location = new System.Drawing.Point(782, 381);
+            this.mcFechaInicio.Name = "mcFechaInicio";
+            this.mcFechaInicio.Size = new System.Drawing.Size(255, 31);
+            this.mcFechaInicio.TabIndex = 75;
+            this.mcFechaInicio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mcFechaInicio_KeyPress);
             // 
             // Editar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.ClientSize = new System.Drawing.Size(1107, 563);
+            this.ClientSize = new System.Drawing.Size(1107, 618);
             this.Controls.Add(this.mcFechaFin);
             this.Controls.Add(this.mcFechaInicio);
+            this.Controls.Add(this.cmbSubCategorias);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.dgvSubCatergoria);
+            this.Controls.Add(this.mcFechaFins);
+            this.Controls.Add(this.mcFechaInicios);
             this.Controls.Add(this.txtEtiqueta);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cmbCategoria);
@@ -478,10 +573,11 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.categoriasProductosBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdCamaraComercioDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productosBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriasBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdCamaraComercioDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.categoriasProductosBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productosBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSubCatergoria)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -525,8 +621,14 @@
         private bdCamaraComercioDataSetTableAdapters.CategoriasTableAdapter categoriasTableAdapter;
         private System.Windows.Forms.TextBox txtEtiqueta;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DateTimePicker mcFechaInicio;
-        private System.Windows.Forms.DateTimePicker mcFechaFin;
+        private System.Windows.Forms.DateTimePicker mcFechaInicios;
+        private System.Windows.Forms.DateTimePicker mcFechaFins;
         private System.Windows.Forms.BindingSource categoriasProductosBindingSource;
+        private System.Windows.Forms.DataGridView dgvSubCatergoria;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SubCategoria;
+        private System.Windows.Forms.ComboBox cmbSubCategorias;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox mcFechaFin;
+        private System.Windows.Forms.TextBox mcFechaInicio;
     }
 }
