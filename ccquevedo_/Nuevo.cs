@@ -50,7 +50,7 @@ namespace ccquevedo_
             {
                 string txtCategoria="";
                 for (int i = 0; i < listSubCate.Count; i++)
-                    txtCategoria += cmbCategoria.Text + " > " + listSubCate[i].des + ", ";
+                    txtCategoria += cmbCategoria.Text + ">" + listSubCate[i].des + ",";
                 if(listSubCate.Count == 0)
                 {
                     txtCategoria = cmbCategoria.Text;

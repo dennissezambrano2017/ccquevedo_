@@ -15,8 +15,10 @@ namespace ccquevedo_
         private static Modificar instancia = null;
 
         private List<Product> listSubCate = new List<Product>();
+        private int sle=0;
 
         public List<Product> ListSubCate { get => listSubCate; set => listSubCate = value; }
+        public int Sle { get => sle; set => sle = value; }
 
         public static Modificar FormCrear()
         {
@@ -270,37 +272,9 @@ namespace ccquevedo_
 
         private void cmbSubCategorias_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            bool existe = false;
-            //foreach (DataGridView row in dgvSubCatergoria.Rows)//recorrido del datatable
-            //{
-            //    for (int i = 0; i < dgvSubCatergoria.Rows.Count; i++)//recorro las filas de datagrid
-            //    {
-            //        MessageBox.Show(Convert.ToString(row.Rows[i].ToString()), cmbSubCategorias.Text);
-            //        
-            //    }
-            //}
-            //if (existe == true)
-            //{
-            //    MessageBox.Show("La subcategoria selecionado ya se encuentra ingresado", "Advertencia");
-            //}
-            //else
-            //{
-            //    dgvSubCatergoria.Rows.Add(cmbSubCategorias.GetItemText(cmbSubCategorias.SelectedItem));
-            //}
 
-            foreach (DataGridViewRow row in dgvSubCatergoria.Rows)
-            {
-                MessageBox.Show(dgvSubCatergoria.Rows[row.Index].Cells["SubCategoria"].Value.ToString().Length.ToString(), cmbSubCategorias.Text.Length.ToString());
-                if ("Maquillaje".Equals(cmbSubCategorias.Text))
-                {
-                    existe = true;
-                    MessageBox.Show(existe.ToString()+"ll");
-                }
-
-            }
-
-            //bool existe = dgvSubCatergoria.Rows.Cast<DataGridViewRow>().Any(x => Convert.ToString(x.Cells["SubCategorias/"].Value) == cmbSubCategorias.Text);
-            MessageBox.Show(existe.ToString());
+            dgvSubCatergoria.Rows.Add(cmbSubCategorias.GetItemText(cmbSubCategorias.SelectedItem));
         }
+
     }
 }
