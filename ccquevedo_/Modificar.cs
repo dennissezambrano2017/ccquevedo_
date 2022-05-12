@@ -76,15 +76,19 @@ namespace ccquevedo_
                 MessageBox.Show(txtCategoria);
                 CrearExcel ce = Owner as CrearExcel;
                 ce.DtProductos[0, ce.Posicion].Value = txtCodigo.Text;
-                ce.DtProductos[1, ce.Posicion].Value = txtNombre.Text;
-                ce.DtProductos[2, ce.Posicion].Value = txtDesCorta.Text;
-                ce.DtProductos[3, ce.Posicion].Value = txtDescriComple.Text;
-                ce.DtProductos[4, ce.Posicion].Value = txtPrecioNormal.Text;
-                ce.DtProductos[5, ce.Posicion].Value = txtPrecioOferta.Text;
-                ce.DtProductos[6, ce.Posicion].Value = txtStock.Text;
-                ce.DtProductos[7, ce.Posicion].Value = txtImage.Text;
-                ce.DtProductos[8, ce.Posicion].Value = txtCategoria;
-                ce.DtProductos[9, ce.Posicion].Value = txtTipoProducto.Text;
+                ce.DtProductos[1, ce.Posicion].Value = txtTipoProducto.Text;
+                ce.DtProductos[2, ce.Posicion].Value = txtNombre.Text;
+                ce.DtProductos[3, ce.Posicion].Value = txtDesCorta.Text;
+                ce.DtProductos[4, ce.Posicion].Value = txtDescriComple.Text;
+                ce.DtProductos[5, ce.Posicion].Value = mcFechaInicio.Text;
+                ce.DtProductos[6, ce.Posicion].Value = mcFechaFin.Text;
+                ce.DtProductos[7, ce.Posicion].Value = txtInventario.Text;
+                ce.DtProductos[8, ce.Posicion].Value = txtStock.Text;
+                ce.DtProductos[9, ce.Posicion].Value = txtPrecioOferta.Text;
+                ce.DtProductos[10, ce.Posicion].Value = txtPrecioNormal.Text;
+                ce.DtProductos[11, ce.Posicion].Value = txtCategoria;
+                ce.DtProductos[12, ce.Posicion].Value = txtEtiqueta.Text;
+                ce.DtProductos[13, ce.Posicion].Value = txtImage.Text;
                 this.Close();
             }
 
