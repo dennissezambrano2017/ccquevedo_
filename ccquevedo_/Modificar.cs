@@ -14,10 +14,10 @@ namespace ccquevedo_
     {
         private static Modificar instancia = null;
 
-        private List<Product> listSubCate = new List<Product>();
+        private List<string> listSubCate = new List<string>();
         private int sle=0;
 
-        public List<Product> ListSubCate { get => listSubCate; set => listSubCate = value; }
+        public List<string> ListSubCate { get => listSubCate; set => listSubCate = value; }
         public int Sle { get => sle; set => sle = value; }
 
         public static Modificar FormCrear()
@@ -66,6 +66,14 @@ namespace ccquevedo_
         {
             try
             {
+                string txtCategoria = "";
+                for (int i = 0; i < listSubCate.Count; i++)
+                    txtCategoria += cmbCategoria.Text + ">" + listSubCate[i].ToString() + ",";
+                if (listSubCate.Count == 0)
+                {
+                    txtCategoria = cmbCategoria.Text;
+                }
+                MessageBox.Show(txtCategoria);
                 CrearExcel ce = Owner as CrearExcel;
                 ce.DtProductos[0, ce.Posicion].Value = txtCodigo.Text;
                 ce.DtProductos[1, ce.Posicion].Value = txtNombre.Text;
@@ -75,7 +83,7 @@ namespace ccquevedo_
                 ce.DtProductos[5, ce.Posicion].Value = txtPrecioOferta.Text;
                 ce.DtProductos[6, ce.Posicion].Value = txtStock.Text;
                 ce.DtProductos[7, ce.Posicion].Value = txtImage.Text;
-                ce.DtProductos[8, ce.Posicion].Value = cmbCategoria.Text;
+                ce.DtProductos[8, ce.Posicion].Value = txtCategoria;
                 ce.DtProductos[9, ce.Posicion].Value = txtTipoProducto.Text;
                 this.Close();
             }
@@ -234,7 +242,7 @@ namespace ccquevedo_
                 lista.Add(new Product(Convert.ToInt32(tabla.Rows[i][0].ToString()), tabla.Rows[i][1].ToString()));
             }
             cmbSubCategorias.DataSource = lista;
-            ListSubCate = new List<Product>();
+            ListSubCate = new List<string>();
         }
         private void llenarData(string cadena)
         {
@@ -258,6 +266,7 @@ namespace ccquevedo_
             }
             for (int j = 0; j < resuCa.Count; j++)
             {
+                ListSubCate.Add(resuCa[j].ToString());
                 dgvSubCatergoria.Rows.Add(resuCa[j].ToString());
             }
             
@@ -272,7 +281,7 @@ namespace ccquevedo_
 
         private void cmbSubCategorias_SelectionChangeCommitted(object sender, EventArgs e)
         {
-
+            ListSubCate.Add(cmbSubCategorias.GetItemText(cmbSubCategorias.SelectedItem));
             dgvSubCatergoria.Rows.Add(cmbSubCategorias.GetItemText(cmbSubCategorias.SelectedItem));
         }
 
