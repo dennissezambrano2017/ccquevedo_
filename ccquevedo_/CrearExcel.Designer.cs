@@ -49,11 +49,14 @@
             this.tableAdapterManager = new ccquevedo_.bdCamaraComercioDataSetTableAdapters.TableAdapterManager();
             this.cat_SubBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cat_SubTableAdapter = new ccquevedo_.bdCamaraComercioDataSetTableAdapters.Cat_SubTableAdapter();
+            this.subCategoriaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.subCategoriaTableAdapter = new ccquevedo_.bdCamaraComercioDataSetTableAdapters.SubCategoriaTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdCamaraComercioDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriasBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cat_SubBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.subCategoriaBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // btnNuevo
@@ -246,6 +249,15 @@
             // 
             this.cat_SubTableAdapter.ClearBeforeFill = true;
             // 
+            // subCategoriaBindingSource
+            // 
+            this.subCategoriaBindingSource.DataMember = "SubCategoria";
+            this.subCategoriaBindingSource.DataSource = this.bdCamaraComercioDataSet;
+            // 
+            // subCategoriaTableAdapter
+            // 
+            this.subCategoriaTableAdapter.ClearBeforeFill = true;
+            // 
             // CrearExcel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -266,6 +278,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.productosBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriasBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cat_SubBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.subCategoriaBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -286,5 +299,7 @@
         private bdCamaraComercioDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.BindingSource cat_SubBindingSource;
         private bdCamaraComercioDataSetTableAdapters.Cat_SubTableAdapter cat_SubTableAdapter;
+        private System.Windows.Forms.BindingSource subCategoriaBindingSource;
+        private bdCamaraComercioDataSetTableAdapters.SubCategoriaTableAdapter subCategoriaTableAdapter;
     }
 }
