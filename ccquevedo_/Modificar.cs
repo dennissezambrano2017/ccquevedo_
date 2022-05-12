@@ -290,12 +290,13 @@ namespace ccquevedo_
 
             foreach (DataGridViewRow row in dgvSubCatergoria.Rows)
             {
-                MessageBox.Show(dgvSubCatergoria.Rows[row.Index].Cells["SubCategoria"].Value.ToString(), cmbSubCategorias.Text);
-                if ((dgvSubCatergoria.Rows[row.Index].Cells["SubCategoria"].Value.ToString()).Equals(cmbSubCategorias.Text))
+                MessageBox.Show(dgvSubCatergoria.Rows[row.Index].Cells["SubCategoria"].Value.ToString().Length.ToString(), cmbSubCategorias.Text.Length.ToString());
+                if ("Maquillaje".Equals(cmbSubCategorias.Text))
                 {
                     existe = true;
                     MessageBox.Show(existe.ToString()+"ll");
                 }
+
             }
 
             //bool existe = dgvSubCatergoria.Rows.Cast<DataGridViewRow>().Any(x => Convert.ToString(x.Cells["SubCategorias/"].Value) == cmbSubCategorias.Text);

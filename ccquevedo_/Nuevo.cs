@@ -275,14 +275,6 @@ namespace ccquevedo_
                 e.Handled = true;
             }
         }
-
-        private void cmbCategoria_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-            ItemSelct = cmbCategoria.SelectedValue.ToString();
-            if (cmbCategoria.SelectedValue.ToString()!=null)
-                llenarCombo(cmbCategoria.SelectedValue.ToString());
-        }
         private void llenarCombo(string idcate)
         {
             DataTable tabla = this.subCategoriaTableAdapter.BuscarSub(idcate);
@@ -298,23 +290,25 @@ namespace ccquevedo_
             dgvSubCatergoria.Rows.Clear();
             listSubCate = new List<Product>();
         }
-        private void cmbSubCategorias_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                listSubCate.Add(new Product(Convert.ToInt32(cmbSubCategorias.SelectedValue.ToString()), cmbSubCategorias.GetItemText(cmbSubCategorias.SelectedItem)));
-                dgvSubCatergoria.Rows.Add(cmbSubCategorias.GetItemText(cmbSubCategorias.SelectedItem));
-            }
-            catch (Exception exc)
-            {
-                MessageBox.Show(exc.ToString());
-            }
-
-        }
 
         private void cmbCategoria_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = true;
+        }
+
+        private void cmbCategoria_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+
+            ItemSelct = cmbCategoria.SelectedValue.ToString();
+            if (cmbCategoria.SelectedValue.ToString() != null)
+                llenarCombo(cmbCategoria.SelectedValue.ToString());
+            dgvSubCatergoria.Rows.Clear();
+        }
+
+        private void cmbSubCategorias_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            listSubCate.Add(new Product(Convert.ToInt32(cmbSubCategorias.SelectedValue.ToString()), cmbSubCategorias.GetItemText(cmbSubCategorias.SelectedItem)));
+            dgvSubCatergoria.Rows.Add(cmbSubCategorias.GetItemText(cmbSubCategorias.SelectedItem));
         }
     }
 }
