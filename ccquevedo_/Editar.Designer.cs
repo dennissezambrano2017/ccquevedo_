@@ -75,12 +75,15 @@
             this.label9 = new System.Windows.Forms.Label();
             this.mcFechaFin = new System.Windows.Forms.TextBox();
             this.mcFechaInicio = new System.Windows.Forms.TextBox();
+            this.subCategoriaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.subCategoriaTableAdapter = new ccquevedo_.bdCamaraComercioDataSetTableAdapters.SubCategoriaTableAdapter();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriasBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdCamaraComercioDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSubCatergoria)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.subCategoriaBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // lblNombre
@@ -368,6 +371,7 @@
             this.cmbCategoria.Size = new System.Drawing.Size(272, 30);
             this.cmbCategoria.TabIndex = 10;
             this.cmbCategoria.ValueMember = "Id_Categoria";
+            this.cmbCategoria.SelectedIndexChanged += new System.EventHandler(this.cmbCategoria_SelectedIndexChanged);
             // 
             // categoriasBindingSource
             // 
@@ -429,8 +433,10 @@
             // tableAdapterManager
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.Categoria_SubCategoriaTableAdapter = null;
             this.tableAdapterManager.CategoriasTableAdapter = null;
             this.tableAdapterManager.ProductosTableAdapter = this.productosTableAdapter;
+            this.tableAdapterManager.SubCategoriaTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = ccquevedo_.bdCamaraComercioDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
             // categoriasTableAdapter
@@ -517,12 +523,21 @@
             this.mcFechaInicio.TabIndex = 75;
             this.mcFechaInicio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mcFechaInicio_KeyPress);
             // 
+            // subCategoriaBindingSource
+            // 
+            this.subCategoriaBindingSource.DataMember = "SubCategoria";
+            this.subCategoriaBindingSource.DataSource = this.bdCamaraComercioDataSet;
+            // 
+            // subCategoriaTableAdapter
+            // 
+            this.subCategoriaTableAdapter.ClearBeforeFill = true;
+            // 
             // Editar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.ClientSize = new System.Drawing.Size(1107, 618);
+            this.ClientSize = new System.Drawing.Size(1107, 621);
             this.Controls.Add(this.mcFechaFin);
             this.Controls.Add(this.mcFechaInicio);
             this.Controls.Add(this.cmbSubCategorias);
@@ -570,6 +585,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.bdCamaraComercioDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productosBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSubCatergoria)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.subCategoriaBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -621,5 +637,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox mcFechaFin;
         private System.Windows.Forms.TextBox mcFechaInicio;
+        private System.Windows.Forms.BindingSource subCategoriaBindingSource;
+        private bdCamaraComercioDataSetTableAdapters.SubCategoriaTableAdapter subCategoriaTableAdapter;
     }
 }
