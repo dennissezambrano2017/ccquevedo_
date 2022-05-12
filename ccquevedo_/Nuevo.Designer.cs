@@ -544,7 +544,6 @@ namespace ccquevedo_
             // tableAdapterManager
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.Categoria_SubCategoriaTableAdapter = null;
             this.tableAdapterManager.CategoriasTableAdapter = this.categoriasTableAdapter;
             this.tableAdapterManager.ProductosTableAdapter = this.productosTableAdapter;
             this.tableAdapterManager.SubCategoriaTableAdapter = null;

@@ -51,6 +51,10 @@ namespace ccquevedo_
                 string txtCategoria="";
                 for (int i = 0; i < listSubCate.Count; i++)
                     txtCategoria += cmbCategoria.Text + " > " + listSubCate[i].des + ", ";
+                if(listSubCate.Count == 0)
+                {
+                    txtCategoria = cmbCategoria.Text;
+                }
 
                 CrearExcel ce = Owner as CrearExcel;
                 if (txtCodigo.Text != "" && txtNombre.Text != "" && txtDescripcionCorta.Text != ""
@@ -191,15 +195,13 @@ namespace ccquevedo_
                         if (datos.Rows.Count > 0)
                         {
                             txtCodigo.Text = datos.Rows[0][0].ToString();
-                            //txtNombre.Text = datos.Rows[0][1].ToString();
                             txtDescripcionCorta.Text = datos.Rows[0][2].ToString();
-                            txtInventario.Text = datos.Rows[0][3].ToString();
-                            txtImagen.Text = datos.Rows[0][4].ToString();
-                            txtDescripcionCompleta.Text = datos.Rows[0][5].ToString();
-                            txtStock.Text = datos.Rows[0][6].ToString();
-                            txtPrecioNormal.Text = datos.Rows[0][7].ToString();
-                            txtPrecioOferta.Text = datos.Rows[0][8].ToString();
-                            //cmbCategoria.Text = dataTable.Rows[0][1].ToString();
+                            txtDescripcionCompleta.Text = datos.Rows[0][3].ToString();
+                            txtInventario.Text = datos.Rows[0][4].ToString();
+                            txtStock.Text = datos.Rows[0][5].ToString();
+                            txtPrecioNormal.Text = datos.Rows[0][6].ToString();
+                            txtPrecioOferta.Text = datos.Rows[0][7].ToString();
+                            txtImagen.Text = datos.Rows[0][8].ToString();
                             txtTipoProducto.Text = datos.Rows[0][9].ToString();
                             mcFechaInicio.Text = datos.Rows[0][10].ToString();
                             mcFechaFin.Text = datos.Rows[0][11].ToString();
@@ -277,7 +279,7 @@ namespace ccquevedo_
         private void cmbCategoria_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-            //cmbCategoria = new ComboBox();
+            ItemSelct = cmbCategoria.SelectedValue.ToString();
             if (cmbCategoria.SelectedValue.ToString()!=null)
                 llenarCombo(cmbCategoria.SelectedValue.ToString());
         }
