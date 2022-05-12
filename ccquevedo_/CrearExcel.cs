@@ -50,6 +50,8 @@ namespace ccquevedo_
 
         private void CrearExcel_Load(object sender, EventArgs e)
         {
+            // TODO: esta línea de código carga datos en la tabla 'bdCamaraComercioDataSet.SubCategoria' Puede moverla o quitarla según sea necesario.
+            this.subCategoriaTableAdapter.Fill(this.bdCamaraComercioDataSet.SubCategoria);
             // TODO: esta línea de código carga datos en la tabla 'bdCamaraComercioDataSet.Cat_Sub' Puede moverla o quitarla según sea necesario.
             this.cat_SubTableAdapter.Fill(this.bdCamaraComercioDataSet.Cat_Sub);
             // TODO: esta línea de código carga datos en la tabla 'bdCamaraComercioDataSet.Categorias' Puede moverla o quitarla según sea necesario.
@@ -260,7 +262,7 @@ namespace ccquevedo_
                         dtProductos.Rows[i].Cells[1].Value.ToString(),
                         dtProductos.Rows[i].Cells[12].Value.ToString(),
                         dtProductos.Rows[i].Cells[0].Value.ToString());
-                        this.productosTableAdapter.Eliminar(dtProductos.Rows[i].Cells[0].Value.ToString());
+                        this.cat_SubTableAdapter.Eliminar(dtProductos.Rows[i].Cells[0].Value.ToString());
                         
                     }
                     if (num < 1)
@@ -269,7 +271,8 @@ namespace ccquevedo_
                     }
                     for (int j = 0; j < resuCa.Count; j++)
                     {
-                        //this.cat_SubTableAdapter.Insertar(id.ToString(), resuCa[j].ToString(), dtProductos.Rows[i].Cells[0].Value.ToString());
+                        string idsubcat = this.subCategoriaTableAdapter.BuscarSubId(resuCa[j].ToString(),id.ToString());
+                        this.cat_SubTableAdapter.Insertar(id.ToString(), idsubcat, dtProductos.Rows[i].Cells[0].Value.ToString());
                         MessageBox.Show(resuCa[j].ToString(), "dos");
                     }
                 }
