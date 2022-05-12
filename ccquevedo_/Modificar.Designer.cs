@@ -73,11 +73,14 @@
             this.label11 = new System.Windows.Forms.Label();
             this.mcFechaFin = new System.Windows.Forms.TextBox();
             this.mcFechaInicio = new System.Windows.Forms.TextBox();
+            this.subCategoriaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.subCategoriaTableAdapter = new ccquevedo_.bdCamaraComercioDataSetTableAdapters.SubCategoriaTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bdCamaraComercioDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriasBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSubCatergoria)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.subCategoriaBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCerrar
@@ -377,14 +380,14 @@
             // tableAdapterManager
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.Cat_SubTableAdapter = null;
             this.tableAdapterManager.CategoriasTableAdapter = this.categoriasTableAdapter;
             this.tableAdapterManager.ProductosTableAdapter = null;
+            this.tableAdapterManager.SubCategoriaTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = ccquevedo_.bdCamaraComercioDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
             // cmbCategoria
             // 
-            this.cmbCategoria.DataSource = this.categoriasBindingSource;
-            this.cmbCategoria.DisplayMember = "descripcion";
             this.cmbCategoria.DropDownHeight = 100;
             this.cmbCategoria.DropDownWidth = 272;
             this.cmbCategoria.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -394,7 +397,7 @@
             this.cmbCategoria.Name = "cmbCategoria";
             this.cmbCategoria.Size = new System.Drawing.Size(272, 30);
             this.cmbCategoria.TabIndex = 10;
-            this.cmbCategoria.ValueMember = "Id_Categoria";
+            this.cmbCategoria.SelectionChangeCommitted += new System.EventHandler(this.cmbCategoria_SelectionChangeCommitted);
             // 
             // txtEtiqueta
             // 
@@ -483,7 +486,7 @@
             this.cmbSubCategorias.Size = new System.Drawing.Size(272, 30);
             this.cmbSubCategorias.TabIndex = 68;
             this.cmbSubCategorias.Text = "Seleccionar";
-            this.cmbSubCategorias.SelectedIndexChanged += new System.EventHandler(this.cmbSubCategorias_SelectedIndexChanged);
+            this.cmbSubCategorias.SelectionChangeCommitted += new System.EventHandler(this.cmbSubCategorias_SelectionChangeCommitted);
             // 
             // label11
             // 
@@ -515,6 +518,15 @@
             this.mcFechaInicio.Size = new System.Drawing.Size(255, 31);
             this.mcFechaInicio.TabIndex = 73;
             this.mcFechaInicio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mcFechaInicio_KeyPress);
+            // 
+            // subCategoriaBindingSource
+            // 
+            this.subCategoriaBindingSource.DataMember = "SubCategoria";
+            this.subCategoriaBindingSource.DataSource = this.bdCamaraComercioDataSet;
+            // 
+            // subCategoriaTableAdapter
+            // 
+            this.subCategoriaTableAdapter.ClearBeforeFill = true;
             // 
             // Modificar
             // 
@@ -569,6 +581,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.bdCamaraComercioDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriasBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSubCatergoria)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.subCategoriaBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -618,5 +631,7 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox mcFechaFin;
         private System.Windows.Forms.TextBox mcFechaInicio;
+        private System.Windows.Forms.BindingSource subCategoriaBindingSource;
+        private bdCamaraComercioDataSetTableAdapters.SubCategoriaTableAdapter subCategoriaTableAdapter;
     }
 }

@@ -433,7 +433,6 @@
             // tableAdapterManager
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.Categoria_SubCategoriaTableAdapter = null;
             this.tableAdapterManager.CategoriasTableAdapter = null;
             this.tableAdapterManager.ProductosTableAdapter = this.productosTableAdapter;
             this.tableAdapterManager.SubCategoriaTableAdapter = null;

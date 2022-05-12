@@ -61,8 +61,8 @@ namespace ccquevedo_
                     && txtPrecioNormal.Text != "" && itemSelct != "" && txtInventario.Text != "")
                 {
                     ce.DtProductos.Rows.Add(txtCodigo.Text, txtTipoProducto.Text, txtNombre.Text,
-                        txtDescripcionCorta.Text, txtDescripcionCompleta.Text, mcFechaInicios.Text,
-                        mcFechaFins.Text, txtInventario.Text, txtStock.Text, txtPrecioOferta.Text,
+                        txtDescripcionCorta.Text, txtDescripcionCompleta.Text, mcFechaInicio.Text,
+                        mcFechaFin.Text, txtInventario.Text, txtStock.Text, txtPrecioOferta.Text,
                         txtPrecioNormal.Text, txtCategoria, txtEtiqueta.Text, txtImagen.Text);
                     this.Close();
                 }

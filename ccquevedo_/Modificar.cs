@@ -13,6 +13,11 @@ namespace ccquevedo_
     public partial class Modificar : Form
     {
         private static Modificar instancia = null;
+
+        private List<Product> listSubCate = new List<Product>();
+
+        public List<Product> ListSubCate { get => listSubCate; set => listSubCate = value; }
+
         public static Modificar FormCrear()
         {
             if (instancia == null)
@@ -136,10 +141,38 @@ namespace ccquevedo_
 
         private void Modificar_Load(object sender, EventArgs e)
         {
+            // TODO: esta línea de código carga datos en la tabla 'bdCamaraComercioDataSet.SubCategoria' Puede moverla o quitarla según sea necesario.
+            this.subCategoriaTableAdapter.Fill(this.bdCamaraComercioDataSet.SubCategoria);
             try
             {
                 // TODO: esta línea de código carga datos en la tabla 'bdCamaraComercioDataSet.Categorias' Puede moverla o quitarla según sea necesario.
                 this.categoriasTableAdapter.Fill(this.bdCamaraComercioDataSet.Categorias);
+
+                //Cadena de categoria y sub categoria
+                string cadena = cmbCategoria.Text;
+                //posición para obtener la posición de la categoria
+                int num = cadena.IndexOf(">");
+                if (num < 1)
+                {
+                    num = cadena.Length;
+                }
+                //obtener el id de la categoria
+                var id = this.categoriasTableAdapter.ConsultarId(cadena.Substring(0, num));
+
+                DataTable tabla = this.categoriasTableAdapter.GetData();
+                cmbCategoria.DisplayMember = "des";
+                cmbCategoria.ValueMember = "idcat";
+
+                List<Product> lista = new List<Product>();
+                for (int i = 0; i < tabla.Rows.Count; i++)
+                {
+                    lista.Add(new Product(Convert.ToInt32(tabla.Rows[i][0].ToString()), tabla.Rows[i][1].ToString()));
+                }
+                cmbCategoria.DataSource = lista;
+                cmbCategoria.SelectedValue = Convert.ToInt32(id);
+                llenarCombo(id);
+                llenarData(cadena);
+                
             }
             catch (Exception exc)
             {
@@ -186,17 +219,87 @@ namespace ccquevedo_
             }
         }
 
-        private void cmbSubCategorias_SelectedIndexChanged(object sender, EventArgs e)
+
+        private void llenarCombo(string idcate)
         {
-            try
+            DataTable tabla = this.subCategoriaTableAdapter.BuscarSub(idcate);
+            cmbSubCategorias.DisplayMember = "des";
+            cmbSubCategorias.ValueMember = "idcat";
+
+            List<Product> lista = new List<Product>();
+            for (int i = 0; i < tabla.Rows.Count; i++)
             {
-                dgvSubCatergoria.Rows.Add(cmbSubCategorias.SelectedItem.ToString());
+                lista.Add(new Product(Convert.ToInt32(tabla.Rows[i][0].ToString()), tabla.Rows[i][1].ToString()));
             }
-            catch (Exception exc)
+            cmbSubCategorias.DataSource = lista;
+            ListSubCate = new List<Product>();
+        }
+        private void llenarData(string cadena)
+        {
+            //obtener las subcategorias
+            string[] parte = cadena.Split(',');
+
+            List<string> resu = new List<string>();
+            List<string> resuCa = new List<string>();
+            for (int j = 0; j < parte.Length - 1; j++)
             {
-                MessageBox.Show(exc.ToString());
+                resu.Add(parte[j]);
+            }
+            for (int j = 0; j < resu.Count; j++)
+            {
+                string n = resu[j].Split('>')[1];
+                if (n != "1")
+                {
+                    string partedos = resu[j].Split('>')[1];
+                    resuCa.Add(partedos.ToString());
+                }
+            }
+            for (int j = 0; j < resuCa.Count; j++)
+            {
+                dgvSubCatergoria.Rows.Add(resuCa[j].ToString());
             }
             
+        }
+
+
+        private void cmbCategoria_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            llenarCombo(cmbCategoria.SelectedValue.ToString());
+            dgvSubCatergoria.Rows.Clear();
+        }
+
+        private void cmbSubCategorias_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            bool existe = false;
+            //foreach (DataGridView row in dgvSubCatergoria.Rows)//recorrido del datatable
+            //{
+            //    for (int i = 0; i < dgvSubCatergoria.Rows.Count; i++)//recorro las filas de datagrid
+            //    {
+            //        MessageBox.Show(Convert.ToString(row.Rows[i].ToString()), cmbSubCategorias.Text);
+            //        
+            //    }
+            //}
+            //if (existe == true)
+            //{
+            //    MessageBox.Show("La subcategoria selecionado ya se encuentra ingresado", "Advertencia");
+            //}
+            //else
+            //{
+            //    dgvSubCatergoria.Rows.Add(cmbSubCategorias.GetItemText(cmbSubCategorias.SelectedItem));
+            //}
+
+            foreach (DataGridViewRow row in dgvSubCatergoria.Rows)
+            {
+                MessageBox.Show(dgvSubCatergoria.Rows[row.Index].Cells["SubCategoria"].Value.ToString(), cmbSubCategorias.Text);
+                if ((dgvSubCatergoria.Rows[row.Index].Cells["SubCategoria"].Value.ToString()).Equals(cmbSubCategorias.Text))
+                {
+                    existe = true;
+                    MessageBox.Show(existe.ToString()+"ll");
+                }
+            }
+
+            //bool existe = dgvSubCatergoria.Rows.Cast<DataGridViewRow>().Any(x => Convert.ToString(x.Cells["SubCategorias/"].Value) == cmbSubCategorias.Text);
+            MessageBox.Show(existe.ToString());
         }
     }
 }
