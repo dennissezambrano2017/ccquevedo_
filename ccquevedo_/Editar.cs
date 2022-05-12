@@ -24,7 +24,8 @@ namespace ccquevedo_
             try
             {
                 DataTable tablaUno = this.productosTableAdapter.BuscarDatos(id.ToString());
-                //DataTable dataTable = this.categoriasTableAdapter.BuscarCategoria(Convert.ToInt32(tablaUno.Rows[0][9].ToString()));
+                var idcate = this.cat_SubTableAdapter.IdCat(id.ToString());
+                var desc = this.categoriasTableAdapter.descripcion(idcate.ToString());
                 txtCodigo.Text = id.ToString();
                 txtNombre.Text = tablaUno.Rows[0][1].ToString();
                 txtDescripcion.Text = tablaUno.Rows[0][2].ToString();
@@ -34,8 +35,8 @@ namespace ccquevedo_
                 txtDescripcionL.Text = tablaUno.Rows[0][5].ToString();
                 mcFechaFins.Text = tablaUno.Rows[0][12].ToString();
                 mcFechaInicios.Text = tablaUno.Rows[0][11].ToString();
-                //cmbCategoria.Text= dataTable.Rows[0][1].ToString();
-                //idCat = Convert.ToInt32(tablaUno.Rows[0][9].ToString());
+                cmbCategoria.Text= desc.ToString();
+                idCat = Convert.ToInt32(idcate);
                 txtPrecio.Text = tablaUno.Rows[0][7].ToString();
                 txtprecioRebajado.Text = tablaUno.Rows[0][8].ToString();
                 txtTipoProducto.Text = tablaUno.Rows[0][10].ToString();
@@ -68,6 +69,8 @@ namespace ccquevedo_
 
         private void Editar_Load(object sender, EventArgs e)
         {
+            // TODO: esta línea de código carga datos en la tabla 'bdCamaraComercioDataSet.Cat_Sub' Puede moverla o quitarla según sea necesario.
+            this.cat_SubTableAdapter.Fill(this.bdCamaraComercioDataSet.Cat_Sub);
             // TODO: esta línea de código carga datos en la tabla 'bdCamaraComercioDataSet.SubCategoria' Puede moverla o quitarla según sea necesario.
             this.subCategoriaTableAdapter.Fill(this.bdCamaraComercioDataSet.SubCategoria);
             try

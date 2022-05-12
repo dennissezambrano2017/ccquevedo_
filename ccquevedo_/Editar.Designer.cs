@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Editar));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblNombre = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtprecioRebajado = new System.Windows.Forms.TextBox();
@@ -77,6 +77,8 @@
             this.mcFechaInicio = new System.Windows.Forms.TextBox();
             this.subCategoriaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.subCategoriaTableAdapter = new ccquevedo_.bdCamaraComercioDataSetTableAdapters.SubCategoriaTableAdapter();
+            this.cat_SubBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cat_SubTableAdapter = new ccquevedo_.bdCamaraComercioDataSetTableAdapters.Cat_SubTableAdapter();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriasBindingSource)).BeginInit();
@@ -84,6 +86,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.productosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSubCatergoria)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.subCategoriaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cat_SubBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // lblNombre
@@ -433,6 +436,7 @@
             // tableAdapterManager
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.Cat_SubTableAdapter = null;
             this.tableAdapterManager.CategoriasTableAdapter = null;
             this.tableAdapterManager.ProductosTableAdapter = this.productosTableAdapter;
             this.tableAdapterManager.SubCategoriaTableAdapter = null;
@@ -447,14 +451,14 @@
             this.dgvSubCatergoria.AllowUserToAddRows = false;
             this.dgvSubCatergoria.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
             this.dgvSubCatergoria.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvSubCatergoria.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvSubCatergoria.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvSubCatergoria.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSubCatergoria.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.SubCategoria});
@@ -531,12 +535,21 @@
             // 
             this.subCategoriaTableAdapter.ClearBeforeFill = true;
             // 
+            // cat_SubBindingSource
+            // 
+            this.cat_SubBindingSource.DataMember = "Cat_Sub";
+            this.cat_SubBindingSource.DataSource = this.bdCamaraComercioDataSet;
+            // 
+            // cat_SubTableAdapter
+            // 
+            this.cat_SubTableAdapter.ClearBeforeFill = true;
+            // 
             // Editar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.ClientSize = new System.Drawing.Size(1107, 621);
+            this.ClientSize = new System.Drawing.Size(1107, 646);
             this.Controls.Add(this.mcFechaFin);
             this.Controls.Add(this.mcFechaInicio);
             this.Controls.Add(this.cmbSubCategorias);
@@ -585,6 +598,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.productosBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSubCatergoria)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.subCategoriaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cat_SubBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -638,5 +652,7 @@
         private System.Windows.Forms.TextBox mcFechaInicio;
         private System.Windows.Forms.BindingSource subCategoriaBindingSource;
         private bdCamaraComercioDataSetTableAdapters.SubCategoriaTableAdapter subCategoriaTableAdapter;
+        private System.Windows.Forms.BindingSource cat_SubBindingSource;
+        private bdCamaraComercioDataSetTableAdapters.Cat_SubTableAdapter cat_SubTableAdapter;
     }
 }

@@ -2716,7 +2716,7 @@ namespace ccquevedo_.bdCamaraComercioDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.OleDb.OleDbCommand[2];
+            this._commandCollection = new global::System.Data.OleDb.OleDbCommand[3];
             this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT Id_Categoria, descripcion FROM Categorias";
@@ -2727,6 +2727,12 @@ namespace ccquevedo_.bdCamaraComercioDataSetTableAdapters {
                 "ripcion = ?)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("descripcion", global::System.Data.OleDb.OleDbType.WChar, 1024, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "descripcion", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[2] = new global::System.Data.OleDb.OleDbCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "SELECT        descripcion\r\nFROM            Categorias\r\nWHERE        (Id_Categoria" +
+                " = ?)";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Id_Categoria", global::System.Data.OleDb.OleDbType.WChar, 255, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Id_Categoria", global::System.Data.DataRowVersion.Current, false, null));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2899,6 +2905,40 @@ namespace ccquevedo_.bdCamaraComercioDataSetTableAdapters {
             }
             else {
                 command.Parameters[0].Value = ((string)(descripcion));
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            object returnValue;
+            try {
+                returnValue = command.ExecuteScalar();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            if (((returnValue == null) 
+                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
+                return null;
+            }
+            else {
+                return ((string)(returnValue));
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual string descripcion(string Id_Categoria) {
+            global::System.Data.OleDb.OleDbCommand command = this.CommandCollection[2];
+            if ((Id_Categoria == null)) {
+                throw new global::System.ArgumentNullException("Id_Categoria");
+            }
+            else {
+                command.Parameters[0].Value = ((string)(Id_Categoria));
             }
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -4668,7 +4708,7 @@ VALUES        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.OleDb.OleDbCommand[3];
+            this._commandCollection = new global::System.Data.OleDb.OleDbCommand[4];
             this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT Id_Cat_Sub, Id_Categoria, Id_SubCategoria, Id FROM Cat_Sub";
@@ -4680,12 +4720,17 @@ VALUES        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             this._commandCollection[1].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Id", global::System.Data.OleDb.OleDbType.WChar, 255, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Id", global::System.Data.DataRowVersion.Original, false, null));
             this._commandCollection[2] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "INSERT INTO Cat_Sub\r\n                         (Id_Categoria, Id_SubCategoria, Id)" +
-                "\r\nVALUES        (?, ?, ?)";
+            this._commandCollection[2].CommandText = "SELECT        TOP 1 Id_Categoria\r\nFROM            Cat_Sub\r\nWHERE        (Id = ?)";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[2].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Id_Categoria", global::System.Data.OleDb.OleDbType.WChar, 255, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Id_Categoria", global::System.Data.DataRowVersion.Current, false, null));
-            this._commandCollection[2].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Id_SubCategoria", global::System.Data.OleDb.OleDbType.WChar, 255, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Id_SubCategoria", global::System.Data.DataRowVersion.Current, false, null));
             this._commandCollection[2].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Id", global::System.Data.OleDb.OleDbType.WChar, 255, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Id", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[3] = new global::System.Data.OleDb.OleDbCommand();
+            this._commandCollection[3].Connection = this.Connection;
+            this._commandCollection[3].CommandText = "INSERT INTO Cat_Sub\r\n                         (Id_Categoria, Id_SubCategoria, Id)" +
+                "\r\nVALUES        (?, ?, ?)";
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[3].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Id_Categoria", global::System.Data.OleDb.OleDbType.WChar, 255, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Id_Categoria", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Id_SubCategoria", global::System.Data.OleDb.OleDbType.WChar, 255, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Id_SubCategoria", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Id", global::System.Data.OleDb.OleDbType.WChar, 255, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Id", global::System.Data.DataRowVersion.Current, false, null));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4922,9 +4967,43 @@ VALUES        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual string IdCat(string Id) {
+            global::System.Data.OleDb.OleDbCommand command = this.CommandCollection[2];
+            if ((Id == null)) {
+                command.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[0].Value = ((string)(Id));
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            object returnValue;
+            try {
+                returnValue = command.ExecuteScalar();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            if (((returnValue == null) 
+                        || (returnValue.GetType() == typeof(global::System.DBNull)))) {
+                return null;
+            }
+            else {
+                return ((string)(returnValue));
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
         public virtual int Insertar(string Id_Categoria, string Id_SubCategoria, string Id) {
-            global::System.Data.OleDb.OleDbCommand command = this.CommandCollection[2];
+            global::System.Data.OleDb.OleDbCommand command = this.CommandCollection[3];
             if ((Id_Categoria == null)) {
                 command.Parameters[0].Value = global::System.DBNull.Value;
             }

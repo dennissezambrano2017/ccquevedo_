@@ -44,6 +44,8 @@ namespace ccquevedo_
 
         private void Productos_Load(object sender, EventArgs e)
         {
+            // TODO: esta línea de código carga datos en la tabla 'bdCamaraComercioDataSet.Cat_Sub' Puede moverla o quitarla según sea necesario.
+            this.cat_SubTableAdapter.Fill(this.bdCamaraComercioDataSet.Cat_Sub);
             try
             {
                 // TODO: esta línea de código carga datos en la tabla 'bdCamaraComercioDataSet.Categorias' Puede moverla o quitarla según sea necesario.
@@ -124,6 +126,7 @@ namespace ccquevedo_
                         int? id = getId(num);
                         //Form form = new Editar(id);
                         //form.Show();
+                        this.cat_SubTableAdapter.Eliminar(id.ToString());
                         this.productosTableAdapter.Eliminar(id.ToString());
                         this.productosTableAdapter.Fill(this.bdCamaraComercioDataSet.Productos);
                         dgvProductos.Rows[0].Selected = false;
