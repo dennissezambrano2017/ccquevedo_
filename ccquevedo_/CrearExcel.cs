@@ -103,15 +103,18 @@ namespace ccquevedo_
                     Posicion_();
                     AddOwnedForm(frmModificar);
                     frmModificar.txtCodigo.Text = dtProductos.CurrentRow.Cells[0].Value.ToString();
-                    frmModificar.txtTipoProducto.Text = dtProductos.CurrentRow.Cells[9].Value.ToString();
-                    frmModificar.txtNombre.Text = dtProductos.CurrentRow.Cells[1].Value.ToString();
-                    frmModificar.txtDesCorta.Text = dtProductos.CurrentRow.Cells[2].Value.ToString();
-                    frmModificar.txtDescriComple.Text = dtProductos.CurrentRow.Cells[3].Value.ToString();
+                    frmModificar.txtTipoProducto.Text = dtProductos.CurrentRow.Cells[1].Value.ToString();
+                    frmModificar.txtNombre.Text = dtProductos.CurrentRow.Cells[2].Value.ToString();
+                    frmModificar.txtDesCorta.Text = dtProductos.CurrentRow.Cells[3].Value.ToString();
+                    frmModificar.txtDescriComple.Text = dtProductos.CurrentRow.Cells[4].Value.ToString();
+                    frmModificar.mcFechaInicio.Text = dtProductos.CurrentRow.Cells[5].Value.ToString();
+                    frmModificar.mcFechaFin.Text = dtProductos.CurrentRow.Cells[6].Value.ToString();
+                    frmModificar.txtInventario.Text = dtProductos.CurrentRow.Cells[7].Value.ToString();
                     //frmModificar.mcfe
-                    frmModificar.txtPrecioNormal.Text = dtProductos.CurrentRow.Cells[4].Value.ToString();
-                    frmModificar.txtPrecioOferta.Text = dtProductos.CurrentRow.Cells[5].Value.ToString();
-                    frmModificar.txtStock.Text = dtProductos.CurrentRow.Cells[6].Value.ToString();
-                    frmModificar.txtImage.Text = dtProductos.CurrentRow.Cells[7].Value.ToString();
+                    frmModificar.txtPrecioNormal.Text = dtProductos.CurrentRow.Cells[10].Value.ToString();
+                    frmModificar.txtPrecioOferta.Text = dtProductos.CurrentRow.Cells[9].Value.ToString();
+                    frmModificar.txtStock.Text = dtProductos.CurrentRow.Cells[8].Value.ToString();
+                    frmModificar.txtImage.Text = dtProductos.CurrentRow.Cells[13].Value.ToString();
                     frmModificar.cmbCategoria.Text = dtProductos.CurrentRow.Cells[11].Value.ToString();
                     //MessageBox.Show(dtProductos.CurrentRow.Cells[11].Value.ToString());
                     
@@ -234,15 +237,15 @@ namespace ccquevedo_
                         dtProductos.Rows[i].Cells[0].Value.ToString(),
                         dtProductos.Rows[i].Cells[2].Value.ToString(),
                         dtProductos.Rows[i].Cells[3].Value.ToString(),
-                        dtProductos.Rows[i].Cells[7].Value.ToString(),
-                        dtProductos.Rows[i].Cells[13].Value.ToString(),
-                        dtProductos.Rows[i].Cells[8].Value.ToString(),
                         dtProductos.Rows[i].Cells[4].Value.ToString(),
-                        dtProductos.Rows[i].Cells[6].Value.ToString(),
-                        dtProductos.Rows[i].Cells[5].Value.ToString(),
-                        dtProductos.Rows[i].Cells[10].Value.ToString(), 
+                        dtProductos.Rows[i].Cells[7].Value.ToString(),
+                        dtProductos.Rows[i].Cells[8].Value.ToString(),
                         dtProductos.Rows[i].Cells[9].Value.ToString(),
-                        dtProductos.Rows[i].Cells[1].Value.ToString(),
+                        dtProductos.Rows[i].Cells[10].Value.ToString(),
+                        dtProductos.Rows[i].Cells[13].Value.ToString(),
+                        dtProductos.Rows[i].Cells[1].Value.ToString(), 
+                        dtProductos.Rows[i].Cells[5].Value.ToString(),
+                        dtProductos.Rows[i].Cells[6].Value.ToString(),
                         dtProductos.Rows[i].Cells[12].Value.ToString());
 
                     }
@@ -251,15 +254,15 @@ namespace ccquevedo_
                         this.productosTableAdapter.Editar(
                         dtProductos.Rows[i].Cells[2].Value.ToString(),
                         dtProductos.Rows[i].Cells[3].Value.ToString(),
-                        dtProductos.Rows[i].Cells[7].Value.ToString(),
-                        dtProductos.Rows[i].Cells[13].Value.ToString(),
-                        dtProductos.Rows[i].Cells[8].Value.ToString(),
                         dtProductos.Rows[i].Cells[4].Value.ToString(),
-                        dtProductos.Rows[i].Cells[6].Value.ToString(),
-                        dtProductos.Rows[i].Cells[5].Value.ToString(),
-                        dtProductos.Rows[i].Cells[10].Value.ToString(),
+                        dtProductos.Rows[i].Cells[7].Value.ToString(),
+                        dtProductos.Rows[i].Cells[8].Value.ToString(),
                         dtProductos.Rows[i].Cells[9].Value.ToString(),
+                        dtProductos.Rows[i].Cells[10].Value.ToString(),
+                        dtProductos.Rows[i].Cells[13].Value.ToString(),
                         dtProductos.Rows[i].Cells[1].Value.ToString(),
+                        dtProductos.Rows[i].Cells[5].Value.ToString(),
+                        dtProductos.Rows[i].Cells[6].Value.ToString(),
                         dtProductos.Rows[i].Cells[12].Value.ToString(),
                         dtProductos.Rows[i].Cells[0].Value.ToString());
                         this.cat_SubTableAdapter.Eliminar(dtProductos.Rows[i].Cells[0].Value.ToString());
