@@ -48,26 +48,36 @@ namespace ccquevedo_
         {
             try
             {
-                string txtCategoria="";
+                string txtCategoria = "";
                 for (int i = 0; i < listSubCate.Count; i++)
                     txtCategoria += cmbCategoria.Text + ">" + listSubCate[i].des + ",";
-                if(listSubCate.Count == 0)
+                if (listSubCate.Count == 0)
                 {
                     txtCategoria = cmbCategoria.Text;
                 }
 
                 CrearExcel ce = Owner as CrearExcel;
-                if (txtCodigo.Text != "" && txtNombre.Text != "" && txtDescripcionCorta.Text != ""
-                    && txtPrecioNormal.Text != "" && itemSelct != "" && txtInventario.Text != "")
+                if (int.Parse(txtPrecioOferta.Text) < int.Parse(txtPrecioNormal.Text))
                 {
-                    ce.DtProductos.Rows.Add(txtCodigo.Text, txtTipoProducto.Text, txtNombre.Text,
-                        txtDescripcionCorta.Text, txtDescripcionCompleta.Text, mcFechaInicio.Text,
-                        mcFechaFin.Text, txtInventario.Text, txtStock.Text, txtPrecioOferta.Text,
-                        txtPrecioNormal.Text, txtCategoria, txtEtiqueta.Text, txtImagen.Text);
-                    this.Close();
+                    if (int.Parse(txtStock.Text) < int.Parse(txtInventario.Text))
+                    {
+                        if (txtCodigo.Text != "" && txtNombre.Text != "" && txtDescripcionCorta.Text != ""
+                        && txtPrecioNormal.Text != "" && itemSelct != "" && txtInventario.Text != "")
+                        {
+                            ce.DtProductos.Rows.Add(txtCodigo.Text, txtTipoProducto.Text, txtNombre.Text,
+                                txtDescripcionCorta.Text, txtDescripcionCompleta.Text, mcFechaInicio.Text,
+                                mcFechaFin.Text, txtInventario.Text, txtStock.Text, txtPrecioOferta.Text,
+                                txtPrecioNormal.Text, txtCategoria, txtEtiqueta.Text, txtImagen.Text);
+                            this.Close();
+                        }
+                        else
+                            MessageBox.Show("Falta datos a ingresar", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    else
+                        MessageBox.Show("El valor del minimo stock no debe ser mayor que el inventario", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
-                    MessageBox.Show("Falta datos a ingresar", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("El precio de oferta no debe ser mayor que el precio normal", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             catch (Exception ex)
             {

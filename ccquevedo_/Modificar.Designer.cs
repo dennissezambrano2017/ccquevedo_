@@ -135,9 +135,9 @@
             this.label7.Location = new System.Drawing.Point(564, 168);
             this.label7.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(109, 22);
+            this.label7.Size = new System.Drawing.Size(118, 22);
             this.label7.TabIndex = 34;
-            this.label7.Text = "Categoria:";
+            this.label7.Text = "Categoria:*";
             // 
             // label2
             // 
@@ -168,9 +168,9 @@
             this.label6.Location = new System.Drawing.Point(31, 384);
             this.label6.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(143, 22);
+            this.label6.Size = new System.Drawing.Size(134, 22);
             this.label6.TabIndex = 31;
-            this.label6.Text = "Minimo Stock:*";
+            this.label6.Text = "Minimo Stock:";
             // 
             // lblImage
             // 
@@ -190,9 +190,9 @@
             this.lblPrecionormal.Location = new System.Drawing.Point(564, 84);
             this.lblPrecionormal.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblPrecionormal.Name = "lblPrecionormal";
-            this.lblPrecionormal.Size = new System.Drawing.Size(139, 22);
+            this.lblPrecionormal.Size = new System.Drawing.Size(148, 22);
             this.lblPrecionormal.TabIndex = 29;
-            this.lblPrecionormal.Text = "Precio normal:";
+            this.lblPrecionormal.Text = "Precio normal:*";
             // 
             // lblDescripcionCorta
             // 
@@ -201,9 +201,9 @@
             this.lblDescripcionCorta.Location = new System.Drawing.Point(31, 162);
             this.lblDescripcionCorta.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblDescripcionCorta.Name = "lblDescripcionCorta";
-            this.lblDescripcionCorta.Size = new System.Drawing.Size(179, 22);
+            this.lblDescripcionCorta.Size = new System.Drawing.Size(188, 22);
             this.lblDescripcionCorta.TabIndex = 28;
-            this.lblDescripcionCorta.Text = "Descripcion Corta:";
+            this.lblDescripcionCorta.Text = "Descripcion Corta:*";
             // 
             // lblNombre
             // 
@@ -212,9 +212,9 @@
             this.lblNombre.Location = new System.Drawing.Point(31, 122);
             this.lblNombre.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(89, 22);
+            this.lblNombre.Size = new System.Drawing.Size(98, 22);
             this.lblNombre.TabIndex = 27;
-            this.lblNombre.Text = "Nombre:";
+            this.lblNombre.Text = "Nombre:*";
             // 
             // lblId
             // 
@@ -223,9 +223,9 @@
             this.lblId.Location = new System.Drawing.Point(31, 81);
             this.lblId.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblId.Name = "lblId";
-            this.lblId.Size = new System.Drawing.Size(83, 22);
+            this.lblId.Size = new System.Drawing.Size(92, 22);
             this.lblId.TabIndex = 26;
-            this.lblId.Text = "Codigo:";
+            this.lblId.Text = "Codigo:*";
             // 
             // txtCodigo
             // 
@@ -335,9 +335,9 @@
             this.label3.Location = new System.Drawing.Point(31, 344);
             this.label3.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(110, 22);
+            this.label3.Size = new System.Drawing.Size(119, 22);
             this.label3.TabIndex = 47;
-            this.label3.Text = "Inventario:";
+            this.label3.Text = "Inventario:*";
             // 
             // label4
             // 

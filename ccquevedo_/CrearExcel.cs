@@ -110,14 +110,11 @@ namespace ccquevedo_
                     frmModificar.mcFechaInicio.Text = dtProductos.CurrentRow.Cells[5].Value.ToString();
                     frmModificar.mcFechaFin.Text = dtProductos.CurrentRow.Cells[6].Value.ToString();
                     frmModificar.txtInventario.Text = dtProductos.CurrentRow.Cells[7].Value.ToString();
-                    //frmModificar.mcfe
                     frmModificar.txtPrecioNormal.Text = dtProductos.CurrentRow.Cells[10].Value.ToString();
                     frmModificar.txtPrecioOferta.Text = dtProductos.CurrentRow.Cells[9].Value.ToString();
                     frmModificar.txtStock.Text = dtProductos.CurrentRow.Cells[8].Value.ToString();
                     frmModificar.txtImage.Text = dtProductos.CurrentRow.Cells[13].Value.ToString();
                     frmModificar.cmbCategoria.Text = dtProductos.CurrentRow.Cells[11].Value.ToString();
-                    //MessageBox.Show(dtProductos.CurrentRow.Cells[11].Value.ToString());
-                    
                     frmModificar.ShowDialog();
                     dgvProducto.Rows[0].Selected = false;
                 }
@@ -211,7 +208,7 @@ namespace ccquevedo_
                     var id = this.categoriasTableAdapter.ConsultarId(cadena.Substring(0, num));
                     
                     //obtener las subcategorias
-                    MessageBox.Show(cadena+ " id: " + id);
+                    //MessageBox.Show(cadena+ " id: " + id);
                     string[] parte = cadena.Split(',');
 
                     List<string> resu = new List<string>();
@@ -276,7 +273,7 @@ namespace ccquevedo_
                     {
                         string idsubcat = this.subCategoriaTableAdapter.BuscarSubId(resuCa[j].ToString(),id.ToString());
                         this.cat_SubTableAdapter.Insertar(id.ToString(), idsubcat, dtProductos.Rows[i].Cells[0].Value.ToString());
-                        MessageBox.Show(resuCa[j].ToString(), "dos");
+                        //MessageBox.Show(resuCa[j].ToString(), "dos");
                     }
                 }
             }
