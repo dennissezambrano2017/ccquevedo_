@@ -23,24 +23,24 @@ namespace ccquevedo_
 
             try
             {
-                DataTable tablaUno = this.productosTableAdapter.BuscarDatos(id.ToString());
-                var idcate = this.cat_SubTableAdapter.IdCat(id.ToString());
-                var desc = this.categoriasTableAdapter.descripcion(idcate.ToString());
+                DataTable tablaUno = this.productosTableAdapter.BuscarIdProducto("5151");
+                //var idcate = tablaUno.Rows[0][13].ToString(); ;
+                //var desc = this.categoriasTableAdapter.descripcion(idcate.ToString());
                 txtCodigo.Text = id.ToString();
-                txtNombre.Text = tablaUno.Rows[0][1].ToString();
-                txtDescripcion.Text = tablaUno.Rows[0][2].ToString();
+                txtNombre.Text = tablaUno.Rows[0][0].ToString();
+                txtDescripcion.Text = tablaUno.Rows[0][1].ToString();
+                txtDescripcionL.Text = tablaUno.Rows[0][2].ToString();
                 txtInventario.Text = tablaUno.Rows[0][3].ToString();
-                txtImage.Text = tablaUno.Rows[0][4].ToString();
-                txtminStock.Text = tablaUno.Rows[0][6].ToString();
-                txtDescripcionL.Text = tablaUno.Rows[0][5].ToString();
-                mcFechaFins.Text = tablaUno.Rows[0][12].ToString();
-                mcFechaInicios.Text = tablaUno.Rows[0][11].ToString();
-                cmbCategoria.Text= desc.ToString();
-                idCat = Convert.ToInt32(idcate);
-                txtPrecio.Text = tablaUno.Rows[0][7].ToString();
-                txtprecioRebajado.Text = tablaUno.Rows[0][8].ToString();
-                txtTipoProducto.Text = tablaUno.Rows[0][10].ToString();
-                txtEtiqueta.Text= tablaUno.Rows[0][13].ToString();
+                txtminStock.Text = tablaUno.Rows[0][4].ToString();
+                txtPrecio.Text = tablaUno.Rows[0][5].ToString();
+                //txtprecioRebajado.Text = tablaUno.Rows[0][6].ToString();
+                //txtImage.Text = tablaUno.Rows[0][7].ToString();
+                //txtTipoProducto.Text = tablaUno.Rows[0][8].ToString();
+                //mcFechaInicios.Text = tablaUno.Rows[0][9].ToString();
+                //mcFechaFins.Text = tablaUno.Rows[0][10].ToString();
+                //txtEtiqueta.Text = tablaUno.Rows[0][11].ToString();
+                //idCat = int.Parse(tablaUno.Rows[0][12].ToString());
+                //cmbCategoria.Text= tablaUno.Rows[0][13].ToString();   
             }
             catch (Exception ex)
             {
