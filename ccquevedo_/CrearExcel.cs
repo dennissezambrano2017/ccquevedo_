@@ -81,6 +81,7 @@ namespace ccquevedo_
                 dgvProducto.Columns.Add("Precio rebajado", "Precio Oferta");
                 dgvProducto.Columns.Add("Precio normal", "Precio Normal");
                 dgvProducto.Columns.Add("Categorías", "Categoria");
+                dgvProducto.Columns.Add("Sub-Categorías", "Sub Categorías");
                 dgvProducto.Columns.Add("Etiquetas", "Etiquetas");
                 dgvProducto.Columns.Add("Imágenes", "Imagen");
                 if (dgvProducto.SelectedRows.Count > 0)
@@ -113,8 +114,10 @@ namespace ccquevedo_
                     frmModificar.txtPrecioNormal.Text = dtProductos.CurrentRow.Cells[10].Value.ToString();
                     frmModificar.txtPrecioOferta.Text = dtProductos.CurrentRow.Cells[9].Value.ToString();
                     frmModificar.txtStock.Text = dtProductos.CurrentRow.Cells[8].Value.ToString();
-                    frmModificar.txtImage.Text = dtProductos.CurrentRow.Cells[13].Value.ToString();
+                    frmModificar.txtImage.Text = dtProductos.CurrentRow.Cells[14].Value.ToString();
                     frmModificar.cmbCategoria.Text = dtProductos.CurrentRow.Cells[11].Value.ToString();
+                    frmModificar.cmbSubCategorias.Text = dtProductos.CurrentRow.Cells[12].Value.ToString();
+                    frmModificar.txtEtiqueta.Text = dtProductos.CurrentRow.Cells[13].Value.ToString();
                     frmModificar.ShowDialog();
                     dgvProducto.Rows[0].Selected = false;
                 }

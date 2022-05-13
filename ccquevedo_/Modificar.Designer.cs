@@ -627,11 +627,11 @@
         public System.Windows.Forms.DateTimePicker mcFechaInicios;
         private System.Windows.Forms.DataGridView dgvSubCatergoria;
         private System.Windows.Forms.DataGridViewTextBoxColumn SubCategoria;
-        private System.Windows.Forms.ComboBox cmbSubCategorias;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.BindingSource subCategoriaBindingSource;
         private bdCamaraComercioDataSetTableAdapters.SubCategoriaTableAdapter subCategoriaTableAdapter;
         public System.Windows.Forms.TextBox mcFechaFin;
         public System.Windows.Forms.TextBox mcFechaInicio;
+        public System.Windows.Forms.ComboBox cmbSubCategorias;
     }
 }
