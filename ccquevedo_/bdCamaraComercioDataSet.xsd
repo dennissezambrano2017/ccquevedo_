@@ -444,7 +444,7 @@ WHERE        (Id = ?)</CommandText>
                   </DbCommand>
                 </DeleteCommand>
               </DbSource>
-              <DbSource ConnectionRef="bdCamaraComercioConnectionString (Settings)" DbObjectName="Cat_Sub" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="IdCat" Modifier="Public" Name="IdCat" QueryType="Scalar" ScalarCallRetval="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="IdCat">
+              <DbSource ConnectionRef="bdCamaraComercioConnectionString (Settings)" DbObjectName="Cat_Sub" DbObjectType="Table" GenerateShortCommands="true" GeneratorSourceName="IdCat" Modifier="Public" Name="IdCat" QueryType="Scalar" ScalarCallRetval="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="IdCat">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        TOP 1 Id_Categoria
@@ -456,7 +456,7 @@ WHERE        (Id = ?)</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="bdCamaraComercioConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="Insertar" Modifier="Public" Name="Insertar" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="Insertar">
+              <DbSource ConnectionRef="bdCamaraComercioConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="Insertar" Modifier="Public" Name="Insertar" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="Insertar">
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>INSERT INTO Cat_Sub
@@ -673,10 +673,10 @@ VALUES        (?, ?, ?)</CommandText>
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="CategoriasSubCategoria" msdata:parent="Categorias" msdata:child="SubCategoria" msdata:parentkey="Id_Categoria" msdata:childkey="Id_Categoria" msprop:Generator_UserParentTable="Categorias" msprop:Generator_UserChildTable="SubCategoria" msprop:Generator_RelationVarName="relationCategoriasSubCategoria" msprop:Generator_ChildPropName="GetSubCategoriaRows" msprop:Generator_ParentPropName="CategoriasRow" msprop:Generator_UserRelationName="CategoriasSubCategoria" />
-      <msdata:Relationship name="CategoriasCat_Sub" msdata:parent="Categorias" msdata:child="Cat_Sub" msdata:parentkey="Id_Categoria" msdata:childkey="Id_Categoria" msprop:Generator_UserParentTable="Categorias" msprop:Generator_UserChildTable="Cat_Sub" msprop:Generator_RelationVarName="relationCategoriasCat_Sub" msprop:Generator_ChildPropName="GetCat_SubRows" msprop:Generator_ParentPropName="CategoriasRow" msprop:Generator_UserRelationName="CategoriasCat_Sub" />
-      <msdata:Relationship name="ProductosCat_Sub" msdata:parent="Productos" msdata:child="Cat_Sub" msdata:parentkey="Id" msdata:childkey="Id" msprop:Generator_UserParentTable="Productos" msprop:Generator_UserChildTable="Cat_Sub" msprop:Generator_RelationVarName="relationProductosCat_Sub" msprop:Generator_ChildPropName="GetCat_SubRows" msprop:Generator_ParentPropName="ProductosRow" msprop:Generator_UserRelationName="ProductosCat_Sub" />
-      <msdata:Relationship name="SubCategoriaCat_Sub" msdata:parent="SubCategoria" msdata:child="Cat_Sub" msdata:parentkey="Id_SubCategoria" msdata:childkey="Id_SubCategoria" msprop:Generator_UserParentTable="SubCategoria" msprop:Generator_UserChildTable="Cat_Sub" msprop:Generator_RelationVarName="relationSubCategoriaCat_Sub" msprop:Generator_ChildPropName="GetCat_SubRows" msprop:Generator_ParentPropName="SubCategoriaRow" msprop:Generator_UserRelationName="SubCategoriaCat_Sub" />
+      <msdata:Relationship name="CategoriasSubCategoria" msdata:parent="Categorias" msdata:child="SubCategoria" msdata:parentkey="Id_Categoria" msdata:childkey="Id_Categoria" msprop:Generator_UserParentTable="Categorias" msprop:Generator_UserChildTable="SubCategoria" msprop:Generator_RelationVarName="relationCategoriasSubCategoria" msprop:Generator_ChildPropName="GetSubCategoriaRows" msprop:Generator_UserRelationName="CategoriasSubCategoria" msprop:Generator_ParentPropName="CategoriasRow" />
+      <msdata:Relationship name="CategoriasCat_Sub" msdata:parent="Categorias" msdata:child="Cat_Sub" msdata:parentkey="Id_Categoria" msdata:childkey="Id_Categoria" msprop:Generator_UserParentTable="Categorias" msprop:Generator_UserChildTable="Cat_Sub" msprop:Generator_RelationVarName="relationCategoriasCat_Sub" msprop:Generator_ChildPropName="GetCat_SubRows" msprop:Generator_UserRelationName="CategoriasCat_Sub" msprop:Generator_ParentPropName="CategoriasRow" />
+      <msdata:Relationship name="ProductosCat_Sub" msdata:parent="Productos" msdata:child="Cat_Sub" msdata:parentkey="Id" msdata:childkey="Id" msprop:Generator_UserParentTable="Productos" msprop:Generator_UserChildTable="Cat_Sub" msprop:Generator_RelationVarName="relationProductosCat_Sub" msprop:Generator_ChildPropName="GetCat_SubRows" msprop:Generator_UserRelationName="ProductosCat_Sub" msprop:Generator_ParentPropName="ProductosRow" />
+      <msdata:Relationship name="SubCategoriaCat_Sub" msdata:parent="SubCategoria" msdata:child="Cat_Sub" msdata:parentkey="Id_SubCategoria" msdata:childkey="Id_SubCategoria" msprop:Generator_UserParentTable="SubCategoria" msprop:Generator_UserChildTable="Cat_Sub" msprop:Generator_RelationVarName="relationSubCategoriaCat_Sub" msprop:Generator_ChildPropName="GetCat_SubRows" msprop:Generator_UserRelationName="SubCategoriaCat_Sub" msprop:Generator_ParentPropName="SubCategoriaRow" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>
