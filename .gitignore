@@ -364,3 +364,7 @@ FodyWeavers.xsd
 ccquevedo_/ccquevedo_.csproj
 ccquevedo_/ccquevedo_.csproj
 ccquevedo_/CrearExcel.resx
+ccquevedo_/bdCamaraComercio.accdb
+ccquevedo_/bdCamaraComercioDataSet.Designer.cs
+ccquevedo_/bdCamaraComercioDataSet.xsd
+ccquevedo_/bdCamaraComercioDataSet.xss

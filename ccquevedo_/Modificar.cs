@@ -64,10 +64,12 @@ namespace ccquevedo_
         {
             try
             {
+                comprobarData();
                 if (int.Parse(txtPrecioOferta.Text) < int.Parse(txtPrecioNormal.Text))
                 {
                     if (int.Parse(txtStock.Text) < int.Parse(txtInventario.Text))
                     {
+                        
                         string txtCategoria = "";
                         for (int i = 0; i < listSubCate.Count; i++)
                             txtCategoria += cmbCategoria.Text + ">" + listSubCate[i].ToString() + ",";
@@ -104,6 +106,17 @@ namespace ccquevedo_
             {
                 MessageBox.Show(ex.ToString());
             }
+        }
+        private void comprobarData()
+        {
+            if (txtPrecioOferta.Text == "")
+                txtPrecioOferta.Text = "0";
+            else if (txtPrecioNormal.Text == "")
+                txtPrecioNormal.Text = "0";
+            else if (txtStock.Text == "")
+                txtStock.Text = "0";
+            else if (txtInventario.Text == "")
+                txtInventario.Text = "0";
         }
 
         private void txtCodigo_KeyPress(object sender, KeyPressEventArgs e)
