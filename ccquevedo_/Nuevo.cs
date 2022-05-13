@@ -52,13 +52,17 @@ namespace ccquevedo_
             {
                 string txtCategoria = "";
                 for (int i = 0; i < listSubCate.Count; i++)
-                    txtCategoria += cmbCategoria.Text + ">" + listSubCate[i].des + ",";
-                if (listSubCate.Count == 0)
-                {
-                    txtCategoria = cmbCategoria.Text;
-                }
+                    txtCategoria += listSubCate[i].des + ",";
 
                 CrearExcel ce = Owner as CrearExcel;
+                if (txtPrecioOferta.Text == "" || txtPrecioNormal.Text == ""
+                    || txtStock.Text == "" || txtInventario.Text == "")
+                {
+                    txtPrecioOferta.Text = "0"; txtPrecioNormal.Text = "0";
+                    txtStock.Text = "0"; txtInventario.Text = "0";
+                    MessageBox.Show(txtPrecioOferta.Text + txtPrecioNormal.Text +txtStock.Text + txtInventario.Text);
+                }
+                    
                 if (int.Parse(txtPrecioOferta.Text) < int.Parse(txtPrecioNormal.Text))
                 {
                     if (int.Parse(txtStock.Text) < int.Parse(txtInventario.Text))
@@ -69,7 +73,7 @@ namespace ccquevedo_
                             ce.DtProductos.Rows.Add(txtCodigo.Text, txtTipoProducto.Text, txtNombre.Text,
                                 txtDescripcionCorta.Text, txtDescripcionCompleta.Text, mcFechaInicio.Text,
                                 mcFechaFin.Text, txtInventario.Text, txtStock.Text, txtPrecioOferta.Text,
-                                txtPrecioNormal.Text, txtCategoria, txtEtiqueta.Text, txtImagen.Text);
+                                txtPrecioNormal.Text, cmbCategoria.Text, txtCategoria, txtEtiqueta.Text, txtImagen.Text);
                             this.Close();
                         }
                         else

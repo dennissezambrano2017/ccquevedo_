@@ -7,56 +7,60 @@
 <DiagramLayout xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ex:showrelationlabel="False" ViewPortX="421" ViewPortY="60" xmlns:ex="urn:schemas-microsoft-com:xml-msdatasource-layout-extended" xmlns="urn:schemas-microsoft-com:xml-msdatasource-layout">
   <Shapes>
     <Shape ID="DesignTable:Categorias" ZOrder="8" X="431" Y="138" Height="115" Width="206" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="64" />
-    <Shape ID="DesignTable:Productos" ZOrder="1" X="693" Y="94" Height="343" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="254" />
-    <Shape ID="DesignTable:SubCategoria" ZOrder="7" X="973" Y="70" Height="134" Width="223" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="83" />
-    <Shape ID="DesignTable:Cat_Sub" ZOrder="5" X="1266" Y="70" Height="153" Width="191" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="102" />
+    <Shape ID="DesignTable:Productos" ZOrder="2" X="1077" Y="108" Height="343" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="254" />
+    <Shape ID="DesignTable:SubCategoria" ZOrder="1" X="501" Y="417" Height="134" Width="223" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="83" />
+    <Shape ID="DesignTable:Cat_Sub" ZOrder="6" X="806" Y="228" Height="153" Width="191" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="102" />
   </Shapes>
   <Connectors>
-    <Connector ID="DesignRelation:CategoriasSubCategoria" ZOrder="6" LineWidth="11">
+    <Connector ID="DesignRelation:CategoriasSubCategoria" ZOrder="7" LineWidth="11">
+      <RoutePoints>
+        <Point>
+          <X>558</X>
+          <Y>253</Y>
+        </Point>
+        <Point>
+          <X>558</X>
+          <Y>417</Y>
+        </Point>
+      </RoutePoints>
+    </Connector>
+    <Connector ID="DesignRelation:CategoriasCat_Sub" ZOrder="5" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>637</X>
-          <Y>187</Y>
+          <Y>240</Y>
         </Point>
         <Point>
-          <X>973</X>
-          <Y>187</Y>
-        </Point>
-      </RoutePoints>
-    </Connector>
-    <Connector ID="DesignRelation:CategoriasCat_Sub" ZOrder="4" LineWidth="11">
-      <RoutePoints>
-        <Point>
-          <X>637</X>
-          <Y>179</Y>
-        </Point>
-        <Point>
-          <X>1266</X>
-          <Y>179</Y>
+          <X>806</X>
+          <Y>240</Y>
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:ProductosCat_Sub" ZOrder="3" LineWidth="11">
+    <Connector ID="DesignRelation:ProductosCat_Sub" ZOrder="4" LineWidth="11">
       <RoutePoints>
         <Point>
-          <X>993</X>
-          <Y>158</Y>
+          <X>1077</X>
+          <Y>316</Y>
         </Point>
         <Point>
-          <X>1266</X>
-          <Y>158</Y>
+          <X>997</X>
+          <Y>316</Y>
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:SubCategoriaCat_Sub" ZOrder="2" LineWidth="11">
+    <Connector ID="DesignRelation:SubCategoriaCat_Sub" ZOrder="3" LineWidth="11">
       <RoutePoints>
         <Point>
-          <X>1196</X>
-          <Y>137</Y>
+          <X>707</X>
+          <Y>417</Y>
         </Point>
         <Point>
-          <X>1266</X>
-          <Y>137</Y>
+          <X>707</X>
+          <Y>365</Y>
+        </Point>
+        <Point>
+          <X>806</X>
+          <Y>365</Y>
         </Point>
       </RoutePoints>
     </Connector>
