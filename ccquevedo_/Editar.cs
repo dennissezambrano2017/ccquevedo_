@@ -116,7 +116,6 @@ namespace ccquevedo_
                     MessageBox.Show(dgvSubCatergoria.Rows[j].Cells[0].Value.ToString());
                     string idsubcat = this.subCategoriaTableAdapter.BuscarSubId(dgvSubCatergoria.Rows[j].Cells[0].Value.ToString(), idCat.ToString());
                     this.cat_SubTableAdapter.Insertar(idCat.ToString(), idsubcat, id.ToString());
-                    
                 }
                 this.productosTableAdapter.Fill(this.bdCamaraComercioDataSet.Productos);
                 this.Close();
