@@ -12,10 +12,10 @@ namespace ccquevedo_
 {
     public partial class Editar : Form
     {
-        public int? id;
+        public string id;
         public int idCat;
 
-        public Editar(int? id=null)
+        public Editar(string id=null)
         {
             
             InitializeComponent();

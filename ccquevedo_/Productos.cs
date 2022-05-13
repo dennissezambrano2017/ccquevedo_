@@ -61,11 +61,11 @@ namespace ccquevedo_
             }
         }
 
-        private int? getId(int num)
+        private string getId(int num)
         {
             try
             {
-                return Convert.ToInt32(dgvProductos.Rows[num].Cells["Id"].Value.ToString());
+                return Convert.ToString(dgvProductos.Rows[num].Cells["Id"].Value.ToString());
             }
             catch
             {
@@ -81,7 +81,7 @@ namespace ccquevedo_
                 if (dgvProductos.SelectedRows.Count > 0)
                 {
                     num = dgvProductos.CurrentRow.Index;
-                    int? id = getId(num);
+                    string id = getId(num);
                     Form form = new Editar(id);
                     form.ShowDialog();
                     this.productosTableAdapter.Fill(this.bdCamaraComercioDataSet.Productos);
@@ -123,7 +123,7 @@ namespace ccquevedo_
                     if (result == DialogResult.Yes)
                     {
                         num = dgvProductos.CurrentRow.Index;
-                        int? id = getId(num);
+                        string id = getId(num);
                         //Form form = new Editar(id);
                         //form.Show();
                         this.cat_SubTableAdapter.Eliminar(id.ToString());
