@@ -7,3 +7,10 @@
     }
 }
 
+
+namespace ccquevedo_.bdCamaraComercioDataSetTableAdapters {
+    
+    
+    public partial class ProductosTableAdapter {
+    }
+}
