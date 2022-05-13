@@ -14,9 +14,11 @@ namespace ccquevedo_
         private static Nuevo instancia = null;
         private string itemSelct;
         private List<Product> listSubCate = new List<Product>();
+        private List<string> listSubCateg= new List<string>();
 
         public string ItemSelct { get => itemSelct; set => itemSelct = value; }
         public List<Product> ListSubCate { get => listSubCate; set => listSubCate = value; }
+        public List<string> ListSubCateg { get => listSubCateg; set => listSubCateg = value; }
 
         public static Nuevo FormCrear()
         {
@@ -26,7 +28,7 @@ namespace ccquevedo_
                 return instancia;
             }
             return instancia;
-            
+
         }
 
         public Nuevo()
@@ -152,13 +154,13 @@ namespace ccquevedo_
             {
                 MessageBox.Show(exc.ToString());
             }
-            
+
 
         }
 
         private void Nuevo_Load(object sender, EventArgs e)
         {
-            
+
             try
             {
                 // TODO: esta línea de código carga datos en la tabla 'bdCamaraComercioDataSet.SubCategoria' Puede moverla o quitarla según sea necesario.
@@ -198,38 +200,91 @@ namespace ccquevedo_
         {
             try
             {
-                    if (txtNombre.Text != "")
+                if (txtNombre.Text != "")
+                {
+                    DataTable datos = this.productosTableAdapter.BuscaNombre(txtNombre.Text);
+                    if (datos.Rows.Count > 0)
                     {
-                        DataTable datos = this.productosTableAdapter.BuscaNombre(txtNombre.Text);
-                        //DataTable dataTable = this.categoriasTableAdapter.BuscarCategoria(Convert.ToInt32(datos.Rows[0][9].ToString()));
-                        if (datos.Rows.Count > 0)
+                        txtCodigo.Text = datos.Rows[0][0].ToString();
+                        txtDescripcionCorta.Text = datos.Rows[0][2].ToString();
+                        txtDescripcionCompleta.Text = datos.Rows[0][3].ToString();
+                        txtInventario.Text = datos.Rows[0][4].ToString();
+                        txtStock.Text = datos.Rows[0][5].ToString();
+                        txtPrecioNormal.Text = datos.Rows[0][7].ToString();
+                        txtPrecioOferta.Text = datos.Rows[0][6].ToString();
+                        txtImagen.Text = datos.Rows[0][8].ToString();
+                        txtTipoProducto.Text = datos.Rows[0][9].ToString();
+                        mcFechaInicio.Text = datos.Rows[0][10].ToString();
+                        mcFechaFin.Text = datos.Rows[0][11].ToString();
+                        txtEtiqueta.Text = datos.Rows[0][12].ToString();
+
+                        //Cadena de categoria y sub categoria
+                        string cadena = cmbCategoria.Text;
+                        //posición para obtener la posición de la categoria
+                        int num = cadena.IndexOf(">");
+                        if (num < 1)
                         {
-                            txtCodigo.Text = datos.Rows[0][0].ToString();
-                            txtDescripcionCorta.Text = datos.Rows[0][2].ToString();
-                            txtDescripcionCompleta.Text = datos.Rows[0][3].ToString();
-                            txtInventario.Text = datos.Rows[0][4].ToString();
-                            txtStock.Text = datos.Rows[0][5].ToString();
-                            txtPrecioNormal.Text = datos.Rows[0][6].ToString();
-                            txtPrecioOferta.Text = datos.Rows[0][7].ToString();
-                            txtImagen.Text = datos.Rows[0][8].ToString();
-                            txtTipoProducto.Text = datos.Rows[0][9].ToString();
-                            mcFechaInicio.Text = datos.Rows[0][10].ToString();
-                            mcFechaFin.Text = datos.Rows[0][11].ToString();
-                            txtEtiqueta.Text = datos.Rows[0][12].ToString();
+                            num = cadena.Length;
                         }
-                        else
+                        //obtener el id de la categoria
+                        var id = this.categoriasTableAdapter.ConsultarId(cadena.Substring(0, num));
+
+                        DataTable tabla = this.categoriasTableAdapter.GetData();
+                        cmbCategoria.DisplayMember = "des";
+                        cmbCategoria.ValueMember = "idcat";
+
+                        List<Product> lista = new List<Product>();
+                        for (int i = 0; i < tabla.Rows.Count; i++)
                         {
-                            MessageBox.Show("No se encuentra");
+                            lista.Add(new Product(Convert.ToInt32(tabla.Rows[i][0].ToString()), tabla.Rows[i][1].ToString()));
                         }
+                        cmbCategoria.DataSource = lista;
+                        cmbCategoria.SelectedValue = Convert.ToInt32(id);
+                        llenarCombo(id);
+                        llenarData(cadena);
+
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se encuentra");
                     }
                 }
-                catch (Exception ex)
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void llenarData(string cadena)
+        {
+            //obtener las subcategorias
+            string[] parte = cadena.Split(',');
+
+            List<string> resu = new List<string>();
+            List<string> resuCa = new List<string>();
+            for (int j = 0; j < parte.Length - 1; j++)
+            {
+                resu.Add(parte[j]);
+            }
+            for (int j = 0; j < resu.Count; j++)
+            {
+                string n = resu[j].Split('>')[1];
+                if (n != "1")
                 {
-                    MessageBox.Show(ex.ToString());
+                    string partedos = resu[j].Split('>')[1];
+                    resuCa.Add(partedos.ToString());
                 }
             }
+            for (int j = 0; j < resuCa.Count; j++)
+            {
+                ListSubCateg.Add(resuCa[j].ToString());
+                dgvSubCatergoria.Rows.Add(resuCa[j].ToString());
+            }
 
-       
+        }
+
 
         private void mcFechaInicio_ValueChanged(object sender, EventArgs e)
         {

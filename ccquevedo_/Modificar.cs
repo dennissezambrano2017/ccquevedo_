@@ -15,10 +15,8 @@ namespace ccquevedo_
         private static Modificar instancia = null;
 
         private List<string> listSubCate = new List<string>();
-        private int sle=0;
 
         public List<string> ListSubCate { get => listSubCate; set => listSubCate = value; }
-        public int Sle { get => sle; set => sle = value; }
 
         public static Modificar FormCrear()
         {
