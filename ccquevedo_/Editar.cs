@@ -44,7 +44,8 @@ namespace ccquevedo_
 
                 DataTable subcat = this.cat_SubTableAdapter.BuscarSubCat(id.ToString());
                 for (int i = 0; i < subcat.Rows.Count; i++){
-                    dgvSubCatergoria.Rows.Add(subcat.Rows[i][1].ToString());
+                    //MessageBox.Show(subcat.Rows[i]["Id_SubCategoria"].ToString()+" xd "+ subcat.Rows[i]["Descripcion"].ToString());
+                    dgvSubCatergoria.Rows.Add(subcat.Rows[i]["Descripcion"].ToString());
                 }
             }
             catch (Exception ex)
@@ -101,10 +102,22 @@ namespace ccquevedo_
                 this.productosTableAdapter.Editar(txtNombre.Text, txtDescripcion.Text,
                                 txtDescripcionL.Text,txtInventario.Text, txtminStock.Text,
                                 txtPrecio.Text,
-                                txtprecioRebajado.Text,"",
+                                txtprecioRebajado.Text,txtImage.Text,
                                 txtTipoProducto.Text,
                                 mcFechaInicio.Text,
                                 mcFechaFin.Text,txtEtiqueta.Text, id.ToString());
+                this.cat_SubTableAdapter.Eliminar(id.ToString());
+                if (dgvSubCatergoria.Rows.Count < 1)
+                {
+                    this.cat_SubTableAdapter.Insertar(idCat.ToString(), "", id.ToString());
+                }
+                for (int j = 0; j < dgvSubCatergoria.Rows.Count; j++)
+                {
+                    MessageBox.Show(dgvSubCatergoria.Rows[j].Cells[0].Value.ToString());
+                    string idsubcat = this.subCategoriaTableAdapter.BuscarSubId(dgvSubCatergoria.Rows[j].Cells[0].Value.ToString(), idCat.ToString());
+                    this.cat_SubTableAdapter.Insertar(idCat.ToString(), idsubcat, id.ToString());
+                    
+                }
                 this.productosTableAdapter.Fill(this.bdCamaraComercioDataSet.Productos);
                 this.Close();
             }
