@@ -14,6 +14,9 @@ namespace ccquevedo_
     {
         public string id;
         public int idCat;
+        private List<string> listSubCate = new List<string>();
+
+        public List<string> ListSubCate { get => listSubCate; set => listSubCate = value; }
 
         public Editar(string id=null)
         {
@@ -26,7 +29,7 @@ namespace ccquevedo_
                 DataTable tablaUno = this.productosTableAdapter.BuscarIdProducto(id.ToString());
                 //var idcate = tablaUno.Rows[0][13].ToString(); ;
                 //var desc = this.categoriasTableAdapter.descripcion(idcate.ToString());
-                 MessageBox.Show(id+" - "+tablaUno.Rows.Count.ToString());
+                 //MessageBox.Show(id+" - "+tablaUno.Rows.Count.ToString());
 
                 txtCodigo.Text = id.ToString();
                 txtNombre.Text = tablaUno.Rows[0][1].ToString();
@@ -47,16 +50,53 @@ namespace ccquevedo_
                 DataTable subcat = this.cat_SubTableAdapter.BuscarSubCat(id.ToString());
                 for (int i = 0; i < subcat.Rows.Count; i++)
                 {
-                    //MessageBox.Show(subcat.Rows[i]["Id_SubCategoria"].ToString()+" xd "+ subcat.Rows[i]["Descripcion"].ToString());
+                    ListSubCate.Add(subcat.Rows[i]["Descripcion"].ToString());
                     dgvSubCatergoria.Rows.Add(subcat.Rows[i]["Descripcion"].ToString());
                 }
+
+                DataTable tabla = this.categoriasTableAdapter.GetData();
+                cmbCategoria.DisplayMember = "des";
+                cmbCategoria.ValueMember = "idcat";
+
+                List<Product> lista = new List<Product>();
+                for (int i = 0; i < tabla.Rows.Count; i++)
+                {
+                    lista.Add(new Product(Convert.ToInt32(tabla.Rows[i][0].ToString()), tabla.Rows[i][1].ToString()));
+                }
+                cmbCategoria.DataSource = lista;
+                cmbCategoria.SelectedValue = Convert.ToInt32(id);
+                llenarCombo();
+                
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             }
         }
+        private void llenarCombo()
+        {
+            try
+            {
+                DataTable tabla = this.subCategoriaTableAdapter.BuscarSub(idCat.ToString());
+                cmbSubCategorias.DisplayMember = "des";
+                cmbSubCategorias.ValueMember = "idcat";
 
+                List<Product> lista = new List<Product>();
+                for (int i = 0; i < tabla.Rows.Count; i++)
+                {
+                    lista.Add(new Product(Convert.ToInt32(tabla.Rows[i][0].ToString()), tabla.Rows[i][1].ToString()));
+                }
+                cmbSubCategorias.DataSource = lista;
+                ListSubCate = new List<string>();
+
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.ToString());
+            }
+
+
+        }
 
         private void productosBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
@@ -73,8 +113,6 @@ namespace ccquevedo_
             
 
         }
-
-
 
         private void Editar_Load(object sender, EventArgs e)
         {
@@ -173,26 +211,9 @@ namespace ccquevedo_
             }
         }
 
-        private void cmbSubCategorias_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                dgvSubCatergoria.Rows.Add(cmbSubCategorias.GetItemText(cmbSubCategorias.SelectedItem));
-            }
-            catch (Exception exc)
-            {
-                MessageBox.Show(exc.ToString());
-            }
-            
-        }
-
-        private void cmbCategoria_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cmbCategoria.SelectedValue.ToString() != null)
-                llenarCombo(cmbCategoria.SelectedValue.ToString());
-        }
         private void llenarCombo(string idcate)
         {
+            cmbSubCategorias.DataSource = null;
             DataTable tabla = this.subCategoriaTableAdapter.BuscarSub(idcate);
             cmbSubCategorias.DisplayMember = "des";
             cmbSubCategorias.ValueMember = "idcat";
@@ -204,6 +225,19 @@ namespace ccquevedo_
             }
             cmbSubCategorias.DataSource = lista;
             dgvSubCatergoria.Rows.Clear();
+        }
+
+        private void cmbCategoria_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            idCat =int.Parse(cmbCategoria.SelectedValue.ToString());
+            llenarCombo(cmbCategoria.SelectedValue.ToString());
+            dgvSubCatergoria.Rows.Clear();
+        }
+
+        private void cmbSubCategorias_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            ListSubCate.Add(cmbSubCategorias.GetItemText(cmbSubCategorias.SelectedItem));
+            dgvSubCatergoria.Rows.Add(cmbSubCategorias.GetItemText(cmbSubCategorias.SelectedItem));
         }
     }
 }

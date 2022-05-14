@@ -217,6 +217,7 @@ namespace ccquevedo_
             this.txtPrecioOferta.Size = new System.Drawing.Size(272, 31);
             this.txtPrecioOferta.TabIndex = 9;
             this.txtPrecioOferta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecioOferta_KeyPress);
+            this.txtPrecioOferta.Leave += new System.EventHandler(this.txtPrecioOferta_Leave);
             // 
             // txtImagen
             // 
@@ -391,6 +392,7 @@ namespace ccquevedo_
             // mcFechaFins
             // 
             this.mcFechaFins.CalendarFont = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mcFechaFins.Enabled = false;
             this.mcFechaFins.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mcFechaFins.Location = new System.Drawing.Point(782, 432);
             this.mcFechaFins.Name = "mcFechaFins";
@@ -402,6 +404,7 @@ namespace ccquevedo_
             // 
             this.mcFechaInicios.AccessibleRole = System.Windows.Forms.AccessibleRole.ScrollBar;
             this.mcFechaInicios.CalendarFont = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mcFechaInicios.Enabled = false;
             this.mcFechaInicios.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mcFechaInicios.Location = new System.Drawing.Point(782, 384);
             this.mcFechaInicios.Name = "mcFechaInicios";
@@ -518,6 +521,7 @@ namespace ccquevedo_
             // mcFechaInicio
             // 
             this.mcFechaInicio.Cursor = System.Windows.Forms.Cursors.Default;
+            this.mcFechaInicio.Enabled = false;
             this.mcFechaInicio.Location = new System.Drawing.Point(782, 384);
             this.mcFechaInicio.Name = "mcFechaInicio";
             this.mcFechaInicio.Size = new System.Drawing.Size(255, 31);
@@ -527,6 +531,7 @@ namespace ccquevedo_
             // mcFechaFin
             // 
             this.mcFechaFin.Cursor = System.Windows.Forms.Cursors.Default;
+            this.mcFechaFin.Enabled = false;
             this.mcFechaFin.Location = new System.Drawing.Point(782, 432);
             this.mcFechaFin.Name = "mcFechaFin";
             this.mcFechaFin.Size = new System.Drawing.Size(255, 31);

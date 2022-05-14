@@ -52,35 +52,41 @@ namespace ccquevedo_
         {
             try
             {
-                MessageBox.Show(cmbCategoria.Text);
-                //string txtCategoria = "";
-                //for (int i = 0; i < listSubCate.Count; i++)
-                //    txtCategoria += listSubCate[i].des + ",";
+                string txtCategoria = "";
+                for (int i = 0; i < listSubCate.Count; i++)
+                    txtCategoria += listSubCate[i].des + ",";
 
-                //CrearExcel ce = Owner as CrearExcel;
-                //comprobarData();
+                CrearExcel ce = Owner as CrearExcel;
+                if (txtPrecioOferta.Text != "" && mcFechaInicio.Text == "" && mcFechaFin.Text == "")
+                    MessageBox.Show("Falta ingresar las fechas de incio y fin de las ofertas", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                else if (txtPrecioOferta.Text == "" && mcFechaInicio.Text != "" && mcFechaFin.Text != "")
+                    MessageBox.Show("Falta ingresar el precio de oferta", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                else
+                {
+                    if (txtCodigo.Text != "" && txtNombre.Text != "" && txtDescripcionCorta.Text != "" && txtPrecioNormal.Text != "" && itemSelct != "" && txtInventario.Text != "")
+                    {
+                        comprobarData();
+                        if (int.Parse(txtPrecioOferta.Text) < int.Parse(txtPrecioNormal.Text))
+                        {
+                            if (int.Parse(txtStock.Text) < int.Parse(txtInventario.Text))
+                            {
 
-                //if (int.Parse(txtPrecioOferta.Text) < int.Parse(txtPrecioNormal.Text))
-                //{
-                //    if (int.Parse(txtStock.Text) < int.Parse(txtInventario.Text))
-                //    {
-                //        if (txtCodigo.Text != "" && txtNombre.Text != "" && txtDescripcionCorta.Text != ""
-                //        && txtPrecioNormal.Text != "" && itemSelct != "" && txtInventario.Text != "")
-                //        {
-                //            ce.DtProductos.Rows.Add(txtCodigo.Text, txtTipoProducto.Text, txtNombre.Text,
-                //                txtDescripcionCorta.Text, txtDescripcionCompleta.Text, mcFechaInicio.Text,
-                //                mcFechaFin.Text, txtInventario.Text, txtStock.Text, txtPrecioOferta.Text,
-                //                txtPrecioNormal.Text, cmbCategoria.Text, txtCategoria, txtEtiqueta.Text, txtImagen.Text);
-                //            this.Close();
-                //        }
-                //        else
-                //            MessageBox.Show("Falta datos a ingresar", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                //    }
-                //    else
-                //        MessageBox.Show("El valor del minimo stock no debe ser mayor que el inventario", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                //}
-                //else
-                //    MessageBox.Show("El precio de oferta no debe ser mayor que el precio normal", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                ce.DtProductos.Rows.Add(txtCodigo.Text, txtTipoProducto.Text, txtNombre.Text,
+                                    txtDescripcionCorta.Text, txtDescripcionCompleta.Text, mcFechaInicio.Text,
+                                    mcFechaFin.Text, txtInventario.Text, txtStock.Text, txtPrecioOferta.Text,
+                                    txtPrecioNormal.Text, cmbCategoria.Text, txtCategoria, txtEtiqueta.Text, txtImagen.Text);
+                                this.Close();
+                            }
+                            else
+                                MessageBox.Show("El valor del minimo stock no debe ser mayor que el inventario", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                        else
+                            MessageBox.Show("El precio de oferta no debe ser mayor que el precio normal", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    else
+                        MessageBox.Show("Falta datos a ingresar", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+
             }
             catch (Exception ex)
             {
@@ -385,13 +391,21 @@ namespace ccquevedo_
 
             ItemSelct = cmbCategoria.SelectedValue.ToString();
             if (cmbCategoria.SelectedValue.ToString() != null)
-                llenarCombo(cmbCategoria.SelectedValue.ToString());
+                llenarCombo(cmbCategoria.SelectedValue.ToString()); 
         }
 
         private void cmbSubCategorias_SelectionChangeCommitted(object sender, EventArgs e)
         {
             listSubCate.Add(new Product(Convert.ToInt32(cmbSubCategorias.SelectedValue.ToString()), cmbSubCategorias.GetItemText(cmbSubCategorias.SelectedItem)));
             dgvSubCatergoria.Rows.Add(cmbSubCategorias.GetItemText(cmbSubCategorias.SelectedItem));
+        }
+
+        private void txtPrecioOferta_Leave(object sender, EventArgs e)
+        {
+            mcFechaFin.Enabled = true;
+            mcFechaInicio.Enabled = true;
+            mcFechaFins.Enabled = true;
+            mcFechaInicios.Enabled = true;
         }
     }
 }
