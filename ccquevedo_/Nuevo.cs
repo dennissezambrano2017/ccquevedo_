@@ -55,14 +55,8 @@ namespace ccquevedo_
                     txtCategoria += listSubCate[i].des + ",";
 
                 CrearExcel ce = Owner as CrearExcel;
-                if (txtPrecioOferta.Text == "" || txtPrecioNormal.Text == ""
-                    || txtStock.Text == "" || txtInventario.Text == "")
-                {
-                    txtPrecioOferta.Text = "0"; txtPrecioNormal.Text = "0";
-                    txtStock.Text = "0"; txtInventario.Text = "0";
-                    MessageBox.Show(txtPrecioOferta.Text + txtPrecioNormal.Text +txtStock.Text + txtInventario.Text);
-                }
-                    
+                comprobarData();
+
                 if (int.Parse(txtPrecioOferta.Text) < int.Parse(txtPrecioNormal.Text))
                 {
                     if (int.Parse(txtStock.Text) < int.Parse(txtInventario.Text))
@@ -90,6 +84,17 @@ namespace ccquevedo_
                 MessageBox.Show(ex.ToString());
             }
 
+        }
+        private void comprobarData()
+        {
+            if (txtPrecioOferta.Text == "")
+                txtPrecioOferta.Text = "0";
+            else if (txtPrecioNormal.Text == "")
+                txtPrecioNormal.Text = "0";
+            else if (txtStock.Text == "")
+                txtStock.Text = "0";
+            else if (txtInventario.Text == "")
+                txtInventario.Text = "0";
         }
 
         private void txtCodigo_KeyPress(object sender, KeyPressEventArgs e)

@@ -26,6 +26,8 @@ namespace ccquevedo_
                 DataTable tablaUno = this.productosTableAdapter.BuscarIdProducto(id.ToString());
                 //var idcate = tablaUno.Rows[0][13].ToString(); ;
                 //var desc = this.categoriasTableAdapter.descripcion(idcate.ToString());
+                 MessageBox.Show(id+" - "+tablaUno.Rows.Count.ToString());
+
                 txtCodigo.Text = id.ToString();
                 txtNombre.Text = tablaUno.Rows[0][1].ToString();
                 txtDescripcion.Text = tablaUno.Rows[0][2].ToString();
@@ -43,7 +45,8 @@ namespace ccquevedo_
                 cmbCategoria.Text = tablaUno.Rows[0][14].ToString();
 
                 DataTable subcat = this.cat_SubTableAdapter.BuscarSubCat(id.ToString());
-                for (int i = 0; i < subcat.Rows.Count; i++){
+                for (int i = 0; i < subcat.Rows.Count; i++)
+                {
                     //MessageBox.Show(subcat.Rows[i]["Id_SubCategoria"].ToString()+" xd "+ subcat.Rows[i]["Descripcion"].ToString());
                     dgvSubCatergoria.Rows.Add(subcat.Rows[i]["Descripcion"].ToString());
                 }
