@@ -189,7 +189,8 @@ namespace ccquevedo_
                     lista.Add(new Product(Convert.ToInt32(tabla.Rows[i][0].ToString()), tabla.Rows[i][1].ToString()));
                 }
                 cmbCategoria.DataSource = lista;
-
+                cmbCategoria.SelectedIndex = 24;
+                MessageBox.Show(cmbCategoria.SelectedIndex.ToString()+"-"+ cmbCategoria.SelectedItem.ToString());
 
                 AutoCompleteStringCollection mycollection = new AutoCompleteStringCollection();
                 DataTable datos = this.productosTableAdapter.GetData();
