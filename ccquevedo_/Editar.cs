@@ -46,6 +46,7 @@ namespace ccquevedo_
                 txtEtiqueta.Text = tablaUno.Rows[0][12].ToString();
                 idCat = int.Parse(tablaUno.Rows[0][13].ToString());
                 cmbCategoria.Text = tablaUno.Rows[0][14].ToString();
+                cambiarData();
 
                 DataTable subcat = this.cat_SubTableAdapter.BuscarSubCat(id.ToString());
                 for (int i = 0; i < subcat.Rows.Count; i++)
@@ -65,8 +66,13 @@ namespace ccquevedo_
                 }
                 cmbCategoria.DataSource = lista;
                 cmbCategoria.SelectedValue = Convert.ToInt32(id);
-                llenarCombo();
-                
+                if (idCat == 29){ dgvSubCatergoria.Rows.Clear();}
+                else
+                {
+                    cmbSubCategorias.Enabled = true;
+                    llenarCombo();
+                }
+                    
             }
             catch (Exception ex)
             {
@@ -139,33 +145,80 @@ namespace ccquevedo_
         private void btnGuardar_Click_1(object sender, EventArgs e)
         {
             //idCat = int.Parse(cmbCategoria.SelectedValue.ToString());
-            try{
-                this.productosTableAdapter.Editar(txtNombre.Text, txtDescripcion.Text,
-                                txtDescripcionL.Text,txtInventario.Text, txtminStock.Text,
+            try
+            {
+                if (txtprecioRebajado.Text != "" && mcFechaInicio.Text == "" && mcFechaFin.Text == "")
+                    MessageBox.Show("Falta ingresar las fechas de incio y fin de las ofertas", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                else if (txtprecioRebajado.Text == "" && mcFechaInicio.Text != "" && mcFechaFin.Text != "")
+                    MessageBox.Show("Falta ingresar el precio de oferta", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                else
+                {
+                    if (txtCodigo.Text != "" && txtNombre.Text != "" && txtDescripcionL.Text != "" && txtPrecio.Text != "" && idCat != 0 && txtInventario.Text != "")
+                    {
+                        comprobarData();
+                        if (int.Parse(txtprecioRebajado.Text) < int.Parse(txtPrecio.Text))
+                        {
+                            if (int.Parse(txtminStock.Text) < int.Parse(txtInventario.Text))
+                            {
+                                this.productosTableAdapter.Editar(txtNombre.Text, txtDescripcion.Text,
+                                txtDescripcionL.Text, txtInventario.Text, txtminStock.Text,
                                 txtPrecio.Text,
-                                txtprecioRebajado.Text,txtImage.Text,
+                                txtprecioRebajado.Text, txtImage.Text,
                                 txtTipoProducto.Text,
                                 mcFechaInicio.Text,
-                                mcFechaFin.Text,txtEtiqueta.Text, id.ToString());
-                this.cat_SubTableAdapter.Eliminar(id.ToString());
-                if (dgvSubCatergoria.Rows.Count < 1)
-                {
-                    this.cat_SubTableAdapter.Insertar(idCat.ToString(), "", id.ToString());
+                                mcFechaFin.Text, txtEtiqueta.Text, id.ToString());
+                                this.cat_SubTableAdapter.Eliminar(id.ToString());
+                                if (dgvSubCatergoria.Rows.Count < 1)
+                                {
+                                    this.cat_SubTableAdapter.Insertar(idCat.ToString(), "341", id.ToString());
+                                }
+                                for (int j = 0; j < dgvSubCatergoria.Rows.Count; j++)
+                                {
+                                    string idsubcat = this.subCategoriaTableAdapter.BuscarSubId(dgvSubCatergoria.Rows[j].Cells[0].Value.ToString(), idCat.ToString());
+                                    this.cat_SubTableAdapter.Insertar(idCat.ToString(), idsubcat, id.ToString());
+                                }
+                                this.productosTableAdapter.Fill(this.bdCamaraComercioDataSet.Productos);
+                                this.Close();
+                            }
+                            else
+                                MessageBox.Show("El valor del minimo stock no debe ser mayor que el inventario", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                        else
+                            MessageBox.Show("El precio de oferta no debe ser mayor que el precio normal", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    else
+                        MessageBox.Show("Falta datos a ingresar", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
-                for (int j = 0; j < dgvSubCatergoria.Rows.Count; j++)
-                {
-                    MessageBox.Show(dgvSubCatergoria.Rows[j].Cells[0].Value.ToString());
-                    string idsubcat = this.subCategoriaTableAdapter.BuscarSubId(dgvSubCatergoria.Rows[j].Cells[0].Value.ToString(), idCat.ToString());
-                    this.cat_SubTableAdapter.Insertar(idCat.ToString(), idsubcat, id.ToString());
-                }
-                this.productosTableAdapter.Fill(this.bdCamaraComercioDataSet.Productos);
-                this.Close();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             }
 
+        }
+
+        private void comprobarData()
+        {
+            if (txtprecioRebajado.Text == "")
+                txtprecioRebajado.Text = "0";
+            else if (txtPrecio.Text == "")
+                txtPrecio.Text = "0";
+            else if (txtminStock.Text == "")
+                txtminStock.Text = "0";
+            else if (txtInventario.Text == "")
+                txtInventario.Text = "0";
+        }
+
+        private void cambiarData()
+        {
+            if (txtprecioRebajado.Text == "0")
+                txtprecioRebajado.Text = "";
+            else if (txtPrecio.Text == "0")
+                txtPrecio.Text = "";
+            else if (txtminStock.Text == "0")
+                txtminStock.Text = "";
+            else if (txtInventario.Text == "0")
+                txtInventario.Text = "";
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)
@@ -175,9 +228,7 @@ namespace ccquevedo_
 
         private void mcFechaInicios_ValueChanged(object sender, EventArgs e)
         {
-            DateTime fechaIncio = Convert.ToDateTime(mcFechaInicios.Text);
-
-            mcFechaInicios.Text = fechaIncio.ToString("yyyy-MM-dd");
+            
         }
 
         private void mcFechaFins_ValueChanged(object sender, EventArgs e)
@@ -213,31 +264,65 @@ namespace ccquevedo_
 
         private void llenarCombo(string idcate)
         {
-            cmbSubCategorias.DataSource = null;
-            DataTable tabla = this.subCategoriaTableAdapter.BuscarSub(idcate);
-            cmbSubCategorias.DisplayMember = "des";
-            cmbSubCategorias.ValueMember = "idcat";
-
-            List<Product> lista = new List<Product>();
-            for (int i = 0; i < tabla.Rows.Count; i++)
+            try
             {
-                lista.Add(new Product(Convert.ToInt32(tabla.Rows[i][0].ToString()), tabla.Rows[i][1].ToString()));
+                cmbSubCategorias.DataSource = null;
+                DataTable tabla = this.subCategoriaTableAdapter.BuscarSub(idcate);
+                cmbSubCategorias.DisplayMember = "des";
+                cmbSubCategorias.ValueMember = "idcat";
+
+                List<Product> lista = new List<Product>();
+                for (int i = 0; i < tabla.Rows.Count; i++)
+                {
+                    lista.Add(new Product(Convert.ToInt32(tabla.Rows[i][0].ToString()), tabla.Rows[i][1].ToString()));
+                }
+                cmbSubCategorias.DataSource = lista;
+                dgvSubCatergoria.Rows.Clear();
             }
-            cmbSubCategorias.DataSource = lista;
-            dgvSubCatergoria.Rows.Clear();
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
 
         private void cmbCategoria_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            idCat =int.Parse(cmbCategoria.SelectedValue.ToString());
-            llenarCombo(cmbCategoria.SelectedValue.ToString());
-            dgvSubCatergoria.Rows.Clear();
+            try
+            {
+                if (cmbCategoria.SelectedValue.ToString() == "29")
+                    cmbSubCategorias.Enabled = false;
+                else
+                {
+                    cmbSubCategorias.Enabled = true;
+                }
+                idCat = int.Parse(cmbCategoria.SelectedValue.ToString());
+                llenarCombo(cmbCategoria.SelectedValue.ToString());
+                dgvSubCatergoria.Rows.Clear();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
 
         private void cmbSubCategorias_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            ListSubCate.Add(cmbSubCategorias.GetItemText(cmbSubCategorias.SelectedItem));
-            dgvSubCatergoria.Rows.Add(cmbSubCategorias.GetItemText(cmbSubCategorias.SelectedItem));
+            try
+            {
+                ListSubCate.Add(cmbSubCategorias.GetItemText(cmbSubCategorias.SelectedItem));
+                dgvSubCatergoria.Rows.Add(cmbSubCategorias.GetItemText(cmbSubCategorias.SelectedItem));
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void mcFechaInicios_ValueChanged_1(object sender, EventArgs e)
+        {
+            DateTime fechaIncio = Convert.ToDateTime(mcFechaInicios.Text);
+
+            mcFechaInicio.Text = fechaIncio.ToString("yyyy-MM-dd");
         }
     }
 }

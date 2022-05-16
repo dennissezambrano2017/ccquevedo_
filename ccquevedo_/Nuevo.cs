@@ -228,8 +228,8 @@ namespace ccquevedo_
                         txtDescripcionCompleta.Text = datos.Rows[0][3].ToString();
                         txtInventario.Text = datos.Rows[0][4].ToString();
                         txtStock.Text = datos.Rows[0][5].ToString();
-                        txtPrecioNormal.Text = datos.Rows[0][7].ToString();
-                        txtPrecioOferta.Text = datos.Rows[0][6].ToString();
+                        txtPrecioNormal.Text = datos.Rows[0][6].ToString();
+                        txtPrecioOferta.Text = datos.Rows[0][7].ToString();
                         txtImagen.Text = datos.Rows[0][8].ToString();
                         txtTipoProducto.Text = datos.Rows[0][9].ToString();
                         mcFechaInicio.Text = datos.Rows[0][10].ToString();

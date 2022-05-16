@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Editar));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblNombre = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtprecioRebajado = new System.Windows.Forms.TextBox();
@@ -110,7 +110,7 @@
             // txtprecioRebajado
             // 
             this.txtprecioRebajado.Font = new System.Drawing.Font("Century Gothic", 14.25F);
-            this.txtprecioRebajado.Location = new System.Drawing.Point(782, 77);
+            this.txtprecioRebajado.Location = new System.Drawing.Point(782, 119);
             this.txtprecioRebajado.Name = "txtprecioRebajado";
             this.txtprecioRebajado.Size = new System.Drawing.Size(272, 31);
             this.txtprecioRebajado.TabIndex = 8;
@@ -119,7 +119,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 14.25F);
-            this.label2.Location = new System.Drawing.Point(564, 84);
+            this.label2.Location = new System.Drawing.Point(564, 126);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(161, 22);
             this.label2.TabIndex = 2;
@@ -128,7 +128,7 @@
             // txtPrecio
             // 
             this.txtPrecio.Font = new System.Drawing.Font("Century Gothic", 14.25F);
-            this.txtPrecio.Location = new System.Drawing.Point(782, 119);
+            this.txtPrecio.Location = new System.Drawing.Point(782, 71);
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(272, 31);
             this.txtPrecio.TabIndex = 9;
@@ -137,7 +137,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 14.25F);
-            this.label3.Location = new System.Drawing.Point(564, 125);
+            this.label3.Location = new System.Drawing.Point(564, 77);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(148, 22);
             this.label3.TabIndex = 4;
@@ -410,6 +410,7 @@
             this.mcFechaInicios.Name = "mcFechaInicios";
             this.mcFechaInicios.Size = new System.Drawing.Size(272, 31);
             this.mcFechaInicios.TabIndex = 12;
+            this.mcFechaInicios.ValueChanged += new System.EventHandler(this.mcFechaInicios_ValueChanged_1);
             // 
             // mcFechaFins
             // 
@@ -448,14 +449,14 @@
             this.dgvSubCatergoria.AllowUserToAddRows = false;
             this.dgvSubCatergoria.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
             this.dgvSubCatergoria.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvSubCatergoria.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvSubCatergoria.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvSubCatergoria.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSubCatergoria.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.SubCategoria});
@@ -478,18 +479,14 @@
             // cmbSubCategorias
             // 
             this.cmbSubCategorias.DropDownHeight = 100;
+            this.cmbSubCategorias.Enabled = false;
             this.cmbSubCategorias.Font = new System.Drawing.Font("Century Gothic", 14.25F);
             this.cmbSubCategorias.FormattingEnabled = true;
             this.cmbSubCategorias.IntegralHeight = false;
-            this.cmbSubCategorias.Items.AddRange(new object[] {
-            "hola ",
-            "que ",
-            "haces"});
             this.cmbSubCategorias.Location = new System.Drawing.Point(782, 213);
             this.cmbSubCategorias.Name = "cmbSubCategorias";
             this.cmbSubCategorias.Size = new System.Drawing.Size(272, 30);
             this.cmbSubCategorias.TabIndex = 70;
-            this.cmbSubCategorias.Text = "Seleccionar";
             this.cmbSubCategorias.SelectionChangeCommitted += new System.EventHandler(this.cmbSubCategorias_SelectionChangeCommitted);
             // 
             // label9
