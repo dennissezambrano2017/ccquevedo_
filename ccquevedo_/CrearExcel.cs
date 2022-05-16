@@ -199,37 +199,20 @@ namespace ccquevedo_
                 for (int i = 0; i < dgvProducto.Rows.Count; i++)
                 {
                     var v = this.productosTableAdapter.Existe(dtProductos.Rows[i].Cells[0].Value.ToString());
+                    
                     //Cadena de categoria y sub categoria
-                    string cadena = dtProductos.Rows[i].Cells[11].Value.ToString();
-                    //posición para obtener la posición de la categoria
-                    int num = cadena.IndexOf(">");
-                    if (num < 1)
-                    {
-                        num = cadena.Length;
-                    }
-                    //obtener el id de la categoria
-                    var id = this.categoriasTableAdapter.ConsultarId(cadena.Substring(0, num));
+                    string cadena = dtProductos.Rows[i].Cells[12].Value.ToString();
+                    var id = this.categoriasTableAdapter.ConsultarId(dtProductos.Rows[i].Cells[11].Value.ToString());
                     
                     //obtener las subcategorias
-                    //MessageBox.Show(cadena+ " id: " + id);
                     string[] parte = cadena.Split(',');
 
-                    List<string> resu = new List<string>();
-                    List<string> resuCa = new List<string>();
+                    List<string> resuSubCategoria = new List<string>();
                     for (int j = 0; j < parte.Length-1; j++)
                     {
-                        resu.Add(parte[j]);
+                        resuSubCategoria.Add(parte[j]);
                     }
-                    for (int j = 0; j < resu.Count; j++)
-                    {
-                        string n = resu[j].Split('>')[1];
-                        if (n != "1")
-                        {
-                            string partedos = resu[j].Split('>')[1];
-                            resuCa.Add(partedos.ToString());
-                        }
-                    }
-                    
+
 
                     if (v.ToString() != "1")
                     {
@@ -240,10 +223,10 @@ namespace ccquevedo_
                         dtProductos.Rows[i].Cells[4].Value.ToString(),
                         dtProductos.Rows[i].Cells[7].Value.ToString(),
                         dtProductos.Rows[i].Cells[8].Value.ToString(),
-                        dtProductos.Rows[i].Cells[9].Value.ToString(),
                         dtProductos.Rows[i].Cells[10].Value.ToString(),
+                        dtProductos.Rows[i].Cells[9].Value.ToString(),
                         dtProductos.Rows[i].Cells[13].Value.ToString(),
-                        dtProductos.Rows[i].Cells[1].Value.ToString(), 
+                        dtProductos.Rows[i].Cells[1].Value.ToString(),
                         dtProductos.Rows[i].Cells[5].Value.ToString(),
                         dtProductos.Rows[i].Cells[6].Value.ToString(),
                         dtProductos.Rows[i].Cells[12].Value.ToString());
@@ -257,8 +240,8 @@ namespace ccquevedo_
                         dtProductos.Rows[i].Cells[4].Value.ToString(),
                         dtProductos.Rows[i].Cells[7].Value.ToString(),
                         dtProductos.Rows[i].Cells[8].Value.ToString(),
-                        dtProductos.Rows[i].Cells[9].Value.ToString(),
                         dtProductos.Rows[i].Cells[10].Value.ToString(),
+                        dtProductos.Rows[i].Cells[9].Value.ToString(),
                         dtProductos.Rows[i].Cells[13].Value.ToString(),
                         dtProductos.Rows[i].Cells[1].Value.ToString(),
                         dtProductos.Rows[i].Cells[5].Value.ToString(),
@@ -266,17 +249,16 @@ namespace ccquevedo_
                         dtProductos.Rows[i].Cells[12].Value.ToString(),
                         dtProductos.Rows[i].Cells[0].Value.ToString());
                         this.cat_SubTableAdapter.Eliminar(dtProductos.Rows[i].Cells[0].Value.ToString());
-                        
+
                     }
-                    if (num < 1)
+                    if (id=="29")
                     {
-                        this.cat_SubTableAdapter.Insertar(id.ToString(), "", dtProductos.Rows[i].Cells[0].Value.ToString());
+                        this.cat_SubTableAdapter.Insertar(id.ToString(), "341", dtProductos.Rows[i].Cells[0].Value.ToString());
                     }
-                    for (int j = 0; j < resuCa.Count; j++)
+                    for (int j = 0; j < resuSubCategoria.Count; j++)
                     {
-                        string idsubcat = this.subCategoriaTableAdapter.BuscarSubId(resuCa[j].ToString(),id.ToString());
+                        string idsubcat = this.subCategoriaTableAdapter.BuscarSubId(resuSubCategoria[j].ToString(), id.ToString());
                         this.cat_SubTableAdapter.Insertar(id.ToString(), idsubcat, dtProductos.Rows[i].Cells[0].Value.ToString());
-                        //MessageBox.Show(resuCa[j].ToString(), "dos");
                     }
                 }
             }

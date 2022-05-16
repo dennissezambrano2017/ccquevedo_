@@ -31,7 +31,7 @@ namespace ccquevedo_
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Nuevo));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -80,6 +80,8 @@ namespace ccquevedo_
             this.tableAdapterManager = new ccquevedo_.bdCamaraComercioDataSetTableAdapters.TableAdapterManager();
             this.subCategoriaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.subCategoriaTableAdapter = new ccquevedo_.bdCamaraComercioDataSetTableAdapters.SubCategoriaTableAdapter();
+            this.cat_SubBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cat_SubTableAdapter = new ccquevedo_.bdCamaraComercioDataSetTableAdapters.Cat_SubTableAdapter();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriasBindingSource)).BeginInit();
@@ -88,6 +90,7 @@ namespace ccquevedo_
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSubCatergoria)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.subCategoriaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cat_SubBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -455,6 +458,7 @@ namespace ccquevedo_
             // 
             this.cmbSubCategorias.Cursor = System.Windows.Forms.Cursors.Default;
             this.cmbSubCategorias.DropDownHeight = 100;
+            this.cmbSubCategorias.Enabled = false;
             this.cmbSubCategorias.FormattingEnabled = true;
             this.cmbSubCategorias.IntegralHeight = false;
             this.cmbSubCategorias.Location = new System.Drawing.Point(782, 213);
@@ -489,14 +493,14 @@ namespace ccquevedo_
             this.dgvSubCatergoria.AllowUserToAddRows = false;
             this.dgvSubCatergoria.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
             this.dgvSubCatergoria.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvSubCatergoria.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvSubCatergoria.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvSubCatergoria.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSubCatergoria.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.SubCategoria});
@@ -564,6 +568,15 @@ namespace ccquevedo_
             // 
             this.subCategoriaTableAdapter.ClearBeforeFill = true;
             // 
+            // cat_SubBindingSource
+            // 
+            this.cat_SubBindingSource.DataMember = "Cat_Sub";
+            this.cat_SubBindingSource.DataSource = this.bdCamaraComercioDataSet;
+            // 
+            // cat_SubTableAdapter
+            // 
+            this.cat_SubTableAdapter.ClearBeforeFill = true;
+            // 
             // Nuevo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
@@ -624,6 +637,7 @@ namespace ccquevedo_
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSubCatergoria)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.subCategoriaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cat_SubBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -678,5 +692,7 @@ namespace ccquevedo_
         private System.Windows.Forms.BindingSource subCategoriaBindingSource;
         private bdCamaraComercioDataSetTableAdapters.SubCategoriaTableAdapter subCategoriaTableAdapter;
         public System.Windows.Forms.ComboBox cmbSubCategorias;
+        private System.Windows.Forms.BindingSource cat_SubBindingSource;
+        private bdCamaraComercioDataSetTableAdapters.Cat_SubTableAdapter cat_SubTableAdapter;
     }
 }

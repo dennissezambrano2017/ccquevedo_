@@ -1,4 +1,4 @@
-﻿ using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,13 +14,14 @@ namespace ccquevedo_
         private static Nuevo instancia = null;
         private string itemSelct;
         private List<Product> listSubCate = new List<Product>();
-        private List<string> listSubCateg= new List<string>();
-        private List<Product> lista  = new List<Product>();
+        private List<string> listSubCategoria = new List<string>();
+        private List<Product> lista = new List<Product>();
 
         public string ItemSelct { get => itemSelct; set => itemSelct = value; }
         public List<Product> ListSubCate { get => listSubCate; set => listSubCate = value; }
-        public List<string> ListSubCateg { get => listSubCateg; set => listSubCateg = value; }
+        
         public List<Product> Lista { get => lista; set => lista = value; }
+        public List<string> ListSubCategoria { get => listSubCategoria; set => listSubCategoria = value; }
 
         public static Nuevo FormCrear()
         {
@@ -105,6 +106,17 @@ namespace ccquevedo_
             else if (txtInventario.Text == "")
                 txtInventario.Text = "0";
         }
+        private void cambiarData()
+        {
+            if (txtPrecioOferta.Text == "0")
+                txtPrecioOferta.Text = "";
+            else if (txtPrecioNormal.Text == "0")
+                txtPrecioNormal.Text = "";
+            else if (txtStock.Text == "0")
+                txtStock.Text = "";
+            else if (txtInventario.Text == "0")
+                txtInventario.Text = "";
+        }
 
         private void txtCodigo_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -178,6 +190,8 @@ namespace ccquevedo_
 
         private void Nuevo_Load(object sender, EventArgs e)
         {
+            // TODO: esta línea de código carga datos en la tabla 'bdCamaraComercioDataSet.Cat_Sub' Puede moverla o quitarla según sea necesario.
+            this.cat_SubTableAdapter.Fill(this.bdCamaraComercioDataSet.Cat_Sub);
 
             try
             {
@@ -235,21 +249,20 @@ namespace ccquevedo_
                         mcFechaInicio.Text = datos.Rows[0][10].ToString();
                         mcFechaFin.Text = datos.Rows[0][11].ToString();
                         txtEtiqueta.Text = datos.Rows[0][12].ToString();
-
-                        //Cadena de categoria y sub categoria
-                        string cadena = cmbCategoria.Text;
-                        //posición para obtener la posición de la categoria
-                        int num = cadena.IndexOf(">");
-                        if (num < 1)
+                        cambiarData();
+                        DataTable subcat = this.cat_SubTableAdapter.BuscarSubCat(datos.Rows[0][0].ToString());
+                        for (int i = 0; i < subcat.Rows.Count; i++)
                         {
-                            num = cadena.Length;
+                            ListSubCategoria.Add(subcat.Rows[i]["Descripcion"].ToString());
+                            dgvSubCatergoria.Rows.Add(subcat.Rows[i]["Descripcion"].ToString());
                         }
-                        //obtener el id de la categoria
-                        var id = this.categoriasTableAdapter.ConsultarId(cadena.Substring(0, num));
 
                         DataTable tabla = this.categoriasTableAdapter.GetData();
                         cmbCategoria.DisplayMember = "des";
                         cmbCategoria.ValueMember = "idcat";
+
+                        DataTable datosTwo = this.productosTableAdapter.BuscarIdProducto(datos.Rows[0][0].ToString());
+                        string id= datosTwo.Rows[0][13].ToString();
 
                         List<Product> lista = new List<Product>();
                         for (int i = 0; i < tabla.Rows.Count; i++)
@@ -258,10 +271,13 @@ namespace ccquevedo_
                         }
                         cmbCategoria.DataSource = lista;
                         cmbCategoria.SelectedValue = Convert.ToInt32(id);
-                        llenarCombo(id);
-                        llenarData(cadena);
-
-
+                        if (id == "29") { dgvSubCatergoria.Rows.Clear(); }
+                        else
+                        {
+                            cmbSubCategorias.Enabled = true;
+                            InsertComboboxData(id);
+                            listSubCate = new List<Product>();
+                        }
                     }
                     else
                     {
@@ -274,35 +290,6 @@ namespace ccquevedo_
                 MessageBox.Show(ex.ToString());
             }
         }
-
-        private void llenarData(string cadena)
-        {
-            //obtener las subcategorias
-            string[] parte = cadena.Split(',');
-
-            List<string> resu = new List<string>();
-            List<string> resuCa = new List<string>();
-            for (int j = 0; j < parte.Length - 1; j++)
-            {
-                resu.Add(parte[j]);
-            }
-            for (int j = 0; j < resu.Count; j++)
-            {
-                string n = resu[j].Split('>')[1];
-                if (n != "1")
-                {
-                    string partedos = resu[j].Split('>')[1];
-                    resuCa.Add(partedos.ToString());
-                }
-            }
-            for (int j = 0; j < resuCa.Count; j++)
-            {
-                ListSubCateg.Add(resuCa[j].ToString());
-                dgvSubCatergoria.Rows.Add(resuCa[j].ToString());
-            }
-
-        }
-
 
         private void mcFechaInicio_ValueChanged(object sender, EventArgs e)
         {
@@ -317,7 +304,7 @@ namespace ccquevedo_
                 MessageBox.Show(exc.ToString());
             }
 
-            
+
         }
 
         private void mcFechaInicio_KeyPress(object sender, KeyPressEventArgs e)
@@ -344,7 +331,7 @@ namespace ccquevedo_
             {
                 MessageBox.Show(exc.ToString());
             }
-            
+
         }
 
         private void mcFechaFin_KeyPress(object sender, KeyPressEventArgs e)
@@ -360,25 +347,43 @@ namespace ccquevedo_
         }
         private void llenarCombo(string idcate)
         {
-            //Elimina los datos que se encuentar en el combobox
-            cmbSubCategorias.DataSource = null;
-
-            //Realiza una busqueda en la bade de datos Tabla SubCategorias
-            DataTable tabla = this.subCategoriaTableAdapter.BuscarSub(idcate);
-            cmbSubCategorias.DisplayMember = "des";
-            cmbSubCategorias.ValueMember = "idcat";
-
-            Lista = new List<Product>();
-            for (int i = 0; i < tabla.Rows.Count; i++)
+            try
             {
-                Lista.Add(new Product(Convert.ToInt32(tabla.Rows[i][0].ToString()), tabla.Rows[i][1].ToString()));
+                InsertComboboxData(idcate);
+                dgvSubCatergoria.Rows.Clear();
+                listSubCate = new List<Product>();
             }
-            //Ingresa los datos encontrados en el combobox
-            cmbSubCategorias.DataSource = Lista;
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
 
-            //Elimina los datos que se encuentra en el datagridview
-            dgvSubCatergoria.Rows.Clear();
-            listSubCate = new List<Product>();
+        
+        private void InsertComboboxData(string idcate)
+        {
+            try
+            {
+                //Elimina los datos que se encuentar en el combobox
+                cmbSubCategorias.DataSource = null;
+
+                //Realiza una busqueda en la bade de datos Tabla SubCategorias
+                DataTable tabla = this.subCategoriaTableAdapter.BuscarSub(idcate);
+                cmbSubCategorias.DisplayMember = "des";
+                cmbSubCategorias.ValueMember = "idcat";
+
+                Lista = new List<Product>();
+                for (int i = 0; i < tabla.Rows.Count; i++)
+                {
+                    Lista.Add(new Product(Convert.ToInt32(tabla.Rows[i][0].ToString()), tabla.Rows[i][1].ToString()));
+                }
+                //Ingresa los datos encontrados en el combobox
+                cmbSubCategorias.DataSource = Lista;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
 
         private void cmbCategoria_KeyPress(object sender, KeyPressEventArgs e)
@@ -388,16 +393,37 @@ namespace ccquevedo_
 
         private void cmbCategoria_SelectionChangeCommitted(object sender, EventArgs e)
         {
-
-            ItemSelct = cmbCategoria.SelectedValue.ToString();
-            if (cmbCategoria.SelectedValue.ToString() != null)
-                llenarCombo(cmbCategoria.SelectedValue.ToString()); 
+            try
+            {
+                if (cmbCategoria.SelectedValue.ToString() == "29")
+                    cmbSubCategorias.Enabled = false;
+                else
+                {
+                    cmbSubCategorias.Enabled = true;
+                }
+                ItemSelct = cmbCategoria.SelectedValue.ToString();
+                if (cmbCategoria.SelectedValue.ToString() != null)
+                    llenarCombo(cmbCategoria.SelectedValue.ToString());
+                dgvSubCatergoria.Rows.Clear();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
 
         private void cmbSubCategorias_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            listSubCate.Add(new Product(Convert.ToInt32(cmbSubCategorias.SelectedValue.ToString()), cmbSubCategorias.GetItemText(cmbSubCategorias.SelectedItem)));
-            dgvSubCatergoria.Rows.Add(cmbSubCategorias.GetItemText(cmbSubCategorias.SelectedItem));
+
+            try
+            {
+                listSubCate.Add(new Product(Convert.ToInt32(cmbSubCategorias.SelectedValue.ToString()), cmbSubCategorias.GetItemText(cmbSubCategorias.SelectedItem)));
+                dgvSubCatergoria.Rows.Add(cmbSubCategorias.GetItemText(cmbSubCategorias.SelectedItem));
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
 
         private void txtPrecioOferta_Leave(object sender, EventArgs e)
