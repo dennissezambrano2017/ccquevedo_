@@ -160,14 +160,23 @@ namespace ccquevedo_
                     dgvAxu.Columns.Add("Cantidad de bajo inventario", "Min Stock");
                     dgvAxu.Columns.Add("Precio rebajado", "Precio Oferta");
                     dgvAxu.Columns.Add("Precio normal", "Precio Normal");
-                    //dgvAxu.Columns.Add("Categorías", "Categoria");
+                    dgvAxu.Columns.Add("Categorías", "Categoria");
                     dgvAxu.Columns.Add("Etiquetas", "Etiquetas");
                     dgvAxu.Columns.Add("Imágenes", "Imagen");
 
                     foreach (DataGridViewRow row in dgvProductos.Rows)
                     {
                         //int idcate = (int)dgvProductos.Rows[row.Index].Cells[11].Value;
-                        //DataTable tabla = this.categoriasTableAdapter.BuscarCategoria(idcate);
+                        
+                        DataTable tabla = this.cat_SubTableAdapter.DesCatSub(row.Cells[0].Value.ToString());
+                        string subcatdes = "";
+                        for(int l = 0; l < tabla.Rows.Count; l++)
+                        {
+                            //MessageBox.Show(tabla.Rows[l]["des"].ToString());
+                            subcatdes += tabla.Rows[l]["des"].ToString()+", ";
+
+                        }
+                        MessageBox.Show(subcatdes);
                         dgvAxu.Rows.Add();
                         dgvAxu.Rows[row.Index].Cells["ID"].Value = row.Cells[0].Value;
                         dgvAxu.Rows[row.Index].Cells["Tipo"].Value = row.Cells[1].Value;
@@ -180,9 +189,9 @@ namespace ccquevedo_
                         dgvAxu.Rows[row.Index].Cells["Cantidad de bajo inventario"].Value = row.Cells[8].Value;
                         dgvAxu.Rows[row.Index].Cells["Precio rebajado"].Value = row.Cells[9].Value;
                         dgvAxu.Rows[row.Index].Cells["Precio normal"].Value = row.Cells[10].Value;
-                        //dgvAxu.Rows[row.Index].Cells["Categorías"].Value = tabla.Rows[0][1].ToString();
-                        dgvAxu.Rows[row.Index].Cells["Etiquetas"].Value = row.Cells[12].Value;
-                        dgvAxu.Rows[row.Index].Cells["Imágenes"].Value = row.Cells[13].Value;
+                        dgvAxu.Rows[row.Index].Cells["Categorías"].Value = subcatdes;
+                        dgvAxu.Rows[row.Index].Cells["Etiquetas"].Value = row.Cells[11].Value;
+                        dgvAxu.Rows[row.Index].Cells["Imágenes"].Value = row.Cells[12].Value;
                     }
                     Exportar exportar = new Exportar();
                     exportar.ExportarDatos(dgvAxu);

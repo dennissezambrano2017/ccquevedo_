@@ -63,9 +63,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="bdCamaraComercioDataSet.cs">
-      <DependentUpon>bdCamaraComercioDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="bdCamaraComercioDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
