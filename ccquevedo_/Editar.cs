@@ -51,6 +51,7 @@ namespace ccquevedo_
                 DataTable subcat = this.cat_SubTableAdapter.BuscarSubCat(id.ToString());
                 for (int i = 0; i < subcat.Rows.Count; i++)
                 {
+                    MessageBox.Show(subcat.Rows[i]["Descripcion"].ToString());
                     ListSubCate.Add(subcat.Rows[i]["Descripcion"].ToString());
                     dgvSubCatergoria.Rows.Add(subcat.Rows[i]["Descripcion"].ToString());
                 }
@@ -323,6 +324,24 @@ namespace ccquevedo_
             DateTime fechaIncio = Convert.ToDateTime(mcFechaInicios.Text);
 
             mcFechaInicio.Text = fechaIncio.ToString("yyyy-MM-dd");
+        }
+
+        private void wedwedweToolStripButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.cat_SubTableAdapter.wedwedwe(this.bdCamaraComercioDataSet.Cat_Sub);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private void wedwedweToolStrip_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
         }
     }
 }
