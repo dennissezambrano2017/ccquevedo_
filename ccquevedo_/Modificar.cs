@@ -275,47 +275,83 @@ namespace ccquevedo_
 
         private void llenarCombo(string idcate)
         {
-            DataTable tabla = this.subCategoriaTableAdapter.BuscarSub(idcate);
-            cmbSubCategorias.DisplayMember = "des";
-            cmbSubCategorias.ValueMember = "idcat";
-
-            List<Product> lista = new List<Product>();
-            for (int i = 0; i < tabla.Rows.Count; i++)
+            try
             {
-                lista.Add(new Product(Convert.ToInt32(tabla.Rows[i][0].ToString()), tabla.Rows[i][1].ToString()));
+                DataTable tabla = this.subCategoriaTableAdapter.BuscarSub(idcate);
+                cmbSubCategorias.DisplayMember = "des";
+                cmbSubCategorias.ValueMember = "idcat";
+
+                List<Product> lista = new List<Product>();
+                for (int i = 0; i < tabla.Rows.Count; i++)
+                {
+                    lista.Add(new Product(Convert.ToInt32(tabla.Rows[i][0].ToString()), tabla.Rows[i][1].ToString()));
+                }
+                cmbSubCategorias.DataSource = lista;
             }
-            cmbSubCategorias.DataSource = lista;
-           // ListSubCate = new List<string>();
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
         private void llenarData(string cadena)
         {
-            //obtener las subcategorias
-            string[] parte = cadena.Split(',');
-            List<string> resuSubCategoria = new List<string>();
-            for (int j = 0; j < parte.Length - 1; j++)
+            try
             {
-                resuSubCategoria.Add(parte[j]);
+                //obtener las subcategorias
+                string[] parte = cadena.Split(',');
+                List<string> resuSubCategoria = new List<string>();
+                for (int j = 0; j < parte.Length - 1; j++)
+                {
+                    resuSubCategoria.Add(parte[j]);
+                }
+                for (int j = 0; j < resuSubCategoria.Count; j++)
+                {
+                    ListSubCate.Add(resuSubCategoria[j].ToString());
+                    dgvSubCatergoria.Rows.Add(resuSubCategoria[j].ToString());
+                }
             }
-            for (int j = 0; j < resuSubCategoria.Count; j++)
+            catch (Exception ex)
             {
-                ListSubCate.Add(resuSubCategoria[j].ToString());
-                dgvSubCatergoria.Rows.Add(resuSubCategoria[j].ToString());
+                MessageBox.Show(ex.ToString());
             }
-            
+
         }
 
 
         private void cmbCategoria_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            llenarCombo(cmbCategoria.SelectedValue.ToString());
-            itemSelct = cmbCategoria.SelectedValue.ToString();
-            dgvSubCatergoria.Rows.Clear();
+            try
+            {
+                llenarCombo(cmbCategoria.SelectedValue.ToString());
+                itemSelct = cmbCategoria.SelectedValue.ToString();
+                dgvSubCatergoria.Rows.Clear();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
 
         private void cmbSubCategorias_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            ListSubCate.Add(cmbSubCategorias.GetItemText(cmbSubCategorias.SelectedItem));
-            dgvSubCatergoria.Rows.Add(cmbSubCategorias.GetItemText(cmbSubCategorias.SelectedItem));
+            bool existeDuplicado = false;
+            try
+            {
+                for (int i = 0; i < dgvSubCatergoria.Rows.Count; i++)
+                {
+                    if (dgvSubCatergoria.Rows[i].Cells[0].Value.ToString() == cmbSubCategorias.GetItemText(cmbSubCategorias.SelectedItem))
+                        existeDuplicado = true;
+                }
+                if (existeDuplicado != true)
+                {
+                    ListSubCate.Add(cmbSubCategorias.GetItemText(cmbSubCategorias.SelectedItem));
+                    dgvSubCatergoria.Rows.Add(cmbSubCategorias.GetItemText(cmbSubCategorias.SelectedItem));
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
 
     }

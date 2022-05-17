@@ -161,9 +161,10 @@ namespace ccquevedo_
             {
                 if (dgvProducto.Rows != null && dgvProducto.Rows.Count != 0)
                 {
-                    Insertar();
+                    //Insertar();
                     Exportar exportar = new Exportar();
-                    exportar.ExportarDatos(dgvProducto);
+                    //exportar.ExportarDatos(dgvProducto);
+                    formatDgv(dgvProducto);
                 }
                 else
                     MessageBox.Show("No existen datos para exportar", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -281,6 +282,26 @@ namespace ccquevedo_
             this.productosBindingSource.EndEdit();
             this.tableAdapterManager.UpdateAll(this.bdCamaraComercioDataSet);
 
+        }
+        private void formatDgv(DataGridView dgvOriginal)
+        {
+            DataGridView dgvFormat = new DataGridView();
+            MessageBox.Show(dgvOriginal.Rows.Count.ToString());
+            foreach (DataGridViewRow filas in dgvOriginal.Rows)
+            {
+                foreach (DataGridViewCell celda in filas.Cells)
+                {
+                    if (celda.ColumnIndex.ToString() == "11")
+                    {
+                        MessageBox.Show("si");
+                        MessageBox.Show(celda.Value.ToString());
+                    }
+                }
+                MessageBox.Show(filas.ToString());
+
+            }
+
+            //return dgvFormat;
         }
 
     }
