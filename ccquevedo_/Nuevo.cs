@@ -251,6 +251,10 @@ namespace ccquevedo_
                     mycollection.Add(datos.Rows[i][1].ToString());
                 }
                 txtNombre.AutoCompleteCustomSource = mycollection;
+
+                //DataGridViewButtonColumn btnClear = new DataGridViewButtonColumn();
+                //btnClear.Name = "Eliminar";
+                //dgvSubCatergoria.Columns.Add(btnClear);
             }
             catch (Exception ex)
             {
@@ -470,6 +474,11 @@ namespace ccquevedo_
             mcFechaInicio.Enabled = true;
             mcFechaFins.Enabled = true;
             mcFechaInicios.Enabled = true;
+        }
+
+        private void dgvSubCatergoria_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            dgvSubCatergoria.Rows.Remove(dgvSubCatergoria.CurrentRow);
         }
     }
 }

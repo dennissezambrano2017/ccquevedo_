@@ -308,10 +308,19 @@ namespace ccquevedo_
 
         private void cmbSubCategorias_SelectionChangeCommitted(object sender, EventArgs e)
         {
+            bool existeDuplicado = false;
             try
             {
-                ListSubCate.Add(cmbSubCategorias.GetItemText(cmbSubCategorias.SelectedItem));
-                dgvSubCatergoria.Rows.Add(cmbSubCategorias.GetItemText(cmbSubCategorias.SelectedItem));
+                for (int i = 0; i < dgvSubCatergoria.Rows.Count; i++)
+                {
+                    if (dgvSubCatergoria.Rows[i].Cells[0].Value.ToString() == cmbSubCategorias.GetItemText(cmbSubCategorias.SelectedItem))
+                        existeDuplicado = true;
+                }
+                if (existeDuplicado != true)
+                {
+                    ListSubCate.Add(cmbSubCategorias.GetItemText(cmbSubCategorias.SelectedItem));
+                    dgvSubCatergoria.Rows.Add(cmbSubCategorias.GetItemText(cmbSubCategorias.SelectedItem));
+                }
             }
             catch (Exception ex)
             {

@@ -31,7 +31,7 @@ namespace ccquevedo_
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Nuevo));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -72,7 +72,6 @@ namespace ccquevedo_
             this.label10 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dgvSubCatergoria = new System.Windows.Forms.DataGridView();
-            this.SubCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mcFechaInicio = new System.Windows.Forms.TextBox();
             this.mcFechaFin = new System.Windows.Forms.TextBox();
             this.productosTableAdapter = new ccquevedo_.bdCamaraComercioDataSetTableAdapters.ProductosTableAdapter();
@@ -82,6 +81,8 @@ namespace ccquevedo_
             this.subCategoriaTableAdapter = new ccquevedo_.bdCamaraComercioDataSetTableAdapters.SubCategoriaTableAdapter();
             this.cat_SubBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cat_SubTableAdapter = new ccquevedo_.bdCamaraComercioDataSetTableAdapters.Cat_SubTableAdapter();
+            this.SubCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Eliminar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriasBindingSource)).BeginInit();
@@ -493,17 +494,18 @@ namespace ccquevedo_
             this.dgvSubCatergoria.AllowUserToAddRows = false;
             this.dgvSubCatergoria.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
             this.dgvSubCatergoria.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvSubCatergoria.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvSubCatergoria.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvSubCatergoria.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSubCatergoria.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.SubCategoria});
+            this.SubCategoria,
+            this.Eliminar});
             this.dgvSubCatergoria.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dgvSubCatergoria.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvSubCatergoria.ImeMode = System.Windows.Forms.ImeMode.On;
@@ -514,13 +516,7 @@ namespace ccquevedo_
             this.dgvSubCatergoria.RowHeadersVisible = false;
             this.dgvSubCatergoria.Size = new System.Drawing.Size(272, 100);
             this.dgvSubCatergoria.TabIndex = 0;
-            // 
-            // SubCategoria
-            // 
-            this.SubCategoria.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.SubCategoria.HeaderText = "SubCategoria";
-            this.SubCategoria.Name = "SubCategoria";
-            this.SubCategoria.ReadOnly = true;
+            this.dgvSubCatergoria.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSubCatergoria_CellContentClick);
             // 
             // mcFechaInicio
             // 
@@ -576,6 +572,21 @@ namespace ccquevedo_
             // cat_SubTableAdapter
             // 
             this.cat_SubTableAdapter.ClearBeforeFill = true;
+            // 
+            // SubCategoria
+            // 
+            this.SubCategoria.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.SubCategoria.HeaderText = "SubCategoria";
+            this.SubCategoria.Name = "SubCategoria";
+            this.SubCategoria.ReadOnly = true;
+            // 
+            // Eliminar
+            // 
+            this.Eliminar.HeaderText = "";
+            this.Eliminar.Name = "Eliminar";
+            this.Eliminar.ReadOnly = true;
+            this.Eliminar.Text = "x";
+            this.Eliminar.Width = 30;
             // 
             // Nuevo
             // 
@@ -683,7 +694,6 @@ namespace ccquevedo_
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.DataGridView dgvSubCatergoria;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SubCategoria;
         private System.Windows.Forms.TextBox mcFechaInicio;
         private System.Windows.Forms.TextBox mcFechaFin;
         private bdCamaraComercioDataSetTableAdapters.ProductosTableAdapter productosTableAdapter;
@@ -694,5 +704,7 @@ namespace ccquevedo_
         public System.Windows.Forms.ComboBox cmbSubCategorias;
         private System.Windows.Forms.BindingSource cat_SubBindingSource;
         private bdCamaraComercioDataSetTableAdapters.Cat_SubTableAdapter cat_SubTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SubCategoria;
+        private System.Windows.Forms.DataGridViewButtonColumn Eliminar;
     }
 }
