@@ -68,7 +68,6 @@ namespace ccquevedo_
                 this.productosTableAdapter.Fill(this.bdCamaraComercioDataSet.Productos);
                 DT_Productos();
 
-                //falta agrgar el resto de datos 
                 dgvProducto.Columns.Add("ID", "Codigo");
                 dgvProducto.Columns.Add("Tipo", "Tipo Producto");
                 dgvProducto.Columns.Add("Nombre", "Nombre");
@@ -161,10 +160,9 @@ namespace ccquevedo_
             {
                 if (dgvProducto.Rows != null && dgvProducto.Rows.Count != 0)
                 {
-                    //Insertar();
+                    Insertar();
                     Exportar exportar = new Exportar();
-                    //exportar.ExportarDatos(dgvProducto);
-                    formatDgv(dgvProducto);
+                    exportar.ExportarDatos(formatDgv(dgvProducto));
                 }
                 else
                     MessageBox.Show("No existen datos para exportar", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -283,25 +281,58 @@ namespace ccquevedo_
             this.tableAdapterManager.UpdateAll(this.bdCamaraComercioDataSet);
 
         }
-        private void formatDgv(DataGridView dgvOriginal)
+        private DataGridView formatDgv(DataGridView dgvOriginal)
         {
             DataGridView dgvFormat = new DataGridView();
-            MessageBox.Show(dgvOriginal.Rows.Count.ToString());
-            foreach (DataGridViewRow filas in dgvOriginal.Rows)
+
+            dgvFormat.Columns.Add("ID", "Codigo");
+            dgvFormat.Columns.Add("Tipo", "Tipo Producto");
+            dgvFormat.Columns.Add("Nombre", "Nombre");
+            dgvFormat.Columns.Add("Descripción corta", "Descripción Corta");
+            dgvFormat.Columns.Add("Descripción", "Descripción Larga");
+            dgvFormat.Columns.Add("Día en que empieza el precio rebajado", "Fecha Inicio");
+            dgvFormat.Columns.Add("Día en que termina el precio rebajado", "Fecha Fin");
+            dgvFormat.Columns.Add("Inventario", "Stock");
+            dgvFormat.Columns.Add("Cantidad de bajo inventario", "Min Stock");
+            dgvFormat.Columns.Add("Precio rebajado", "Precio Oferta");
+            dgvFormat.Columns.Add("Precio normal", "Precio Normal");
+            dgvFormat.Columns.Add("Categorías", "Categoria");
+            dgvFormat.Columns.Add("Etiquetas", "Etiquetas");
+            dgvFormat.Columns.Add("Imágenes", "Imagen");
+
+            
+            //MessageBox.Show(dgvOriginal.Rows.Count.ToString());
+            foreach (DataGridViewRow row in dgvOriginal.Rows)
             {
-                foreach (DataGridViewCell celda in filas.Cells)
+                
+                string[] parte = row.Cells["Sub-Categorías"].Value.ToString().Split(',');
+                List<string> resuSubCategoria = new List<string>();
+                string subfor="";
+                for (int j = 0; j < parte.Length - 1; j++)
                 {
-                    if (celda.ColumnIndex.ToString() == "11")
-                    {
-                        MessageBox.Show("si");
-                        MessageBox.Show(celda.Value.ToString());
-                    }
+                    resuSubCategoria.Add(parte[j]);
                 }
-                MessageBox.Show(filas.ToString());
+                for (int j = 0; j < resuSubCategoria.Count; j++)
+                {
+                    subfor+= row.Cells["Categorías"].Value.ToString()+" > "+resuSubCategoria[j].ToString()+", ";
+                }
 
+                dgvFormat.Rows[row.Index].Cells["ID"].Value= row.Cells["ID"].Value.ToString();
+                dgvFormat.Rows[row.Index].Cells["Tipo"].Value= row.Cells["Tipo"].Value.ToString();
+                dgvFormat.Rows[row.Index].Cells["Nombre"].Value = row.Cells["Nombre"].Value.ToString();
+                dgvFormat.Rows[row.Index].Cells["Descripción corta"].Value = row.Cells["Descripción corta"].Value.ToString();
+                dgvFormat.Rows[row.Index].Cells["Descripción"].Value = row.Cells["Descripción"].Value.ToString();
+                dgvFormat.Rows[row.Index].Cells["Día en que empieza el precio rebajado"].Value = row.Cells["Día en que empieza el precio rebajado"].Value.ToString();
+                dgvFormat.Rows[row.Index].Cells["Día en que termina el precio rebajado"].Value = row.Cells["Día en que termina el precio rebajado"].Value.ToString();
+                dgvFormat.Rows[row.Index].Cells["Inventario"].Value = row.Cells["Inventario"].Value.ToString();
+                dgvFormat.Rows[row.Index].Cells["Cantidad de bajo inventario"].Value = row.Cells["Cantidad de bajo inventario"].Value.ToString();
+                dgvFormat.Rows[row.Index].Cells["Precio rebajado"].Value = row.Cells["Precio rebajado"].Value.ToString();
+                dgvFormat.Rows[row.Index].Cells["Precio normal"].Value = row.Cells["Precio normal"].Value.ToString();
+                dgvFormat.Rows[row.Index].Cells["Categorías"].Value = subfor;
+                dgvFormat.Rows[row.Index].Cells["Etiquetas"].Value = row.Cells["Etiquetas"].Value.ToString();
+                dgvFormat.Rows[row.Index].Cells["Imágenes"].Value = row.Cells["Imágenes"].Value.ToString();
             }
-
-            //return dgvFormat;
+            return dgvFormat;
         }
 
     }
