@@ -15,8 +15,10 @@ namespace ccquevedo_
         private static Modificar instancia = null;
 
         private List<string> listSubCate = new List<string>();
+        private string itemSelct;
 
         public List<string> ListSubCate { get => listSubCate; set => listSubCate = value; }
+        public string ItemSelct { get => itemSelct; set => itemSelct = value; }
 
         public static Modificar FormCrear()
         {
@@ -64,42 +66,52 @@ namespace ccquevedo_
         {
             try
             {
-                comprobarData();
-                if (int.Parse(txtPrecioOferta.Text) < int.Parse(txtPrecioNormal.Text))
+                string txtCategoria = "";
+                for (int i = 0; i < listSubCate.Count; i++)
+                    txtCategoria += listSubCate[i] + ",";
+
+                if (txtPrecioOferta.Text != "" && mcFechaInicio.Text == "" && mcFechaFin.Text == "")
+                    MessageBox.Show("Falta ingresar las fechas de incio y fin de las ofertas", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                else if (txtPrecioOferta.Text == "" && mcFechaInicio.Text != "" && mcFechaFin.Text != "")
+                    MessageBox.Show("Falta ingresar el precio de oferta", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                else
                 {
-                    if (int.Parse(txtStock.Text) < int.Parse(txtInventario.Text))
+                    if (txtCodigo.Text != "" && txtNombre.Text != "" && txtDesCorta.Text != "" && txtPrecioNormal.Text != "" && ItemSelct != "" && txtInventario.Text != "")
                     {
-                        
-                        string txtCategoria = "";
-                        for (int i = 0; i < listSubCate.Count; i++)
-                            txtCategoria += cmbCategoria.Text + ">" + listSubCate[i].ToString() + ",";
-                        if (listSubCate.Count == 0)
+                        comprobarData();
+                        if (int.Parse(txtPrecioOferta.Text) < int.Parse(txtPrecioNormal.Text))
                         {
-                            txtCategoria = cmbCategoria.Text;
+                            if (int.Parse(txtStock.Text) < int.Parse(txtInventario.Text))
+                            {
+                                //MessageBox.Show(txtCategoria);
+                                CrearExcel ce = Owner as CrearExcel;
+                                ce.DtProductos[0, ce.Posicion].Value = txtCodigo.Text;
+                                ce.DtProductos[1, ce.Posicion].Value = txtTipoProducto.Text;
+                                ce.DtProductos[2, ce.Posicion].Value = txtNombre.Text;
+                                ce.DtProductos[3, ce.Posicion].Value = txtDesCorta.Text;
+                                ce.DtProductos[4, ce.Posicion].Value = txtDescriComple.Text;
+                                ce.DtProductos[5, ce.Posicion].Value = mcFechaInicio.Text;
+                                ce.DtProductos[6, ce.Posicion].Value = mcFechaFin.Text;
+                                ce.DtProductos[7, ce.Posicion].Value = txtInventario.Text;
+                                ce.DtProductos[8, ce.Posicion].Value = txtStock.Text;
+                                ce.DtProductos[9, ce.Posicion].Value = txtPrecioOferta.Text;
+                                ce.DtProductos[10, ce.Posicion].Value = txtPrecioNormal.Text;
+                                ce.DtProductos[11, ce.Posicion].Value = cmbCategoria.Text;
+                                ce.DtProductos[12, ce.Posicion].Value = txtCategoria;
+                                ce.DtProductos[13, ce.Posicion].Value = txtEtiqueta.Text;
+                                ce.DtProductos[14, ce.Posicion].Value = txtImage.Text;
+                                this.Close();
+                            }
+                            else
+                                MessageBox.Show("El valor del minimo stock no debe ser mayor que el inventario", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
-                        //MessageBox.Show(txtCategoria);
-                        CrearExcel ce = Owner as CrearExcel;
-                        ce.DtProductos[0, ce.Posicion].Value = txtCodigo.Text;
-                        ce.DtProductos[1, ce.Posicion].Value = txtTipoProducto.Text;
-                        ce.DtProductos[2, ce.Posicion].Value = txtNombre.Text;
-                        ce.DtProductos[3, ce.Posicion].Value = txtDesCorta.Text;
-                        ce.DtProductos[4, ce.Posicion].Value = txtDescriComple.Text;
-                        ce.DtProductos[5, ce.Posicion].Value = mcFechaInicio.Text;
-                        ce.DtProductos[6, ce.Posicion].Value = mcFechaFin.Text;
-                        ce.DtProductos[7, ce.Posicion].Value = txtInventario.Text;
-                        ce.DtProductos[8, ce.Posicion].Value = txtStock.Text;
-                        ce.DtProductos[9, ce.Posicion].Value = txtPrecioOferta.Text;
-                        ce.DtProductos[10, ce.Posicion].Value = txtPrecioNormal.Text;
-                        ce.DtProductos[11, ce.Posicion].Value = txtCategoria;
-                        ce.DtProductos[12, ce.Posicion].Value = txtEtiqueta.Text;
-                        ce.DtProductos[13, ce.Posicion].Value = txtImage.Text;
-                        this.Close();
+                        else
+                            MessageBox.Show("El precio de oferta no debe ser mayor que el precio normal", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                     else
-                        MessageBox.Show("El valor del minimo stock no debe ser mayor que el inventario", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("Falta datos a ingresar", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
-                else
-                    MessageBox.Show("El precio de oferta no debe ser mayor que el precio normal", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
             }
 
             catch (Exception ex)
@@ -118,7 +130,17 @@ namespace ccquevedo_
             else if (txtInventario.Text == "")
                 txtInventario.Text = "0";
         }
-
+        private void cambiarData()
+        {
+            if (txtPrecioOferta.Text == "0")
+                txtPrecioOferta.Text = "";
+            else if (txtPrecioNormal.Text == "0")
+                txtPrecioNormal.Text = "";
+            else if (txtStock.Text == "0")
+                txtStock.Text = "";
+            else if (txtInventario.Text == "0")
+                txtInventario.Text = "";
+        }
         private void txtCodigo_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
@@ -182,18 +204,14 @@ namespace ccquevedo_
             {
                 // TODO: esta línea de código carga datos en la tabla 'bdCamaraComercioDataSet.Categorias' Puede moverla o quitarla según sea necesario.
                 this.categoriasTableAdapter.Fill(this.bdCamaraComercioDataSet.Categorias);
+                
+                cambiarData();
 
-                //Cadena de categoria y sub categoria
-                string cadena = cmbCategoria.Text;
-                //posición para obtener la posición de la categoria
-                int num = cadena.IndexOf(">");
-                if (num < 1)
-                {
-                    num = cadena.Length;
-                }
+                llenarData(cmbSubCategorias.Text);
+
                 //obtener el id de la categoria
-                var id = this.categoriasTableAdapter.ConsultarId(cadena.Substring(0, num));
 
+                itemSelct = this.categoriasTableAdapter.ConsultarId(cmbCategoria.Text);
                 DataTable tabla = this.categoriasTableAdapter.GetData();
                 cmbCategoria.DisplayMember = "des";
                 cmbCategoria.ValueMember = "idcat";
@@ -204,10 +222,10 @@ namespace ccquevedo_
                     lista.Add(new Product(Convert.ToInt32(tabla.Rows[i][0].ToString()), tabla.Rows[i][1].ToString()));
                 }
                 cmbCategoria.DataSource = lista;
-                cmbCategoria.SelectedValue = Convert.ToInt32(id);
-                llenarCombo(id);
-                llenarData(cadena);
+                cmbCategoria.SelectedValue = Convert.ToInt32(itemSelct);
+                llenarCombo(itemSelct);
                 
+
             }
             catch (Exception exc)
             {
@@ -267,32 +285,21 @@ namespace ccquevedo_
                 lista.Add(new Product(Convert.ToInt32(tabla.Rows[i][0].ToString()), tabla.Rows[i][1].ToString()));
             }
             cmbSubCategorias.DataSource = lista;
-            ListSubCate = new List<string>();
+           // ListSubCate = new List<string>();
         }
         private void llenarData(string cadena)
         {
             //obtener las subcategorias
             string[] parte = cadena.Split(',');
-
-            List<string> resu = new List<string>();
-            List<string> resuCa = new List<string>();
+            List<string> resuSubCategoria = new List<string>();
             for (int j = 0; j < parte.Length - 1; j++)
             {
-                resu.Add(parte[j]);
+                resuSubCategoria.Add(parte[j]);
             }
-            for (int j = 0; j < resu.Count; j++)
+            for (int j = 0; j < resuSubCategoria.Count; j++)
             {
-                string n = resu[j].Split('>')[1];
-                if (n != "1")
-                {
-                    string partedos = resu[j].Split('>')[1];
-                    resuCa.Add(partedos.ToString());
-                }
-            }
-            for (int j = 0; j < resuCa.Count; j++)
-            {
-                ListSubCate.Add(resuCa[j].ToString());
-                dgvSubCatergoria.Rows.Add(resuCa[j].ToString());
+                ListSubCate.Add(resuSubCategoria[j].ToString());
+                dgvSubCatergoria.Rows.Add(resuSubCategoria[j].ToString());
             }
             
         }
@@ -301,6 +308,7 @@ namespace ccquevedo_
         private void cmbCategoria_SelectionChangeCommitted(object sender, EventArgs e)
         {
             llenarCombo(cmbCategoria.SelectedValue.ToString());
+            itemSelct = cmbCategoria.SelectedValue.ToString();
             dgvSubCatergoria.Rows.Clear();
         }
 

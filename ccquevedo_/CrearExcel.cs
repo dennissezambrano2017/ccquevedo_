@@ -182,6 +182,7 @@ namespace ccquevedo_
                 if (dgvProducto.Rows.Count > 0)
                 {
                     Insertar();
+                    MessageBox.Show("Actualizado en la base de datos correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                     MessageBox.Show("No existen datos en la tabla para actualizar", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -206,13 +207,11 @@ namespace ccquevedo_
                     
                     //obtener las subcategorias
                     string[] parte = cadena.Split(',');
-
                     List<string> resuSubCategoria = new List<string>();
                     for (int j = 0; j < parte.Length-1; j++)
                     {
                         resuSubCategoria.Add(parte[j]);
                     }
-
 
                     if (v.ToString() != "1")
                     {
@@ -225,11 +224,11 @@ namespace ccquevedo_
                         dtProductos.Rows[i].Cells[8].Value.ToString(),
                         dtProductos.Rows[i].Cells[10].Value.ToString(),
                         dtProductos.Rows[i].Cells[9].Value.ToString(),
-                        dtProductos.Rows[i].Cells[13].Value.ToString(),
+                        dtProductos.Rows[i].Cells[14].Value.ToString(),
                         dtProductos.Rows[i].Cells[1].Value.ToString(),
                         dtProductos.Rows[i].Cells[5].Value.ToString(),
                         dtProductos.Rows[i].Cells[6].Value.ToString(),
-                        dtProductos.Rows[i].Cells[12].Value.ToString());
+                        dtProductos.Rows[i].Cells[13].Value.ToString());
 
                     }
                     else
@@ -242,11 +241,11 @@ namespace ccquevedo_
                         dtProductos.Rows[i].Cells[8].Value.ToString(),
                         dtProductos.Rows[i].Cells[10].Value.ToString(),
                         dtProductos.Rows[i].Cells[9].Value.ToString(),
-                        dtProductos.Rows[i].Cells[13].Value.ToString(),
+                        dtProductos.Rows[i].Cells[14].Value.ToString(),
                         dtProductos.Rows[i].Cells[1].Value.ToString(),
                         dtProductos.Rows[i].Cells[5].Value.ToString(),
                         dtProductos.Rows[i].Cells[6].Value.ToString(),
-                        dtProductos.Rows[i].Cells[12].Value.ToString(),
+                        dtProductos.Rows[i].Cells[13].Value.ToString(),
                         dtProductos.Rows[i].Cells[0].Value.ToString());
                         this.cat_SubTableAdapter.Eliminar(dtProductos.Rows[i].Cells[0].Value.ToString());
 
@@ -283,5 +282,6 @@ namespace ccquevedo_
             this.tableAdapterManager.UpdateAll(this.bdCamaraComercioDataSet);
 
         }
+
     }
 }

@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace ccquevedo_
@@ -13,13 +9,14 @@ namespace ccquevedo_
     {
         private static Nuevo instancia = null;
         private string itemSelct;
+        private CrearExcel ce = new CrearExcel();
         private List<Product> listSubCate = new List<Product>();
         private List<string> listSubCategoria = new List<string>();
         private List<Product> lista = new List<Product>();
 
         public string ItemSelct { get => itemSelct; set => itemSelct = value; }
         public List<Product> ListSubCate { get => listSubCate; set => listSubCate = value; }
-        
+
         public List<Product> Lista { get => lista; set => lista = value; }
         public List<string> ListSubCategoria { get => listSubCategoria; set => listSubCategoria = value; }
 
@@ -52,12 +49,23 @@ namespace ccquevedo_
         private void btnGuadar_Click(object sender, EventArgs e)
         {
             try
-            {
-                string txtCategoria = "";
-                for (int i = 0; i < listSubCate.Count; i++)
-                    txtCategoria += listSubCate[i].des + ",";
+            { 
+                ce = Owner as CrearExcel;
+                bool existe = false;
+                int Posicion = 0;
+                for(int i=0; i < ce.dgvProducto.Rows.Count; i++)
+                {
+                    if (ce.dgvProducto.Rows[i].Cells[0].Value.ToString() == txtCodigo.Text)
+                    { 
+                        existe = true; 
+                        Posicion = ce.dgvProducto.CurrentRow.Index;
+                    }
+                }
 
-                CrearExcel ce = Owner as CrearExcel;
+                string txtCategoria = "";
+                for (int i = 0; i < ListSubCategoria.Count; i++)
+                    txtCategoria += ListSubCategoria[i] + ",";
+
                 if (txtPrecioOferta.Text != "" && mcFechaInicio.Text == "" && mcFechaFin.Text == "")
                     MessageBox.Show("Falta ingresar las fechas de incio y fin de las ofertas", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 else if (txtPrecioOferta.Text == "" && mcFechaInicio.Text != "" && mcFechaFin.Text != "")
@@ -71,11 +79,33 @@ namespace ccquevedo_
                         {
                             if (int.Parse(txtStock.Text) < int.Parse(txtInventario.Text))
                             {
+                                if (existe != true)
+                                {
 
-                                ce.DtProductos.Rows.Add(txtCodigo.Text, txtTipoProducto.Text, txtNombre.Text,
-                                    txtDescripcionCorta.Text, txtDescripcionCompleta.Text, mcFechaInicio.Text,
-                                    mcFechaFin.Text, txtInventario.Text, txtStock.Text, txtPrecioOferta.Text,
-                                    txtPrecioNormal.Text, cmbCategoria.Text, txtCategoria, txtEtiqueta.Text, txtImagen.Text);
+                                    ce.DtProductos.Rows.Add(txtCodigo.Text, txtTipoProducto.Text, txtNombre.Text,
+                                      txtDescripcionCorta.Text, txtDescripcionCompleta.Text, mcFechaInicio.Text,
+                                      mcFechaFin.Text, txtInventario.Text, txtStock.Text, txtPrecioOferta.Text,
+                                      txtPrecioNormal.Text, cmbCategoria.Text, txtCategoria, txtEtiqueta.Text, txtImagen.Text);
+                                }
+                                else
+                                {
+                                    ce.DtProductos[0, Posicion].Value = txtCodigo.Text;
+                                    ce.DtProductos[1, Posicion].Value = txtTipoProducto.Text;
+                                    ce.DtProductos[2, Posicion].Value = txtNombre.Text;
+                                    ce.DtProductos[3, Posicion].Value = txtDescripcionCorta.Text;
+                                    ce.DtProductos[4, Posicion].Value = txtDescripcionCompleta.Text;
+                                    ce.DtProductos[5, Posicion].Value = mcFechaInicio.Text;
+                                    ce.DtProductos[6, Posicion].Value = mcFechaFin.Text;
+                                    ce.DtProductos[7, Posicion].Value = txtInventario.Text;
+                                    ce.DtProductos[8, Posicion].Value = txtStock.Text;
+                                    ce.DtProductos[9, Posicion].Value = txtPrecioOferta.Text;
+                                    ce.DtProductos[10, Posicion].Value = txtPrecioNormal.Text;
+                                    ce.DtProductos[11, Posicion].Value = cmbCategoria.Text;
+                                    ce.DtProductos[12, Posicion].Value = txtCategoria;
+                                    ce.DtProductos[13, Posicion].Value = txtEtiqueta.Text;
+                                    ce.DtProductos[14, Posicion].Value = txtImagen.Text;
+                                }
+
                                 this.Close();
                             }
                             else
@@ -237,6 +267,7 @@ namespace ccquevedo_
                     DataTable datos = this.productosTableAdapter.BuscaNombre(txtNombre.Text);
                     if (datos.Rows.Count > 0)
                     {
+                        dgvSubCatergoria.Rows.Clear();
                         txtCodigo.Text = datos.Rows[0][0].ToString();
                         txtDescripcionCorta.Text = datos.Rows[0][2].ToString();
                         txtDescripcionCompleta.Text = datos.Rows[0][3].ToString();
@@ -262,7 +293,7 @@ namespace ccquevedo_
                         cmbCategoria.ValueMember = "idcat";
 
                         DataTable datosTwo = this.productosTableAdapter.BuscarIdProducto(datos.Rows[0][0].ToString());
-                        string id= datosTwo.Rows[0][13].ToString();
+                        string id = datosTwo.Rows[0][13].ToString();
 
                         List<Product> lista = new List<Product>();
                         for (int i = 0; i < tabla.Rows.Count; i++)
@@ -276,7 +307,6 @@ namespace ccquevedo_
                         {
                             cmbSubCategorias.Enabled = true;
                             InsertComboboxData(id);
-                            listSubCate = new List<Product>();
                         }
                     }
                     else
@@ -359,7 +389,7 @@ namespace ccquevedo_
             }
         }
 
-        
+
         private void InsertComboboxData(string idcate)
         {
             try
@@ -372,13 +402,13 @@ namespace ccquevedo_
                 cmbSubCategorias.DisplayMember = "des";
                 cmbSubCategorias.ValueMember = "idcat";
 
-                Lista = new List<Product>();
+                listSubCate = new List<Product>();
                 for (int i = 0; i < tabla.Rows.Count; i++)
                 {
-                    Lista.Add(new Product(Convert.ToInt32(tabla.Rows[i][0].ToString()), tabla.Rows[i][1].ToString()));
+                    listSubCate.Add(new Product(Convert.ToInt32(tabla.Rows[i][0].ToString()), tabla.Rows[i][1].ToString()));
                 }
                 //Ingresa los datos encontrados en el combobox
-                cmbSubCategorias.DataSource = Lista;
+                cmbSubCategorias.DataSource = listSubCate;
             }
             catch (Exception ex)
             {
@@ -417,7 +447,7 @@ namespace ccquevedo_
 
             try
             {
-                listSubCate.Add(new Product(Convert.ToInt32(cmbSubCategorias.SelectedValue.ToString()), cmbSubCategorias.GetItemText(cmbSubCategorias.SelectedItem)));
+                ListSubCategoria.Add(cmbSubCategorias.GetItemText(cmbSubCategorias.SelectedItem));
                 dgvSubCatergoria.Rows.Add(cmbSubCategorias.GetItemText(cmbSubCategorias.SelectedItem));
             }
             catch (Exception ex)
