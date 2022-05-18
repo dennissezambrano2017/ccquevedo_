@@ -14,10 +14,8 @@ namespace ccquevedo_
     {
         private static Modificar instancia = null;
 
-        private List<string> listSubCate = new List<string>();
         private string itemSelct;
 
-        public List<string> ListSubCate { get => listSubCate; set => listSubCate = value; }
         public string ItemSelct { get => itemSelct; set => itemSelct = value; }
 
         public static Modificar FormCrear()
@@ -67,8 +65,8 @@ namespace ccquevedo_
             try
             {
                 string txtCategoria = "";
-                for (int i = 0; i < listSubCate.Count; i++)
-                    txtCategoria += listSubCate[i] + ",";
+                for (int i = 0; i < dgvSubCatergoria.Rows.Count; i++)
+                    txtCategoria += dgvSubCatergoria.Rows[i].Cells[0].Value.ToString() + ",";
 
                 if (txtPrecioOferta.Text != "" && mcFechaInicio.Text == "" && mcFechaFin.Text == "")
                     MessageBox.Show("Falta ingresar las fechas de incio y fin de las ofertas", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -306,7 +304,6 @@ namespace ccquevedo_
                 }
                 for (int j = 0; j < resuSubCategoria.Count; j++)
                 {
-                    ListSubCate.Add(resuSubCategoria[j].ToString());
                     dgvSubCatergoria.Rows.Add(resuSubCategoria[j].ToString());
                 }
             }
@@ -344,7 +341,6 @@ namespace ccquevedo_
                 }
                 if (existeDuplicado != true)
                 {
-                    ListSubCate.Add(cmbSubCategorias.GetItemText(cmbSubCategorias.SelectedItem));
                     dgvSubCatergoria.Rows.Add(cmbSubCategorias.GetItemText(cmbSubCategorias.SelectedItem));
                 }
             }
@@ -356,23 +352,14 @@ namespace ccquevedo_
 
         private void button1_Click(object sender, EventArgs e)
         {
-            CloudingImag frmImag = new CloudingImag(txtImage.Text,"");
-            frmImag.ShowDialog();
-        }
-        public void EditaText(string texto)
-        {
-            txtImage.Text = texto;
-            //MessageBox.Show(texto+"--");
+            CloudingImag cloudingImag = CloudingImag.FormCrear("2", txtImage.Text);
+            AddOwnedForm(cloudingImag);
+            cloudingImag.ShowDialog();
         }
 
         private void dgvSubCatergoria_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             dgvSubCatergoria.Rows.Remove(dgvSubCatergoria.CurrentRow);
-        }
-
-        private void txtImage_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

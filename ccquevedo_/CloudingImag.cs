@@ -17,34 +17,41 @@ namespace ccquevedo_
     public partial class CloudingImag : Form
     {
         public static Cloudinary cloud;
-        private string urlImage;
-        private string id;
+        private static string urlImage;
+        private static CloudingImag instancia = null;
+        private static string formulario;
 
         Account accoun = new Account(
             "camara-de-comercio-de-quevedo",
             "786557385641997",
             "ZBHl1dtyxaDnRaYQUm61XMaLgMQ");
 
-        public string UrlImage { get => urlImage; set => urlImage = value; }
-        public string Id { get => id; set => id = value; }
+        public static string UrlImage { get => urlImage; set => urlImage = value; }
+        public static string Formulario { get => formulario; set => formulario = value; }
 
-        public CloudingImag(string url,string id)
+        public static CloudingImag FormCrear(string frm,string txt)
+        {
+            formulario = frm;
+            UrlImage_(txt);
+            if (instancia == null)
+            {
+                instancia = new CloudingImag();
+                return instancia;
+            }
+            return instancia;
+
+        }
+        public static void UrlImage_(string ruta)
+        {
+            UrlImage = ruta;
+        }
+        public CloudingImag()
         {
             InitializeComponent();
             cloud = new Cloudinary(accoun);
-            pictureBox1.ImageLocation = @"" + url;
-            Id = id;
+            pictureBox1.ImageLocation = @"" + UrlImage;
         }
 
-        private void rjButton1_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void rjButton2_Click(object sender, EventArgs e)
-        {
-            
-        }
         private void cargarImagen(string ruta)
         {
             try
@@ -56,13 +63,25 @@ namespace ccquevedo_
                 //var uploadResult = cloud.Upload(uploadParams);
 
                 //ruta = uploadResult.SecureUri.ToString();
-                ruta = "https://res.cloudinary.com/camara-de-comercio-de-quevedo/image/upload/v1652834621/p2arazqsoayi2rvwpspy.png";
-                Nuevo frmn= Nuevo.FormCrear();
-                frmn.EditaText(ruta);
-                Modificar frmm = Modificar.FormCrear();
-                frmm.EditaText(ruta);
-                Editar frme = Editar.FormCrear(Id); ;
-                frme.EditaText(ruta);
+                ruta = "https:+//res.cloudinary.com/camara-de-comercio-de-quevedo/image/upload/v1652834621/p2arazqsoayi2rvwpspy.png";
+                switch (Formulario)
+                {
+                    case "1":
+                        Nuevo frmNuevo = Owner as Nuevo;
+                        frmNuevo.txtImagen.Text = ruta;
+                        break;
+
+                    case "2":
+                        Modificar frmModificar = Owner as Modificar;
+                        frmModificar.txtImage.Text = ruta;
+                        break;
+
+                    case "3":
+                        Editar frmEditar = Owner as Editar;
+                        frmEditar.txtImage.Text = ruta;
+                        break;
+                }
+
                 MessageBox.Show("Foto subida correctamente al servidor");
 
 

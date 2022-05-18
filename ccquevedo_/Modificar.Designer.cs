@@ -524,7 +524,6 @@
             this.txtImage.Name = "txtImage";
             this.txtImage.Size = new System.Drawing.Size(275, 67);
             this.txtImage.TabIndex = 77;
-            this.txtImage.Click += new System.EventHandler(this.txtImage_Click);
             // 
             // button1
             // 

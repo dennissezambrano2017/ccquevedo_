@@ -11,14 +11,12 @@ namespace ccquevedo_
         private string itemSelct;
         private CrearExcel ce = new CrearExcel();
         private List<Product> listSubCate = new List<Product>();
-        private List<string> listSubCategoria = new List<string>();
         private List<Product> lista = new List<Product>();
 
         public string ItemSelct { get => itemSelct; set => itemSelct = value; }
         public List<Product> ListSubCate { get => listSubCate; set => listSubCate = value; }
 
         public List<Product> Lista { get => lista; set => lista = value; }
-        public List<string> ListSubCategoria { get => listSubCategoria; set => listSubCategoria = value; }
 
         public static Nuevo FormCrear()
         {
@@ -63,8 +61,8 @@ namespace ccquevedo_
                 }
 
                 string txtCategoria = "";
-                for (int i = 0; i < ListSubCategoria.Count; i++)
-                    txtCategoria += ListSubCategoria[i] + ",";
+                for (int i = 0; i < dgvSubCatergoria.Rows.Count; i++)
+                    txtCategoria += dgvSubCatergoria.Rows[i].Cells[0].Value.ToString() + ",";
 
                 if (txtPrecioOferta.Text != "" && mcFechaInicio.Text == "" && mcFechaFin.Text == "")
                     MessageBox.Show("Falta ingresar las fechas de incio y fin de las ofertas", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -251,19 +249,11 @@ namespace ccquevedo_
                     mycollection.Add(datos.Rows[i][1].ToString());
                 }
                 txtNombre.AutoCompleteCustomSource = mycollection;
-                //DataGridViewButtonColumn btnClear = new DataGridViewButtonColumn();
-                //btnClear.Name = "Eliminar";
-                //dgvSubCatergoria.Columns.Add(btnClear);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             }
-        }
-        public void EditaText(string texto)
-        {
-            txtImagen.Text = texto;
-            //MessageBox.Show(texto+"--");
         }
         private void button1_Click(object sender, EventArgs e)
         {
@@ -284,14 +274,13 @@ namespace ccquevedo_
                         txtPrecioOferta.Text = datos.Rows[0][7].ToString();
                         txtImagen.Text = datos.Rows[0][12].ToString();
                         txtTipoProducto.Text = datos.Rows[0][8].ToString();
-                        mcFechaInicio.Text = datos.Rows[0][10].ToString();
-                        mcFechaFin.Text = datos.Rows[0][9].ToString();
+                        mcFechaInicio.Text = datos.Rows[0][9].ToString();
+                        mcFechaFin.Text = datos.Rows[0][10].ToString();
                         txtEtiqueta.Text = datos.Rows[0][11].ToString();
                         cambiarData();
                         DataTable subcat = this.cat_SubTableAdapter.BuscarSubCat(datos.Rows[0][0].ToString());
                         for (int i = 0; i < subcat.Rows.Count; i++)
                         {
-                            ListSubCategoria.Add(subcat.Rows[i]["Descripcion"].ToString());
                             dgvSubCatergoria.Rows.Add(subcat.Rows[i]["Descripcion"].ToString());
                         }
 
@@ -461,7 +450,6 @@ namespace ccquevedo_
                 }
                 if (existeDuplicado != true)
                 {
-                    ListSubCategoria.Add(cmbSubCategorias.GetItemText(cmbSubCategorias.SelectedItem));
                     dgvSubCatergoria.Rows.Add(cmbSubCategorias.GetItemText(cmbSubCategorias.SelectedItem));
                 }
             }
@@ -486,13 +474,10 @@ namespace ccquevedo_
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            CloudingImag frmImag = new CloudingImag(txtImagen.Text,"");
-            frmImag.ShowDialog();
+            CloudingImag cloudingImag = CloudingImag.FormCrear("1", txtImagen.Text);
+            AddOwnedForm(cloudingImag);
+            cloudingImag.ShowDialog();
         }
 
-        private void txtImagen_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

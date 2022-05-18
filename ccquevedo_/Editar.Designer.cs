@@ -565,7 +565,6 @@
             this.txtImage.Name = "txtImage";
             this.txtImage.Size = new System.Drawing.Size(275, 67);
             this.txtImage.TabIndex = 79;
-            this.txtImage.Click += new System.EventHandler(this.txtImagen_Click);
             // 
             // Editar
             // 

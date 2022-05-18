@@ -605,7 +605,6 @@ namespace ccquevedo_
             this.txtImagen.Name = "txtImagen";
             this.txtImagen.Size = new System.Drawing.Size(275, 67);
             this.txtImagen.TabIndex = 75;
-            this.txtImagen.Click += new System.EventHandler(this.txtImagen_Click);
             // 
             // Nuevo
             // 

@@ -233,7 +233,6 @@ namespace ccquevedo_
                     }
                     else
                     {
-                        MessageBox.Show(dtProductos.Rows[i].Cells[14].Value.ToString());
                         this.productosTableAdapter.Editar(
                         dtProductos.Rows[i].Cells[2].Value.ToString(),
                         dtProductos.Rows[i].Cells[3].Value.ToString(),

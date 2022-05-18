@@ -15,8 +15,6 @@ namespace ccquevedo_
         private static Editar instancia = null;
         public string id;
         public int idCat;
-        private List<string> listSubCate = new List<string>();
-        public List<string> ListSubCate { get => listSubCate; set => listSubCate = value; }
 
         public static Editar FormCrear(string id)
         {
@@ -50,8 +48,8 @@ namespace ccquevedo_
                 txtprecioRebajado.Text = tablaUno.Rows[0][7].ToString();
                 txtImage.Text = tablaUno.Rows[0][12].ToString();
                 txtTipoProducto.Text = tablaUno.Rows[0][8].ToString();
-                mcFechaInicio.Text = tablaUno.Rows[0][10].ToString();
-                mcFechaFin.Text = tablaUno.Rows[0][9].ToString();
+                mcFechaInicio.Text = tablaUno.Rows[0][9].ToString();
+                mcFechaFin.Text = tablaUno.Rows[0][10].ToString();
                 txtEtiqueta.Text = tablaUno.Rows[0][11].ToString();
                 idCat = int.Parse(tablaUno.Rows[0][13].ToString());
                 cmbCategoria.Text = tablaUno.Rows[0][14].ToString();
@@ -60,7 +58,6 @@ namespace ccquevedo_
                 DataTable subcat = this.cat_SubTableAdapter.BuscarSubCat(id.ToString());
                 for (int i = 0; i < subcat.Rows.Count; i++)
                 {
-                    ListSubCate.Add(subcat.Rows[i]["Descripcion"].ToString());
                     dgvSubCatergoria.Rows.Add(subcat.Rows[i]["Descripcion"].ToString());
                 }
 
@@ -81,6 +78,7 @@ namespace ccquevedo_
                     cmbSubCategorias.Enabled = true;
                     llenarCombo();
                 }
+
                     
             }
             catch (Exception ex)
@@ -102,7 +100,6 @@ namespace ccquevedo_
                     lista.Add(new Product(Convert.ToInt32(tabla.Rows[i][0].ToString()), tabla.Rows[i][1].ToString()));
                 }
                 cmbSubCategorias.DataSource = lista;
-                ListSubCate = new List<string>();
 
             }
             catch (Exception exc)
@@ -326,7 +323,6 @@ namespace ccquevedo_
                 }
                 if (existeDuplicado != true)
                 {
-                    ListSubCate.Add(cmbSubCategorias.GetItemText(cmbSubCategorias.SelectedItem));
                     dgvSubCatergoria.Rows.Add(cmbSubCategorias.GetItemText(cmbSubCategorias.SelectedItem));
                 }
             }
@@ -350,18 +346,10 @@ namespace ccquevedo_
 
         private void button1_Click(object sender, EventArgs e)
         {
-            CloudingImag frmImag = new CloudingImag(txtImage.Text,id);
-            frmImag.ShowDialog();
-        }
-        public void EditaText(string texto)
-        {
-            txtImage.Text = texto;
-            MessageBox.Show(txtImage.Text);
-        }
-
-        private void txtImagen_Click(object sender, EventArgs e)
-        {
-
+            CloudingImag cloudingImag = CloudingImag.FormCrear("3",txtImage.Text);
+            AddOwnedForm(cloudingImag);
+            cloudingImag.ShowDialog();
+            
         }
     }
 }
