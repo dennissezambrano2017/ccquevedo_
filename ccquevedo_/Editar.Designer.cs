@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Editar));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblNombre = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtprecioRebajado = new System.Windows.Forms.TextBox();
@@ -50,7 +50,6 @@
             this.label10 = new System.Windows.Forms.Label();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.txtTipoProducto = new System.Windows.Forms.TextBox();
-            this.txtImage = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.btnGuardar = new System.Windows.Forms.Button();
@@ -64,7 +63,6 @@
             this.mcFechaInicios = new System.Windows.Forms.DateTimePicker();
             this.mcFechaFins = new System.Windows.Forms.DateTimePicker();
             this.dgvSubCatergoria = new System.Windows.Forms.DataGridView();
-            this.SubCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cmbSubCategorias = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.mcFechaFin = new System.Windows.Forms.TextBox();
@@ -79,6 +77,10 @@
             this.subCategoriaTableAdapter = new ccquevedo_.bdCamaraComercioDataSetTableAdapters.SubCategoriaTableAdapter();
             this.cat_SubBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cat_SubTableAdapter = new ccquevedo_.bdCamaraComercioDataSetTableAdapters.Cat_SubTableAdapter();
+            this.SubCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Eliminar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.button1 = new System.Windows.Forms.Button();
+            this.txtImage = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSubCatergoria)).BeginInit();
@@ -271,15 +273,6 @@
             this.txtTipoProducto.TabIndex = 14;
             this.txtTipoProducto.Text = "Simple";
             // 
-            // txtImage
-            // 
-            this.txtImage.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtImage.Location = new System.Drawing.Point(236, 520);
-            this.txtImage.Multiline = true;
-            this.txtImage.Name = "txtImage";
-            this.txtImage.Size = new System.Drawing.Size(272, 61);
-            this.txtImage.TabIndex = 11;
-            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -417,17 +410,18 @@
             this.dgvSubCatergoria.AllowUserToAddRows = false;
             this.dgvSubCatergoria.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
             this.dgvSubCatergoria.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvSubCatergoria.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvSubCatergoria.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvSubCatergoria.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSubCatergoria.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.SubCategoria});
+            this.SubCategoria,
+            this.Eliminar});
             this.dgvSubCatergoria.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dgvSubCatergoria.ImeMode = System.Windows.Forms.ImeMode.On;
             this.dgvSubCatergoria.Location = new System.Drawing.Point(782, 264);
@@ -436,13 +430,7 @@
             this.dgvSubCatergoria.ReadOnly = true;
             this.dgvSubCatergoria.Size = new System.Drawing.Size(272, 100);
             this.dgvSubCatergoria.TabIndex = 59;
-            // 
-            // SubCategoria
-            // 
-            this.SubCategoria.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.SubCategoria.HeaderText = "SubCategoria";
-            this.SubCategoria.Name = "SubCategoria";
-            this.SubCategoria.ReadOnly = true;
+            this.dgvSubCatergoria.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSubCatergoria_CellContentClick);
             // 
             // cmbSubCategorias
             // 
@@ -538,12 +526,55 @@
             // 
             this.cat_SubTableAdapter.ClearBeforeFill = true;
             // 
+            // SubCategoria
+            // 
+            this.SubCategoria.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.SubCategoria.HeaderText = "SubCategoria";
+            this.SubCategoria.Name = "SubCategoria";
+            this.SubCategoria.ReadOnly = true;
+            // 
+            // Eliminar
+            // 
+            this.Eliminar.HeaderText = "";
+            this.Eliminar.Name = "Eliminar";
+            this.Eliminar.ReadOnly = true;
+            this.Eliminar.Width = 30;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Gray;
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
+            this.button1.Font = new System.Drawing.Font("Century Gothic", 14.25F);
+            this.button1.ForeColor = System.Drawing.SystemColors.Window;
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(236, 516);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(272, 35);
+            this.button1.TabIndex = 78;
+            this.button1.Text = "Subir  una imagen      ";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // txtImage
+            // 
+            this.txtImage.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtImage.Location = new System.Drawing.Point(233, 570);
+            this.txtImage.Name = "txtImage";
+            this.txtImage.Size = new System.Drawing.Size(275, 67);
+            this.txtImage.TabIndex = 79;
+            this.txtImage.Click += new System.EventHandler(this.txtImagen_Click);
+            // 
             // Editar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ClientSize = new System.Drawing.Size(1107, 646);
+            this.Controls.Add(this.txtImage);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.mcFechaFin);
             this.Controls.Add(this.mcFechaInicio);
             this.Controls.Add(this.cmbSubCategorias);
@@ -560,7 +591,6 @@
             this.Controls.Add(this.lblCodigo);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.txtTipoProducto);
-            this.Controls.Add(this.txtImage);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.panel1);
@@ -623,7 +653,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.PictureBox btnCerrar;
         public System.Windows.Forms.TextBox txtTipoProducto;
-        public System.Windows.Forms.TextBox txtImage;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button btnGuardar;
@@ -639,7 +668,6 @@
         private System.Windows.Forms.DateTimePicker mcFechaInicios;
         private System.Windows.Forms.DateTimePicker mcFechaFins;
         private System.Windows.Forms.DataGridView dgvSubCatergoria;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SubCategoria;
         private System.Windows.Forms.ComboBox cmbSubCategorias;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox mcFechaFin;
@@ -648,5 +676,9 @@
         private bdCamaraComercioDataSetTableAdapters.SubCategoriaTableAdapter subCategoriaTableAdapter;
         private System.Windows.Forms.BindingSource cat_SubBindingSource;
         private bdCamaraComercioDataSetTableAdapters.Cat_SubTableAdapter cat_SubTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SubCategoria;
+        private System.Windows.Forms.DataGridViewButtonColumn Eliminar;
+        private System.Windows.Forms.Button button1;
+        public System.Windows.Forms.Label txtImage;
     }
 }

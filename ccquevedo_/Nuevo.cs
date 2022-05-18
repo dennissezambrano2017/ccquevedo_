@@ -486,8 +486,13 @@ namespace ccquevedo_
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            CloudingImag frmImag = new CloudingImag();
+            CloudingImag frmImag = new CloudingImag(txtImagen.Text,"");
             frmImag.ShowDialog();
+        }
+
+        private void txtImagen_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

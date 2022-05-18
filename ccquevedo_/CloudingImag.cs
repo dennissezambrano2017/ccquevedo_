@@ -18,17 +18,22 @@ namespace ccquevedo_
     {
         public static Cloudinary cloud;
         private string urlImage;
+        private string id;
+
         Account accoun = new Account(
             "camara-de-comercio-de-quevedo",
             "786557385641997",
             "ZBHl1dtyxaDnRaYQUm61XMaLgMQ");
 
         public string UrlImage { get => urlImage; set => urlImage = value; }
+        public string Id { get => id; set => id = value; }
 
-        public CloudingImag()
+        public CloudingImag(string url,string id)
         {
             InitializeComponent();
             cloud = new Cloudinary(accoun);
+            pictureBox1.ImageLocation = @"" + url;
+            Id = id;
         }
 
         private void rjButton1_Click(object sender, EventArgs e)
@@ -54,6 +59,10 @@ namespace ccquevedo_
                 ruta = "https://res.cloudinary.com/camara-de-comercio-de-quevedo/image/upload/v1652834621/p2arazqsoayi2rvwpspy.png";
                 Nuevo frmn= Nuevo.FormCrear();
                 frmn.EditaText(ruta);
+                Modificar frmm = Modificar.FormCrear();
+                frmm.EditaText(ruta);
+                Editar frme = Editar.FormCrear(Id); ;
+                frme.EditaText(ruta);
                 MessageBox.Show("Foto subida correctamente al servidor");
 
 
@@ -88,7 +97,7 @@ namespace ccquevedo_
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-           
+            this.Close();
         }
     }
 }

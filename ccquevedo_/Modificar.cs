@@ -354,5 +354,25 @@ namespace ccquevedo_
             }
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            CloudingImag frmImag = new CloudingImag(txtImage.Text,"");
+            frmImag.ShowDialog();
+        }
+        public void EditaText(string texto)
+        {
+            txtImage.Text = texto;
+            //MessageBox.Show(texto+"--");
+        }
+
+        private void dgvSubCatergoria_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            dgvSubCatergoria.Rows.Remove(dgvSubCatergoria.CurrentRow);
+        }
+
+        private void txtImage_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

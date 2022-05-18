@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Modificar));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -50,7 +50,6 @@
             this.txtPrecioNormal = new System.Windows.Forms.TextBox();
             this.txtPrecioOferta = new System.Windows.Forms.TextBox();
             this.txtTipoProducto = new System.Windows.Forms.TextBox();
-            this.txtImage = new System.Windows.Forms.TextBox();
             this.txtDescriComple = new System.Windows.Forms.TextBox();
             this.txtStock = new System.Windows.Forms.TextBox();
             this.btnGuadar = new System.Windows.Forms.Button();
@@ -68,13 +67,16 @@
             this.mcFechaFins = new System.Windows.Forms.DateTimePicker();
             this.mcFechaInicios = new System.Windows.Forms.DateTimePicker();
             this.dgvSubCatergoria = new System.Windows.Forms.DataGridView();
-            this.SubCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cmbSubCategorias = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.mcFechaFin = new System.Windows.Forms.TextBox();
             this.mcFechaInicio = new System.Windows.Forms.TextBox();
             this.subCategoriaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.subCategoriaTableAdapter = new ccquevedo_.bdCamaraComercioDataSetTableAdapters.SubCategoriaTableAdapter();
+            this.txtImage = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.SubCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Eliminar = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bdCamaraComercioDataSet)).BeginInit();
@@ -279,15 +281,6 @@
             this.txtTipoProducto.Size = new System.Drawing.Size(272, 31);
             this.txtTipoProducto.TabIndex = 45;
             // 
-            // txtImage
-            // 
-            this.txtImage.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtImage.Location = new System.Drawing.Point(236, 520);
-            this.txtImage.Multiline = true;
-            this.txtImage.Name = "txtImage";
-            this.txtImage.Size = new System.Drawing.Size(272, 61);
-            this.txtImage.TabIndex = 43;
-            // 
             // txtDescriComple
             // 
             this.txtDescriComple.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -445,17 +438,18 @@
             this.dgvSubCatergoria.AllowUserToAddRows = false;
             this.dgvSubCatergoria.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
             this.dgvSubCatergoria.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvSubCatergoria.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvSubCatergoria.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvSubCatergoria.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSubCatergoria.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.SubCategoria});
+            this.SubCategoria,
+            this.Eliminar});
             this.dgvSubCatergoria.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dgvSubCatergoria.ImeMode = System.Windows.Forms.ImeMode.On;
             this.dgvSubCatergoria.Location = new System.Drawing.Point(782, 264);
@@ -464,13 +458,7 @@
             this.dgvSubCatergoria.ReadOnly = true;
             this.dgvSubCatergoria.Size = new System.Drawing.Size(272, 100);
             this.dgvSubCatergoria.TabIndex = 66;
-            // 
-            // SubCategoria
-            // 
-            this.SubCategoria.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.SubCategoria.HeaderText = "SubCategoria";
-            this.SubCategoria.Name = "SubCategoria";
-            this.SubCategoria.ReadOnly = true;
+            this.dgvSubCatergoria.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSubCatergoria_CellContentClick);
             // 
             // cmbSubCategorias
             // 
@@ -529,12 +517,57 @@
             // 
             this.subCategoriaTableAdapter.ClearBeforeFill = true;
             // 
+            // txtImage
+            // 
+            this.txtImage.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtImage.Location = new System.Drawing.Point(233, 547);
+            this.txtImage.Name = "txtImage";
+            this.txtImage.Size = new System.Drawing.Size(275, 67);
+            this.txtImage.TabIndex = 77;
+            this.txtImage.Click += new System.EventHandler(this.txtImage_Click);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Gray;
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
+            this.button1.Font = new System.Drawing.Font("Century Gothic", 14.25F);
+            this.button1.ForeColor = System.Drawing.SystemColors.Window;
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(236, 503);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(272, 35);
+            this.button1.TabIndex = 76;
+            this.button1.Text = "Subir  una imagen      ";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // SubCategoria
+            // 
+            this.SubCategoria.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.SubCategoria.HeaderText = "SubCategoria";
+            this.SubCategoria.Name = "SubCategoria";
+            this.SubCategoria.ReadOnly = true;
+            // 
+            // Eliminar
+            // 
+            this.Eliminar.HeaderText = "";
+            this.Eliminar.Name = "Eliminar";
+            this.Eliminar.ReadOnly = true;
+            this.Eliminar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Eliminar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Eliminar.Width = 30;
+            // 
             // Modificar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ClientSize = new System.Drawing.Size(1107, 618);
+            this.Controls.Add(this.txtImage);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.mcFechaFin);
             this.Controls.Add(this.mcFechaInicio);
             this.Controls.Add(this.cmbSubCategorias);
@@ -551,7 +584,6 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnGuadar);
             this.Controls.Add(this.txtTipoProducto);
-            this.Controls.Add(this.txtImage);
             this.Controls.Add(this.txtDescriComple);
             this.Controls.Add(this.txtStock);
             this.Controls.Add(this.txtPrecioOferta);
@@ -609,7 +641,6 @@
         public System.Windows.Forms.TextBox txtPrecioNormal;
         public System.Windows.Forms.TextBox txtPrecioOferta;
         public System.Windows.Forms.TextBox txtTipoProducto;
-        public System.Windows.Forms.TextBox txtImage;
         public System.Windows.Forms.TextBox txtDescriComple;
         public System.Windows.Forms.TextBox txtStock;
         private System.Windows.Forms.Label lblId;
@@ -627,12 +658,15 @@
         public System.Windows.Forms.DateTimePicker mcFechaFins;
         public System.Windows.Forms.DateTimePicker mcFechaInicios;
         private System.Windows.Forms.DataGridView dgvSubCatergoria;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SubCategoria;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.BindingSource subCategoriaBindingSource;
         private bdCamaraComercioDataSetTableAdapters.SubCategoriaTableAdapter subCategoriaTableAdapter;
         public System.Windows.Forms.TextBox mcFechaFin;
         public System.Windows.Forms.TextBox mcFechaInicio;
         public System.Windows.Forms.ComboBox cmbSubCategorias;
+        public System.Windows.Forms.Label txtImage;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SubCategoria;
+        private System.Windows.Forms.DataGridViewButtonColumn Eliminar;
     }
 }

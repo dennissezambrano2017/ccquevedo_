@@ -12,12 +12,21 @@ namespace ccquevedo_
 {
     public partial class Editar : Form
     {
+        private static Editar instancia = null;
         public string id;
         public int idCat;
         private List<string> listSubCate = new List<string>();
-
         public List<string> ListSubCate { get => listSubCate; set => listSubCate = value; }
 
+        public static Editar FormCrear(string id)
+        {
+            if (instancia == null)
+            {
+                instancia = new Editar(id);
+                return instancia;
+            }
+            return instancia;
+        }
         public Editar(string id=null)
         {
             
@@ -334,5 +343,25 @@ namespace ccquevedo_
             mcFechaInicio.Text = fechaIncio.ToString("yyyy-MM-dd");
         }
 
+        private void dgvSubCatergoria_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            dgvSubCatergoria.Rows.Remove(dgvSubCatergoria.CurrentRow);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            CloudingImag frmImag = new CloudingImag(txtImage.Text,id);
+            frmImag.ShowDialog();
+        }
+        public void EditaText(string texto)
+        {
+            txtImage.Text = texto;
+            MessageBox.Show(txtImage.Text);
+        }
+
+        private void txtImagen_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
