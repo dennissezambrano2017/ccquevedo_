@@ -59,7 +59,7 @@
             this.Precio_Oferta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Precio_Normal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Etiqueta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Imagenes = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.imagenDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.productosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdCamaraComercioDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
@@ -162,7 +162,7 @@
             this.Precio_Oferta,
             this.Precio_Normal,
             this.Etiqueta,
-            this.Imagenes});
+            this.imagenDataGridViewTextBoxColumn});
             this.dgvProductos.DataSource = this.productosBindingSource;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
@@ -329,13 +329,12 @@
             this.Etiqueta.Name = "Etiqueta";
             this.Etiqueta.ReadOnly = true;
             // 
-            // Imagenes
+            // imagenDataGridViewTextBoxColumn
             // 
-            this.Imagenes.DataPropertyName = "Imagenes";
-            this.Imagenes.HeaderText = "Imagenes";
-            this.Imagenes.Name = "Imagenes";
-            this.Imagenes.ReadOnly = true;
-            this.Imagenes.Width = 120;
+            this.imagenDataGridViewTextBoxColumn.DataPropertyName = "Imagen";
+            this.imagenDataGridViewTextBoxColumn.HeaderText = "Imagen";
+            this.imagenDataGridViewTextBoxColumn.Name = "imagenDataGridViewTextBoxColumn";
+            this.imagenDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // Productos
             // 
@@ -387,6 +386,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Precio_Oferta;
         private System.Windows.Forms.DataGridViewTextBoxColumn Precio_Normal;
         private System.Windows.Forms.DataGridViewTextBoxColumn Etiqueta;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Imagenes;
+        private System.Windows.Forms.DataGridViewTextBoxColumn imagenDataGridViewTextBoxColumn;
     }
 }

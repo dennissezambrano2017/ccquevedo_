@@ -733,8 +733,6 @@ namespace ccquevedo_ {
             
             private global::System.Data.DataColumn columnPrecio_Oferta;
             
-            private global::System.Data.DataColumn columnImagenes;
-            
             private global::System.Data.DataColumn columnTipo_Producto;
             
             private global::System.Data.DataColumn columnFecha_Inicio;
@@ -742,6 +740,8 @@ namespace ccquevedo_ {
             private global::System.Data.DataColumn columnFecha_Fin;
             
             private global::System.Data.DataColumn columnEtiqueta;
+            
+            private global::System.Data.DataColumn columnImagen;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -842,14 +842,6 @@ namespace ccquevedo_ {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn ImagenesColumn {
-                get {
-                    return this.columnImagenes;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public global::System.Data.DataColumn Tipo_ProductoColumn {
                 get {
                     return this.columnTipo_Producto;
@@ -877,6 +869,14 @@ namespace ccquevedo_ {
             public global::System.Data.DataColumn EtiquetaColumn {
                 get {
                     return this.columnEtiqueta;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ImagenColumn {
+                get {
+                    return this.columnImagen;
                 }
             }
             
@@ -917,7 +917,7 @@ namespace ccquevedo_ {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ProductosRow AddProductosRow(Cat_SubRow parentCat_SubRowByProductosCat_Sub, string Nombre, string Descripcion_corta, string Descripcion, string Inventario, string BajoInventario, string Precio_Normal, string Precio_Oferta, string Imagenes, string Tipo_Producto, string Fecha_Inicio, string Fecha_Fin, string Etiqueta) {
+            public ProductosRow AddProductosRow(Cat_SubRow parentCat_SubRowByProductosCat_Sub, string Nombre, string Descripcion_corta, string Descripcion, string Inventario, string BajoInventario, string Precio_Normal, string Precio_Oferta, string Tipo_Producto, string Fecha_Inicio, string Fecha_Fin, string Etiqueta, string Imagen) {
                 ProductosRow rowProductosRow = ((ProductosRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -928,11 +928,11 @@ namespace ccquevedo_ {
                         BajoInventario,
                         Precio_Normal,
                         Precio_Oferta,
-                        Imagenes,
                         Tipo_Producto,
                         Fecha_Inicio,
                         Fecha_Fin,
-                        Etiqueta};
+                        Etiqueta,
+                        Imagen};
                 if ((parentCat_SubRowByProductosCat_Sub != null)) {
                     columnValuesArray[0] = parentCat_SubRowByProductosCat_Sub[3];
                 }
@@ -973,11 +973,11 @@ namespace ccquevedo_ {
                 this.columnBajoInventario = base.Columns["BajoInventario"];
                 this.columnPrecio_Normal = base.Columns["Precio_Normal"];
                 this.columnPrecio_Oferta = base.Columns["Precio_Oferta"];
-                this.columnImagenes = base.Columns["Imagenes"];
                 this.columnTipo_Producto = base.Columns["Tipo_Producto"];
                 this.columnFecha_Inicio = base.Columns["Fecha_Inicio"];
                 this.columnFecha_Fin = base.Columns["Fecha_Fin"];
                 this.columnEtiqueta = base.Columns["Etiqueta"];
+                this.columnImagen = base.Columns["Imagen"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -999,8 +999,6 @@ namespace ccquevedo_ {
                 base.Columns.Add(this.columnPrecio_Normal);
                 this.columnPrecio_Oferta = new global::System.Data.DataColumn("Precio_Oferta", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPrecio_Oferta);
-                this.columnImagenes = new global::System.Data.DataColumn("Imagenes", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnImagenes);
                 this.columnTipo_Producto = new global::System.Data.DataColumn("Tipo_Producto", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTipo_Producto);
                 this.columnFecha_Inicio = new global::System.Data.DataColumn("Fecha_Inicio", typeof(string), null, global::System.Data.MappingType.Element);
@@ -1009,6 +1007,8 @@ namespace ccquevedo_ {
                 base.Columns.Add(this.columnFecha_Fin);
                 this.columnEtiqueta = new global::System.Data.DataColumn("Etiqueta", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnEtiqueta);
+                this.columnImagen = new global::System.Data.DataColumn("Imagen", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnImagen);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnId}, true));
                 this.columnId.AllowDBNull = false;
@@ -1021,11 +1021,11 @@ namespace ccquevedo_ {
                 this.columnBajoInventario.MaxLength = 255;
                 this.columnPrecio_Normal.MaxLength = 255;
                 this.columnPrecio_Oferta.MaxLength = 255;
-                this.columnImagenes.MaxLength = 536870910;
                 this.columnTipo_Producto.MaxLength = 255;
                 this.columnFecha_Inicio.MaxLength = 255;
                 this.columnFecha_Fin.MaxLength = 255;
                 this.columnEtiqueta.MaxLength = 50;
+                this.columnImagen.MaxLength = 536870910;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1999,22 +1999,6 @@ namespace ccquevedo_ {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string Imagenes {
-                get {
-                    try {
-                        return ((string)(this[this.tableProductos.ImagenesColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Imagenes\' de la tabla \'Productos\' es DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableProductos.ImagenesColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string Tipo_Producto {
                 get {
                     try {
@@ -2074,6 +2058,22 @@ namespace ccquevedo_ {
                 }
                 set {
                     this[this.tableProductos.EtiquetaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Imagen {
+                get {
+                    try {
+                        return ((string)(this[this.tableProductos.ImagenColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Imagen\' de la tabla \'Productos\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableProductos.ImagenColumn] = value;
                 }
             }
             
@@ -2174,18 +2174,6 @@ namespace ccquevedo_ {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsImagenesNull() {
-                return this.IsNull(this.tableProductos.ImagenesColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetImagenesNull() {
-                this[this.tableProductos.ImagenesColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsTipo_ProductoNull() {
                 return this.IsNull(this.tableProductos.Tipo_ProductoColumn);
             }
@@ -2230,6 +2218,18 @@ namespace ccquevedo_ {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetEtiquetaNull() {
                 this[this.tableProductos.EtiquetaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsImagenNull() {
+                return this.IsNull(this.tableProductos.ImagenColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetImagenNull() {
+                this[this.tableProductos.ImagenColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3218,11 +3218,11 @@ namespace ccquevedo_.bdCamaraComercioDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("BajoInventario", "BajoInventario");
             tableMapping.ColumnMappings.Add("Precio_Normal", "Precio_Normal");
             tableMapping.ColumnMappings.Add("Precio_Oferta", "Precio_Oferta");
-            tableMapping.ColumnMappings.Add("Imagenes", "Imagenes");
             tableMapping.ColumnMappings.Add("Tipo_Producto", "Tipo_Producto");
             tableMapping.ColumnMappings.Add("Fecha_Inicio", "Fecha_Inicio");
             tableMapping.ColumnMappings.Add("Fecha_Fin", "Fecha_Fin");
             tableMapping.ColumnMappings.Add("Etiqueta", "Etiqueta");
+            tableMapping.ColumnMappings.Add("Imagen", "Imagen");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
@@ -3251,7 +3251,7 @@ namespace ccquevedo_.bdCamaraComercioDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_Etiqueta", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Etiqueta", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.InsertCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO `Productos` (`Id`, `Nombre`, `Descripcion_corta`, `Descripcion`, `Inventario`, `BajoInventario`, `Precio_Normal`, `Precio_Oferta`, `Imagenes`, `Tipo_Producto`, `Fecha_Inicio`, `Fecha_Fin`, `Etiqueta`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO `Productos` (`Id`, `Nombre`, `Descripcion_corta`, `Descripcion`, `Inventario`, `BajoInventario`, `Precio_Normal`, `Precio_Oferta`, `Imagen`, `Tipo_Producto`, `Fecha_Inicio`, `Fecha_Fin`, `Etiqueta`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Id", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Id", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Nombre", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Nombre", global::System.Data.DataRowVersion.Current, false, null));
@@ -3261,14 +3261,14 @@ namespace ccquevedo_.bdCamaraComercioDataSetTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("BajoInventario", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "BajoInventario", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Precio_Normal", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Precio_Normal", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Precio_Oferta", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Precio_Oferta", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Imagenes", global::System.Data.OleDb.OleDbType.LongVarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Imagenes", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Imagen", global::System.Data.OleDb.OleDbType.LongVarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Imagen", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Tipo_Producto", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Tipo_Producto", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Fecha_Inicio", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Fecha_Inicio", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Fecha_Fin", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Fecha_Fin", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Etiqueta", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Etiqueta", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE `Productos` SET `Id` = ?, `Nombre` = ?, `Descripcion_corta` = ?, `Descripcion` = ?, `Inventario` = ?, `BajoInventario` = ?, `Precio_Normal` = ?, `Precio_Oferta` = ?, `Imagenes` = ?, `Tipo_Producto` = ?, `Fecha_Inicio` = ?, `Fecha_Fin` = ?, `Etiqueta` = ? WHERE ((`Id` = ?) AND ((? = 1 AND `Nombre` IS NULL) OR (`Nombre` = ?)) AND ((? = 1 AND `Descripcion_corta` IS NULL) OR (`Descripcion_corta` = ?)) AND ((? = 1 AND `Inventario` IS NULL) OR (`Inventario` = ?)) AND ((? = 1 AND `BajoInventario` IS NULL) OR (`BajoInventario` = ?)) AND ((? = 1 AND `Precio_Normal` IS NULL) OR (`Precio_Normal` = ?)) AND ((? = 1 AND `Precio_Oferta` IS NULL) OR (`Precio_Oferta` = ?)) AND ((? = 1 AND `Tipo_Producto` IS NULL) OR (`Tipo_Producto` = ?)) AND ((? = 1 AND `Fecha_Inicio` IS NULL) OR (`Fecha_Inicio` = ?)) AND ((? = 1 AND `Fecha_Fin` IS NULL) OR (`Fecha_Fin` = ?)) AND ((? = 1 AND `Etiqueta` IS NULL) OR (`Etiqueta` = ?)))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE `Productos` SET `Id` = ?, `Nombre` = ?, `Descripcion_corta` = ?, `Descripcion` = ?, `Inventario` = ?, `BajoInventario` = ?, `Precio_Normal` = ?, `Precio_Oferta` = ?, `Imagen` = ?, `Tipo_Producto` = ?, `Fecha_Inicio` = ?, `Fecha_Fin` = ?, `Etiqueta` = ? WHERE ((`Id` = ?) AND ((? = 1 AND `Nombre` IS NULL) OR (`Nombre` = ?)) AND ((? = 1 AND `Descripcion_corta` IS NULL) OR (`Descripcion_corta` = ?)) AND ((? = 1 AND `Inventario` IS NULL) OR (`Inventario` = ?)) AND ((? = 1 AND `BajoInventario` IS NULL) OR (`BajoInventario` = ?)) AND ((? = 1 AND `Precio_Normal` IS NULL) OR (`Precio_Normal` = ?)) AND ((? = 1 AND `Precio_Oferta` IS NULL) OR (`Precio_Oferta` = ?)) AND ((? = 1 AND `Tipo_Producto` IS NULL) OR (`Tipo_Producto` = ?)) AND ((? = 1 AND `Fecha_Inicio` IS NULL) OR (`Fecha_Inicio` = ?)) AND ((? = 1 AND `Fecha_Fin` IS NULL) OR (`Fecha_Fin` = ?)) AND ((? = 1 AND `Etiqueta` IS NULL) OR (`Etiqueta` = ?)))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Id", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Id", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Nombre", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Nombre", global::System.Data.DataRowVersion.Current, false, null));
@@ -3278,7 +3278,7 @@ namespace ccquevedo_.bdCamaraComercioDataSetTableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("BajoInventario", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "BajoInventario", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Precio_Normal", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Precio_Normal", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Precio_Oferta", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Precio_Oferta", global::System.Data.DataRowVersion.Current, false, null));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Imagenes", global::System.Data.OleDb.OleDbType.LongVarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Imagenes", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Imagen", global::System.Data.OleDb.OleDbType.LongVarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Imagen", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Tipo_Producto", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Tipo_Producto", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Fecha_Inicio", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Fecha_Inicio", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Fecha_Fin", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Fecha_Fin", global::System.Data.DataRowVersion.Current, false, null));
@@ -3320,26 +3320,26 @@ namespace ccquevedo_.bdCamaraComercioDataSetTableAdapters {
             this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT        Id, Nombre, Descripcion_corta, Descripcion, Inventario, BajoInventa" +
-                "rio, Precio_Normal, Precio_Oferta, Imagenes, Tipo_Producto, Fecha_Inicio, Fecha_" +
-                "Fin, Etiqueta\r\nFROM            Productos";
+                "rio, Precio_Normal, Precio_Oferta, Imagen, Tipo_Producto, Fecha_Inicio, Fecha_Fi" +
+                "n, Etiqueta\r\nFROM            Productos";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT BajoInventario, Descripcion, Descripcion_corta, Etiqueta, Fecha_Fin, Fecha" +
-                "_Inicio, Id, Imagenes, Inventario, Nombre, Precio_Normal, Precio_Oferta, Tipo_Pr" +
-                "oducto FROM Productos WHERE (Nombre = ?)";
+            this._commandCollection[1].CommandText = "SELECT        Id, Descripcion_corta, Descripcion, Inventario, BajoInventario, Pre" +
+                "cio_Normal, Precio_Oferta, Imagen, Tipo_Producto, Fecha_Inicio, Fecha_Fin, Etiqu" +
+                "eta\r\nFROM            Productos\r\nWHERE        (Nombre = ?)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Nombre", global::System.Data.OleDb.OleDbType.WChar, 255, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Nombre", global::System.Data.DataRowVersion.Current, false, null));
             this._commandCollection[2] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "SELECT BajoInventario, Descripcion, Descripcion_corta, Etiqueta, Fecha_Fin, Fecha" +
-                "_Inicio, Id, Imagenes, Inventario, Nombre, Precio_Normal, Precio_Oferta, Tipo_Pr" +
-                "oducto FROM Productos WHERE (Id = ?)";
+            this._commandCollection[2].CommandText = "SELECT        BajoInventario, Descripcion, Descripcion_corta, Etiqueta, Fecha_Fin" +
+                ", Fecha_Inicio, Id, Imagen, Inventario, Nombre, Precio_Normal, Precio_Oferta, Ti" +
+                "po_Producto\r\nFROM            Productos\r\nWHERE        (Id = ?)";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Id", global::System.Data.OleDb.OleDbType.WChar, 255, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Id", global::System.Data.DataRowVersion.Current, false, null));
             this._commandCollection[3] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = @"SELECT        TOP 1 Productos.Id, Productos.Nombre, Productos.Descripcion_corta, Productos.Descripcion, Productos.Inventario, Productos.BajoInventario, Productos.Precio_Normal, Productos.Precio_Oferta, Productos.Imagenes, 
+            this._commandCollection[3].CommandText = @"SELECT        TOP 1 Productos.Id, Productos.Nombre, Productos.Descripcion_corta, Productos.Descripcion, Productos.Inventario, Productos.BajoInventario, Productos.Precio_Normal, Productos.Precio_Oferta, Productos.Imagen, 
                          Productos.Tipo_Producto, Productos.Fecha_Inicio, Productos.Fecha_Fin, Productos.Etiqueta, Cat_Sub.Id_Categoria, Categorias.descripcion AS Expr1
 FROM            ((Productos INNER JOIN
                          Cat_Sub ON Productos.Id = Cat_Sub.Id) INNER JOIN
@@ -3350,7 +3350,7 @@ WHERE        (Productos.Id = ?)";
             this._commandCollection[4] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[4].Connection = this.Connection;
             this._commandCollection[4].CommandText = @"UPDATE       Productos
-SET                Nombre = ?, Descripcion_corta = ?, Descripcion = ?, Inventario = ?, BajoInventario = ?, Precio_Normal = ?, Precio_Oferta = ?, Imagenes = ?, Tipo_Producto = ?, Fecha_Inicio = ?, Fecha_Fin = ?, Etiqueta = ?
+SET                Nombre = ?, Descripcion_corta = ?, Descripcion = ?, Inventario = ?, BajoInventario = ?, Precio_Normal = ?, Precio_Oferta = ?, Imagen = ?, Tipo_Producto = ?, Fecha_Inicio = ?, Fecha_Fin = ?, Etiqueta = ?
 WHERE        (Id = ?)";
             this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[4].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Nombre", global::System.Data.OleDb.OleDbType.WChar, 255, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Nombre", global::System.Data.DataRowVersion.Current, false, null));
@@ -3360,7 +3360,7 @@ WHERE        (Id = ?)";
             this._commandCollection[4].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("BajoInventario", global::System.Data.OleDb.OleDbType.WChar, 255, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "BajoInventario", global::System.Data.DataRowVersion.Current, false, null));
             this._commandCollection[4].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Precio_Normal", global::System.Data.OleDb.OleDbType.WChar, 255, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Precio_Normal", global::System.Data.DataRowVersion.Current, false, null));
             this._commandCollection[4].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Precio_Oferta", global::System.Data.OleDb.OleDbType.WChar, 255, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Precio_Oferta", global::System.Data.DataRowVersion.Current, false, null));
-            this._commandCollection[4].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Imagenes", global::System.Data.OleDb.OleDbType.WChar, 50, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Imagenes", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[4].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Imagen", global::System.Data.OleDb.OleDbType.WChar, 1024, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Imagen", global::System.Data.DataRowVersion.Current, false, null));
             this._commandCollection[4].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Tipo_Producto", global::System.Data.OleDb.OleDbType.WChar, 255, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Tipo_Producto", global::System.Data.DataRowVersion.Current, false, null));
             this._commandCollection[4].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Fecha_Inicio", global::System.Data.OleDb.OleDbType.WChar, 255, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Fecha_Inicio", global::System.Data.DataRowVersion.Current, false, null));
             this._commandCollection[4].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Fecha_Fin", global::System.Data.OleDb.OleDbType.WChar, 255, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Fecha_Fin", global::System.Data.DataRowVersion.Current, false, null));
@@ -3379,7 +3379,7 @@ WHERE        (Id = ?)";
             this._commandCollection[7] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[7].Connection = this.Connection;
             this._commandCollection[7].CommandText = @"INSERT INTO Productos
-                         (Id, Nombre, Descripcion_corta, Descripcion, Inventario, BajoInventario, Precio_Normal, Precio_Oferta, Imagenes, Tipo_Producto, Fecha_Inicio, Fecha_Fin, Etiqueta)
+                         (Id, Nombre, Descripcion_corta, Descripcion, Inventario, BajoInventario, Precio_Normal, Precio_Oferta, Imagen, Tipo_Producto, Fecha_Inicio, Fecha_Fin, Etiqueta)
 VALUES        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             this._commandCollection[7].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[7].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Id", global::System.Data.OleDb.OleDbType.WChar, 255, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Id", global::System.Data.DataRowVersion.Current, false, null));
@@ -3390,7 +3390,7 @@ VALUES        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             this._commandCollection[7].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("BajoInventario", global::System.Data.OleDb.OleDbType.WChar, 255, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "BajoInventario", global::System.Data.DataRowVersion.Current, false, null));
             this._commandCollection[7].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Precio_Normal", global::System.Data.OleDb.OleDbType.WChar, 255, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Precio_Normal", global::System.Data.DataRowVersion.Current, false, null));
             this._commandCollection[7].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Precio_Oferta", global::System.Data.OleDb.OleDbType.WChar, 255, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Precio_Oferta", global::System.Data.DataRowVersion.Current, false, null));
-            this._commandCollection[7].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Imagenes", global::System.Data.OleDb.OleDbType.WChar, 50, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Imagenes", global::System.Data.DataRowVersion.Current, false, null));
+            this._commandCollection[7].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Imagen", global::System.Data.OleDb.OleDbType.WChar, 1024, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Imagen", global::System.Data.DataRowVersion.Current, false, null));
             this._commandCollection[7].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Tipo_Producto", global::System.Data.OleDb.OleDbType.WChar, 255, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Tipo_Producto", global::System.Data.DataRowVersion.Current, false, null));
             this._commandCollection[7].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Fecha_Inicio", global::System.Data.OleDb.OleDbType.WChar, 255, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Fecha_Inicio", global::System.Data.DataRowVersion.Current, false, null));
             this._commandCollection[7].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Fecha_Fin", global::System.Data.OleDb.OleDbType.WChar, 255, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Fecha_Fin", global::System.Data.DataRowVersion.Current, false, null));
@@ -3398,8 +3398,8 @@ VALUES        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             this._commandCollection[8] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[8].Connection = this.Connection;
             this._commandCollection[8].CommandText = "SELECT BajoInventario, Descripcion, Descripcion_corta, Etiqueta, Fecha_Fin, Fecha" +
-                "_Inicio, Id, Imagenes, Inventario, Nombre, Precio_Normal, Precio_Oferta, Tipo_Pr" +
-                "oducto FROM Productos WHERE (Id = ?)";
+                "_Inicio, Id, Imagen, Inventario, Nombre, Precio_Normal, Precio_Oferta, Tipo_Prod" +
+                "ucto FROM Productos WHERE (Id = ?)";
             this._commandCollection[8].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[8].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Id", global::System.Data.OleDb.OleDbType.WChar, 255, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Id", global::System.Data.DataRowVersion.Current, false, null));
         }
@@ -3636,7 +3636,7 @@ VALUES        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string Id, string Nombre, string Descripcion_corta, string Descripcion, string Inventario, string BajoInventario, string Precio_Normal, string Precio_Oferta, string Imagenes, string Tipo_Producto, string Fecha_Inicio, string Fecha_Fin, string Etiqueta) {
+        public virtual int Insert(string Id, string Nombre, string Descripcion_corta, string Descripcion, string Inventario, string BajoInventario, string Precio_Normal, string Precio_Oferta, string Imagen, string Tipo_Producto, string Fecha_Inicio, string Fecha_Fin, string Etiqueta) {
             if ((Id == null)) {
                 throw new global::System.ArgumentNullException("Id");
             }
@@ -3685,11 +3685,11 @@ VALUES        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             else {
                 this.Adapter.InsertCommand.Parameters[7].Value = ((string)(Precio_Oferta));
             }
-            if ((Imagenes == null)) {
+            if ((Imagen == null)) {
                 this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[8].Value = ((string)(Imagenes));
+                this.Adapter.InsertCommand.Parameters[8].Value = ((string)(Imagen));
             }
             if ((Tipo_Producto == null)) {
                 this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
@@ -3744,7 +3744,7 @@ VALUES        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
                     string BajoInventario, 
                     string Precio_Normal, 
                     string Precio_Oferta, 
-                    string Imagenes, 
+                    string Imagen, 
                     string Tipo_Producto, 
                     string Fecha_Inicio, 
                     string Fecha_Fin, 
@@ -3808,11 +3808,11 @@ VALUES        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             else {
                 this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Precio_Oferta));
             }
-            if ((Imagenes == null)) {
+            if ((Imagen == null)) {
                 this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Imagenes));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Imagen));
             }
             if ((Tipo_Producto == null)) {
                 this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
@@ -3952,7 +3952,7 @@ VALUES        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
                     string BajoInventario, 
                     string Precio_Normal, 
                     string Precio_Oferta, 
-                    string Imagenes, 
+                    string Imagen, 
                     string Tipo_Producto, 
                     string Fecha_Inicio, 
                     string Fecha_Fin, 
@@ -3968,14 +3968,14 @@ VALUES        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
                     string Original_Fecha_Inicio, 
                     string Original_Fecha_Fin, 
                     string Original_Etiqueta) {
-            return this.Update(Original_Id, Nombre, Descripcion_corta, Descripcion, Inventario, BajoInventario, Precio_Normal, Precio_Oferta, Imagenes, Tipo_Producto, Fecha_Inicio, Fecha_Fin, Etiqueta, Original_Id, Original_Nombre, Original_Descripcion_corta, Original_Inventario, Original_BajoInventario, Original_Precio_Normal, Original_Precio_Oferta, Original_Tipo_Producto, Original_Fecha_Inicio, Original_Fecha_Fin, Original_Etiqueta);
+            return this.Update(Original_Id, Nombre, Descripcion_corta, Descripcion, Inventario, BajoInventario, Precio_Normal, Precio_Oferta, Imagen, Tipo_Producto, Fecha_Inicio, Fecha_Fin, Etiqueta, Original_Id, Original_Nombre, Original_Descripcion_corta, Original_Inventario, Original_BajoInventario, Original_Precio_Normal, Original_Precio_Oferta, Original_Tipo_Producto, Original_Fecha_Inicio, Original_Fecha_Fin, Original_Etiqueta);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
-        public virtual int Editar(string Nombre, string Descripcion_corta, string Descripcion, string Inventario, string BajoInventario, string Precio_Normal, string Precio_Oferta, string Imagenes, string Tipo_Producto, string Fecha_Inicio, string Fecha_Fin, string Etiqueta, string Original_Id) {
+        public virtual int Editar(string Nombre, string Descripcion_corta, string Descripcion, string Inventario, string BajoInventario, string Precio_Normal, string Precio_Oferta, string Imagen, string Tipo_Producto, string Fecha_Inicio, string Fecha_Fin, string Etiqueta, string Original_Id) {
             global::System.Data.OleDb.OleDbCommand command = this.CommandCollection[4];
             if ((Nombre == null)) {
                 command.Parameters[0].Value = global::System.DBNull.Value;
@@ -4019,11 +4019,11 @@ VALUES        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             else {
                 command.Parameters[6].Value = ((string)(Precio_Oferta));
             }
-            if ((Imagenes == null)) {
+            if ((Imagen == null)) {
                 command.Parameters[7].Value = global::System.DBNull.Value;
             }
             else {
-                command.Parameters[7].Value = ((string)(Imagenes));
+                command.Parameters[7].Value = ((string)(Imagen));
             }
             if ((Tipo_Producto == null)) {
                 command.Parameters[8].Value = global::System.DBNull.Value;
@@ -4104,7 +4104,7 @@ VALUES        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual global::System.Nullable<int> Existe(string Id) {
+        public virtual object Existe(string Id) {
             global::System.Data.OleDb.OleDbCommand command = this.CommandCollection[6];
             if ((Id == null)) {
                 throw new global::System.ArgumentNullException("Id");
@@ -4128,10 +4128,10 @@ VALUES        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             }
             if (((returnValue == null) 
                         || (returnValue.GetType() == typeof(global::System.DBNull)))) {
-                return new global::System.Nullable<int>();
+                return null;
             }
             else {
-                return new global::System.Nullable<int>(((int)(returnValue)));
+                return ((object)(returnValue));
             }
         }
         
@@ -4139,7 +4139,7 @@ VALUES        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
-        public virtual int Insertar(string Id, string Nombre, string Descripcion_corta, string Descripcion, string Inventario, string BajoInventario, string Precio_Normal, string Precio_Oferta, string Imagenes, string Tipo_Producto, string Fecha_Inicio, string Fecha_Fin, string Etiqueta) {
+        public virtual int Insertar(string Id, string Nombre, string Descripcion_corta, string Descripcion, string Inventario, string BajoInventario, string Precio_Normal, string Precio_Oferta, string Imagen, string Tipo_Producto, string Fecha_Inicio, string Fecha_Fin, string Etiqueta) {
             global::System.Data.OleDb.OleDbCommand command = this.CommandCollection[7];
             if ((Id == null)) {
                 throw new global::System.ArgumentNullException("Id");
@@ -4189,11 +4189,11 @@ VALUES        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             else {
                 command.Parameters[7].Value = ((string)(Precio_Oferta));
             }
-            if ((Imagenes == null)) {
+            if ((Imagen == null)) {
                 command.Parameters[8].Value = global::System.DBNull.Value;
             }
             else {
-                command.Parameters[8].Value = ((string)(Imagenes));
+                command.Parameters[8].Value = ((string)(Imagen));
             }
             if ((Tipo_Producto == null)) {
                 command.Parameters[9].Value = global::System.DBNull.Value;
