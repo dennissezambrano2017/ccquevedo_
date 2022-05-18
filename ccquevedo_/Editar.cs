@@ -48,11 +48,11 @@ namespace ccquevedo_
                 txtminStock.Text = tablaUno.Rows[0][5].ToString();
                 txtPrecio.Text = tablaUno.Rows[0][6].ToString();
                 txtprecioRebajado.Text = tablaUno.Rows[0][7].ToString();
-                txtImage.Text = tablaUno.Rows[0][8].ToString();
-                txtTipoProducto.Text = tablaUno.Rows[0][9].ToString();
+                txtImage.Text = tablaUno.Rows[0][12].ToString();
+                txtTipoProducto.Text = tablaUno.Rows[0][8].ToString();
                 mcFechaInicio.Text = tablaUno.Rows[0][10].ToString();
-                mcFechaFin.Text = tablaUno.Rows[0][11].ToString();
-                txtEtiqueta.Text = tablaUno.Rows[0][12].ToString();
+                mcFechaFin.Text = tablaUno.Rows[0][9].ToString();
+                txtEtiqueta.Text = tablaUno.Rows[0][11].ToString();
                 idCat = int.Parse(tablaUno.Rows[0][13].ToString());
                 cmbCategoria.Text = tablaUno.Rows[0][14].ToString();
                 cambiarData();

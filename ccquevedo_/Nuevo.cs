@@ -282,11 +282,11 @@ namespace ccquevedo_
                         txtStock.Text = datos.Rows[0][5].ToString();
                         txtPrecioNormal.Text = datos.Rows[0][6].ToString();
                         txtPrecioOferta.Text = datos.Rows[0][7].ToString();
-                        txtImagen.Text = datos.Rows[0][8].ToString();
-                        txtTipoProducto.Text = datos.Rows[0][9].ToString();
+                        txtImagen.Text = datos.Rows[0][12].ToString();
+                        txtTipoProducto.Text = datos.Rows[0][8].ToString();
                         mcFechaInicio.Text = datos.Rows[0][10].ToString();
-                        mcFechaFin.Text = datos.Rows[0][11].ToString();
-                        txtEtiqueta.Text = datos.Rows[0][12].ToString();
+                        mcFechaFin.Text = datos.Rows[0][9].ToString();
+                        txtEtiqueta.Text = datos.Rows[0][11].ToString();
                         cambiarData();
                         DataTable subcat = this.cat_SubTableAdapter.BuscarSubCat(datos.Rows[0][0].ToString());
                         for (int i = 0; i < subcat.Rows.Count; i++)

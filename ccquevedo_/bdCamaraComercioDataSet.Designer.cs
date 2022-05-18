@@ -3325,16 +3325,16 @@ namespace ccquevedo_.bdCamaraComercioDataSetTableAdapters {
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT        Id, Descripcion_corta, Descripcion, Inventario, BajoInventario, Pre" +
-                "cio_Normal, Precio_Oferta, Imagen, Tipo_Producto, Fecha_Inicio, Fecha_Fin, Etiqu" +
-                "eta\r\nFROM            Productos\r\nWHERE        (Nombre = ?)";
+            this._commandCollection[1].CommandText = "SELECT BajoInventario, Descripcion, Descripcion_corta, Etiqueta, Fecha_Fin, Fecha" +
+                "_Inicio, Id, Imagen, Inventario, Nombre, Precio_Normal, Precio_Oferta, Tipo_Prod" +
+                "ucto FROM Productos WHERE (Nombre = ?)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Nombre", global::System.Data.OleDb.OleDbType.WChar, 255, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Nombre", global::System.Data.DataRowVersion.Current, false, null));
             this._commandCollection[2] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "SELECT        BajoInventario, Descripcion, Descripcion_corta, Etiqueta, Fecha_Fin" +
-                ", Fecha_Inicio, Id, Imagen, Inventario, Nombre, Precio_Normal, Precio_Oferta, Ti" +
-                "po_Producto\r\nFROM            Productos\r\nWHERE        (Id = ?)";
+            this._commandCollection[2].CommandText = "SELECT BajoInventario, Descripcion, Descripcion_corta, Etiqueta, Fecha_Fin, Fecha" +
+                "_Inicio, Id, Imagen, Inventario, Nombre, Precio_Normal, Precio_Oferta, Tipo_Prod" +
+                "ucto FROM Productos WHERE (Id = ?)";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[2].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Id", global::System.Data.OleDb.OleDbType.WChar, 255, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "Id", global::System.Data.DataRowVersion.Current, false, null));
             this._commandCollection[3] = new global::System.Data.OleDb.OleDbCommand();
