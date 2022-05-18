@@ -44,7 +44,6 @@ namespace ccquevedo_
                 if (fichero.ShowDialog() == DialogResult.OK)
                 {
                     ruta = fichero.FileName;
-                    MessageBox.Show("Actualizado y Exportado correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     System.IO.TextWriter tw = new System.IO.StreamWriter(ruta);
                     tw.Write(strExport);
                     tw.Close();

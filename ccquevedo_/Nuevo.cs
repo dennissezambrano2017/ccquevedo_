@@ -251,7 +251,6 @@ namespace ccquevedo_
                     mycollection.Add(datos.Rows[i][1].ToString());
                 }
                 txtNombre.AutoCompleteCustomSource = mycollection;
-
                 //DataGridViewButtonColumn btnClear = new DataGridViewButtonColumn();
                 //btnClear.Name = "Eliminar";
                 //dgvSubCatergoria.Columns.Add(btnClear);
@@ -261,7 +260,11 @@ namespace ccquevedo_
                 MessageBox.Show(ex.ToString());
             }
         }
-
+        public void EditaText(string texto)
+        {
+            txtImagen.Text = texto;
+            //MessageBox.Show(texto+"--");
+        }
         private void button1_Click(object sender, EventArgs e)
         {
             try
@@ -479,6 +482,12 @@ namespace ccquevedo_
         private void dgvSubCatergoria_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             dgvSubCatergoria.Rows.Remove(dgvSubCatergoria.CurrentRow);
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            CloudingImag frmImag = new CloudingImag();
+            frmImag.ShowDialog();
         }
     }
 }

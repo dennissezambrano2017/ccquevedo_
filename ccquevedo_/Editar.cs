@@ -51,7 +51,6 @@ namespace ccquevedo_
                 DataTable subcat = this.cat_SubTableAdapter.BuscarSubCat(id.ToString());
                 for (int i = 0; i < subcat.Rows.Count; i++)
                 {
-                    MessageBox.Show(subcat.Rows[i]["Descripcion"].ToString());
                     ListSubCate.Add(subcat.Rows[i]["Descripcion"].ToString());
                     dgvSubCatergoria.Rows.Add(subcat.Rows[i]["Descripcion"].ToString());
                 }

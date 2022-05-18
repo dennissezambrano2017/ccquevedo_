@@ -163,6 +163,7 @@ namespace ccquevedo_
                     Insertar();
                     Exportar exportar = new Exportar();
                     exportar.ExportarDatos(formatDgv(dgvProducto));
+                    MessageBox.Show("Actualizado y Exportado correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                     MessageBox.Show("No existen datos para exportar", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -232,6 +233,7 @@ namespace ccquevedo_
                     }
                     else
                     {
+                        MessageBox.Show(dtProductos.Rows[i].Cells[14].Value.ToString());
                         this.productosTableAdapter.Editar(
                         dtProductos.Rows[i].Cells[2].Value.ToString(),
                         dtProductos.Rows[i].Cells[3].Value.ToString(),

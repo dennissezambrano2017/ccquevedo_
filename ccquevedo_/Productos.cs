@@ -176,7 +176,6 @@ namespace ccquevedo_
                             subcatdes += tabla.Rows[l]["des"].ToString()+", ";
 
                         }
-                        MessageBox.Show(subcatdes);
                         dgvAxu.Rows.Add();
                         dgvAxu.Rows[row.Index].Cells["ID"].Value = row.Cells[0].Value;
                         dgvAxu.Rows[row.Index].Cells["Tipo"].Value = row.Cells[1].Value;
@@ -195,6 +194,8 @@ namespace ccquevedo_
                     }
                     Exportar exportar = new Exportar();
                     exportar.ExportarDatos(dgvAxu);
+                    MessageBox.Show("Exportado correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                 }
                 else
                     MessageBox.Show("No existen datos para exportar", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);

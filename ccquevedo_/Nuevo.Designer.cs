@@ -31,7 +31,7 @@ namespace ccquevedo_
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Nuevo));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -45,7 +45,6 @@ namespace ccquevedo_
             this.txtDescripcionCorta = new System.Windows.Forms.TextBox();
             this.txtPrecioNormal = new System.Windows.Forms.TextBox();
             this.txtPrecioOferta = new System.Windows.Forms.TextBox();
-            this.txtImagen = new System.Windows.Forms.TextBox();
             this.txtDescripcionCompleta = new System.Windows.Forms.TextBox();
             this.txtStock = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -72,6 +71,8 @@ namespace ccquevedo_
             this.label10 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dgvSubCatergoria = new System.Windows.Forms.DataGridView();
+            this.SubCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Eliminar = new System.Windows.Forms.DataGridViewButtonColumn();
             this.mcFechaInicio = new System.Windows.Forms.TextBox();
             this.mcFechaFin = new System.Windows.Forms.TextBox();
             this.productosTableAdapter = new ccquevedo_.bdCamaraComercioDataSetTableAdapters.ProductosTableAdapter();
@@ -81,8 +82,8 @@ namespace ccquevedo_
             this.subCategoriaTableAdapter = new ccquevedo_.bdCamaraComercioDataSetTableAdapters.SubCategoriaTableAdapter();
             this.cat_SubBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cat_SubTableAdapter = new ccquevedo_.bdCamaraComercioDataSetTableAdapters.Cat_SubTableAdapter();
-            this.SubCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Eliminar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.button1 = new System.Windows.Forms.Button();
+            this.txtImagen = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriasBindingSource)).BeginInit();
@@ -222,14 +223,6 @@ namespace ccquevedo_
             this.txtPrecioOferta.TabIndex = 9;
             this.txtPrecioOferta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecioOferta_KeyPress);
             this.txtPrecioOferta.Leave += new System.EventHandler(this.txtPrecioOferta_Leave);
-            // 
-            // txtImagen
-            // 
-            this.txtImagen.Location = new System.Drawing.Point(236, 520);
-            this.txtImagen.Multiline = true;
-            this.txtImagen.Name = "txtImagen";
-            this.txtImagen.Size = new System.Drawing.Size(272, 61);
-            this.txtImagen.TabIndex = 11;
             // 
             // txtDescripcionCompleta
             // 
@@ -494,14 +487,14 @@ namespace ccquevedo_
             this.dgvSubCatergoria.AllowUserToAddRows = false;
             this.dgvSubCatergoria.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
             this.dgvSubCatergoria.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvSubCatergoria.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvSubCatergoria.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvSubCatergoria.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSubCatergoria.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.SubCategoria,
@@ -517,6 +510,21 @@ namespace ccquevedo_
             this.dgvSubCatergoria.Size = new System.Drawing.Size(272, 100);
             this.dgvSubCatergoria.TabIndex = 0;
             this.dgvSubCatergoria.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSubCatergoria_CellContentClick);
+            // 
+            // SubCategoria
+            // 
+            this.SubCategoria.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.SubCategoria.HeaderText = "SubCategoria";
+            this.SubCategoria.Name = "SubCategoria";
+            this.SubCategoria.ReadOnly = true;
+            // 
+            // Eliminar
+            // 
+            this.Eliminar.HeaderText = "";
+            this.Eliminar.Name = "Eliminar";
+            this.Eliminar.ReadOnly = true;
+            this.Eliminar.Text = "x";
+            this.Eliminar.Width = 30;
             // 
             // mcFechaInicio
             // 
@@ -573,27 +581,39 @@ namespace ccquevedo_
             // 
             this.cat_SubTableAdapter.ClearBeforeFill = true;
             // 
-            // SubCategoria
+            // button1
             // 
-            this.SubCategoria.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.SubCategoria.HeaderText = "SubCategoria";
-            this.SubCategoria.Name = "SubCategoria";
-            this.SubCategoria.ReadOnly = true;
+            this.button1.BackColor = System.Drawing.Color.Gray;
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
+            this.button1.ForeColor = System.Drawing.SystemColors.Window;
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(236, 521);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(272, 35);
+            this.button1.TabIndex = 74;
+            this.button1.Text = "Subir  una imagen      ";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
-            // Eliminar
+            // txtImagen
             // 
-            this.Eliminar.HeaderText = "";
-            this.Eliminar.Name = "Eliminar";
-            this.Eliminar.ReadOnly = true;
-            this.Eliminar.Text = "x";
-            this.Eliminar.Width = 30;
+            this.txtImagen.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtImagen.Location = new System.Drawing.Point(233, 565);
+            this.txtImagen.Name = "txtImagen";
+            this.txtImagen.Size = new System.Drawing.Size(275, 67);
+            this.txtImagen.TabIndex = 75;
             // 
             // Nuevo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.ClientSize = new System.Drawing.Size(1107, 618);
+            this.ClientSize = new System.Drawing.Size(1107, 641);
+            this.Controls.Add(this.txtImagen);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.mcFechaFin);
             this.Controls.Add(this.mcFechaInicio);
             this.Controls.Add(this.panel2);
@@ -613,7 +633,6 @@ namespace ccquevedo_
             this.Controls.Add(this.label8);
             this.Controls.Add(this.cmbCategoria);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.txtImagen);
             this.Controls.Add(this.txtDescripcionCompleta);
             this.Controls.Add(this.txtStock);
             this.Controls.Add(this.label2);
@@ -667,7 +686,6 @@ namespace ccquevedo_
         private System.Windows.Forms.TextBox txtPrecioNormal;
         private System.Windows.Forms.TextBox txtPrecioOferta;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtImagen;
         private System.Windows.Forms.TextBox txtDescripcionCompleta;
         private System.Windows.Forms.TextBox txtStock;
         private System.Windows.Forms.Label label2;
@@ -706,5 +724,7 @@ namespace ccquevedo_
         private bdCamaraComercioDataSetTableAdapters.Cat_SubTableAdapter cat_SubTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn SubCategoria;
         private System.Windows.Forms.DataGridViewButtonColumn Eliminar;
+        private System.Windows.Forms.Button button1;
+        public System.Windows.Forms.Label txtImagen;
     }
 }
