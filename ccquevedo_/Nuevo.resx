@@ -359,6 +359,15 @@
   <metadata name="Eliminar.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <data name="Eliminar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAALtJREFUSEtj
+        GBngp5FXwy9Dr//I+KehZwdUmjSAbhCpGGoMboBNEykYagx+QJJiICBV/TC04JehZ+Z/PTcxKJcBxAaJ
+        QbmUWfDLwDsLzDfyugwyGGw4kA0WA8qhqycKIGtAMRBEI7FhvkJWTxRA1/Df0FMUyL8EEwfi6/9NvSSg
+        0jSywNhdEipNmQU0DyKaRzII0DSZEgNGLSAIyLHgEUwTCfgRVDth8NvIywOkAc0AfPgRSA9U+7ACDAwA
+        V4ab9FLN9NUAAAAASUVORK5CYII=
+</value>
+  </data>
   <metadata name="productosTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 56</value>
   </metadata>
@@ -393,6 +402,6 @@
 </value>
   </data>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>131</value>
+    <value>53</value>
   </metadata>
 </root>

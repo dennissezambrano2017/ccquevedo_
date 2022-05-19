@@ -56,14 +56,13 @@ namespace ccquevedo_
         {
             try
             {
-                //var uploadParams = new ImageUploadParams()
-                //{
-                //    File = new FileDescription(ruta),
-                //};
-                //var uploadResult = cloud.Upload(uploadParams);
+                var uploadParams = new ImageUploadParams()
+                {
+                    File = new FileDescription(ruta),
+                };
+                var uploadResult = cloud.Upload(uploadParams);
 
-                //ruta = uploadResult.SecureUri.ToString();
-                ruta = "https:+//res.cloudinary.com/camara-de-comercio-de-quevedo/image/upload/v1652834621/p2arazqsoayi2rvwpspy.png";
+                ruta = uploadResult.SecureUri.ToString();
                 switch (Formulario)
                 {
                     case "1":

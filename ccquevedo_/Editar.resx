@@ -339,6 +339,15 @@
   <metadata name="Eliminar.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <data name="Eliminar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAC7SURBVEhLYxgZ4KeRV8MvQ6//yPinoWcHVJo0gG4QqRhqDG6ATRMpGGoMfkCSYiAgVf0wtOCX
+        oWfmfz03MSiXAcQGiUG5lFnwy8A7C8w38roMMhhsOJANFgPKoasnCiBrQDEQRCOxYb5CVk8UQNfw39BT
+        FMi/BBMH4uv/Tb0koNI0ssDYXRIqTZkFNA8imkcyCNA0mRIDRi0gCMix4BFMEwn4EVQ7YfDbyMsDpAHN
+        AHz4EUgPVPuwAgwMAFeGm/RSzfTVAAAAAElFTkSuQmCC
+</value>
+  </data>
   <metadata name="categoriasBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>756, 17</value>
   </metadata>

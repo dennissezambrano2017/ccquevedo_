@@ -20,10 +20,17 @@ namespace ccquevedo_
 
         public static Modificar FormCrear()
         {
-            if (instancia == null)
+            try
             {
-                instancia = new Modificar();
-                return instancia;
+                if (instancia == null)
+                {
+                    instancia = new Modificar();
+                    return instancia;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
             }
             return instancia;
         }
@@ -119,25 +126,39 @@ namespace ccquevedo_
         }
         private void comprobarData()
         {
-            if (txtPrecioOferta.Text == "")
-                txtPrecioOferta.Text = "0";
-            else if (txtPrecioNormal.Text == "")
-                txtPrecioNormal.Text = "0";
-            else if (txtStock.Text == "")
-                txtStock.Text = "0";
-            else if (txtInventario.Text == "")
-                txtInventario.Text = "0";
+            try
+            {
+                if (txtPrecioOferta.Text == "")
+                    txtPrecioOferta.Text = "0";
+                else if (txtPrecioNormal.Text == "")
+                    txtPrecioNormal.Text = "0";
+                else if (txtStock.Text == "")
+                    txtStock.Text = "0";
+                else if (txtInventario.Text == "")
+                    txtInventario.Text = "0";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
         private void cambiarData()
         {
-            if (txtPrecioOferta.Text == "0")
-                txtPrecioOferta.Text = "";
-            else if (txtPrecioNormal.Text == "0")
-                txtPrecioNormal.Text = "";
-            else if (txtStock.Text == "0")
-                txtStock.Text = "";
-            else if (txtInventario.Text == "0")
-                txtInventario.Text = "";
+            try
+            {
+                if (txtPrecioOferta.Text == "0")
+                    txtPrecioOferta.Text = "";
+                else if (txtPrecioNormal.Text == "0")
+                    txtPrecioNormal.Text = "";
+                else if (txtStock.Text == "0")
+                    txtStock.Text = "";
+                else if (txtInventario.Text == "0")
+                    txtInventario.Text = "";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
         private void txtCodigo_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -352,14 +373,28 @@ namespace ccquevedo_
 
         private void button1_Click(object sender, EventArgs e)
         {
-            CloudingImag cloudingImag = CloudingImag.FormCrear("2", txtImage.Text);
-            AddOwnedForm(cloudingImag);
-            cloudingImag.ShowDialog();
+            try
+            {
+                CloudingImag cloudingImag = CloudingImag.FormCrear("2", txtImage.Text);
+                AddOwnedForm(cloudingImag);
+                cloudingImag.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
 
         private void dgvSubCatergoria_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            dgvSubCatergoria.Rows.Remove(dgvSubCatergoria.CurrentRow);
+            try
+            {
+                dgvSubCatergoria.Rows.Remove(dgvSubCatergoria.CurrentRow);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
     }
 }

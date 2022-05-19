@@ -18,10 +18,18 @@ namespace ccquevedo_
 
         public static Editar FormCrear(string id)
         {
-            if (instancia == null)
+            try
             {
-                instancia = new Editar(id);
-                return instancia;
+                if (instancia == null)
+                {
+                    instancia = new Editar(id);
+                    return instancia;
+                }
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
             }
             return instancia;
         }
@@ -34,9 +42,6 @@ namespace ccquevedo_
             try
             {
                 DataTable tablaUno = this.productosTableAdapter.BuscarIdProducto(id.ToString());
-                //var idcate = tablaUno.Rows[0][13].ToString(); ;
-                //var desc = this.categoriasTableAdapter.descripcion(idcate.ToString());
-                 //MessageBox.Show(id+" - "+tablaUno.Rows.Count.ToString());
 
                 txtCodigo.Text = id.ToString();
                 txtNombre.Text = tablaUno.Rows[0][1].ToString();
@@ -150,7 +155,6 @@ namespace ccquevedo_
 
         private void btnGuardar_Click_1(object sender, EventArgs e)
         {
-            //idCat = int.Parse(cmbCategoria.SelectedValue.ToString());
             try
             {
                 if (txtprecioRebajado.Text != "" && mcFechaInicio.Text == "" && mcFechaFin.Text == "")
@@ -205,26 +209,40 @@ namespace ccquevedo_
 
         private void comprobarData()
         {
-            if (txtprecioRebajado.Text == "")
-                txtprecioRebajado.Text = "0";
-            else if (txtPrecio.Text == "")
-                txtPrecio.Text = "0";
-            else if (txtminStock.Text == "")
-                txtminStock.Text = "0";
-            else if (txtInventario.Text == "")
-                txtInventario.Text = "0";
+            try
+            {
+                if (txtprecioRebajado.Text == "")
+                    txtprecioRebajado.Text = "0";
+                else if (txtPrecio.Text == "")
+                    txtPrecio.Text = "0";
+                else if (txtminStock.Text == "")
+                    txtminStock.Text = "0";
+                else if (txtInventario.Text == "")
+                    txtInventario.Text = "0";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
 
         private void cambiarData()
         {
-            if (txtprecioRebajado.Text == "0")
-                txtprecioRebajado.Text = "";
-            else if (txtPrecio.Text == "0")
-                txtPrecio.Text = "";
-            else if (txtminStock.Text == "0")
-                txtminStock.Text = "";
-            else if (txtInventario.Text == "0")
-                txtInventario.Text = "";
+            try
+            {
+                if (txtprecioRebajado.Text == "0")
+                    txtprecioRebajado.Text = "";
+                else if (txtPrecio.Text == "0")
+                    txtPrecio.Text = "";
+                else if (txtminStock.Text == "0")
+                    txtminStock.Text = "";
+                else if (txtInventario.Text == "0")
+                    txtInventario.Text = "";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)
@@ -232,10 +250,6 @@ namespace ccquevedo_
             this.Close();
         }
 
-        private void mcFechaInicios_ValueChanged(object sender, EventArgs e)
-        {
-            
-        }
 
         private void mcFechaFins_ValueChanged(object sender, EventArgs e)
         {
@@ -341,15 +355,29 @@ namespace ccquevedo_
 
         private void dgvSubCatergoria_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            dgvSubCatergoria.Rows.Remove(dgvSubCatergoria.CurrentRow);
+            try
+            {
+                dgvSubCatergoria.Rows.Remove(dgvSubCatergoria.CurrentRow);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            CloudingImag cloudingImag = CloudingImag.FormCrear("3",txtImage.Text);
-            AddOwnedForm(cloudingImag);
-            cloudingImag.ShowDialog();
-            
+            try
+            {
+                CloudingImag cloudingImag = CloudingImag.FormCrear("3", txtImage.Text);
+                AddOwnedForm(cloudingImag);
+                cloudingImag.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+
         }
     }
 }

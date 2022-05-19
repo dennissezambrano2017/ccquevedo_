@@ -72,7 +72,7 @@ namespace ccquevedo_
             this.panel2 = new System.Windows.Forms.Panel();
             this.dgvSubCatergoria = new System.Windows.Forms.DataGridView();
             this.SubCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Eliminar = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
             this.mcFechaInicio = new System.Windows.Forms.TextBox();
             this.mcFechaFin = new System.Windows.Forms.TextBox();
             this.productosTableAdapter = new ccquevedo_.bdCamaraComercioDataSetTableAdapters.ProductosTableAdapter();
@@ -521,9 +521,10 @@ namespace ccquevedo_
             // Eliminar
             // 
             this.Eliminar.HeaderText = "";
+            this.Eliminar.Image = ((System.Drawing.Image)(resources.GetObject("Eliminar.Image")));
             this.Eliminar.Name = "Eliminar";
             this.Eliminar.ReadOnly = true;
-            this.Eliminar.Text = "x";
+            this.Eliminar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Eliminar.Width = 30;
             // 
             // mcFechaInicio
@@ -722,9 +723,9 @@ namespace ccquevedo_
         public System.Windows.Forms.ComboBox cmbSubCategorias;
         private System.Windows.Forms.BindingSource cat_SubBindingSource;
         private bdCamaraComercioDataSetTableAdapters.Cat_SubTableAdapter cat_SubTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SubCategoria;
-        private System.Windows.Forms.DataGridViewButtonColumn Eliminar;
         private System.Windows.Forms.Button button1;
         public System.Windows.Forms.Label txtImagen;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SubCategoria;
+        private System.Windows.Forms.DataGridViewImageColumn Eliminar;
     }
 }

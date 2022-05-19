@@ -29,12 +29,26 @@ namespace ccquevedo_
         
         private void btnCrearExcel_Click(object sender, EventArgs e)
         {
-            formHijo.AbrirFormInPanel(new CrearExcel(), this.panelCntro);
+            try
+            {
+                formHijo.AbrirFormInPanel(new CrearExcel(), this.panelCntro);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
                                                            
         private void btnProducto_Click(object sender, EventArgs e)
         {
-            formHijo.AbrirFormInPanel(new Productos(), this.panelCntro);
+            try
+            {
+                formHijo.AbrirFormInPanel(new Productos(), this.panelCntro);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
 
     }

@@ -15,10 +15,17 @@ namespace ccquevedo_
         private static Productos instancia = null;
         public static Productos FormCrear()
         {
-            if (instancia == null)
+            try
             {
-                instancia = new Productos();
-                return instancia;
+                if (instancia == null)
+                {
+                    instancia = new Productos();
+                    return instancia;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
             }
             return instancia;
         }
