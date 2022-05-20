@@ -75,20 +75,16 @@ namespace ccquevedo_
                 for (int i = 0; i < dgvSubCatergoria.Rows.Count; i++)
                     txtCategoria += dgvSubCatergoria.Rows[i].Cells[0].Value.ToString() + ",";
 
-                if (txtPrecioOferta.Text != "" && mcFechaInicio.Text == "" && mcFechaFin.Text == "")
-                    MessageBox.Show("Falta ingresar las fechas de incio y fin de las ofertas", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                else if (txtPrecioOferta.Text == "" && mcFechaInicio.Text != "" && mcFechaFin.Text != "")
-                    MessageBox.Show("Falta ingresar el precio de oferta", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                else
+                if (comprobarMensaje() == 1)
                 {
                     if (txtCodigo.Text != "" && txtNombre.Text != "" && txtDesCorta.Text != "" && txtPrecioNormal.Text != "" && ItemSelct != "" && txtInventario.Text != "")
                     {
                         comprobarData();
-                        if (int.Parse(txtPrecioOferta.Text) < int.Parse(txtPrecioNormal.Text))
+                        if (double.Parse(txtPrecioOferta.Text) < double.Parse(txtPrecioNormal.Text))
                         {
                             if (int.Parse(txtStock.Text) < int.Parse(txtInventario.Text))
                             {
-                                //MessageBox.Show(txtCategoria);
+                                cambiarData();
                                 CrearExcel ce = Owner as CrearExcel;
                                 ce.DtProductos[0, ce.Posicion].Value = txtCodigo.Text;
                                 ce.DtProductos[1, ce.Posicion].Value = txtTipoProducto.Text;
@@ -123,6 +119,25 @@ namespace ccquevedo_
             {
                 MessageBox.Show(ex.ToString());
             }
+        }
+        private int comprobarMensaje()
+        {
+            int resultadoCompro = 0;
+            if (txtPrecioOferta.Text != "" && mcFechaInicio.Text == "" && mcFechaFin.Text == "")
+                MessageBox.Show("Falta ingresar las fechas de incio y fin de las ofertas", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else if (txtPrecioOferta.Text == "" && mcFechaInicio.Text != "" && mcFechaFin.Text != "")
+                MessageBox.Show("Falta ingresar el precio de oferta", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else if (txtPrecioOferta.Text == "" && mcFechaInicio.Text == "" && mcFechaFin.Text != "")
+                MessageBox.Show("Falta ingresar datos correspondiente a las ofertas", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else if (txtPrecioOferta.Text == "" && mcFechaInicio.Text != "" && mcFechaFin.Text == "")
+                MessageBox.Show("Falta ingresar datos correspondiente a las ofertas", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else if (txtPrecioOferta.Text != "" && mcFechaInicio.Text != "" && mcFechaFin.Text == "")
+                MessageBox.Show("Falta ingresar datos correspondiente a las ofertas", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else if (txtPrecioOferta.Text != "" && mcFechaInicio.Text == "" && mcFechaFin.Text != "")
+                MessageBox.Show("Falta ingresar datos correspondiente a las ofertas", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else
+                resultadoCompro = 1;
+            return resultadoCompro;
         }
         private void comprobarData()
         {

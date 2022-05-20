@@ -71,53 +71,60 @@ namespace ccquevedo_
                 for (int i = 0; i < dgvSubCatergoria.Rows.Count; i++)
                     txtCategoria += dgvSubCatergoria.Rows[i].Cells[0].Value.ToString() + ",";
 
-                if (txtPrecioOferta.Text != "" && mcFechaInicio.Text == "" && mcFechaFin.Text == "")
-                    MessageBox.Show("Falta ingresar las fechas de incio y fin de las ofertas", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                else if (txtPrecioOferta.Text == "" && mcFechaInicio.Text != "" && mcFechaFin.Text != "")
-                    MessageBox.Show("Falta ingresar el precio de oferta", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                else
+                if (comprobarMensaje()==1)
                 {
                     if (txtCodigo.Text != "" && txtNombre.Text != "" && txtDescripcionCorta.Text != "" && txtPrecioNormal.Text != "" && itemSelct != "" && txtInventario.Text != "")
                     {
-                        comprobarData();
-                        if (int.Parse(txtPrecioOferta.Text) < int.Parse(txtPrecioNormal.Text))
+                        if (txtPrecioOferta.Text != "")
                         {
-                            if (int.Parse(txtStock.Text) < int.Parse(txtInventario.Text))
-                            {
-                                if (existe != true)
-                                {
+                            if (double.Parse(txtPrecioOferta.Text) <= 0)
+                                MessageBox.Show("El precio de oferta no debe ser menor que 0", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
-                                    ce.DtProductos.Rows.Add(txtCodigo.Text, txtTipoProducto.Text, txtNombre.Text,
-                                      txtDescripcionCorta.Text, txtDescripcionCompleta.Text, mcFechaInicio.Text,
-                                      mcFechaFin.Text, txtInventario.Text, txtStock.Text, txtPrecioOferta.Text,
-                                      txtPrecioNormal.Text, cmbCategoria.Text, txtCategoria, txtEtiqueta.Text, txtImagen.Text);
-                                }
-                                else
-                                {
-                                    ce.DtProductos[0, Posicion].Value = txtCodigo.Text;
-                                    ce.DtProductos[1, Posicion].Value = txtTipoProducto.Text;
-                                    ce.DtProductos[2, Posicion].Value = txtNombre.Text;
-                                    ce.DtProductos[3, Posicion].Value = txtDescripcionCorta.Text;
-                                    ce.DtProductos[4, Posicion].Value = txtDescripcionCompleta.Text;
-                                    ce.DtProductos[5, Posicion].Value = mcFechaInicio.Text;
-                                    ce.DtProductos[6, Posicion].Value = mcFechaFin.Text;
-                                    ce.DtProductos[7, Posicion].Value = txtInventario.Text;
-                                    ce.DtProductos[8, Posicion].Value = txtStock.Text;
-                                    ce.DtProductos[9, Posicion].Value = txtPrecioOferta.Text;
-                                    ce.DtProductos[10, Posicion].Value = txtPrecioNormal.Text;
-                                    ce.DtProductos[11, Posicion].Value = cmbCategoria.Text;
-                                    ce.DtProductos[12, Posicion].Value = txtCategoria;
-                                    ce.DtProductos[13, Posicion].Value = txtEtiqueta.Text;
-                                    ce.DtProductos[14, Posicion].Value = txtImagen.Text;
-                                }
-
-                                this.Close();
-                            }
-                            else
-                                MessageBox.Show("El valor del minimo stock no debe ser mayor que el inventario", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         }
                         else
-                            MessageBox.Show("El precio de oferta no debe ser mayor que el precio normal", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        {
+                            comprobarData();
+
+                            if (double.Parse(txtPrecioOferta.Text) < double.Parse(txtPrecioNormal.Text))
+                            {
+                                if (int.Parse(txtStock.Text) < int.Parse(txtInventario.Text))
+                                {
+                                    cambiarData();
+                                    if (existe != true)
+                                    {
+
+                                        ce.DtProductos.Rows.Add(txtCodigo.Text, txtTipoProducto.Text, txtNombre.Text,
+                                          txtDescripcionCorta.Text, txtDescripcionCompleta.Text, mcFechaInicio.Text,
+                                          mcFechaFin.Text, txtInventario.Text, txtStock.Text, txtPrecioOferta.Text,
+                                          txtPrecioNormal.Text, cmbCategoria.Text, txtCategoria, txtEtiqueta.Text, txtImagen.Text);
+                                    }
+                                    else
+                                    {
+                                        ce.DtProductos[0, Posicion].Value = txtCodigo.Text;
+                                        ce.DtProductos[1, Posicion].Value = txtTipoProducto.Text;
+                                        ce.DtProductos[2, Posicion].Value = txtNombre.Text;
+                                        ce.DtProductos[3, Posicion].Value = txtDescripcionCorta.Text;
+                                        ce.DtProductos[4, Posicion].Value = txtDescripcionCompleta.Text;
+                                        ce.DtProductos[5, Posicion].Value = mcFechaInicio.Text;
+                                        ce.DtProductos[6, Posicion].Value = mcFechaFin.Text;
+                                        ce.DtProductos[7, Posicion].Value = txtInventario.Text;
+                                        ce.DtProductos[8, Posicion].Value = txtStock.Text;
+                                        ce.DtProductos[9, Posicion].Value = txtPrecioOferta.Text;
+                                        ce.DtProductos[10, Posicion].Value = txtPrecioNormal.Text;
+                                        ce.DtProductos[11, Posicion].Value = cmbCategoria.Text;
+                                        ce.DtProductos[12, Posicion].Value = txtCategoria;
+                                        ce.DtProductos[13, Posicion].Value = txtEtiqueta.Text;
+                                        ce.DtProductos[14, Posicion].Value = txtImagen.Text;
+                                    }
+
+                                    this.Close();
+                                }
+                                else
+                                    MessageBox.Show("El valor del minimo stock no debe ser mayor que el inventario", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            }
+                            else
+                                MessageBox.Show("El precio de oferta no debe ser mayor que el precio normal", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
                     }
                     else
                         MessageBox.Show("Falta datos a ingresar", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -129,6 +136,25 @@ namespace ccquevedo_
                 MessageBox.Show(ex.ToString());
             }
 
+        }
+        private int comprobarMensaje()
+        {
+            int resultadoCompro = 0;
+            if (txtPrecioOferta.Text != "" && mcFechaInicio.Text == "" && mcFechaFin.Text == "")
+                MessageBox.Show("Falta ingresar las fechas de incio y fin de las ofertas", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else if (txtPrecioOferta.Text == "" && mcFechaInicio.Text != "" && mcFechaFin.Text != "")
+                MessageBox.Show("Falta ingresar el precio de oferta", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else if (txtPrecioOferta.Text == "" && mcFechaInicio.Text == "" && mcFechaFin.Text != "")
+                MessageBox.Show("Falta ingresar datos correspondiente a las ofertas", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else if (txtPrecioOferta.Text == "" && mcFechaInicio.Text != "" && mcFechaFin.Text == "")
+                MessageBox.Show("Falta ingresar datos correspondiente a las ofertas", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else if (txtPrecioOferta.Text != "" && mcFechaInicio.Text != "" && mcFechaFin.Text == "")
+                MessageBox.Show("Falta ingresar datos correspondiente a las ofertas", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else if (txtPrecioOferta.Text != "" && mcFechaInicio.Text == "" && mcFechaFin.Text != "")
+                MessageBox.Show("Falta ingresar datos correspondiente a las ofertas", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else
+                resultadoCompro = 1;
+            return resultadoCompro;
         }
         private void comprobarData()
         {

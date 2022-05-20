@@ -69,6 +69,8 @@
             this.mcFechaFins = new System.Windows.Forms.DateTimePicker();
             this.mcFechaInicios = new System.Windows.Forms.DateTimePicker();
             this.dgvSubCatergoria = new System.Windows.Forms.DataGridView();
+            this.SubCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
             this.cmbSubCategorias = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.mcFechaFin = new System.Windows.Forms.TextBox();
@@ -77,8 +79,6 @@
             this.subCategoriaTableAdapter = new ccquevedo_.bdCamaraComercioDataSetTableAdapters.SubCategoriaTableAdapter();
             this.txtImage = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.SubCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bdCamaraComercioDataSet)).BeginInit();
@@ -233,7 +233,6 @@
             // 
             // txtCodigo
             // 
-            this.txtCodigo.Enabled = false;
             this.txtCodigo.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCodigo.Location = new System.Drawing.Point(236, 77);
             this.txtCodigo.Name = "txtCodigo";
@@ -277,6 +276,7 @@
             // 
             // txtTipoProducto
             // 
+            this.txtTipoProducto.Enabled = false;
             this.txtTipoProducto.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTipoProducto.Location = new System.Drawing.Point(782, 483);
             this.txtTipoProducto.Name = "txtTipoProducto";
@@ -479,6 +479,23 @@
             this.dgvSubCatergoria.TabIndex = 66;
             this.dgvSubCatergoria.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSubCatergoria_CellContentClick);
             // 
+            // SubCategoria
+            // 
+            this.SubCategoria.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.SubCategoria.HeaderText = "SubCategoria";
+            this.SubCategoria.Name = "SubCategoria";
+            this.SubCategoria.ReadOnly = true;
+            // 
+            // Eliminar
+            // 
+            this.Eliminar.HeaderText = "";
+            this.Eliminar.Image = ((System.Drawing.Image)(resources.GetObject("Eliminar.Image")));
+            this.Eliminar.Name = "Eliminar";
+            this.Eliminar.ReadOnly = true;
+            this.Eliminar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Eliminar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Eliminar.Width = 30;
+            // 
             // cmbSubCategorias
             // 
             this.cmbSubCategorias.DropDownHeight = 100;
@@ -561,23 +578,6 @@
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // SubCategoria
-            // 
-            this.SubCategoria.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.SubCategoria.HeaderText = "SubCategoria";
-            this.SubCategoria.Name = "SubCategoria";
-            this.SubCategoria.ReadOnly = true;
-            // 
-            // Eliminar
-            // 
-            this.Eliminar.HeaderText = "";
-            this.Eliminar.Image = ((System.Drawing.Image)(resources.GetObject("Eliminar.Image")));
-            this.Eliminar.Name = "Eliminar";
-            this.Eliminar.ReadOnly = true;
-            this.Eliminar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Eliminar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Eliminar.Width = 30;
             // 
             // Modificar
             // 
