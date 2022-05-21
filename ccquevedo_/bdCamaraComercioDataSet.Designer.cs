@@ -32,21 +32,13 @@ namespace ccquevedo_ {
         
         private Cat_SubDataTable tableCat_Sub;
         
+        private global::System.Data.DataRelation relationCategoriasSubCategoria;
+        
         private global::System.Data.DataRelation relationCategoriasCat_Sub;
         
         private global::System.Data.DataRelation relationSubCategoriaCat_Sub;
         
-        private global::System.Data.DataRelation relationCategoriasSubCategoria;
-        
         private global::System.Data.DataRelation relationProductosCat_Sub;
-        
-        private global::System.Data.DataRelation relationProductosCat_Sub1;
-        
-        private global::System.Data.DataRelation relationCategoriasSubCategoria1;
-        
-        private global::System.Data.DataRelation relationCategoriasCat_Sub1;
-        
-        private global::System.Data.DataRelation relationSubCategoriaCat_Sub1;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -282,14 +274,10 @@ namespace ccquevedo_ {
                     this.tableCat_Sub.InitVars();
                 }
             }
+            this.relationCategoriasSubCategoria = this.Relations["CategoriasSubCategoria"];
             this.relationCategoriasCat_Sub = this.Relations["CategoriasCat_Sub"];
             this.relationSubCategoriaCat_Sub = this.Relations["SubCategoriaCat_Sub"];
-            this.relationCategoriasSubCategoria = this.Relations["CategoriasSubCategoria"];
             this.relationProductosCat_Sub = this.Relations["ProductosCat_Sub"];
-            this.relationProductosCat_Sub1 = this.Relations["ProductosCat_Sub1"];
-            this.relationCategoriasSubCategoria1 = this.Relations["CategoriasSubCategoria1"];
-            this.relationCategoriasCat_Sub1 = this.Relations["CategoriasCat_Sub1"];
-            this.relationSubCategoriaCat_Sub1 = this.Relations["SubCategoriaCat_Sub1"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -308,38 +296,22 @@ namespace ccquevedo_ {
             base.Tables.Add(this.tableSubCategoria);
             this.tableCat_Sub = new Cat_SubDataTable();
             base.Tables.Add(this.tableCat_Sub);
-            this.relationCategoriasCat_Sub = new global::System.Data.DataRelation("CategoriasCat_Sub", new global::System.Data.DataColumn[] {
-                        this.tableCat_Sub.Id_CategoriaColumn}, new global::System.Data.DataColumn[] {
-                        this.tableCategorias.Id_CategoriaColumn}, false);
-            this.Relations.Add(this.relationCategoriasCat_Sub);
-            this.relationSubCategoriaCat_Sub = new global::System.Data.DataRelation("SubCategoriaCat_Sub", new global::System.Data.DataColumn[] {
-                        this.tableCat_Sub.Id_SubCategoriaColumn}, new global::System.Data.DataColumn[] {
-                        this.tableSubCategoria.Id_SubCategoriaColumn}, false);
-            this.Relations.Add(this.relationSubCategoriaCat_Sub);
             this.relationCategoriasSubCategoria = new global::System.Data.DataRelation("CategoriasSubCategoria", new global::System.Data.DataColumn[] {
                         this.tableSubCategoria.DescripcionColumn}, new global::System.Data.DataColumn[] {
                         this.tableCategorias.Id_CategoriaColumn}, false);
             this.Relations.Add(this.relationCategoriasSubCategoria);
-            this.relationProductosCat_Sub = new global::System.Data.DataRelation("ProductosCat_Sub", new global::System.Data.DataColumn[] {
-                        this.tableCat_Sub.IdColumn}, new global::System.Data.DataColumn[] {
-                        this.tableProductos.IdColumn}, false);
-            this.Relations.Add(this.relationProductosCat_Sub);
-            this.relationProductosCat_Sub1 = new global::System.Data.DataRelation("ProductosCat_Sub1", new global::System.Data.DataColumn[] {
-                        this.tableProductos.IdColumn}, new global::System.Data.DataColumn[] {
-                        this.tableCat_Sub.IdColumn}, false);
-            this.Relations.Add(this.relationProductosCat_Sub1);
-            this.relationCategoriasSubCategoria1 = new global::System.Data.DataRelation("CategoriasSubCategoria1", new global::System.Data.DataColumn[] {
-                        this.tableCategorias.Id_CategoriaColumn}, new global::System.Data.DataColumn[] {
-                        this.tableSubCategoria.Id_CategoriaColumn}, false);
-            this.Relations.Add(this.relationCategoriasSubCategoria1);
-            this.relationCategoriasCat_Sub1 = new global::System.Data.DataRelation("CategoriasCat_Sub1", new global::System.Data.DataColumn[] {
+            this.relationCategoriasCat_Sub = new global::System.Data.DataRelation("CategoriasCat_Sub", new global::System.Data.DataColumn[] {
                         this.tableCategorias.Id_CategoriaColumn}, new global::System.Data.DataColumn[] {
                         this.tableCat_Sub.Id_CategoriaColumn}, false);
-            this.Relations.Add(this.relationCategoriasCat_Sub1);
-            this.relationSubCategoriaCat_Sub1 = new global::System.Data.DataRelation("SubCategoriaCat_Sub1", new global::System.Data.DataColumn[] {
+            this.Relations.Add(this.relationCategoriasCat_Sub);
+            this.relationSubCategoriaCat_Sub = new global::System.Data.DataRelation("SubCategoriaCat_Sub", new global::System.Data.DataColumn[] {
                         this.tableSubCategoria.Id_SubCategoriaColumn}, new global::System.Data.DataColumn[] {
                         this.tableCat_Sub.Id_SubCategoriaColumn}, false);
-            this.Relations.Add(this.relationSubCategoriaCat_Sub1);
+            this.Relations.Add(this.relationSubCategoriaCat_Sub);
+            this.relationProductosCat_Sub = new global::System.Data.DataRelation("ProductosCat_Sub", new global::System.Data.DataColumn[] {
+                        this.tableProductos.IdColumn}, new global::System.Data.DataColumn[] {
+                        this.tableCat_Sub.IdColumn}, false);
+            this.Relations.Add(this.relationProductosCat_Sub);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -530,13 +502,13 @@ namespace ccquevedo_ {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public CategoriasRow AddCategoriasRow(Cat_SubRow parentCat_SubRowByCategoriasCat_Sub, string descripcion) {
+            public CategoriasRow AddCategoriasRow(SubCategoriaRow parentSubCategoriaRowByCategoriasSubCategoria, string descripcion) {
                 CategoriasRow rowCategoriasRow = ((CategoriasRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         descripcion};
-                if ((parentCat_SubRowByCategoriasCat_Sub != null)) {
-                    columnValuesArray[0] = parentCat_SubRowByCategoriasCat_Sub[1];
+                if ((parentSubCategoriaRowByCategoriasSubCategoria != null)) {
+                    columnValuesArray[0] = parentSubCategoriaRowByCategoriasSubCategoria[1];
                 }
                 rowCategoriasRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowCategoriasRow);
@@ -917,10 +889,10 @@ namespace ccquevedo_ {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ProductosRow AddProductosRow(Cat_SubRow parentCat_SubRowByProductosCat_Sub, string Nombre, string Descripcion_corta, string Descripcion, string Inventario, string BajoInventario, string Precio_Normal, string Precio_Oferta, string Tipo_Producto, string Fecha_Inicio, string Fecha_Fin, string Etiqueta, string Imagen) {
+            public ProductosRow AddProductosRow(string Id, string Nombre, string Descripcion_corta, string Descripcion, string Inventario, string BajoInventario, string Precio_Normal, string Precio_Oferta, string Tipo_Producto, string Fecha_Inicio, string Fecha_Fin, string Etiqueta, string Imagen) {
                 ProductosRow rowProductosRow = ((ProductosRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        null,
+                        Id,
                         Nombre,
                         Descripcion_corta,
                         Descripcion,
@@ -933,9 +905,6 @@ namespace ccquevedo_ {
                         Fecha_Fin,
                         Etiqueta,
                         Imagen};
-                if ((parentCat_SubRowByProductosCat_Sub != null)) {
-                    columnValuesArray[0] = parentCat_SubRowByProductosCat_Sub[3];
-                }
                 rowProductosRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowProductosRow);
                 return rowProductosRow;
@@ -1259,18 +1228,12 @@ namespace ccquevedo_ {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public SubCategoriaRow AddSubCategoriaRow(Cat_SubRow parentCat_SubRowBySubCategoriaCat_Sub, string Descripcion, CategoriasRow parentCategoriasRowByCategoriasSubCategoria1) {
+            public SubCategoriaRow AddSubCategoriaRow(string Id_SubCategoria, string Descripcion, string Id_Categoria) {
                 SubCategoriaRow rowSubCategoriaRow = ((SubCategoriaRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        null,
+                        Id_SubCategoria,
                         Descripcion,
-                        null};
-                if ((parentCat_SubRowBySubCategoriaCat_Sub != null)) {
-                    columnValuesArray[0] = parentCat_SubRowBySubCategoriaCat_Sub[2];
-                }
-                if ((parentCategoriasRowByCategoriasSubCategoria1 != null)) {
-                    columnValuesArray[2] = parentCategoriasRowByCategoriasSubCategoria1[0];
-                }
+                        Id_Categoria};
                 rowSubCategoriaRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowSubCategoriaRow);
                 return rowSubCategoriaRow;
@@ -1564,21 +1527,21 @@ namespace ccquevedo_ {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public Cat_SubRow AddCat_SubRow(CategoriasRow parentCategoriasRowByCategoriasCat_Sub1, SubCategoriaRow parentSubCategoriaRowBySubCategoriaCat_Sub1, ProductosRow parentProductosRowByProductosCat_Sub1) {
+            public Cat_SubRow AddCat_SubRow(CategoriasRow parentCategoriasRowByCategoriasCat_Sub, SubCategoriaRow parentSubCategoriaRowBySubCategoriaCat_Sub, ProductosRow parentProductosRowByProductosCat_Sub) {
                 Cat_SubRow rowCat_SubRow = ((Cat_SubRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         null,
                         null,
                         null};
-                if ((parentCategoriasRowByCategoriasCat_Sub1 != null)) {
-                    columnValuesArray[1] = parentCategoriasRowByCategoriasCat_Sub1[0];
+                if ((parentCategoriasRowByCategoriasCat_Sub != null)) {
+                    columnValuesArray[1] = parentCategoriasRowByCategoriasCat_Sub[0];
                 }
-                if ((parentSubCategoriaRowBySubCategoriaCat_Sub1 != null)) {
-                    columnValuesArray[2] = parentSubCategoriaRowBySubCategoriaCat_Sub1[0];
+                if ((parentSubCategoriaRowBySubCategoriaCat_Sub != null)) {
+                    columnValuesArray[2] = parentSubCategoriaRowBySubCategoriaCat_Sub[0];
                 }
-                if ((parentProductosRowByProductosCat_Sub1 != null)) {
-                    columnValuesArray[3] = parentProductosRowByProductosCat_Sub1[0];
+                if ((parentProductosRowByProductosCat_Sub != null)) {
+                    columnValuesArray[3] = parentProductosRowByProductosCat_Sub[0];
                 }
                 rowCat_SubRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowCat_SubRow);
@@ -1805,17 +1768,6 @@ namespace ccquevedo_ {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public Cat_SubRow Cat_SubRow {
-                get {
-                    return ((Cat_SubRow)(this.GetParentRow(this.Table.ParentRelations["CategoriasCat_Sub"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["CategoriasCat_Sub"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public SubCategoriaRow SubCategoriaRow {
                 get {
                     return ((SubCategoriaRow)(this.GetParentRow(this.Table.ParentRelations["CategoriasSubCategoria"])));
@@ -1839,23 +1791,12 @@ namespace ccquevedo_ {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public SubCategoriaRow[] GetSubCategoriaRows() {
-                if ((this.Table.ChildRelations["CategoriasSubCategoria1"] == null)) {
-                    return new SubCategoriaRow[0];
-                }
-                else {
-                    return ((SubCategoriaRow[])(base.GetChildRows(this.Table.ChildRelations["CategoriasSubCategoria1"])));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public Cat_SubRow[] GetCat_SubRows() {
-                if ((this.Table.ChildRelations["CategoriasCat_Sub1"] == null)) {
+                if ((this.Table.ChildRelations["CategoriasCat_Sub"] == null)) {
                     return new Cat_SubRow[0];
                 }
                 else {
-                    return ((Cat_SubRow[])(base.GetChildRows(this.Table.ChildRelations["CategoriasCat_Sub1"])));
+                    return ((Cat_SubRow[])(base.GetChildRows(this.Table.ChildRelations["CategoriasCat_Sub"])));
                 }
             }
         }
@@ -2079,17 +2020,6 @@ namespace ccquevedo_ {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public Cat_SubRow Cat_SubRow {
-                get {
-                    return ((Cat_SubRow)(this.GetParentRow(this.Table.ParentRelations["ProductosCat_Sub"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["ProductosCat_Sub"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsNombreNull() {
                 return this.IsNull(this.tableProductos.NombreColumn);
             }
@@ -2235,11 +2165,11 @@ namespace ccquevedo_ {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public Cat_SubRow[] GetCat_SubRows() {
-                if ((this.Table.ChildRelations["ProductosCat_Sub1"] == null)) {
+                if ((this.Table.ChildRelations["ProductosCat_Sub"] == null)) {
                     return new Cat_SubRow[0];
                 }
                 else {
-                    return ((Cat_SubRow[])(base.GetChildRows(this.Table.ChildRelations["ProductosCat_Sub1"])));
+                    return ((Cat_SubRow[])(base.GetChildRows(this.Table.ChildRelations["ProductosCat_Sub"])));
                 }
             }
         }
@@ -2303,28 +2233,6 @@ namespace ccquevedo_ {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public Cat_SubRow Cat_SubRow {
-                get {
-                    return ((Cat_SubRow)(this.GetParentRow(this.Table.ParentRelations["SubCategoriaCat_Sub"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["SubCategoriaCat_Sub"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public CategoriasRow CategoriasRow {
-                get {
-                    return ((CategoriasRow)(this.GetParentRow(this.Table.ParentRelations["CategoriasSubCategoria1"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["CategoriasSubCategoria1"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsDescripcionNull() {
                 return this.IsNull(this.tableSubCategoria.DescripcionColumn);
             }
@@ -2361,11 +2269,11 @@ namespace ccquevedo_ {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public Cat_SubRow[] GetCat_SubRows() {
-                if ((this.Table.ChildRelations["SubCategoriaCat_Sub1"] == null)) {
+                if ((this.Table.ChildRelations["SubCategoriaCat_Sub"] == null)) {
                     return new Cat_SubRow[0];
                 }
                 else {
-                    return ((Cat_SubRow[])(base.GetChildRows(this.Table.ChildRelations["SubCategoriaCat_Sub1"])));
+                    return ((Cat_SubRow[])(base.GetChildRows(this.Table.ChildRelations["SubCategoriaCat_Sub"])));
                 }
             }
         }
@@ -2445,23 +2353,12 @@ namespace ccquevedo_ {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ProductosRow ProductosRow {
-                get {
-                    return ((ProductosRow)(this.GetParentRow(this.Table.ParentRelations["ProductosCat_Sub1"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["ProductosCat_Sub1"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public CategoriasRow CategoriasRow {
                 get {
-                    return ((CategoriasRow)(this.GetParentRow(this.Table.ParentRelations["CategoriasCat_Sub1"])));
+                    return ((CategoriasRow)(this.GetParentRow(this.Table.ParentRelations["CategoriasCat_Sub"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["CategoriasCat_Sub1"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["CategoriasCat_Sub"]);
                 }
             }
             
@@ -2469,10 +2366,21 @@ namespace ccquevedo_ {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public SubCategoriaRow SubCategoriaRow {
                 get {
-                    return ((SubCategoriaRow)(this.GetParentRow(this.Table.ParentRelations["SubCategoriaCat_Sub1"])));
+                    return ((SubCategoriaRow)(this.GetParentRow(this.Table.ParentRelations["SubCategoriaCat_Sub"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["SubCategoriaCat_Sub1"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["SubCategoriaCat_Sub"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public ProductosRow ProductosRow {
+                get {
+                    return ((ProductosRow)(this.GetParentRow(this.Table.ParentRelations["ProductosCat_Sub"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["ProductosCat_Sub"]);
                 }
             }
             
@@ -2510,39 +2418,6 @@ namespace ccquevedo_ {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetIdNull() {
                 this[this.tableCat_Sub.IdColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public CategoriasRow[] GetCategoriasRows() {
-                if ((this.Table.ChildRelations["CategoriasCat_Sub"] == null)) {
-                    return new CategoriasRow[0];
-                }
-                else {
-                    return ((CategoriasRow[])(base.GetChildRows(this.Table.ChildRelations["CategoriasCat_Sub"])));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public SubCategoriaRow[] GetSubCategoriaRows() {
-                if ((this.Table.ChildRelations["SubCategoriaCat_Sub"] == null)) {
-                    return new SubCategoriaRow[0];
-                }
-                else {
-                    return ((SubCategoriaRow[])(base.GetChildRows(this.Table.ChildRelations["SubCategoriaCat_Sub"])));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ProductosRow[] GetProductosRows() {
-                if ((this.Table.ChildRelations["ProductosCat_Sub"] == null)) {
-                    return new ProductosRow[0];
-                }
-                else {
-                    return ((ProductosRow[])(base.GetChildRows(this.Table.ChildRelations["ProductosCat_Sub"])));
-                }
             }
         }
         
@@ -4504,7 +4379,7 @@ VALUES        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
         public virtual int Delete(string Original_Id_SubCategoria, string Original_Descripcion, string Original_Id_Categoria) {
             if ((Original_Id_SubCategoria == null)) {
-                throw new global::System.ArgumentNullException("Original_Id_SubCategoria");
+                this.Adapter.DeleteCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[0].Value = ((string)(Original_Id_SubCategoria));
@@ -4547,7 +4422,7 @@ VALUES        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
         public virtual int Insert(string Id_SubCategoria, string Descripcion, string Id_Categoria) {
             if ((Id_SubCategoria == null)) {
-                throw new global::System.ArgumentNullException("Id_SubCategoria");
+                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.InsertCommand.Parameters[0].Value = ((string)(Id_SubCategoria));
@@ -4586,7 +4461,7 @@ VALUES        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(string Id_SubCategoria, string Descripcion, string Id_Categoria, string Original_Id_SubCategoria, string Original_Descripcion, string Original_Id_Categoria) {
             if ((Id_SubCategoria == null)) {
-                throw new global::System.ArgumentNullException("Id_SubCategoria");
+                this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(Id_SubCategoria));
@@ -4604,7 +4479,7 @@ VALUES        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
                 this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Id_Categoria));
             }
             if ((Original_Id_SubCategoria == null)) {
-                throw new global::System.ArgumentNullException("Original_Id_SubCategoria");
+                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Original_Id_SubCategoria));
@@ -5406,6 +5281,15 @@ WHERE        (Cat_Sub.Id = ?)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private int UpdateUpdatedRows(bdCamaraComercioDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
+            if ((this._subCategoriaTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.SubCategoria.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._subCategoriaTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             if ((this._categoriasTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Categorias.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -5421,15 +5305,6 @@ WHERE        (Cat_Sub.Id = ?)";
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._productosTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._subCategoriaTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.SubCategoria.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._subCategoriaTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -5452,6 +5327,14 @@ WHERE        (Cat_Sub.Id = ?)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private int UpdateInsertedRows(bdCamaraComercioDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
+            if ((this._subCategoriaTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.SubCategoria.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._subCategoriaTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             if ((this._categoriasTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Categorias.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -5465,14 +5348,6 @@ WHERE        (Cat_Sub.Id = ?)";
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._productosTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._subCategoriaTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.SubCategoria.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._subCategoriaTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -5502,14 +5377,6 @@ WHERE        (Cat_Sub.Id = ?)";
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._subCategoriaTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.SubCategoria.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._subCategoriaTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._productosTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Productos.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -5523,6 +5390,14 @@ WHERE        (Cat_Sub.Id = ?)";
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._categoriasTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._subCategoriaTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.SubCategoria.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._subCategoriaTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
