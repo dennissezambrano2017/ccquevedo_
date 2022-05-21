@@ -206,21 +206,21 @@ namespace ccquevedo_
         private int comprobarMensaje()
         {
             int resultadoCompro = 0;
-            if (txtPrecioOferta.Text != "" && mcFechaInicio.Text == "" && mcFechaFin.Text == "")
+            if (txtprecioRebajado.Text != "" && mcFechaInicio.Text == "" && mcFechaFin.Text == "")
                 MessageBox.Show("Falta ingresar las fechas de incio y fin de las ofertas", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            else if (txtPrecioOferta.Text == "" && mcFechaInicio.Text != "" && mcFechaFin.Text != "")
+            else if (txtprecioRebajado.Text == "" && mcFechaInicio.Text != "" && mcFechaFin.Text != "")
                 MessageBox.Show("Falta ingresar el precio de oferta", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            else if (txtPrecioOferta.Text == "" && mcFechaInicio.Text == "" && mcFechaFin.Text != "")
+            else if (txtprecioRebajado.Text == "" && mcFechaInicio.Text == "" && mcFechaFin.Text != "")
                 MessageBox.Show("Falta ingresar datos correspondiente a las ofertas", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            else if (txtPrecioOferta.Text == "" && mcFechaInicio.Text != "" && mcFechaFin.Text == "")
+            else if (txtprecioRebajado.Text == "" && mcFechaInicio.Text != "" && mcFechaFin.Text == "")
                 MessageBox.Show("Falta ingresar datos correspondiente a las ofertas", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            else if (txtPrecioOferta.Text != "" && mcFechaInicio.Text != "" && mcFechaFin.Text == "")
+            else if (txtprecioRebajado.Text != "" && mcFechaInicio.Text != "" && mcFechaFin.Text == "")
                 MessageBox.Show("Falta ingresar datos correspondiente a las ofertas", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            else if (txtPrecioOferta.Text != "" && mcFechaInicio.Text == "" && mcFechaFin.Text != "")
+            else if (txtprecioRebajado.Text != "" && mcFechaInicio.Text == "" && mcFechaFin.Text != "")
                 MessageBox.Show("Falta ingresar datos correspondiente a las ofertas", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            else if (txtPrecioOferta.Text != "")
+            else if (txtprecioRebajado.Text != "")
             {
-                if (double.Parse(txtPrecioOferta.Text) <= 0)
+                if (double.Parse(txtprecioRebajado.Text) <= 0)
                     MessageBox.Show("El precio de oferta no debe ser menor que 0", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 resultadoCompro = 1;
             }
