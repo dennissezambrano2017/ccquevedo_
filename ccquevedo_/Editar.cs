@@ -206,7 +206,7 @@ namespace ccquevedo_
         private int comprobarMensaje()
         {
             int resultadoCompro = 0;
-            if (txtprecioRebajado.Text == "" && mcFechaInicio.Text == "" && mcFechaFin.Text == "")
+            if (txtprecioRebajado.Text != "" && mcFechaInicio.Text == "" && mcFechaFin.Text == "")
                 MessageBox.Show("Falta ingresar las fechas de incio y fin de las ofertas", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             else if (txtprecioRebajado.Text == "" && mcFechaInicio.Text != "" && mcFechaFin.Text != "")
                 MessageBox.Show("Falta ingresar el precio de oferta", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
