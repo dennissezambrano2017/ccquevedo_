@@ -257,9 +257,15 @@ namespace ccquevedo_
                         this.cat_SubTableAdapter.Eliminar(dtProductos.Rows[i].Cells[0].Value.ToString());
 
                     }
+                    
                     if (id=="29")
                     {
                         this.cat_SubTableAdapter.Insertar(id.ToString(), "341", dtProductos.Rows[i].Cells[0].Value.ToString());
+                    }
+                    if(resuSubCategoria.Count < 1)
+                    {
+                        
+                        this.cat_SubTableAdapter.Insertar(id.ToString(), null, dtProductos.Rows[i].Cells[0].Value.ToString());
                     }
                     for (int j = 0; j < resuSubCategoria.Count; j++)
                     {
