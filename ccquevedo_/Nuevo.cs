@@ -539,6 +539,7 @@ namespace ccquevedo_
             {
                 CloudingImag cloudingImag = CloudingImag.FormCrear("1", txtImagen.Text);
                 AddOwnedForm(cloudingImag);
+                cloudingImag.cargarImg();
                 cloudingImag.ShowDialog();
             }
             catch (Exception ex)

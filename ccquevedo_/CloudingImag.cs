@@ -49,9 +49,8 @@ namespace ccquevedo_
         {
             InitializeComponent();
             cloud = new Cloudinary(accoun);
-            pictureBox1.ImageLocation = @"" + UrlImage;
         }
-
+        
         private void cargarImagen(string ruta)
         {
             try
@@ -115,7 +114,20 @@ namespace ccquevedo_
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
+            UrlImage_("");
+            textBox1.Text = "";
+            pictureBox1.Image = null;
             this.Close();
+        }
+
+        private void CloudingImag_Load(object sender, EventArgs e)
+        {
+            
+        }
+        public void cargarImg()
+        {
+            if(UrlImage != "")
+                pictureBox1.ImageLocation = @"" + UrlImage;
         }
     }
 }
