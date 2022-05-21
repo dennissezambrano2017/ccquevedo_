@@ -75,16 +75,8 @@ namespace ccquevedo_
                 {
                     if (txtCodigo.Text != "" && txtNombre.Text != "" && txtDescripcionCorta.Text != "" && txtPrecioNormal.Text != "" && itemSelct != "" && txtInventario.Text != "")
                     {
-                        if (txtPrecioOferta.Text != "")
-                        {
-                            if (double.Parse(txtPrecioOferta.Text) <= 0)
-                                MessageBox.Show("El precio de oferta no debe ser menor que 0", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-                        }
-                        else
-                        {
                             comprobarData();
-
+                            MessageBox.Show("si entra 4");
                             if (double.Parse(txtPrecioOferta.Text) < double.Parse(txtPrecioNormal.Text))
                             {
                                 if (int.Parse(txtStock.Text) < int.Parse(txtInventario.Text))
@@ -124,7 +116,7 @@ namespace ccquevedo_
                             }
                             else
                                 MessageBox.Show("El precio de oferta no debe ser mayor que el precio normal", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        }
+                    
                     }
                     else
                         MessageBox.Show("Falta datos a ingresar", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -152,6 +144,12 @@ namespace ccquevedo_
                 MessageBox.Show("Falta ingresar datos correspondiente a las ofertas", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             else if (txtPrecioOferta.Text != "" && mcFechaInicio.Text == "" && mcFechaFin.Text != "")
                 MessageBox.Show("Falta ingresar datos correspondiente a las ofertas", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else if (txtPrecioOferta.Text != "")
+            {
+                if (double.Parse(txtPrecioOferta.Text) <= 0)
+                    MessageBox.Show("El precio de oferta no debe ser menor que 0", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                resultadoCompro = 1;
+            }
             else
                 resultadoCompro = 1;
             return resultadoCompro;

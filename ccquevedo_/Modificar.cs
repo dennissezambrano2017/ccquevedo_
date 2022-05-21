@@ -135,6 +135,12 @@ namespace ccquevedo_
                 MessageBox.Show("Falta ingresar datos correspondiente a las ofertas", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             else if (txtPrecioOferta.Text != "" && mcFechaInicio.Text == "" && mcFechaFin.Text != "")
                 MessageBox.Show("Falta ingresar datos correspondiente a las ofertas", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else if (txtPrecioOferta.Text != "")
+            {
+                if (double.Parse(txtPrecioOferta.Text) <= 0)
+                    MessageBox.Show("El precio de oferta no debe ser menor que 0", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                resultadoCompro = 1;
+            }
             else
                 resultadoCompro = 1;
             return resultadoCompro;
