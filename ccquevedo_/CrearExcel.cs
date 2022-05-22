@@ -315,10 +315,8 @@ namespace ccquevedo_
                 dgvFormat.Columns.Add("Etiquetas", "Etiquetas");
                 dgvFormat.Columns.Add("Imágenes", "Imagen");
 
-
-                foreach (DataGridViewRow row in dgvOriginal.Rows)
+                foreach (DataGridViewRow row in dgvProducto.Rows)
                 {
-
                     string[] parte = row.Cells["Sub-Categorías"].Value.ToString().Split(',');
                     List<string> resuSubCategoria = new List<string>();
                     string subfor = "";
@@ -330,7 +328,7 @@ namespace ccquevedo_
                     {
                         subfor += row.Cells["Categorías"].Value.ToString() + " > " + resuSubCategoria[j].ToString() + ", ";
                     }
-
+                    dgvFormat.Rows.Add();
                     dgvFormat.Rows[row.Index].Cells["ID"].Value = row.Cells["ID"].Value.ToString();
                     dgvFormat.Rows[row.Index].Cells["Tipo"].Value = row.Cells["Tipo"].Value.ToString();
                     dgvFormat.Rows[row.Index].Cells["Nombre"].Value = row.Cells["Nombre"].Value.ToString();
