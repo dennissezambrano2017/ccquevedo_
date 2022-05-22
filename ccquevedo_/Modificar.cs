@@ -80,7 +80,7 @@ namespace ccquevedo_
                     if (txtCodigo.Text != "" && txtNombre.Text != "" && txtDesCorta.Text != "" && txtPrecioNormal.Text != "" && ItemSelct != "" && txtInventario.Text != "")
                     {
                         comprobarData();
-                        if (double.Parse(txtPrecioOferta.Text) < double.Parse(txtPrecioNormal.Text))
+                        if (float.Parse(txtPrecioOferta.Text) < float.Parse(txtPrecioNormal.Text))
                         {
                             if (int.Parse(txtStock.Text) < int.Parse(txtInventario.Text))
                             {
