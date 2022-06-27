@@ -51,17 +51,21 @@ namespace ccquevedo_
             cloud = new Cloudinary(accoun);
         }
         
+        
         private void cargarImagen(string ruta)
         {
             try
             {
-                var uploadParams = new ImageUploadParams()
-                {
-                    File = new FileDescription(ruta),
-                };
-                var uploadResult = cloud.Upload(uploadParams);
+                Conexion obj = new Conexion();
+                //var uploadParams = new ImageUploadParams()
+                //{
+                //    File = new FileDescription(ruta),
+                //};
+                //var uploadResult = cloud.Upload(uploadParams);
 
-                ruta = uploadResult.SecureUri.ToString();
+                //ruta = uploadResult.SecureUri.ToString();
+                MessageBox.Show(obj.Agregar(ruta));
+                
                 switch (Formulario)
                 {
                     case "1":
@@ -80,8 +84,6 @@ namespace ccquevedo_
                         break;
                 }
 
-                MessageBox.Show("Foto subida correctamente al servidor");
-
 
             }
             catch (Exception exc)
@@ -93,11 +95,15 @@ namespace ccquevedo_
         private void btnCargar_Click(object sender, EventArgs e)
         {
             OpenFileDialog op = new OpenFileDialog();
+            op.Title = "Seleccionar Imagen";
+            op.Filter = "Image Files (*.bmp,*.png,*.jpg,*.jpeg)|*.bmp;*.png;*.jpg;*.jpeg";
             DialogResult resul = op.ShowDialog();
             if (resul == DialogResult.OK)
             {
+                
                 pictureBox1.Image = Image.FromFile(op.FileName);
-                textBox1.Text = op.FileName;
+                textBox1.Text = Path.GetFileName(op.FileName);
+                
             }
         }
 
